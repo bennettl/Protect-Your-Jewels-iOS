@@ -9,6 +9,8 @@
 #import "BLEnemy.h"
 
 #define PTM_RATIO 32.0f
+#define BOX_TAG 1
+#define ENEMY_TAG 2
 
 @implementation BLEnemy
 
@@ -17,12 +19,13 @@
     if (self = [super init]){
     
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-        float _forceMultiplier = 50.0;
+        float _forceMultiplier = 3000.0;
+        self.world = world;
         
         // Create a CC Sprite
         self.sprite = [CCSprite spriteWithFile:@"ball.png"];
         self.sprite.position = ccp(location.x, location.y);
-        self.world = world;
+        self.sprite.tag      = ENEMY_TAG;
         
         // Create a body def and body
         self.bodyDef            = new b2BodyDef();
@@ -39,9 +42,9 @@
         // Create fixture def and fixture
         self.fixtureDef                 = new b2FixtureDef();
         self.fixtureDef->shape          = &circle;
-        self.fixtureDef->density        = 0.2f;
+        self.fixtureDef->density        = 10.0f;
         self.fixtureDef->friction       = 0.1f;
-        self.fixtureDef->restitution    = 1.0f;
+        self.fixtureDef->restitution    = 0.5f;
         self.fixture                    = self.body->CreateFixture(self.fixtureDef);
         
         // Get center vector
@@ -50,7 +53,7 @@
         CGPoint pointC                  = ccpSub(pointB, pointA);
         pointC                          = ccpNormalize(pointC);
         
-        b2Vec2 force = b2Vec2((pointC.x/PTM_RATIO * _forceMultiplier),
+        b2Vec2 force = b2Vec2((pointC.x/PTM_RATIO) * _forceMultiplier,
                               (pointC.y/PTM_RATIO) * _forceMultiplier);
         
         self.body->ApplyLinearImpulse(force, self.body->GetPosition());
