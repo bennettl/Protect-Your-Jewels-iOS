@@ -17,7 +17,7 @@
     if (self = [super init]){
     
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-        float _forceMultiplier = 50.0;
+        float _forceMultiplier = 500.0;
         
         // Create a CC Sprite
         self.sprite = [CCSprite spriteWithFile:@"ball.png"];

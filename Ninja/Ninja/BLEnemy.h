@@ -22,7 +22,7 @@
 @property (nonatomic, assign) b2Fixture *fixture;
 @property (nonatomic, assign) b2MouseJoint *mouseJoint;
 
-- (id)initWithWorld:(b2World *)world andLocation:(CGPoint)location;
+- (id)initWithWorld:(b2World *)world andLocation:(CGPoint)location; // called when touched
 - (BOOL)intersectsWithPoint:(CGPoint)ccLocation;
 
 @end
