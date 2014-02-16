@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0A6CEBA2-8449-4E28-A355-A2B0425EE69F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Ninja</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4A294044-EAAE-47D6-ADA1-F110BBDCC926</key>
+		<string>https://github.com/bennettl/protect-your-jewels.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Ninja/Ninja.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4A294044-EAAE-47D6-ADA1-F110BBDCC926</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bennettl/protect-your-jewels.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4A294044-EAAE-47D6-ADA1-F110BBDCC926</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4A294044-EAAE-47D6-ADA1-F110BBDCC926</string>
+			<key>IDESourceControlWCCName</key>
+			<string>protect-your-jewels</string>
+		</dict>
+	</array>
+</dict>
+</plist>
