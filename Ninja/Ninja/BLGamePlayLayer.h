@@ -23,7 +23,12 @@
 // HelloWorldLayer
 @interface BLGamePlayLayer : CCLayer
 
+@property int totalScore;
+
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
+
+- (void)beginContact:(b2Contact *)contact;
+- (void)endContact:(b2Contact*)contact;
 
 @end

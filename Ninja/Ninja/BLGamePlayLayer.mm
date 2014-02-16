@@ -10,8 +10,8 @@
 #import "BLEnemy.h"
 #import "BLContactListener.h"
 
-// Constants
-#define ENEMY_FILE @"ball.png"
+#define BOX_TAG 1
+#define ENEMY_TAG 2
 
 #pragma mark - BLGamePlayLayer
 
@@ -20,7 +20,8 @@
     b2Body *_boxBody;
     BLContactListener *_contactListener;
     float _forceMultiplier;
-    int totalScore;
+    GLESDebugDraw *_debugDraw;
+    CCLabelTTF *_label;
 }
 
 @property NSMutableArray *enemies;
@@ -45,13 +46,14 @@
 }
 
 
+
 #pragma mark initlization
 
 -(id) init{
 	if ((self=[super init])) {
         
         _forceMultiplier    = 40.0f;
-        totalScore          = 100;
+        self.totalScore          = 0;
         
         [self createScoreLabel];
         [self createWorld];
@@ -61,7 +63,7 @@
         
         
         // Collision Detection
-        _contactListener = new BLContactListener();
+        _contactListener = new BLContactListener(self);
         _world->SetContactListener(_contactListener);
         
         // Touching
@@ -69,6 +71,8 @@
         
         // Schedule
         [self scheduleUpdate];
+        
+        
     }
 	return self;
 }
@@ -76,10 +80,10 @@
 // Creates label score in lower right corner
 - (void)createScoreLabel{
     CGSize winSize     = [[CCDirector sharedDirector] winSize];
-    CCLabelTTF * label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score: %i", totalScore] fontName:@"Marker Felt" fontSize:20];
-    label.position = ccp(winSize.width - label.contentSize.width/2 - 40,
+    _label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score: %i", self.totalScore] fontName:@"Marker Felt" fontSize:20];
+    _label.position = ccp(winSize.width - _label.contentSize.width/2 - 40,
                          25);
-    [self addChild:label];
+    [self addChild:_label];
     
 }
 
@@ -99,34 +103,36 @@
 // Creates the bonding box
 - (void)createBoundingBox{
     CGSize winSize = [[CCDirector sharedDirector] winSize];
+    b2Vec2 padding = b2Vec2(52/PTM_RATIO, 52/PTM_RATIO); // padding should be size of enemy
     
     // Create bounding box
     b2BodyDef boxBodyDef;
-    boxBodyDef.position.Set(0, 0);
+    boxBodyDef.position.Set(-padding.x, -padding.y);
     _boxBody = _world->CreateBody(&boxBodyDef);
     
     b2EdgeShape boxShape;
     b2FixtureDef boxShapeDef;
     boxShapeDef.shape = &boxShape;
+    boxShapeDef.isSensor = true;
     
     // Bottom
-    boxShape.Set(b2Vec2(0, 0),
-                 b2Vec2(winSize.width/PTM_RATIO, 0));
+    boxShape.Set(b2Vec2(-padding.x, -padding.y),
+                 b2Vec2((winSize.width/PTM_RATIO) + padding.x, -padding.y));
     _boxBody->CreateFixture(&boxShapeDef);
     
     // Left
-    boxShape.Set(b2Vec2(0,0),
-                 b2Vec2(0, winSize.height/PTM_RATIO));
+    boxShape.Set(b2Vec2(padding.x, -padding.y),
+                 b2Vec2(padding.x, (winSize.height/PTM_RATIO) + padding.y));
     _boxBody->CreateFixture(&boxShapeDef);
     
     // Top
-    boxShape.Set(b2Vec2(0, winSize.height/PTM_RATIO),
-                 b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO));
+    boxShape.Set(b2Vec2(-padding.x, (winSize.height/PTM_RATIO) + padding.y),
+                 b2Vec2((winSize.width/PTM_RATIO) + padding.x, (winSize.height/PTM_RATIO) + padding.y));
     _boxBody->CreateFixture(&boxShapeDef);
     
     // Right
-    boxShape.Set(b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO),
-                 b2Vec2(winSize.width/PTM_RATIO, 0));
+    boxShape.Set(b2Vec2((winSize.width/PTM_RATIO) + padding.x, (winSize.height/PTM_RATIO) + padding.y),
+                 b2Vec2((winSize.width/PTM_RATIO) + padding.x, - padding.y));
     _boxBody->CreateFixture(&boxShapeDef);
 }
 
@@ -235,8 +241,25 @@
     
     for (pos = _contactListener->_contacts.begin();
          pos != _contactListener->_contacts.end(); ++pos){
-        MyContact contact = *pos;
         
+        MyContact contact = *pos;
+       //     NSLog(@"something was hit");
+        
+            // Examine bodies
+            b2Body * bodyA = contact.fixtureA->GetBody();
+            b2Body * bodyB = contact.fixtureB->GetBody();
+            
+            // Two Enemies
+            if (bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL){
+                CCSprite *bodyASprite = (CCSprite *)bodyA->GetUserData();
+                CCSprite *bodyBSprite = (CCSprite *)bodyB->GetUserData();
+                
+                
+            }
+            
+//            if (bodyB == _boxBody)
+        }
+    
         // Ball fixture collides with bottomFixture
 //        if ((contact.fixtureA == _bottomFixture && contact.fixtureB == _ballFixture) ||
 //            (contact.fixtureA == _ballFixture && contact.fixtureB == _bottomFixture) ){
@@ -246,29 +269,25 @@
 //            return;
 //        }
         
-        // Examine bodies
-        b2Body * bodyA = contact.fixtureA->GetBody();
-        b2Body * bodyB = contact.fixtureB->GetBody();
+  
         
-        if (bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL){
-            CCSprite *bodyASprite = (CCSprite *)bodyA->GetUserData();
-            CCSprite *bodyBSprite = (CCSprite *)bodyB->GetUserData();
-            NSLog(@"%i %i", bodyASprite.tag, bodyBSprite.tag);
-            
-            // Determine if its a ball (1) and block (2) base on sprite tags
-            if (bodyASprite.tag == 1 && bodyBSprite.tag == 2){
-                // If body b is not already in there
-                if (std::find(destroyBlocks.begin(), destroyBlocks.end(), bodyB) == destroyBlocks.end()) {
-                    destroyBlocks.push_back(bodyB);
-                }
-            } else if (bodyASprite.tag == 2 && bodyBSprite.tag == 1){
-                // Body body A isn't already there
-                if (std::find(destroyBlocks.begin(), destroyBlocks.end(), bodyA) == destroyBlocks.end()){
-                    destroyBlocks.push_back(bodyA);
-                }
-            }
-        }
-    }
+//        if (bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL){
+//            CCSprite *bodyASprite = (CCSprite *)bodyA->GetUserData();
+//            CCSprite *bodyBSprite = (CCSprite *)bodyB->GetUserData();
+//            NSLog(@"%i %i", bodyASprite.tag, bodyBSprite.tag);
+//            
+//            // Determine if its a ball (1) and block (2) base on sprite tags
+//                // If body b is not already in there
+//                if (std::find(destroyBlocks.begin(), destroyBlocks.end(), bodyB) == destroyBlocks.end()) {
+//                    destroyBlocks.push_back(bodyB);
+//                }
+//            } else if (bodyASprite.tag == 2 && bodyBSprite.tag == 1){
+//                // Body body A isn't already there
+//                if (std::find(destroyBlocks.begin(), destroyBlocks.end(), bodyA) == destroyBlocks.end()){
+//                    destroyBlocks.push_back(bodyA);
+//                }
+//            }
+//        }
     
    
     
@@ -285,6 +304,33 @@
     
 }
 
+#pragma mark ContactListener CallBack
+
+- (void)beginContact:(b2Contact *)contact{
+    b2Fixture *fixtureA = contact->GetFixtureA();
+    b2Fixture *fixtureB = contact->GetFixtureB();
+    b2Body *bodyA       = fixtureA->GetBody();
+    b2Body *bodyB       = fixtureB->GetBody();
+    CCSprite *spriteA   = (CCSprite *)bodyA->GetUserData();
+    CCSprite *spriteB   = (CCSprite *)bodyB->GetUserData();
+    
+    if (spriteA == NULL && spriteB != NULL){
+        if (spriteB.tag == ENEMY_TAG){
+            self.totalScore++;
+            // remove ball
+        }
+    } else if (spriteA != NULL && spriteB == NULL){
+        if (spriteA.tag == ENEMY_TAG){
+            self.totalScore++;
+            // remove ball
+        }
+    }
+    [_label setString:[NSString stringWithFormat:@"Score: %i", self.totalScore]];
+}
+
+- (void)endContact:(b2Contact*)contact{
+    
+}
 
 -(void) dealloc{
 	delete _world;
