@@ -8,19 +8,20 @@
 
 #import "BLGamePlayLayer.h"
 #import "BLEnemy.h"
+#import "BLObject.h"
+#import "BLJewel.h"
 #import "BLContactListener.h"
 
 #define BOX_TAG 1
-#define ENEMY_TAG 2
 
 #pragma mark - BLGamePlayLayer
 
 @interface BLGamePlayLayer(){
     b2World *_world;
     b2Body *_boxBody;
+    BLJewel *_jewel;
     BLContactListener *_contactListener;
     float _forceMultiplier;
-    GLESDebugDraw *_debugDraw;
     CCLabelTTF *_label;
 }
 
@@ -46,23 +47,22 @@
 }
 
 
-
 #pragma mark initlization
 
 -(id) init{
 	if ((self=[super init])) {
         
+        // Initializations
         _forceMultiplier    = 40.0f;
-        self.totalScore          = 0;
+        self.currentScore     = 0;
+        self.enemies        = [[NSMutableArray alloc] init];
+
+        [self initScoreLabel];
+        [self initWorld];
+        [self initJewel];
+        [self initBoundingBox];
         
-        [self createScoreLabel];
-        [self createWorld];
-        [self createBoundingBox];
-        
-        self.enemies = [[NSMutableArray alloc] init];
-        
-        
-        // Collision Detection
+        // ContactListener is used for collision Detection
         _contactListener = new BLContactListener(self);
         _world->SetContactListener(_contactListener);
         
@@ -78,9 +78,9 @@
 }
 
 // Creates label score in lower right corner
-- (void)createScoreLabel{
+- (void)initScoreLabel{
     CGSize winSize     = [[CCDirector sharedDirector] winSize];
-    _label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score: %i", self.totalScore] fontName:@"Marker Felt" fontSize:20];
+    _label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score: %i", self.currentScore] fontName:@"Marker Felt" fontSize:20];
     _label.position = ccp(winSize.width - _label.contentSize.width/2 - 40,
                          25);
     [self addChild:_label];
@@ -88,9 +88,54 @@
 }
 
 // Initializes the world
--(void)createWorld{
+-(void)initWorld{
     b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
     _world = new b2World(gravity);
+}
+         
+// Creates jewel
+ -(void)initJewel{
+     _jewel = [[BLJewel alloc] initWithWorld:_world];
+     [self addChild:_jewel.sprite];
+}
+
+// Creates the bonding box
+- (void)initBoundingBox{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    b2Vec2 b2WinSize = b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO);
+    b2Vec2 b2Padding = b2Vec2(52/PTM_RATIO, 52/PTM_RATIO); // padding should be size of enemy
+    
+    // Create bounding box
+    b2BodyDef boxBodyDef;
+    boxBodyDef.position.Set(-b2Padding.x, -b2Padding.y);
+    _boxBody = _world->CreateBody(&boxBodyDef);
+    
+    b2EdgeShape boxShape;
+    b2FixtureDef boxShapeDef;
+    boxShapeDef.shape = &boxShape;
+    //boxShapeDef.isSensor = true;
+    
+    // Four points
+    b2Vec2 bottomleft(-b2Padding.x, -b2Padding.y);
+    b2Vec2 bottomRight(b2WinSize.x + b2Padding.x, - b2Padding.y);
+    b2Vec2 topLeft(-b2Padding.x, b2WinSize.y +  b2Padding.y);
+    b2Vec2 topRight(b2WinSize.x + b2Padding.x, b2WinSize.y + b2Padding.y);
+    
+    // Bottom Edge
+    boxShape.Set(bottomleft, bottomRight);
+    _boxBody->CreateFixture(&boxShapeDef);
+    
+    // Left Edge
+    boxShape.Set(bottomleft, topLeft);
+    _boxBody->CreateFixture(&boxShapeDef);
+    
+    // Top Edge
+    boxShape.Set(topLeft, topRight);
+    _boxBody->CreateFixture(&boxShapeDef);
+    
+    // Right Edge
+    boxShape.Set(topRight, bottomRight);
+    _boxBody->CreateFixture(&boxShapeDef);
 }
 
 // Initializes enemy at location
@@ -100,48 +145,13 @@
     [self.enemies addObject:be];
 }
 
-// Creates the bonding box
-- (void)createBoundingBox{
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    b2Vec2 padding = b2Vec2(52/PTM_RATIO, 52/PTM_RATIO); // padding should be size of enemy
-    
-    // Create bounding box
-    b2BodyDef boxBodyDef;
-    boxBodyDef.position.Set(-padding.x, -padding.y);
-    _boxBody = _world->CreateBody(&boxBodyDef);
-    
-    b2EdgeShape boxShape;
-    b2FixtureDef boxShapeDef;
-    boxShapeDef.shape = &boxShape;
-    boxShapeDef.isSensor = true;
-    
-    // Bottom
-    boxShape.Set(b2Vec2(-padding.x, -padding.y),
-                 b2Vec2((winSize.width/PTM_RATIO) + padding.x, -padding.y));
-    _boxBody->CreateFixture(&boxShapeDef);
-    
-    // Left
-    boxShape.Set(b2Vec2(padding.x, -padding.y),
-                 b2Vec2(padding.x, (winSize.height/PTM_RATIO) + padding.y));
-    _boxBody->CreateFixture(&boxShapeDef);
-    
-    // Top
-    boxShape.Set(b2Vec2(-padding.x, (winSize.height/PTM_RATIO) + padding.y),
-                 b2Vec2((winSize.width/PTM_RATIO) + padding.x, (winSize.height/PTM_RATIO) + padding.y));
-    _boxBody->CreateFixture(&boxShapeDef);
-    
-    // Right
-    boxShape.Set(b2Vec2((winSize.width/PTM_RATIO) + padding.x, (winSize.height/PTM_RATIO) + padding.y),
-                 b2Vec2((winSize.width/PTM_RATIO) + padding.x, - padding.y));
-    _boxBody->CreateFixture(&boxShapeDef);
-}
-
 
 #pragma mark Touch
 
 -(void)update:(ccTime)dt{
     _world->Step(dt, 10, 10); // run physics simulation
-    
+    _world->DrawDebugData();
+
     // Loop through and update all body sprites on results from physics simulation
     for (b2Body *b = _world->GetBodyList(); b; b = b->GetNext()) {
         // If user data is available, update it's sprite position
@@ -176,6 +186,7 @@
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     [self removeMouseJoint];
 }
+
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
     [self removeMouseJoint];
 }
@@ -316,16 +327,16 @@
     
     if (spriteA == NULL && spriteB != NULL){
         if (spriteB.tag == ENEMY_TAG){
-            self.totalScore++;
+            self.currentScore++;
             // remove ball
         }
     } else if (spriteA != NULL && spriteB == NULL){
         if (spriteA.tag == ENEMY_TAG){
-            self.totalScore++;
+            self.currentScore++;
             // remove ball
         }
     }
-    [_label setString:[NSString stringWithFormat:@"Score: %i", self.totalScore]];
+    [_label setString:[NSString stringWithFormat:@"Score: %i", self.currentScore]];
 }
 
 - (void)endContact:(b2Contact*)contact{

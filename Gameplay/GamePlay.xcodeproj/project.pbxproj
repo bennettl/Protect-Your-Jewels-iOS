@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DA23E6E18B196B7009C1A23 /* BLJewel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DA23E6D18B196B7009C1A23 /* BLJewel.mm */; };
+		4DA23E7118B196DA009C1A23 /* BLObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DA23E7018B196DA009C1A23 /* BLObject.mm */; };
+		4DA23E7418B199B8009C1A23 /* jewel-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA23E7218B199B8009C1A23 /* jewel-hd.png */; };
+		4DA23E7518B199B8009C1A23 /* jewel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA23E7318B199B8009C1A23 /* jewel.png */; };
 		4DF3A3D018B06BAC00D26986 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF3A3CF18B06BAC00D26986 /* QuartzCore.framework */; };
 		4DF3A3D218B06BAC00D26986 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF3A3D118B06BAC00D26986 /* OpenGLES.framework */; };
 		4DF3A3D418B06BAC00D26986 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF3A3D318B06BAC00D26986 /* OpenAL.framework */; };
@@ -195,7 +199,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4DF3A3CC18B06BAC00D26986 /* Ninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ninja.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DA23E6C18B196B7009C1A23 /* BLJewel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLJewel.h; sourceTree = "<group>"; };
+		4DA23E6D18B196B7009C1A23 /* BLJewel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLJewel.mm; sourceTree = "<group>"; };
+		4DA23E6F18B196DA009C1A23 /* BLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLObject.h; sourceTree = "<group>"; };
+		4DA23E7018B196DA009C1A23 /* BLObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLObject.mm; sourceTree = "<group>"; };
+		4DA23E7218B199B8009C1A23 /* jewel-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jewel-hd.png"; sourceTree = "<group>"; };
+		4DA23E7318B199B8009C1A23 /* jewel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jewel.png; sourceTree = "<group>"; };
+		4DF3A3CC18B06BAC00D26986 /* GamePlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamePlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF3A3CF18B06BAC00D26986 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4DF3A3D118B06BAC00D26986 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		4DF3A3D318B06BAC00D26986 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -605,7 +615,7 @@
 		4DF3A3C318B06BAC00D26986 = {
 			isa = PBXGroup;
 			children = (
-				4DF3A3E318B06BAD00D26986 /* Ninja */,
+				4DF3A3E318B06BAD00D26986 /* Gameplay */,
 				4DF3A3CE18B06BAC00D26986 /* Frameworks */,
 				4DF3A3CD18B06BAC00D26986 /* Products */,
 			);
@@ -614,7 +624,7 @@
 		4DF3A3CD18B06BAC00D26986 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4DF3A3CC18B06BAC00D26986 /* Ninja.app */,
+				4DF3A3CC18B06BAC00D26986 /* GamePlay.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -636,11 +646,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4DF3A3E318B06BAD00D26986 /* Ninja */ = {
+		4DF3A3E318B06BAD00D26986 /* Gameplay */ = {
 			isa = PBXGroup;
 			children = (
 				4DF3A60A18B06BB100D26986 /* BLGamePlayLayer.h */,
 				4DF3A60B18B06BB100D26986 /* BLGamePlayLayer.mm */,
+				4DA23E6F18B196DA009C1A23 /* BLObject.h */,
+				4DA23E7018B196DA009C1A23 /* BLObject.mm */,
+				4DA23E6C18B196B7009C1A23 /* BLJewel.h */,
+				4DA23E6D18B196B7009C1A23 /* BLJewel.mm */,
 				4DF3A62A18B0932900D26986 /* BLEnemy.h */,
 				4DF3A62B18B0932900D26986 /* BLEnemy.mm */,
 				4DF3A62D18B0A54A00D26986 /* BLContactListener.h */,
@@ -649,6 +663,7 @@
 				4DF3A3FC18B06BAD00D26986 /* libs */,
 				4DF3A60318B06BB100D26986 /* Supporting Files */,
 			);
+			name = Gameplay;
 			path = Ninja;
 			sourceTree = "<group>";
 		};
@@ -656,6 +671,8 @@
 			isa = PBXGroup;
 			children = (
 				4DF3A61A18B0812F00D26986 /* ball-hd.png */,
+				4DA23E7218B199B8009C1A23 /* jewel-hd.png */,
+				4DA23E7318B199B8009C1A23 /* jewel.png */,
 				4DF3A61B18B0812F00D26986 /* ball.png */,
 				4DF3A3E518B06BAD00D26986 /* Default.png */,
 				4DF3A3E718B06BAD00D26986 /* Default@2x.png */,
@@ -1203,9 +1220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4DF3A3CB18B06BAC00D26986 /* Ninja */ = {
+		4DF3A3CB18B06BAC00D26986 /* GamePlay */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4DF3A61718B06BB100D26986 /* Build configuration list for PBXNativeTarget "Ninja" */;
+			buildConfigurationList = 4DF3A61718B06BB100D26986 /* Build configuration list for PBXNativeTarget "GamePlay" */;
 			buildPhases = (
 				4DF3A3C818B06BAC00D26986 /* Sources */,
 				4DF3A3C918B06BAC00D26986 /* Frameworks */,
@@ -1215,9 +1232,9 @@
 			);
 			dependencies = (
 			);
-			name = Ninja;
+			name = GamePlay;
 			productName = Ninja;
-			productReference = 4DF3A3CC18B06BAC00D26986 /* Ninja.app */;
+			productReference = 4DF3A3CC18B06BAC00D26986 /* GamePlay.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1229,7 +1246,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Bennett Lee";
 			};
-			buildConfigurationList = 4DF3A3C718B06BAC00D26986 /* Build configuration list for PBXProject "Ninja" */;
+			buildConfigurationList = 4DF3A3C718B06BAC00D26986 /* Build configuration list for PBXProject "GamePlay" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1241,7 +1258,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4DF3A3CB18B06BAC00D26986 /* Ninja */,
+				4DF3A3CB18B06BAC00D26986 /* GamePlay */,
 			);
 		};
 /* End PBXProject section */
@@ -1253,6 +1270,7 @@
 			files = (
 				4DF3A3F618B06BAD00D26986 /* Icon.png in Resources */,
 				4DF3A55418B06BB000D26986 /* ChangeLog in Resources */,
+				4DA23E7518B199B8009C1A23 /* jewel.png in Resources */,
 				4DF3A3E818B06BAD00D26986 /* Default@2x.png in Resources */,
 				4DF3A3F218B06BAD00D26986 /* Icon-Small.png in Resources */,
 				4DF3A3EE18B06BAD00D26986 /* Icon-72.png in Resources */,
@@ -1266,6 +1284,7 @@
 				4DF3A3EA18B06BAD00D26986 /* Default-568h@2x.png in Resources */,
 				4DF3A61C18B0812F00D26986 /* ball-hd.png in Resources */,
 				4DF3A3F818B06BAD00D26986 /* Icon@2x.png in Resources */,
+				4DA23E7418B199B8009C1A23 /* jewel-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1327,6 +1346,7 @@
 				4DF3A56818B06BB000D26986 /* utility.c in Sources */,
 				4DF3A51418B06BAF00D26986 /* CCVertex.m in Sources */,
 				4DF3A51A18B06BAF00D26986 /* NSThread+performBlock.m in Sources */,
+				4DA23E6E18B196B7009C1A23 /* BLJewel.mm in Sources */,
 				4DF3A5F618B06BB100D26986 /* b2RopeJoint.cpp in Sources */,
 				4DF3A42118B06BAD00D26986 /* CCActionTiledGrid.m in Sources */,
 				4DF3A5B418B06BB100D26986 /* b2Fixture.cpp in Sources */,
@@ -1363,6 +1383,7 @@
 				4DF3A62F18B0A54A00D26986 /* BLContactListener.mm in Sources */,
 				4DF3A55818B06BB000D26986 /* mat4stack.c in Sources */,
 				4DF3A57D18B06BB000D26986 /* b2CollidePolygon.cpp in Sources */,
+				4DA23E7118B196DA009C1A23 /* BLObject.mm in Sources */,
 				4DF3A5E718B06BB100D26986 /* b2Joint.cpp in Sources */,
 				4DF3A4B418B06BAF00D26986 /* CCSpriteFrameCache.m in Sources */,
 				4DF3A43D18B06BAD00D26986 /* CCDirector.m in Sources */,
@@ -1503,7 +1524,7 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GamePlay;
 				USER_HEADER_SEARCH_PATHS = "\"Ninja/libs\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1529,7 +1550,7 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GamePlay;
 				USER_HEADER_SEARCH_PATHS = "\"Ninja/libs\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -1539,7 +1560,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4DF3A3C718B06BAC00D26986 /* Build configuration list for PBXProject "Ninja" */ = {
+		4DF3A3C718B06BAC00D26986 /* Build configuration list for PBXProject "GamePlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DF3A61518B06BB100D26986 /* Debug */,
@@ -1548,13 +1569,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4DF3A61718B06BB100D26986 /* Build configuration list for PBXNativeTarget "Ninja" */ = {
+		4DF3A61718B06BB100D26986 /* Build configuration list for PBXNativeTarget "GamePlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DF3A61818B06BB100D26986 /* Debug */,
 				4DF3A61918B06BB100D26986 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

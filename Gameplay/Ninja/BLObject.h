@@ -1,8 +1,8 @@
 //
-//  BLNinja.h
+//  BLObject.h
 //  Ninja
 //
-//  Created by Bennett Lee on 2/15/14.
+//  Created by Bennett Lee on 2/16/14.
 //  Copyright (c) 2014 Bennett Lee. All rights reserved.
 //
 
@@ -10,8 +10,14 @@
 #import <Box2D/Box2D.h>
 #import "cocos2d.h"
 
+#define PTM_RATIO 32.0f
+#define BOX_TAG 1
+#define ENEMY_TAG 2
+#define JEWEL_TAG 3
 
-@interface BLEnemy : NSObject
+// Any body in game will inherit from BLObject
+
+@interface BLObject : NSObject
 
 @property (nonatomic, strong) CCSprite *sprite;
 @property (nonatomic, assign) b2World *world;
@@ -20,9 +26,5 @@
 @property (nonatomic, assign) b2CircleShape *shapeDef;
 @property (nonatomic, assign) b2FixtureDef *fixtureDef;
 @property (nonatomic, assign) b2Fixture *fixture;
-@property (nonatomic, assign) b2MouseJoint *mouseJoint;
-
-- (id)initWithWorld:(b2World *)world andLocation:(CGPoint)location;
-- (BOOL)intersectsWithPoint:(CGPoint)ccLocation;
 
 @end

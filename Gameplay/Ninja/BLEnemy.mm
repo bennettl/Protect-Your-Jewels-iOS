@@ -8,12 +8,9 @@
 
 #import "BLEnemy.h"
 
-#define PTM_RATIO 32.0f
-#define BOX_TAG 1
-#define ENEMY_TAG 2
-
 @implementation BLEnemy
 
+// Constructor
 - (id)initWithWorld:(b2World *)world andLocation:(CGPoint)location{
 
     if (self = [super init]){
@@ -64,6 +61,7 @@
     
 }
 
+// Determine if object intersects with a CGPoint
 - (BOOL)intersectsWithPoint:(CGPoint)ccLocation{
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);    
     return (self.fixture->TestPoint(b2Location)) ? YES : NO;
@@ -74,6 +72,7 @@
 
 }
 
+// Clean up
 -(void)dealloc {
     delete self.bodyDef;
     delete self.shapeDef;

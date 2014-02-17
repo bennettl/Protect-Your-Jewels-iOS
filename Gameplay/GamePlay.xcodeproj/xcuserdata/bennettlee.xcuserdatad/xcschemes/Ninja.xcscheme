@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4DF3A3CB18B06BAC00D26986"
-               BuildableName = "Ninja.app"
-               BlueprintName = "Ninja"
-               ReferencedContainer = "container:Ninja.xcodeproj">
+               BuildableName = "GamePlay.app"
+               BlueprintName = "GamePlay"
+               ReferencedContainer = "container:GamePlay.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4DF3A3CB18B06BAC00D26986"
-            BuildableName = "Ninja.app"
-            BlueprintName = "Ninja"
-            ReferencedContainer = "container:Ninja.xcodeproj">
+            BuildableName = "GamePlay.app"
+            BlueprintName = "GamePlay"
+            ReferencedContainer = "container:GamePlay.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4DF3A3CB18B06BAC00D26986"
-            BuildableName = "Ninja.app"
-            BlueprintName = "Ninja"
-            ReferencedContainer = "container:Ninja.xcodeproj">
+            BuildableName = "GamePlay.app"
+            BlueprintName = "GamePlay"
+            ReferencedContainer = "container:GamePlay.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4DF3A3CB18B06BAC00D26986"
-            BuildableName = "Ninja.app"
-            BlueprintName = "Ninja"
-            ReferencedContainer = "container:Ninja.xcodeproj">
+            BuildableName = "GamePlay.app"
+            BlueprintName = "GamePlay"
+            ReferencedContainer = "container:GamePlay.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
