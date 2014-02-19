@@ -7,6 +7,8 @@
 //
 
 #import "BLGamePlayLayer.h"
+#import "CCPhysicsSprite.h"
+
 #import "BLEnemy.h"
 #import "BLObject.h"
 #import "BLJewel.h"
@@ -69,12 +71,29 @@
         // Touching
         self.touchEnabled = YES;
         
+        // Debug Drawing
+        m_debugDraw = new GLESDebugDraw( PTM_RATIO );
+        _world->SetDebugDraw(m_debugDraw);
+        
+        uint32 flags = 0;
+        flags += b2Draw::e_shapeBit;
+         m_debugDraw->SetFlags(flags);
+        
         // Schedule
         [self scheduleUpdate];
         
         
     }
 	return self;
+}
+
+// Debug drawing
+-(void) draw{
+	[super draw];
+	ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+	kmGLPushMatrix();
+	_world->DrawDebugData();
+	kmGLPopMatrix();
 }
 
 // Creates label score in lower right corner

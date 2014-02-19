@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D56BB8D18B31E06003A26DB /* BLPolygonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BB8C18B31E06003A26DB /* BLPolygonSprite.m */; };
 		4DA23E6E18B196B7009C1A23 /* BLJewel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DA23E6D18B196B7009C1A23 /* BLJewel.mm */; };
 		4DA23E7118B196DA009C1A23 /* BLObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DA23E7018B196DA009C1A23 /* BLObject.mm */; };
 		4DA23E7418B199B8009C1A23 /* jewel-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA23E7218B199B8009C1A23 /* jewel-hd.png */; };
@@ -199,6 +200,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D56BB8B18B31E05003A26DB /* BLPolygonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLPolygonSprite.h; sourceTree = "<group>"; };
+		4D56BB8C18B31E06003A26DB /* BLPolygonSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLPolygonSprite.m; sourceTree = "<group>"; };
 		4DA23E6C18B196B7009C1A23 /* BLJewel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLJewel.h; sourceTree = "<group>"; };
 		4DA23E6D18B196B7009C1A23 /* BLJewel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLJewel.mm; sourceTree = "<group>"; };
 		4DA23E6F18B196DA009C1A23 /* BLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLObject.h; sourceTree = "<group>"; };
@@ -615,6 +618,8 @@
 		4DF3A3C318B06BAC00D26986 = {
 			isa = PBXGroup;
 			children = (
+				4D56BB8B18B31E05003A26DB /* BLPolygonSprite.h */,
+				4D56BB8C18B31E06003A26DB /* BLPolygonSprite.m */,
 				4DF3A3E318B06BAD00D26986 /* Gameplay */,
 				4DF3A3CE18B06BAC00D26986 /* Frameworks */,
 				4DF3A3CD18B06BAC00D26986 /* Products */,
@@ -1437,6 +1442,7 @@
 				4DF3A4FE18B06BAF00D26986 /* CCWindow.m in Sources */,
 				4DF3A5A418B06BB000D26986 /* b2Settings.cpp in Sources */,
 				4DF3A4DC18B06BAF00D26986 /* cocos2d.m in Sources */,
+				4D56BB8D18B31E06003A26DB /* BLPolygonSprite.m in Sources */,
 				4DF3A48918B06BAE00D26986 /* CCProgressTimer.m in Sources */,
 				4DF3A59A18B06BB000D26986 /* b2BlockAllocator.cpp in Sources */,
 				4DF3A45E18B06BAE00D26986 /* CCLabelTTF.m in Sources */,

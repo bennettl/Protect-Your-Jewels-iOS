@@ -21,7 +21,9 @@
 #define PTM_RATIO 32
 
 // HelloWorldLayer
-@interface BLGamePlayLayer : CCLayer
+@interface BLGamePlayLayer : CCLayer{
+	GLESDebugDraw *m_debugDraw;		// strong ref
+}
 
 @property int currentScore;
 
