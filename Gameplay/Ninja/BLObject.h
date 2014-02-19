@@ -26,5 +26,9 @@
 @property (nonatomic, assign) b2CircleShape *shapeDef;
 @property (nonatomic, assign) b2FixtureDef *fixtureDef;
 @property (nonatomic, assign) b2Fixture *fixture;
+@property (nonatomic, assign) b2MouseJoint *mouseJoint;
+
+- (id)initWithWorld:(b2World *)world andLocation:(CGPoint)location; // called when touched
+- (BOOL)intersectsWithPoint:(CGPoint)ccLocation;
 
 @end
