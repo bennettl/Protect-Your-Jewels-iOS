@@ -7,11 +7,8 @@
 //
 
 #import "BLGamePlayLayer.h"
-#import "CCPhysicsSprite.h"
-
-#import "BLEnemy.h"
-#import "BLObject.h"
-#import "BLJewel.h"
+#import "BLEnemySprite.h"
+#import "BLJewelSprite.h"
 #import "BLContactListener.h"
 
 #define BOX_TAG 1
@@ -21,7 +18,7 @@
 @interface BLGamePlayLayer(){
     b2World *_world;
     b2Body *_boxBody;
-    BLJewel *_jewel;
+    BLJewelSprite *_jewel;
     BLContactListener *_contactListener;
     float _forceMultiplier;
     CCLabelTTF *_label;
@@ -73,11 +70,15 @@
         
         // Debug Drawing
         m_debugDraw = new GLESDebugDraw( PTM_RATIO );
-        _world->SetDebugDraw(m_debugDraw);
+       _world->SetDebugDraw(m_debugDraw);
         
         uint32 flags = 0;
         flags += b2Draw::e_shapeBit;
-         m_debugDraw->SetFlags(flags);
+        //		flags += b2Draw::e_jointBit;
+        //		flags += b2Draw::e_aabbBit;
+        //		flags += b2Draw::e_pairBit;
+        //		flags += b2Draw::e_centerOfMassBit;
+        m_debugDraw->SetFlags(flags);
         
         // Schedule
         [self scheduleUpdate];
@@ -87,19 +88,28 @@
 	return self;
 }
 
-// Debug drawing
--(void) draw{
+-(void) draw
+{
+	//
+	// IMPORTANT:
+	// This is only for debug purposes
+	// It is recommend to disable it
+	//
 	[super draw];
+	
 	ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+	
 	kmGLPushMatrix();
+	
 	_world->DrawDebugData();
+	
 	kmGLPopMatrix();
 }
 
 // Creates label score in lower right corner
 - (void)initScoreLabel{
-    CGSize winSize     = [[CCDirector sharedDirector] winSize];
-    _label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score: %i", self.currentScore] fontName:@"Marker Felt" fontSize:20];
+    CGSize winSize      = [[CCDirector sharedDirector] winSize];
+    _label              = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score: %i", self.currentScore] fontName:@"Marker Felt" fontSize:20];
     _label.position = ccp(winSize.width - _label.contentSize.width/2 - 40,
                          25);
     [self addChild:_label];
@@ -114,54 +124,80 @@
          
 // Creates jewel
  -(void)initJewel{
-     _jewel = [[BLJewel alloc] initWithWorld:_world];
-     [self addChild:_jewel.sprite];
+    _jewel = [[BLJewelSprite alloc] initWithWorld:_world];
+     [self addChild:_jewel z:1];
+     [_jewel activateCollisions];
 }
 
 // Creates the bonding box
 - (void)initBoundingBox{
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    b2Vec2 b2WinSize = b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO);
-    b2Vec2 b2Padding = b2Vec2(52/PTM_RATIO, 52/PTM_RATIO); // padding should be size of enemy
-    
-    // Create bounding box
+    CGSize s = [[CCDirector sharedDirector] winSize];
     b2BodyDef boxBodyDef;
-    boxBodyDef.position.Set(-b2Padding.x, -b2Padding.y);
     _boxBody = _world->CreateBody(&boxBodyDef);
-    
-    b2EdgeShape boxShape;
-    b2FixtureDef boxShapeDef;
-    boxShapeDef.shape = &boxShape;
-    //boxShapeDef.isSensor = true;
-    
-    // Four points
-    b2Vec2 bottomleft(-b2Padding.x, -b2Padding.y);
-    b2Vec2 bottomRight(b2WinSize.x + b2Padding.x, - b2Padding.y);
-    b2Vec2 topLeft(-b2Padding.x, b2WinSize.y +  b2Padding.y);
-    b2Vec2 topRight(b2WinSize.x + b2Padding.x, b2WinSize.y + b2Padding.y);
-    
-    // Bottom Edge
-    boxShape.Set(bottomleft, bottomRight);
-    _boxBody->CreateFixture(&boxShapeDef);
-    
-    // Left Edge
-    boxShape.Set(bottomleft, topLeft);
-    _boxBody->CreateFixture(&boxShapeDef);
-    
-    // Top Edge
-    boxShape.Set(topLeft, topRight);
-    _boxBody->CreateFixture(&boxShapeDef);
-    
-    // Right Edge
-    boxShape.Set(topRight, bottomRight);
-    _boxBody->CreateFixture(&boxShapeDef);
+	
+	// Define the ground box shape.
+	b2EdgeShape boxShape;
+	
+	// bottom
+	
+	boxShape.Set(b2Vec2(0,0), b2Vec2(s.width/PTM_RATIO,0));
+	_boxBody->CreateFixture(&boxShape,0);
+	
+	// top
+	boxShape.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO));
+	_boxBody->CreateFixture(&boxShape,0);
+	
+	// left
+	boxShape.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(0,0));
+	_boxBody->CreateFixture(&boxShape,0);
+	
+	// right
+	boxShape.Set(b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,0));
+	_boxBody->CreateFixture(&boxShape,0);
+
+//    CGSize winSize = [[CCDirector sharedDirector] winSize];
+//    b2Vec2 b2WinSize = b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO);
+//    b2Vec2 b2Padding = b2Vec2(52/PTM_RATIO, 52/PTM_RATIO); // padding should be size of enemy
+//    
+//    // Create bounding box
+//    b2BodyDef boxBodyDef;
+//    boxBodyDef.position.Set(-b2Padding.x, -b2Padding.y);
+//    _boxBody = _world->CreateBody(&boxBodyDef);
+//    
+//    b2EdgeShape boxShape;
+//    b2FixtureDef boxShapeDef;
+//    boxShapeDef.shape = &boxShape;
+//    //boxShapeDef.isSensor = true;
+//    
+//    // Four points
+//    b2Vec2 bottomleft(-b2Padding.x, -b2Padding.y);
+//    b2Vec2 bottomRight(b2WinSize.x + b2Padding.x, - b2Padding.y);
+//    b2Vec2 topLeft(-b2Padding.x, b2WinSize.y +  b2Padding.y);
+//    b2Vec2 topRight(b2WinSize.x + b2Padding.x, b2WinSize.y + b2Padding.y);
+//    
+//    // Bottom Edge
+//    boxShape.Set(bottomleft, bottomRight);
+//    _boxBody->CreateFixture(&boxShapeDef);
+//    
+//    // Left Edge
+//    boxShape.Set(bottomleft, topLeft);
+//    _boxBody->CreateFixture(&boxShapeDef);
+//    
+//    // Top Edge
+//    boxShape.Set(topLeft, topRight);
+//    _boxBody->CreateFixture(&boxShapeDef);
+//    
+//    // Right Edge
+//    boxShape.Set(topRight, bottomRight);
+//    _boxBody->CreateFixture(&boxShapeDef);
 }
 
 // Initializes enemy at location
 - (void)spawnEnemyAtLocation:(CGPoint)location{
-    BLEnemy *be = [[BLEnemy alloc] initWithWorld:_world andLocation:ccp(location.x, location.y)];
-    [self addChild:be.sprite];
-    [self.enemies addObject:be];
+    BLEnemySprite *es = [[BLEnemySprite alloc] initWithWorld:_world atLocation:location];
+    [self addChild:es];
+    [self.enemies addObject:es];
+    [es activateCollisions];
 }
 
 
@@ -169,31 +205,19 @@
 
 -(void)update:(ccTime)dt{
     _world->Step(dt, 10, 10); // run physics simulation
-    _world->DrawDebugData();
-
-    // Loop through and update all body sprites on results from physics simulation
-    for (b2Body *b = _world->GetBodyList(); b; b = b->GetNext()) {
-        // If user data is available, update it's sprite position
-        if (b->GetUserData() != NULL){
-            CCSprite *sprite = (CCSprite *)b->GetUserData();
-            sprite.position = ccp(b->GetPosition().x * PTM_RATIO,
-                                  b->GetPosition().y * PTM_RATIO);
-        }
-    }
-    
-    [self detectCollision]; // collision detection
+//    [self detectCollision]; // collision detection
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-
     // Convert touch -> ccLocation -> b2Location
     UITouch *touch      = (UITouch *)[touches anyObject];
     CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
+   
+   
     // If a mouse joint is created, that means user touched an enemy, do not create new enemy!
     if ([self createMouseJointWithTouch:touch]){
         return;
     }
-    
     [self spawnEnemyAtLocation:ccLocation];
 }
 
@@ -207,7 +231,7 @@
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self removeMouseJoint];
+   [self removeMouseJoint];
 }
 
 #pragma mark Mouse Joints
@@ -217,21 +241,19 @@
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Loop through all enemies
-    for (BLEnemy *be in self.enemies) {
-        
+    for (BLEnemySprite *be in self.enemies) {
         // If intersects with point, create mouse joint
         if ([be intersectsWithPoint:ccLocation]){
             b2MouseJointDef md;
-            md.bodyA = _boxBody;
-            md.bodyB = be.body; //bodyB is body you want to move
-            md.target = b2Location; // point you want to move to
+            md.bodyA            = _boxBody;
+            md.bodyB            = be.body; //bodyB is body you want to move
+            md.target           = b2Location; // point you want to move to
             md.collideConnected = true;
             md.maxForce = 3000.0f * be.body->GetMass(); // force you have when moving body
             be.mouseJoint = (b2MouseJoint *)_world->CreateJoint(&md);
             be.body->SetAwake(true);
             return YES;
         }
-        
     }
     return NO;
 }
@@ -242,7 +264,7 @@
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Loop through all enemies
-    for (BLEnemy *be in self.enemies) {
+    for (BLEnemySprite *be in self.enemies) {
         // If mousejoint exists, update it
         if (be.mouseJoint){
             be.mouseJoint->SetTarget(b2Location);
@@ -252,7 +274,7 @@
 
 - (void)removeMouseJoint{
     // Loop through all enemies
-    for (BLEnemy *be in self.enemies) {
+    for (BLEnemySprite *be in self.enemies) {
         // If mousejoint exists, delete it
         if (be.mouseJoint){
             _world->DestroyJoint(be.mouseJoint);
@@ -366,6 +388,9 @@
 	delete _world;
 	_world = NULL;
 	
+    
+	delete m_debugDraw;
+	m_debugDraw = NULL;
 	
 	[super dealloc];
 }	

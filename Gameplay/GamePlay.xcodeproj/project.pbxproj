@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D56BB8D18B31E06003A26DB /* BLPolygonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BB8C18B31E06003A26DB /* BLPolygonSprite.m */; };
-		4DA23E6E18B196B7009C1A23 /* BLJewel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DA23E6D18B196B7009C1A23 /* BLJewel.mm */; };
-		4DA23E7118B196DA009C1A23 /* BLObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DA23E7018B196DA009C1A23 /* BLObject.mm */; };
-		4DA23E7418B199B8009C1A23 /* jewel-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA23E7218B199B8009C1A23 /* jewel-hd.png */; };
-		4DA23E7518B199B8009C1A23 /* jewel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA23E7318B199B8009C1A23 /* jewel.png */; };
+		4D56BB9818B482D6003A26DB /* PolygonSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BB9018B482D5003A26DB /* PolygonSprite.mm */; };
+		4D56BB9918B482D6003A26DB /* PRFilledPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BB9218B482D5003A26DB /* PRFilledPolygon.m */; };
+		4D56BB9A18B482D6003A26DB /* PRRatcliffTriangulator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BB9418B482D5003A26DB /* PRRatcliffTriangulator.mm */; };
+		4D56BB9B18B482D6003A26DB /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BB9618B482D6003A26DB /* triangulate.cpp */; };
+		4D56BBA118B48424003A26DB /* BLJewelSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BBA018B48424003A26DB /* BLJewelSprite.mm */; };
+		4D56BBA818B48686003A26DB /* BLPolygonSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BBA718B48686003A26DB /* BLPolygonSprite.mm */; };
+		4D56BBAB18B48890003A26DB /* BLEnemySprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BBAA18B48890003A26DB /* BLEnemySprite.mm */; };
+		4D56BBC018B4A619003A26DB /* jewel-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D56BBBC18B4A619003A26DB /* jewel-hd.png */; };
+		4D56BBC118B4A619003A26DB /* jewel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D56BBBD18B4A619003A26DB /* jewel.png */; };
+		4D56BBC218B4A619003A26DB /* ninja_attack-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D56BBBE18B4A619003A26DB /* ninja_attack-hd.png */; };
+		4D56BBC318B4A619003A26DB /* ninja_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D56BBBF18B4A619003A26DB /* ninja_attack.png */; };
 		4DF3A3D018B06BAC00D26986 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF3A3CF18B06BAC00D26986 /* QuartzCore.framework */; };
 		4DF3A3D218B06BAC00D26986 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF3A3D118B06BAC00D26986 /* OpenGLES.framework */; };
 		4DF3A3D418B06BAC00D26986 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF3A3D318B06BAC00D26986 /* OpenAL.framework */; };
@@ -193,21 +199,29 @@
 		4DF3A60F18B06BB100D26986 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A60E18B06BB100D26986 /* IntroLayer.mm */; };
 		4DF3A61218B06BB100D26986 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A61118B06BB100D26986 /* GLES-Render.mm */; };
 		4DF3A61418B06BB100D26986 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF3A61318B06BB100D26986 /* blocks.png */; };
-		4DF3A61C18B0812F00D26986 /* ball-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF3A61A18B0812F00D26986 /* ball-hd.png */; };
-		4DF3A61D18B0812F00D26986 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF3A61B18B0812F00D26986 /* ball.png */; };
-		4DF3A62C18B0932900D26986 /* BLEnemy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A62B18B0932900D26986 /* BLEnemy.mm */; };
 		4DF3A62F18B0A54A00D26986 /* BLContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A62E18B0A54A00D26986 /* BLContactListener.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D56BB8B18B31E05003A26DB /* BLPolygonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLPolygonSprite.h; sourceTree = "<group>"; };
-		4D56BB8C18B31E06003A26DB /* BLPolygonSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLPolygonSprite.m; sourceTree = "<group>"; };
-		4DA23E6C18B196B7009C1A23 /* BLJewel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLJewel.h; sourceTree = "<group>"; };
-		4DA23E6D18B196B7009C1A23 /* BLJewel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLJewel.mm; sourceTree = "<group>"; };
-		4DA23E6F18B196DA009C1A23 /* BLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLObject.h; sourceTree = "<group>"; };
-		4DA23E7018B196DA009C1A23 /* BLObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLObject.mm; sourceTree = "<group>"; };
-		4DA23E7218B199B8009C1A23 /* jewel-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jewel-hd.png"; sourceTree = "<group>"; };
-		4DA23E7318B199B8009C1A23 /* jewel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jewel.png; sourceTree = "<group>"; };
+		4D56BB8F18B482D5003A26DB /* PolygonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonSprite.h; sourceTree = "<group>"; };
+		4D56BB9018B482D5003A26DB /* PolygonSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PolygonSprite.mm; sourceTree = "<group>"; };
+		4D56BB9118B482D5003A26DB /* PRFilledPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRFilledPolygon.h; sourceTree = "<group>"; };
+		4D56BB9218B482D5003A26DB /* PRFilledPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRFilledPolygon.m; sourceTree = "<group>"; };
+		4D56BB9318B482D5003A26DB /* PRRatcliffTriangulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRRatcliffTriangulator.h; sourceTree = "<group>"; };
+		4D56BB9418B482D5003A26DB /* PRRatcliffTriangulator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PRRatcliffTriangulator.mm; sourceTree = "<group>"; };
+		4D56BB9518B482D6003A26DB /* PRTriangulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTriangulator.h; sourceTree = "<group>"; };
+		4D56BB9618B482D6003A26DB /* triangulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangulate.cpp; sourceTree = "<group>"; };
+		4D56BB9718B482D6003A26DB /* triangulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangulate.h; sourceTree = "<group>"; };
+		4D56BB9F18B48424003A26DB /* BLJewelSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLJewelSprite.h; sourceTree = "<group>"; };
+		4D56BBA018B48424003A26DB /* BLJewelSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLJewelSprite.mm; sourceTree = "<group>"; };
+		4D56BBA618B48686003A26DB /* BLPolygonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLPolygonSprite.h; sourceTree = "<group>"; };
+		4D56BBA718B48686003A26DB /* BLPolygonSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLPolygonSprite.mm; sourceTree = "<group>"; };
+		4D56BBA918B48890003A26DB /* BLEnemySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEnemySprite.h; sourceTree = "<group>"; };
+		4D56BBAA18B48890003A26DB /* BLEnemySprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLEnemySprite.mm; sourceTree = "<group>"; };
+		4D56BBBC18B4A619003A26DB /* jewel-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jewel-hd.png"; sourceTree = "<group>"; };
+		4D56BBBD18B4A619003A26DB /* jewel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jewel.png; sourceTree = "<group>"; };
+		4D56BBBE18B4A619003A26DB /* ninja_attack-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ninja_attack-hd.png"; sourceTree = "<group>"; };
+		4D56BBBF18B4A619003A26DB /* ninja_attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ninja_attack.png; sourceTree = "<group>"; };
 		4DF3A3CC18B06BAC00D26986 /* GamePlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamePlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF3A3CF18B06BAC00D26986 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4DF3A3D118B06BAC00D26986 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -586,10 +600,6 @@
 		4DF3A61018B06BB100D26986 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		4DF3A61118B06BB100D26986 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		4DF3A61318B06BB100D26986 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
-		4DF3A61A18B0812F00D26986 /* ball-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ball-hd.png"; sourceTree = "<group>"; };
-		4DF3A61B18B0812F00D26986 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
-		4DF3A62A18B0932900D26986 /* BLEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEnemy.h; sourceTree = "<group>"; };
-		4DF3A62B18B0932900D26986 /* BLEnemy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLEnemy.mm; sourceTree = "<group>"; };
 		4DF3A62D18B0A54A00D26986 /* BLContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLContactListener.h; sourceTree = "<group>"; };
 		4DF3A62E18B0A54A00D26986 /* BLContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLContactListener.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -615,11 +625,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D56BB8E18B482D5003A26DB /* PRKit */ = {
+			isa = PBXGroup;
+			children = (
+				4D56BB8F18B482D5003A26DB /* PolygonSprite.h */,
+				4D56BB9018B482D5003A26DB /* PolygonSprite.mm */,
+				4D56BB9118B482D5003A26DB /* PRFilledPolygon.h */,
+				4D56BB9218B482D5003A26DB /* PRFilledPolygon.m */,
+				4D56BB9318B482D5003A26DB /* PRRatcliffTriangulator.h */,
+				4D56BB9418B482D5003A26DB /* PRRatcliffTriangulator.mm */,
+				4D56BB9518B482D6003A26DB /* PRTriangulator.h */,
+				4D56BB9618B482D6003A26DB /* triangulate.cpp */,
+				4D56BB9718B482D6003A26DB /* triangulate.h */,
+			);
+			path = PRKit;
+			sourceTree = "<group>";
+		};
 		4DF3A3C318B06BAC00D26986 = {
 			isa = PBXGroup;
 			children = (
-				4D56BB8B18B31E05003A26DB /* BLPolygonSprite.h */,
-				4D56BB8C18B31E06003A26DB /* BLPolygonSprite.m */,
 				4DF3A3E318B06BAD00D26986 /* Gameplay */,
 				4DF3A3CE18B06BAC00D26986 /* Frameworks */,
 				4DF3A3CD18B06BAC00D26986 /* Products */,
@@ -656,12 +680,12 @@
 			children = (
 				4DF3A60A18B06BB100D26986 /* BLGamePlayLayer.h */,
 				4DF3A60B18B06BB100D26986 /* BLGamePlayLayer.mm */,
-				4DA23E6F18B196DA009C1A23 /* BLObject.h */,
-				4DA23E7018B196DA009C1A23 /* BLObject.mm */,
-				4DA23E6C18B196B7009C1A23 /* BLJewel.h */,
-				4DA23E6D18B196B7009C1A23 /* BLJewel.mm */,
-				4DF3A62A18B0932900D26986 /* BLEnemy.h */,
-				4DF3A62B18B0932900D26986 /* BLEnemy.mm */,
+				4D56BBA618B48686003A26DB /* BLPolygonSprite.h */,
+				4D56BBA718B48686003A26DB /* BLPolygonSprite.mm */,
+				4D56BBA918B48890003A26DB /* BLEnemySprite.h */,
+				4D56BBAA18B48890003A26DB /* BLEnemySprite.mm */,
+				4D56BB9F18B48424003A26DB /* BLJewelSprite.h */,
+				4D56BBA018B48424003A26DB /* BLJewelSprite.mm */,
 				4DF3A62D18B0A54A00D26986 /* BLContactListener.h */,
 				4DF3A62E18B0A54A00D26986 /* BLContactListener.mm */,
 				4DF3A3E418B06BAD00D26986 /* Resources */,
@@ -675,10 +699,10 @@
 		4DF3A3E418B06BAD00D26986 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4DF3A61A18B0812F00D26986 /* ball-hd.png */,
-				4DA23E7218B199B8009C1A23 /* jewel-hd.png */,
-				4DA23E7318B199B8009C1A23 /* jewel.png */,
-				4DF3A61B18B0812F00D26986 /* ball.png */,
+				4D56BBBC18B4A619003A26DB /* jewel-hd.png */,
+				4D56BBBD18B4A619003A26DB /* jewel.png */,
+				4D56BBBE18B4A619003A26DB /* ninja_attack-hd.png */,
+				4D56BBBF18B4A619003A26DB /* ninja_attack.png */,
 				4DF3A3E518B06BAD00D26986 /* Default.png */,
 				4DF3A3E718B06BAD00D26986 /* Default@2x.png */,
 				4DF3A3E918B06BAD00D26986 /* Default-568h@2x.png */,
@@ -699,6 +723,7 @@
 		4DF3A3FC18B06BAD00D26986 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				4D56BB8E18B482D5003A26DB /* PRKit */,
 				4DF3A52718B06BB000D26986 /* LICENSE_cocos2d.txt */,
 				4DF3A53D18B06BB000D26986 /* LICENSE_CocosDenshion.txt */,
 				4DF3A56F18B06BB000D26986 /* LICENSE_Kazmath.txt */,
@@ -1275,21 +1300,21 @@
 			files = (
 				4DF3A3F618B06BAD00D26986 /* Icon.png in Resources */,
 				4DF3A55418B06BB000D26986 /* ChangeLog in Resources */,
-				4DA23E7518B199B8009C1A23 /* jewel.png in Resources */,
 				4DF3A3E818B06BAD00D26986 /* Default@2x.png in Resources */,
 				4DF3A3F218B06BAD00D26986 /* Icon-Small.png in Resources */,
+				4D56BBC118B4A619003A26DB /* jewel.png in Resources */,
 				4DF3A3EE18B06BAD00D26986 /* Icon-72.png in Resources */,
+				4D56BBC218B4A619003A26DB /* ninja_attack-hd.png in Resources */,
 				4DF3A3E618B06BAD00D26986 /* Default.png in Resources */,
 				4DF3A3F018B06BAD00D26986 /* Icon-Small-50.png in Resources */,
+				4D56BBC018B4A619003A26DB /* jewel-hd.png in Resources */,
 				4DF3A3FB18B06BAD00D26986 /* iTunesArtwork in Resources */,
 				4DF3A61418B06BB100D26986 /* blocks.png in Resources */,
+				4D56BBC318B4A619003A26DB /* ninja_attack.png in Resources */,
 				4DF3A3F418B06BAD00D26986 /* Icon-Small@2x.png in Resources */,
 				4DF3A3EC18B06BAD00D26986 /* Default-Landscape~ipad.png in Resources */,
-				4DF3A61D18B0812F00D26986 /* ball.png in Resources */,
 				4DF3A3EA18B06BAD00D26986 /* Default-568h@2x.png in Resources */,
-				4DF3A61C18B0812F00D26986 /* ball-hd.png in Resources */,
 				4DF3A3F818B06BAD00D26986 /* Icon@2x.png in Resources */,
-				4DA23E7418B199B8009C1A23 /* jewel-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1300,6 +1325,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D56BBA118B48424003A26DB /* BLJewelSprite.mm in Sources */,
+				4D56BB9918B482D6003A26DB /* PRFilledPolygon.m in Sources */,
 				4DF3A4C018B06BAF00D26986 /* CCTexturePVR.m in Sources */,
 				4DF3A51018B06BAF00D26986 /* ccUtils.c in Sources */,
 				4DF3A46118B06BAE00D26986 /* CCLayer.m in Sources */,
@@ -1321,6 +1348,7 @@
 				4DF3A4CF18B06BAF00D26986 /* CCTMXXMLParser.m in Sources */,
 				4DF3A5C218B06BB100D26986 /* b2ChainAndCircleContact.cpp in Sources */,
 				4DF3A5C818B06BB100D26986 /* b2CircleContact.cpp in Sources */,
+				4D56BB9A18B482D6003A26DB /* PRRatcliffTriangulator.mm in Sources */,
 				4DF3A56618B06BB000D26986 /* ray2.c in Sources */,
 				4DF3A50118B06BAF00D26986 /* base64.c in Sources */,
 				4DF3A42418B06BAD00D26986 /* CCActionTween.m in Sources */,
@@ -1336,6 +1364,7 @@
 				4DF3A5DA18B06BB100D26986 /* b2PolygonContact.cpp in Sources */,
 				4DF3A4D518B06BAF00D26986 /* CCTransitionPageTurn.m in Sources */,
 				4DF3A5A718B06BB000D26986 /* b2StackAllocator.cpp in Sources */,
+				4D56BBA818B48686003A26DB /* BLPolygonSprite.mm in Sources */,
 				4DF3A5F018B06BB100D26986 /* b2PulleyJoint.cpp in Sources */,
 				4DF3A40618B06BAD00D26986 /* CCActionCatmullRom.m in Sources */,
 				4DF3A47D18B06BAE00D26986 /* CCParticleSystem.m in Sources */,
@@ -1343,7 +1372,6 @@
 				4DF3A58518B06BB000D26986 /* b2DynamicTree.cpp in Sources */,
 				4DF3A5B118B06BB100D26986 /* b2ContactManager.cpp in Sources */,
 				4DF3A47A18B06BAE00D26986 /* CCParticleExamples.m in Sources */,
-				4DF3A62C18B0932900D26986 /* BLEnemy.mm in Sources */,
 				4DF3A47718B06BAE00D26986 /* CCParticleBatchNode.m in Sources */,
 				4DF3A59218B06BB000D26986 /* b2EdgeShape.cpp in Sources */,
 				4DF3A5B718B06BB100D26986 /* b2Island.cpp in Sources */,
@@ -1351,7 +1379,6 @@
 				4DF3A56818B06BB000D26986 /* utility.c in Sources */,
 				4DF3A51418B06BAF00D26986 /* CCVertex.m in Sources */,
 				4DF3A51A18B06BAF00D26986 /* NSThread+performBlock.m in Sources */,
-				4DA23E6E18B196B7009C1A23 /* BLJewel.mm in Sources */,
 				4DF3A5F618B06BB100D26986 /* b2RopeJoint.cpp in Sources */,
 				4DF3A42118B06BAD00D26986 /* CCActionTiledGrid.m in Sources */,
 				4DF3A5B418B06BB100D26986 /* b2Fixture.cpp in Sources */,
@@ -1368,6 +1395,7 @@
 				4DF3A5D118B06BB100D26986 /* b2EdgeAndCircleContact.cpp in Sources */,
 				4DF3A45218B06BAE00D26986 /* CCGrabber.m in Sources */,
 				4DF3A55C18B06BB000D26986 /* mat3.c in Sources */,
+				4D56BBAB18B48890003A26DB /* BLEnemySprite.mm in Sources */,
 				4DF3A5A118B06BB000D26986 /* b2Math.cpp in Sources */,
 				4DF3A4E618B06BAF00D26986 /* CCES2Renderer.m in Sources */,
 				4DF3A45818B06BAE00D26986 /* CCLabelAtlas.m in Sources */,
@@ -1388,8 +1416,8 @@
 				4DF3A62F18B0A54A00D26986 /* BLContactListener.mm in Sources */,
 				4DF3A55818B06BB000D26986 /* mat4stack.c in Sources */,
 				4DF3A57D18B06BB000D26986 /* b2CollidePolygon.cpp in Sources */,
-				4DA23E7118B196DA009C1A23 /* BLObject.mm in Sources */,
 				4DF3A5E718B06BB100D26986 /* b2Joint.cpp in Sources */,
+				4D56BB9B18B482D6003A26DB /* triangulate.cpp in Sources */,
 				4DF3A4B418B06BAF00D26986 /* CCSpriteFrameCache.m in Sources */,
 				4DF3A43D18B06BAD00D26986 /* CCDirector.m in Sources */,
 				4DF3A42D18B06BAD00D26986 /* CCAtlasNode.m in Sources */,
@@ -1411,6 +1439,7 @@
 				4DF3A5BB18B06BB100D26986 /* b2World.cpp in Sources */,
 				4DF3A60018B06BB100D26986 /* b2Rope.cpp in Sources */,
 				4DF3A52B18B06BB000D26986 /* CDAudioManager.m in Sources */,
+				4D56BB9818B482D6003A26DB /* PolygonSprite.mm in Sources */,
 				4DF3A57F18B06BB000D26986 /* b2Collision.cpp in Sources */,
 				4DF3A4D818B06BAF00D26986 /* CCTransitionProgress.m in Sources */,
 				4DF3A4FB18B06BAF00D26986 /* CCGLView.m in Sources */,
@@ -1442,7 +1471,6 @@
 				4DF3A4FE18B06BAF00D26986 /* CCWindow.m in Sources */,
 				4DF3A5A418B06BB000D26986 /* b2Settings.cpp in Sources */,
 				4DF3A4DC18B06BAF00D26986 /* cocos2d.m in Sources */,
-				4D56BB8D18B31E06003A26DB /* BLPolygonSprite.m in Sources */,
 				4DF3A48918B06BAE00D26986 /* CCProgressTimer.m in Sources */,
 				4DF3A59A18B06BB000D26986 /* b2BlockAllocator.cpp in Sources */,
 				4DF3A45E18B06BAE00D26986 /* CCLabelTTF.m in Sources */,
