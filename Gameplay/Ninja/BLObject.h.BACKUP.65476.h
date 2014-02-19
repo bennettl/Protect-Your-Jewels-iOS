@@ -26,10 +26,12 @@
 @property (nonatomic, assign) b2CircleShape *shapeDef;
 @property (nonatomic, assign) b2FixtureDef *fixtureDef;
 @property (nonatomic, assign) b2Fixture *fixture;
-
+<<<<<<< HEAD:Gameplay/Ninja/BLObject.h
+=======
 @property (nonatomic, assign) b2MouseJoint *mouseJoint;
 
 - (id)initWithWorld:(b2World *)world andLocation:(CGPoint)location; // called when touched
 - (BOOL)intersectsWithPoint:(CGPoint)ccLocation;
+>>>>>>> 2fbeaac94468c2db38de06f86de86071098cff68:Ninja/Ninja/BLEnemy.h
 
 @end
