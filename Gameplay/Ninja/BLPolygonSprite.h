@@ -26,13 +26,6 @@
 @property(nonatomic,readwrite)b2Vec2 centroid;
 @property(nonatomic,assign)b2MouseJoint *mouseJoint;
 
-+(id)spriteWithFile:(NSString*)filename
-               body:(b2Body*)body;
-
-+(id)spriteWithTexture:(CCTexture2D*)texture
-                  body:(b2Body*)body;
-
-//+(id)spriteWithWorld:(b2World*)world;
 
 -(id)initWithFile:(NSString*)filename
              body:(b2Body*)body;

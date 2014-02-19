@@ -14,18 +14,6 @@
 #pragma mark Initialization
 
 
-+(id)spriteWithFile:(NSString*)filename body:(b2Body*)body{
-    return [[[self alloc] initWithFile:filename body:body] autorelease];
-}
-
-+(id)spriteWithTexture:(CCTexture2D*)texture body:(b2Body*)body{
-    return [[[self alloc] initWithTexture:texture body:body] autorelease];
-}
-
-//+(id)spriteWithWorld:(b2World*)world{
-//    return [[[self alloc] initWithWorld:world] autorelease];
-//}
-
 // Load the texture and call initWithTexture
 -(id)initWithFile:(NSString*)filename body:(b2Body*)body{
     NSAssert(filename != nil, @"Invalid file name yo!");
@@ -86,7 +74,7 @@
     // Shape
     b2PolygonShape polygonShape;
     polygonShape.Set(vertices, count);
-   
+    
     // fixtureDef, and fixture
     b2FixtureDef fixtureDef;
     fixtureDef.shape                = &polygonShape;
@@ -94,6 +82,13 @@
     fixtureDef.friction             = friction;
     fixtureDef.restitution          = restitution;
    
+//    b2PolygonShape* shape = (b2PolygonShape*)body->GetFixtureList()->GetShape();
+    NSLog(@"%f %f ", polygonShape.m_centroid.x, polygonShape.m_centroid.y);
+    
+    body->SetTransform(b2Vec2(position.x - polygonShape.m_centroid.x,
+                              position.y - polygonShape.m_centroid.y),
+                       body->GetAngle());
+                       
     // Collision filtering
     fixtureDef.filter.categoryBits  = 0;
     fixtureDef.filter.maskBits      = 0;

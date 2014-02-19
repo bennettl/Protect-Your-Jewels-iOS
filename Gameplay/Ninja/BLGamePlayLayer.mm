@@ -71,7 +71,6 @@
         // Debug Drawing
         m_debugDraw = new GLESDebugDraw( PTM_RATIO );
        _world->SetDebugDraw(m_debugDraw);
-        
         uint32 flags = 0;
         flags += b2Draw::e_shapeBit;
         //		flags += b2Draw::e_jointBit;
@@ -88,21 +87,12 @@
 	return self;
 }
 
--(void) draw
-{
-	//
-	// IMPORTANT:
-	// This is only for debug purposes
-	// It is recommend to disable it
-	//
+// Use for debug drawing
+-(void) draw{
 	[super draw];
-	
 	ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-	
 	kmGLPushMatrix();
-	
 	_world->DrawDebugData();
-	
 	kmGLPopMatrix();
 }
 
@@ -137,7 +127,7 @@
 	
 	// Define the ground box shape.
 	b2EdgeShape boxShape;
-	
+    
 	// bottom
 	
 	boxShape.Set(b2Vec2(0,0), b2Vec2(s.width/PTM_RATIO,0));
@@ -167,8 +157,7 @@
 //    b2EdgeShape boxShape;
 //    b2FixtureDef boxShapeDef;
 //    boxShapeDef.shape = &boxShape;
-//    //boxShapeDef.isSensor = true;
-//    
+//
 //    // Four points
 //    b2Vec2 bottomleft(-b2Padding.x, -b2Padding.y);
 //    b2Vec2 bottomRight(b2WinSize.x + b2Padding.x, - b2Padding.y);
@@ -205,7 +194,7 @@
 
 -(void)update:(ccTime)dt{
     _world->Step(dt, 10, 10); // run physics simulation
-//    [self detectCollision]; // collision detection
+    [self detectCollision]; // collision detection
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

@@ -8,37 +8,38 @@
 
 #import "BLEnemySprite.h"
 
+#define FILE_NAME @"ninja_attack.png"
+
 @implementation BLEnemySprite
 
-
 - (id)initWithWorld:(b2World *)world atLocation:(CGPoint)ccLocation{
-    NSString *filename  = @"ninja_attack.png";
-    int verticiesCount  = 7;
-    float _forceMultiplier = 100;
-    b2Vec2 verticies[]  = {
-        b2Vec2(17.0/PTM_RATIO, 6.0/PTM_RATIO),
-        b2Vec2(39.0/PTM_RATIO, 10.0/PTM_RATIO),
-        b2Vec2(53.0/PTM_RATIO, 37.0/PTM_RATIO),
-        b2Vec2(41.0/PTM_RATIO, 58.0/PTM_RATIO),
-        b2Vec2(26.0/PTM_RATIO, 58.0/PTM_RATIO),
-        b2Vec2(16.0/PTM_RATIO, 48.0/PTM_RATIO),
-        b2Vec2(12.0/PTM_RATIO, 26.0/PTM_RATIO)
-    };
+
+    float _forceMultiplier  = 100;
+
+    // Taken from PhysicsEditor
+    int verticiesCount      = 7;
+    b2Vec2 verticies[]      = {
+                                b2Vec2(17.0/PTM_RATIO, 6.0/PTM_RATIO),
+                                b2Vec2(39.0/PTM_RATIO, 10.0/PTM_RATIO),
+                                b2Vec2(53.0/PTM_RATIO, 37.0/PTM_RATIO),
+                                b2Vec2(41.0/PTM_RATIO, 58.0/PTM_RATIO),
+                                b2Vec2(26.0/PTM_RATIO, 58.0/PTM_RATIO),
+                                b2Vec2(16.0/PTM_RATIO, 48.0/PTM_RATIO),
+                                b2Vec2(12.0/PTM_RATIO, 26.0/PTM_RATIO)
+                            };
+    CGSize winSize          = [[CCDirector sharedDirector] winSize];
+    b2Vec2 location         = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
-    CGSize winSize      = [[CCDirector sharedDirector] winSize];
-    b2Vec2 location     = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
+    b2Body *body            = [self createBodyForWorld:world
+                                              position:location
+                                              rotation:0
+                                              vertices:verticies
+                                           vertexCount:verticiesCount
+                                               density:5.0f
+                                              friction:0.2f
+                                           restitution:0.2f];
     
-    b2Body *body = [self createBodyForWorld:world
-                                   position:location
-                                   rotation:0
-                                   vertices:verticies
-                                vertexCount:verticiesCount
-                                    density:5.0f
-                                   friction:0.2f
-                                restitution:0.2f];
-    
-    if (self = [super initWithFile:filename body:body]){
-        
+    if (self = [super initWithFile:FILE_NAME body:body]){
         // Get center vector
         CGPoint pointA  = ccLocation;
         CGPoint pointB  = ccp(winSize.width/2, winSize.height/2);
