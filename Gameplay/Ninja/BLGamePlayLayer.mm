@@ -23,13 +23,12 @@
 
 @interface BLGamePlayLayer(){
     b2World *world;
-    b2Body *_boxBody;
 //    BLJewelSprite *_jewel;
 //    BLContactListener *_contactListener;
     float _forceMultiplier;
     CCLabelTTF *_label;
     CCSpriteBatchNode *objectLayer;
-    GB2Node *leftWall;
+    GB2Node *boxNode;
 }
 
 @property NSMutableArray *enemies;
@@ -58,8 +57,7 @@
 
 -(id) init{
 	if ((self=[super init])) {
-        CGSize winSize      = [[CCDirector sharedDirector] winSize];
-//        _world = [GB2Engine sharedInstance].world;
+
         // Load sprite atlases
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Sprites.plist"];
         
@@ -69,19 +67,8 @@
         objectLayer = [CCSpriteBatchNode batchNodeWithFile:@"Sprites.pvr.ccz" capacity:150];
         [self addChild:objectLayer z:-10];
         
-        GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
-       [self addChild:debugLayer z:-3];
-        
-        GB2Jewel *j = [GB2Jewel jewelSprite];
-        [j setPhysicsPosition:b2Vec2(winSize.width/2/PTM_RATIO, winSize.height/2/PTM_RATIO)];
-
-        
-        [objectLayer addChild:j.ccNode];
-        
         // add walls to the left
-        leftWall = [[GB2Node alloc] initWithStaticBody:nil node:nil];
-        [leftWall addEdgeFrom:b2Vec2FromCC(0, 0) to:b2Vec2FromCC(winSize.width, 0)];
-        
+      
 //        // Initializations
 //        _forceMultiplier    = 40.0f;
 //        self.currentScore     = 0;
@@ -89,8 +76,9 @@
 //
 //        [self initScoreLabel];
 //        [self initWorld];
-//        [self initJewel];
-      //  [self initBoundingBox];
+          [self initJewel];
+          [self initBoundingBox];
+        [self initDebug];
 //
 //        // ContactListener is used for collision Detection
 //        _contactListener = new BLContactListener(self);
@@ -98,34 +86,10 @@
 //        
         // Touching
         self.touchEnabled = YES;
-//
-//        // Debug Drawing
-//        m_debugDraw = new GLESDebugDraw( PTM_RATIO );
-//       _world->SetDebugDraw(m_debugDraw);
-//        uint32 flags = 0;
-//        flags += b2Draw::e_shapeBit;
-//        //		flags += b2Draw::e_jointBit;
-//        //		flags += b2Draw::e_aabbBit;
-//        //		flags += b2Draw::e_pairBit;
-//        //		flags += b2Draw::e_centerOfMassBit;
-//        m_debugDraw->SetFlags(flags);
-//        
-//        // Schedule
-//        [self scheduleUpdate];
-        
         
     }
 	return self;
 }
-
-// Use for debug drawing
-//-(void) draw{
-//	[super draw];
-//	ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-//	kmGLPushMatrix();
-//	_world->DrawDebugData();
-//	kmGLPopMatrix();
-//}
 
 // Creates label score in lower right corner
 - (void)initScoreLabel{
@@ -136,75 +100,34 @@
     [self addChild:_label];
     
 }
-
          
 // Creates jewel
  -(void)initJewel{
-//    _jewel = [[BLJewelSprite alloc] initWithWorld:_world];
-//     [self addChild:_jewel z:1];
-//     [_jewel activateCollisions];
+     CGSize s = [[CCDirector sharedDirector] winSize];
+     GB2Jewel *j = [GB2Jewel jewelSprite];
+     [j setPhysicsPosition:b2Vec2(s.width/2/PTM_RATIO, s.height/2/PTM_RATIO)];
+     [objectLayer addChild:j.ccNode];
 }
 
 // Creates the bonding box
 - (void)initBoundingBox{
     CGSize s = [[CCDirector sharedDirector] winSize];
-    b2BodyDef boxBodyDef;
-    _boxBody = world->CreateBody(&boxBodyDef);
-	
-	// Define the ground box shape.
-	b2EdgeShape boxShape;
     
-	// bottom
-	
-	boxShape.Set(b2Vec2(0,0), b2Vec2(s.width/PTM_RATIO,0));
-	_boxBody->CreateFixture(&boxShape,0);
-	
-	// top
-	boxShape.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO));
-	_boxBody->CreateFixture(&boxShape,0);
-	
-	// left
-	boxShape.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(0,0));
-	_boxBody->CreateFixture(&boxShape,0);
-	
-	// right
-	boxShape.Set(b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,0));
-	_boxBody->CreateFixture(&boxShape,0);
+    boxNode = [[GB2Node alloc] initWithStaticBody:nil node:nil];
+    // Bottom
+    [boxNode addEdgeFrom:b2Vec2FromCC(0, 0) to:b2Vec2FromCC(s.width, 0)];
+    // Left
+    [boxNode addEdgeFrom:b2Vec2FromCC(0, 0) to:b2Vec2FromCC(0, s.height)];
+    // Top
+    [boxNode addEdgeFrom:b2Vec2FromCC(s.width, s.height) to:b2Vec2FromCC(0, s.height)];
+    // Right
+    [boxNode addEdgeFrom:b2Vec2FromCC(s.width, s.height) to:b2Vec2FromCC(s.width, 0)];
+}
 
-//    CGSize winSize = [[CCDirector sharedDirector] winSize];
-//    b2Vec2 b2WinSize = b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO);
-//    b2Vec2 b2Padding = b2Vec2(52/PTM_RATIO, 52/PTM_RATIO); // padding should be size of enemy
-//    
-//    // Create bounding box
-//    b2BodyDef boxBodyDef;
-//    boxBodyDef.position.Set(-b2Padding.x, -b2Padding.y);
-//    _boxBody = _world->CreateBody(&boxBodyDef);
-//    
-//    b2EdgeShape boxShape;
-//    b2FixtureDef boxShapeDef;
-//    boxShapeDef.shape = &boxShape;
-//
-//    // Four points
-//    b2Vec2 bottomleft(-b2Padding.x, -b2Padding.y);
-//    b2Vec2 bottomRight(b2WinSize.x + b2Padding.x, - b2Padding.y);
-//    b2Vec2 topLeft(-b2Padding.x, b2WinSize.y +  b2Padding.y);
-//    b2Vec2 topRight(b2WinSize.x + b2Padding.x, b2WinSize.y + b2Padding.y);
-//    
-//    // Bottom Edge
-//    boxShape.Set(bottomleft, bottomRight);
-//    _boxBody->CreateFixture(&boxShapeDef);
-//    
-//    // Left Edge
-//    boxShape.Set(bottomleft, topLeft);
-//    _boxBody->CreateFixture(&boxShapeDef);
-//    
-//    // Top Edge
-//    boxShape.Set(topLeft, topRight);
-//    _boxBody->CreateFixture(&boxShapeDef);
-//    
-//    // Right Edge
-//    boxShape.Set(topRight, bottomRight);
-//    _boxBody->CreateFixture(&boxShapeDef);
+// Add debug layer
+- (void)initDebug{
+    GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
+    [self addChild:debugLayer z:-3];
 }
 
 // Initializes enemy at location
@@ -212,9 +135,7 @@
     BLEnemySprite *es = [BLEnemySprite enemySprite];
     [es setPhysicsPosition:b2Vec2(location.x/PTM_RATIO, location.y/PTM_RATIO)];
     [self addChild:es.ccNode];
-    
     [self.enemies addObject:es];
-//    [es activateCollisions];
 }
 
 
@@ -230,7 +151,6 @@
     if ([self createMouseJointWithTouch:touch]){
         return;
     }
-    NSLog(@"nope");
     [self spawnEnemyAtLocation:ccLocation];
 }
 
@@ -252,22 +172,12 @@
 - (BOOL)createMouseJointWithTouch:(UITouch *)touch{
     CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
-    NSLog(@"enemy count %i", self.enemies.count);
-
     
     // Loop through all enemies
     for (BLEnemySprite *be in self.enemies) {
         // If intersects with point, create mouse joint
         if ([be intersectsWithPoint:ccLocation]){
-            [be createMouseJointWithGroundBody:leftWall.body target:b2Location maxForce:1000];
-//            b2MouseJointDef md;
-//            md.bodyA            = leftWall.body;
-//            md.bodyB            = be.body; //bodyB is body you want to move
-//            md.target           = b2Location; // point you want to move to
-//            md.collideConnected = true;
-//            md.maxForce = 3000.0f * be.body->GetMass(); // force you have when moving body
-//            be.mouseJoint = (b2MouseJoint *)()[GB2Engine sharedInstance].world)->CreateJoint(&md);
-//            be.body->SetAwake(true);
+            [be createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
             return YES;
         }
     }
