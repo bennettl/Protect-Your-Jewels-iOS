@@ -22,16 +22,6 @@
 //#define PTM_RATIO 32
 
 // HelloWorldLayer
-@interface BLGamePlayLayer : CCLayer <CCTouchOneByOneDelegate>{
-//	GLESDebugDraw *m_debugDraw;		// strong ref
-}
-
-@property int currentScore;
-
-// returns a CCScene that contains the HelloWorldLayer as the only child
-+(CCScene *) scene;
-
-- (void)beginContact:(b2Contact *)contact;
-- (void)endContact:(b2Contact*)contact;
+@interface BLSpriteLayer : CCLayer
 
 @end

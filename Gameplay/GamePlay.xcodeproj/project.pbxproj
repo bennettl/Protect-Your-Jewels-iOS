@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		4D3500F518B72C50006E4021 /* BLEnemySprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D3500F418B72C50006E4021 /* BLEnemySprite.mm */; };
 		4D3500F918B74B95006E4021 /* game_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3500F818B74B95006E4021 /* game_background.png */; };
-		4D3500FC18B74CCC006E4021 /* BLBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.m */; };
+		4D3500FC18B74CCC006E4021 /* BLBackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.mm */; };
+		4D75FBC318B750A000F9974F /* BLGameplayScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D75FBC218B750A000F9974F /* BLGameplayScene.mm */; };
+		4D75FBC618B751FD00F9974F /* BLUILayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D75FBC518B751FD00F9974F /* BLUILayer.mm */; };
 		4D8A489318B5E344006A365B /* Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A488E18B5E344006A365B /* Shapes.plist */; };
 		4D8A489418B5E344006A365B /* Sprites-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A488F18B5E344006A365B /* Sprites-hd.plist */; };
 		4D8A489518B5E344006A365B /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A489018B5E344006A365B /* Sprites.plist */; };
@@ -201,8 +203,7 @@
 		4DF3A60018B06BB100D26986 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A5FF18B06BB100D26986 /* b2Rope.cpp */; };
 		4DF3A60618B06BB100D26986 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A60518B06BB100D26986 /* main.m */; };
 		4DF3A60918B06BB100D26986 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A60818B06BB100D26986 /* AppDelegate.mm */; };
-		4DF3A60C18B06BB100D26986 /* BLGamePlayLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A60B18B06BB100D26986 /* BLGamePlayLayer.mm */; };
-		4DF3A60F18B06BB100D26986 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A60E18B06BB100D26986 /* IntroLayer.mm */; };
+		4DF3A60C18B06BB100D26986 /* BLSpriteLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A60B18B06BB100D26986 /* BLSpriteLayer.mm */; };
 		4DF3A61418B06BB100D26986 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF3A61318B06BB100D26986 /* blocks.png */; };
 /* End PBXBuildFile section */
 
@@ -211,7 +212,11 @@
 		4D3500F418B72C50006E4021 /* BLEnemySprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLEnemySprite.mm; sourceTree = "<group>"; };
 		4D3500F818B74B95006E4021 /* game_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_background.png; sourceTree = "<group>"; };
 		4D3500FA18B74CCC006E4021 /* BLBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBackgroundLayer.h; sourceTree = "<group>"; };
-		4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBackgroundLayer.m; sourceTree = "<group>"; };
+		4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLBackgroundLayer.mm; sourceTree = "<group>"; };
+		4D75FBC118B750A000F9974F /* BLGameplayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGameplayScene.h; sourceTree = "<group>"; };
+		4D75FBC218B750A000F9974F /* BLGameplayScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLGameplayScene.mm; sourceTree = "<group>"; };
+		4D75FBC418B751FD00F9974F /* BLUILayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUILayer.h; sourceTree = "<group>"; };
+		4D75FBC518B751FD00F9974F /* BLUILayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLUILayer.mm; sourceTree = "<group>"; };
 		4D8A488E18B5E344006A365B /* Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Shapes.plist; path = Resources/Shapes.plist; sourceTree = "<group>"; };
 		4D8A488F18B5E344006A365B /* Sprites-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Sprites-hd.plist"; path = "Resources/Sprites-hd.plist"; sourceTree = "<group>"; };
 		4D8A489018B5E344006A365B /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Sprites.plist; path = Resources/Sprites.plist; sourceTree = "<group>"; };
@@ -608,10 +613,8 @@
 		4DF3A60518B06BB100D26986 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4DF3A60718B06BB100D26986 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4DF3A60818B06BB100D26986 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		4DF3A60A18B06BB100D26986 /* BLGamePlayLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLGamePlayLayer.h; sourceTree = "<group>"; };
-		4DF3A60B18B06BB100D26986 /* BLGamePlayLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BLGamePlayLayer.mm; sourceTree = "<group>"; };
-		4DF3A60D18B06BB100D26986 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		4DF3A60E18B06BB100D26986 /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IntroLayer.mm; sourceTree = "<group>"; };
+		4DF3A60A18B06BB100D26986 /* BLSpriteLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLSpriteLayer.h; sourceTree = "<group>"; };
+		4DF3A60B18B06BB100D26986 /* BLSpriteLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BLSpriteLayer.mm; sourceTree = "<group>"; };
 		4DF3A61318B06BB100D26986 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -698,14 +701,18 @@
 		4DF3A3E318B06BAD00D26986 /* Gameplay */ = {
 			isa = PBXGroup;
 			children = (
-				4DF3A60A18B06BB100D26986 /* BLGamePlayLayer.h */,
-				4DF3A60B18B06BB100D26986 /* BLGamePlayLayer.mm */,
+				4D75FBC118B750A000F9974F /* BLGameplayScene.h */,
+				4D75FBC218B750A000F9974F /* BLGameplayScene.mm */,
+				4D75FBC418B751FD00F9974F /* BLUILayer.h */,
+				4D75FBC518B751FD00F9974F /* BLUILayer.mm */,
+				4DF3A60A18B06BB100D26986 /* BLSpriteLayer.h */,
+				4DF3A60B18B06BB100D26986 /* BLSpriteLayer.mm */,
 				4D3500F318B72C50006E4021 /* BLEnemySprite.h */,
 				4D3500F418B72C50006E4021 /* BLEnemySprite.mm */,
 				4D8A4B6518B5EE0D006A365B /* BLJewelSprite.h */,
 				4D8A4B6618B5EE0D006A365B /* BLJewelSprite.mm */,
 				4D3500FA18B74CCC006E4021 /* BLBackgroundLayer.h */,
-				4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.m */,
+				4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.mm */,
 				4D8A4B2518B5EAF2006A365B /* GBox2D */,
 				4DF3A3E418B06BAD00D26986 /* Resources */,
 				4DF3A3FC18B06BAD00D26986 /* libs */,
@@ -1257,8 +1264,6 @@
 			children = (
 				4DF3A60718B06BB100D26986 /* AppDelegate.h */,
 				4DF3A60818B06BB100D26986 /* AppDelegate.mm */,
-				4DF3A60D18B06BB100D26986 /* IntroLayer.h */,
-				4DF3A60E18B06BB100D26986 /* IntroLayer.mm */,
 				4DF3A60418B06BB100D26986 /* Prefix.pch */,
 				4DF3A60518B06BB100D26986 /* main.m */,
 			);
@@ -1390,6 +1395,7 @@
 				4DF3A58518B06BB000D26986 /* b2DynamicTree.cpp in Sources */,
 				4DF3A5B118B06BB100D26986 /* b2ContactManager.cpp in Sources */,
 				4DF3A47A18B06BAE00D26986 /* CCParticleExamples.m in Sources */,
+				4D75FBC318B750A000F9974F /* BLGameplayScene.mm in Sources */,
 				4DF3A47718B06BAE00D26986 /* CCParticleBatchNode.m in Sources */,
 				4DF3A59218B06BB000D26986 /* b2EdgeShape.cpp in Sources */,
 				4DF3A5B718B06BB100D26986 /* b2Island.cpp in Sources */,
@@ -1446,7 +1452,7 @@
 				4D8A4B3B18B5EAF2006A365B /* GB2Node.mm in Sources */,
 				4DF3A51718B06BAF00D26986 /* CGPointExtension.m in Sources */,
 				4DF3A41B18B06BAD00D26986 /* CCActionPageTurn3D.m in Sources */,
-				4DF3A60C18B06BB100D26986 /* BLGamePlayLayer.mm in Sources */,
+				4DF3A60C18B06BB100D26986 /* BLSpriteLayer.mm in Sources */,
 				4DF3A56C18B06BB000D26986 /* vec3.c in Sources */,
 				4DF3A51E18B06BAF00D26986 /* TGAlib.m in Sources */,
 				4DF3A42718B06BAD00D26986 /* CCAnimation.m in Sources */,
@@ -1466,7 +1472,7 @@
 				4DF3A52F18B06BB000D26986 /* CDOpenALSupport.m in Sources */,
 				4DF3A58218B06BB000D26986 /* b2Distance.cpp in Sources */,
 				4DF3A41218B06BAD00D26986 /* CCActionInstant.m in Sources */,
-				4D3500FC18B74CCC006E4021 /* BLBackgroundLayer.m in Sources */,
+				4D3500FC18B74CCC006E4021 /* BLBackgroundLayer.mm in Sources */,
 				4DF3A43318B06BAD00D26986 /* CCClippingNode.m in Sources */,
 				4DF3A5ED18B06BB100D26986 /* b2PrismaticJoint.cpp in Sources */,
 				4D8A4B3F18B5EAF2006A365B /* GLES-Render.mm in Sources */,
@@ -1479,6 +1485,7 @@
 				4DF3A40918B06BAD00D26986 /* CCActionEase.m in Sources */,
 				4DF3A44618B06BAE00D26986 /* CCFontDefinition.m in Sources */,
 				4DF3A48618B06BAE00D26986 /* CCPhysicsSprite.mm in Sources */,
+				4D75FBC618B751FD00F9974F /* BLUILayer.mm in Sources */,
 				4DF3A5EA18B06BB100D26986 /* b2MouseJoint.cpp in Sources */,
 				4DF3A59518B06BB000D26986 /* b2PolygonShape.cpp in Sources */,
 				4DF3A56A18B06BB000D26986 /* vec2.c in Sources */,
@@ -1487,7 +1494,6 @@
 				4DF3A5CB18B06BB100D26986 /* b2Contact.cpp in Sources */,
 				4DF3A44018B06BAE00D26986 /* CCDrawingPrimitives.m in Sources */,
 				4DF3A4A818B06BAE00D26986 /* ccShaders.m in Sources */,
-				4DF3A60F18B06BB100D26986 /* IntroLayer.mm in Sources */,
 				4DF3A5BE18B06BB100D26986 /* b2WorldCallbacks.cpp in Sources */,
 				4DF3A5DE18B06BB100D26986 /* b2DistanceJoint.cpp in Sources */,
 				4DF3A4FE18B06BAF00D26986 /* CCWindow.m in Sources */,

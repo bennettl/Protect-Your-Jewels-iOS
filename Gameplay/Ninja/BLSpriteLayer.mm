@@ -7,8 +7,7 @@
 //
 
 
-#import "BLGamePlayLayer.h"
-
+#import "BLSpriteLayer.h"
 #import "GBox2D/GB2Sprite.h"
 #import "GBox2D/GB2ShapeCache.h"
 #import "GBox2D/GB2DebugDrawLayer.h"
@@ -18,13 +17,12 @@
 
 #define BOX_TAG 1
 
-#pragma mark - BLGamePlayLayer
+#pragma mark - BLSpriteLayer
 
-@interface BLGamePlayLayer(){
+@interface BLSpriteLayer(){
     b2World *world;
 //    BLJewelSprite *_jewel;
-//    BLContactListener *_contactListener;
-    float _forceMultiplier;
+    float enemyLaunchForce;
     CCLabelTTF *_label;
     CCSpriteBatchNode *objectLayer;
     GB2Node *boxNode;
@@ -34,23 +32,7 @@
 
 @end
 
-@implementation BLGamePlayLayer
-
-+(CCScene *) scene
-{
-	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	
-	// 'layer' is an autorelease object.
-	BLGamePlayLayer *layer = [BLGamePlayLayer node];
-	
-	// add layer as a child to scene
-	[scene addChild: layer];
-	
-	// return the scene
-	return scene;
-}
-
+@implementation BLSpriteLayer
 
 #pragma mark initlization
 
@@ -63,31 +45,19 @@
         // Load physic shapes into shape cache
         [[GB2ShapeCache sharedShapeCache] addShapesWithFile:@"Shapes.plist"];
         
-        // Add background layer
-        BLBackgroundLayer *bgLayer = [BLBackgroundLayer node];
-        [self addChild:bgLayer z:5];
-        
         // Add object layer
         objectLayer = [CCSpriteBatchNode batchNodeWithFile:@"Sprites.pvr.ccz" capacity:150];
         [self addChild:objectLayer z:10];
         
-        // add walls to the left
-      
 //        // Initializations
-//        _forceMultiplier    = 40.0f;
+        enemyLaunchForce    = 3000.0f;
 //        self.currentScore     = 0;
-        self.enemies        = [[NSMutableArray alloc] init];
+            self.enemies        = [[NSMutableArray alloc] init];
 //
-//        [self initScoreLabel];
-//        [self initWorld];
-          [self initJewel];
-          [self initBoundingBox];
-        [self initDebug];
-//
-//        // ContactListener is used for collision Detection
-//        _contactListener = new BLContactListener(self);
-//        _world->SetContactListener(_contactListener);
-//        
+            [self initJewel];
+            [self initBoundingBox];
+            [self initDebug];
+
         // Touching
         self.touchEnabled = YES;
         
@@ -95,21 +65,11 @@
 	return self;
 }
 
-// Creates label score in lower right corner
-- (void)initScoreLabel{
-    CGSize winSize      = [[CCDirector sharedDirector] winSize];
-    _label              = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score: %i", self.currentScore] fontName:@"Marker Felt" fontSize:20];
-    _label.position = ccp(winSize.width - _label.contentSize.width/2 - 40,
-                         25);
-    [self addChild:_label];
-    
-}
-         
 // Creates jewel
  -(void)initJewel{
      CGSize s = [[CCDirector sharedDirector] winSize];
      BLJewelSprite *j = [BLJewelSprite jewelSprite];
-     [j setPhysicsPosition:b2Vec2(s.width/2/PTM_RATIO, s.height/2/PTM_RATIO)];
+     [j setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
      [objectLayer addChild:j.ccNode z:10];
 }
 
@@ -136,15 +96,31 @@
 
 // Initializes enemy at location
 - (void)spawnEnemyAtLocation:(CGPoint)location{
-    BLEnemySprite *es = [BLEnemySprite enemySprite];
-    [es setPhysicsPosition:b2Vec2(location.x/PTM_RATIO, location.y/PTM_RATIO)];
+    CGSize s = [[CCDirector sharedDirector] winSize];
+
+    BLEnemySprite *es = [[BLEnemySprite alloc] initWithSpriteLayer:self];
+    [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:es.ccNode z:10];
+
+    // Get center vector
+    CGPoint pointA                  = location;
+    CGPoint pointB                  = ccp(s.width/2, s.height/2);
+    CGPoint pointC                  = ccpSub(pointB, pointA);
+    pointC                          = ccpNormalize(pointC);
+    
+    b2Vec2 force = b2Vec2((pointC.x/PTM_RATIO) * enemyLaunchForce,
+                          (pointC.y/PTM_RATIO) * enemyLaunchForce);
+    
+
+    
+    [es applyLinearImpulse:force point:[es worldCenter]];
+//    [self applyLinearImpulse:-b2Vec2(impulse,0) point:[self worldCenter]];
+
     [self.enemies addObject:es];
 }
 
 
 #pragma mark Touch
-
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     // Convert touch -> ccLocation -> b2Location
@@ -160,16 +136,17 @@
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *touch      = (UITouch *)[touches anyObject];
- [self updateMouseJointWithTouch:touch];
+    [self updateMouseJointWithTouch:touch];
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
- [self removeMouseJoint];
+    [self removeMouseJoint];
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
- [self removeMouseJoint];
+    [self removeMouseJoint];
 }
+
 
 #pragma mark Mouse Joints
 
@@ -214,41 +191,7 @@
 }
 
 
-#pragma mark ContactListener CallBack
-
-- (void)beginContact:(b2Contact *)contact{
-    b2Fixture *fixtureA = contact->GetFixtureA();
-    b2Fixture *fixtureB = contact->GetFixtureB();
-    b2Body *bodyA       = fixtureA->GetBody();
-    b2Body *bodyB       = fixtureB->GetBody();
-    CCSprite *spriteA   = (CCSprite *)bodyA->GetUserData();
-    CCSprite *spriteB   = (CCSprite *)bodyB->GetUserData();
-    
-//    if (spriteA == NULL && spriteB != NULL){
-//        if (spriteB.tag == ENEMY_TAG){
-//            self.currentScore++;
-//            // remove ball
-//        }
-//    } else if (spriteA != NULL && spriteB == NULL){
-//        if (spriteA.tag == ENEMY_TAG){
-//            self.currentScore++;
-//            // remove ball
-//        }
-//    }
-//    [_label setString:[NSString stringWithFormat:@"Score: %i", self.currentScore]];
-}
-
-- (void)endContact:(b2Contact*)contact{
-    
-}
-
 -(void) dealloc{
-//	delete _world;
-//	_world = NULL;
-	
-    
-//	delete m_debugDraw;
-//	m_debugDraw = NULL;
 	
 	[super dealloc];
 }	

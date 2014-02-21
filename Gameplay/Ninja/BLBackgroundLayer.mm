@@ -13,7 +13,6 @@
 
 // Init function adds background
 - (id)init{
-    
     if (self = [super init]){
         CCSprite *backgroundSprite = [CCSprite spriteWithFile:@"game_background.png"];
         
@@ -23,8 +22,7 @@
         
         [self addChild:backgroundSprite];
     }
-    return self;
-    
+    return self;    
 }
 
 @end

@@ -7,12 +7,15 @@
 //
 
 #import "GB2Sprite.h"
+#import "BLSpriteLayer.h"
 
 @interface BLEnemySprite : GB2Sprite {
-    
+    BLSpriteLayer *spriteLayer; // weak reference
 }
 
 +(BLEnemySprite *)enemySprite;
+
+- (id)initWithSpriteLayer:(BLSpriteLayer *)sl;
 -(BOOL)intersectsWithPoint:(CGPoint)ccLocation;
 
 @end
