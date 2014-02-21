@@ -332,6 +332,7 @@
 }
 
 - (void)startWave{
+    int currentTime = CACurrentMediaTime();
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     // Spawn from right
     CGPoint randR = CGPointMake((int) winSize.width,arc4random() % (int) winSize.height);
