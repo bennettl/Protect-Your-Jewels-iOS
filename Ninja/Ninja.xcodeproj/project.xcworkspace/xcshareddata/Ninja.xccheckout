@@ -5,31 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-	<string>0A6CEBA2-8449-4E28-A355-A2B0425EE69F</string>
-=======
-	<string>F0CE5A60-C120-43BF-9EB1-3D2F1345F827</string>
->>>>>>> c548ce73902a4f78e9f10cb6f151008e06c57c9d
+	<string>A368D46D-240E-455C-8905-456F234851AB</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Ninja</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-<<<<<<< HEAD
 		<key>4A294044-EAAE-47D6-ADA1-F110BBDCC926</key>
-=======
-		<key>C46E4AE0-2712-4C7D-AFD1-ED66B9967EDB</key>
->>>>>>> c548ce73902a4f78e9f10cb6f151008e06c57c9d
 		<string>https://github.com/bennettl/protect-your-jewels.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Ninja/Ninja.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-<<<<<<< HEAD
 		<key>4A294044-EAAE-47D6-ADA1-F110BBDCC926</key>
-=======
-		<key>C46E4AE0-2712-4C7D-AFD1-ED66B9967EDB</key>
->>>>>>> c548ce73902a4f78e9f10cb6f151008e06c57c9d
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -37,26 +25,16 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-<<<<<<< HEAD
 	<string>4A294044-EAAE-47D6-ADA1-F110BBDCC926</string>
-=======
-	<string>C46E4AE0-2712-4C7D-AFD1-ED66B9967EDB</string>
->>>>>>> c548ce73902a4f78e9f10cb6f151008e06c57c9d
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-<<<<<<< HEAD
 			<string>4A294044-EAAE-47D6-ADA1-F110BBDCC926</string>
 			<key>IDESourceControlWCCName</key>
 			<string>protect-your-jewels</string>
-=======
-			<string>C46E4AE0-2712-4C7D-AFD1-ED66B9967EDB</string>
-			<key>IDESourceControlWCCName</key>
-			<string>ITP 382</string>
->>>>>>> c548ce73902a4f78e9f10cb6f151008e06c57c9d
 		</dict>
 	</array>
 </dict>
