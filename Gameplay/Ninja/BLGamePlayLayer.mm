@@ -6,10 +6,16 @@
 //  Copyright Bennett Lee 2014. All rights reserved.
 //
 
+
 #import "BLGamePlayLayer.h"
+
+#import "GBox2D/GB2Sprite.h"
+#import "GBox2D/GB2ShapeCache.h"
+#import "GBox2D/GB2DebugDrawLayer.h"
+#import "GB2Jewel.h"
 #import "BLEnemySprite.h"
-#import "BLJewelSprite.h"
-#import "BLContactListener.h"
+//#import "BLJewelSprite.h"
+//#import "BLContactListener.h"
 
 #define BOX_TAG 1
 
@@ -18,10 +24,12 @@
 @interface BLGamePlayLayer(){
     b2World *_world;
     b2Body *_boxBody;
-    BLJewelSprite *_jewel;
-    BLContactListener *_contactListener;
+//    BLJewelSprite *_jewel;
+//    BLContactListener *_contactListener;
     float _forceMultiplier;
     CCLabelTTF *_label;
+    CCSpriteBatchNode *objectLayer;
+    GB2Node *leftWall;
 }
 
 @property NSMutableArray *enemies;
@@ -50,37 +58,60 @@
 
 -(id) init{
 	if ((self=[super init])) {
-        
-        // Initializations
-        _forceMultiplier    = 40.0f;
-        self.currentScore     = 0;
-        self.enemies        = [[NSMutableArray alloc] init];
+        CGSize winSize      = [[CCDirector sharedDirector] winSize];
 
-        [self initScoreLabel];
-        [self initWorld];
-        [self initJewel];
-        [self initBoundingBox];
+        // Load sprite atlases
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Sprites.plist"];
         
-        // ContactListener is used for collision Detection
-        _contactListener = new BLContactListener(self);
-        _world->SetContactListener(_contactListener);
+        // Load physic shapes into shape cache
+        [[GB2ShapeCache sharedShapeCache] addShapesWithFile:@"Shapes.plist"];
         
+        objectLayer = [CCSpriteBatchNode batchNodeWithFile:@"Sprites.pvr.ccz" capacity:150];
+        [self addChild:objectLayer z:-10];
+        
+        GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
+       [self addChild:debugLayer z:-3];
+        
+        GB2Jewel *j = [GB2Jewel jewelSprite];
+        [j setPhysicsPosition:b2Vec2(winSize.width/2/PTM_RATIO, winSize.height/2/PTM_RATIO)];
+
+        
+        [objectLayer addChild:j.ccNode];
+        
+        // add walls to the left
+        leftWall = [[GB2Node alloc] initWithStaticBody:nil node:nil];
+        [leftWall addEdgeFrom:b2Vec2FromCC(0, 0) to:b2Vec2FromCC(winSize.width, 0)];
+        
+//        // Initializations
+//        _forceMultiplier    = 40.0f;
+//        self.currentScore     = 0;
+        self.enemies        = [[NSMutableArray alloc] init];
+//
+//        [self initScoreLabel];
+//        [self initWorld];
+//        [self initJewel];
+      //  [self initBoundingBox];
+//
+//        // ContactListener is used for collision Detection
+//        _contactListener = new BLContactListener(self);
+//        _world->SetContactListener(_contactListener);
+//        
         // Touching
         self.touchEnabled = YES;
-        
-        // Debug Drawing
-        m_debugDraw = new GLESDebugDraw( PTM_RATIO );
-       _world->SetDebugDraw(m_debugDraw);
-        uint32 flags = 0;
-        flags += b2Draw::e_shapeBit;
-        //		flags += b2Draw::e_jointBit;
-        //		flags += b2Draw::e_aabbBit;
-        //		flags += b2Draw::e_pairBit;
-        //		flags += b2Draw::e_centerOfMassBit;
-        m_debugDraw->SetFlags(flags);
-        
-        // Schedule
-        [self scheduleUpdate];
+//
+//        // Debug Drawing
+//        m_debugDraw = new GLESDebugDraw( PTM_RATIO );
+//       _world->SetDebugDraw(m_debugDraw);
+//        uint32 flags = 0;
+//        flags += b2Draw::e_shapeBit;
+//        //		flags += b2Draw::e_jointBit;
+//        //		flags += b2Draw::e_aabbBit;
+//        //		flags += b2Draw::e_pairBit;
+//        //		flags += b2Draw::e_centerOfMassBit;
+//        m_debugDraw->SetFlags(flags);
+//        
+//        // Schedule
+//        [self scheduleUpdate];
         
         
     }
@@ -88,13 +119,13 @@
 }
 
 // Use for debug drawing
--(void) draw{
-	[super draw];
-	ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-	kmGLPushMatrix();
-	_world->DrawDebugData();
-	kmGLPopMatrix();
-}
+//-(void) draw{
+//	[super draw];
+//	ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+//	kmGLPushMatrix();
+//	_world->DrawDebugData();
+//	kmGLPopMatrix();
+//}
 
 // Creates label score in lower right corner
 - (void)initScoreLabel{
@@ -106,23 +137,19 @@
     
 }
 
-// Initializes the world
--(void)initWorld{
-    b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
-    _world = new b2World(gravity);
-}
          
 // Creates jewel
  -(void)initJewel{
-    _jewel = [[BLJewelSprite alloc] initWithWorld:_world];
-     [self addChild:_jewel z:1];
-     [_jewel activateCollisions];
+//    _jewel = [[BLJewelSprite alloc] initWithWorld:_world];
+//     [self addChild:_jewel z:1];
+//     [_jewel activateCollisions];
 }
 
 // Creates the bonding box
 - (void)initBoundingBox{
     CGSize s = [[CCDirector sharedDirector] winSize];
     b2BodyDef boxBodyDef;
+    _world = [[GB2Engine sharedInstance] world];
     _boxBody = _world->CreateBody(&boxBodyDef);
 	
 	// Define the ground box shape.
@@ -183,10 +210,12 @@
 
 // Initializes enemy at location
 - (void)spawnEnemyAtLocation:(CGPoint)location{
-    BLEnemySprite *es = [[BLEnemySprite alloc] initWithWorld:_world atLocation:location];
-    [self addChild:es];
+    BLEnemySprite *es = [BLEnemySprite enemySprite];
+    [es setPhysicsPosition:b2Vec2(location.x/PTM_RATIO, location.y/PTM_RATIO)];
+    [self addChild:es.ccNode];
+    
     [self.enemies addObject:es];
-    [es activateCollisions];
+//    [es activateCollisions];
 }
 
 
@@ -194,7 +223,6 @@
 
 -(void)update:(ccTime)dt{
     _world->Step(dt, 10, 10); // run physics simulation
-    [self detectCollision]; // collision detection
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -202,25 +230,25 @@
     UITouch *touch      = (UITouch *)[touches anyObject];
     CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
    
-   
     // If a mouse joint is created, that means user touched an enemy, do not create new enemy!
     if ([self createMouseJointWithTouch:touch]){
         return;
     }
+    NSLog(@"nope");
     [self spawnEnemyAtLocation:ccLocation];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *touch      = (UITouch *)[touches anyObject];
-    [self updateMouseJointWithTouch:touch];
+   // [self updateMouseJointWithTouch:touch];
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self removeMouseJoint];
+   // [self removeMouseJoint];
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-   [self removeMouseJoint];
+  // [self removeMouseJoint];
 }
 
 #pragma mark Mouse Joints
@@ -228,18 +256,21 @@
 - (BOOL)createMouseJointWithTouch:(UITouch *)touch{
     CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
+    NSLog(@"enemy count %i", self.enemies.count);
+
     
     // Loop through all enemies
     for (BLEnemySprite *be in self.enemies) {
         // If intersects with point, create mouse joint
         if ([be intersectsWithPoint:ccLocation]){
+//            [be creat]
             b2MouseJointDef md;
-            md.bodyA            = _boxBody;
+            md.bodyA            = leftWall.body;
             md.bodyB            = be.body; //bodyB is body you want to move
             md.target           = b2Location; // point you want to move to
             md.collideConnected = true;
             md.maxForce = 3000.0f * be.body->GetMass(); // force you have when moving body
-            be.mouseJoint = (b2MouseJoint *)_world->CreateJoint(&md);
+            be.mouseJoint = (b2MouseJoint *)((b2World *)[GB2Engine sharedInstance])->CreateJoint(&md);
             be.body->SetAwake(true);
             return YES;
         }
@@ -253,97 +284,25 @@
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Loop through all enemies
-    for (BLEnemySprite *be in self.enemies) {
-        // If mousejoint exists, update it
-        if (be.mouseJoint){
-            be.mouseJoint->SetTarget(b2Location);
-        }
-    }
+//    for (BLEnemySprite *be in self.enemies) {
+//        // If mousejoint exists, update it
+//        if (be.mouseJoint){
+//            be.mouseJoint->SetTarget(b2Location);
+//        }
+//    }
 }
 
 - (void)removeMouseJoint{
     // Loop through all enemies
-    for (BLEnemySprite *be in self.enemies) {
-        // If mousejoint exists, delete it
-        if (be.mouseJoint){
-            _world->DestroyJoint(be.mouseJoint);
-            be.mouseJoint = NULL;
-        }
-    }
+//    for (BLEnemySprite *be in self.enemies) {
+//        // If mousejoint exists, delete it
+//        if (be.mouseJoint){
+//            _world->DestroyJoint(be.mouseJoint);
+//            be.mouseJoint = NULL;
+//        }
+//    }
 }
 
-#pragma mark collision detection
-
-- (void)detectCollision{
-    
-    // Iterate through each collision detection
-    std::vector<b2Body *> destroyBlocks;
-    std::vector<MyContact>::iterator pos;
-    
-    for (pos = _contactListener->_contacts.begin();
-         pos != _contactListener->_contacts.end(); ++pos){
-        
-        MyContact contact = *pos;
-       //     NSLog(@"something was hit");
-        
-            // Examine bodies
-            b2Body * bodyA = contact.fixtureA->GetBody();
-            b2Body * bodyB = contact.fixtureB->GetBody();
-            
-            // Two Enemies
-            if (bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL){
-                CCSprite *bodyASprite = (CCSprite *)bodyA->GetUserData();
-                CCSprite *bodyBSprite = (CCSprite *)bodyB->GetUserData();
-                
-                
-            }
-            
-//            if (bodyB == _boxBody)
-        }
-    
-        // Ball fixture collides with bottomFixture
-//        if ((contact.fixtureA == _bottomFixture && contact.fixtureB == _ballFixture) ||
-//            (contact.fixtureA == _ballFixture && contact.fixtureB == _bottomFixture) ){
-//            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO];
-//            [[CCDirector sharedDirector] replaceScene:gameOverScene];
-//            [self unschedule:@selector(tick:)];
-//            return;
-//        }
-        
-  
-        
-//        if (bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL){
-//            CCSprite *bodyASprite = (CCSprite *)bodyA->GetUserData();
-//            CCSprite *bodyBSprite = (CCSprite *)bodyB->GetUserData();
-//            NSLog(@"%i %i", bodyASprite.tag, bodyBSprite.tag);
-//            
-//            // Determine if its a ball (1) and block (2) base on sprite tags
-//                // If body b is not already in there
-//                if (std::find(destroyBlocks.begin(), destroyBlocks.end(), bodyB) == destroyBlocks.end()) {
-//                    destroyBlocks.push_back(bodyB);
-//                }
-//            } else if (bodyASprite.tag == 2 && bodyBSprite.tag == 1){
-//                // Body body A isn't already there
-//                if (std::find(destroyBlocks.begin(), destroyBlocks.end(), bodyA) == destroyBlocks.end()){
-//                    destroyBlocks.push_back(bodyA);
-//                }
-//            }
-//        }
-    
-   
-    
-    // Iterate through each destroyBlocks and destroy them
-    std::vector<b2Body *>::iterator pos2;
-    for (pos2 = destroyBlocks.begin(); pos2 != destroyBlocks.end(); ++pos2){
-        b2Body *body = *pos2;
-        if (body->GetUserData() != NULL){
-            CCSprite *bodySprite = (CCSprite *)body->GetUserData();
-            [self removeChild:bodySprite cleanup:YES];
-        }
-        _world->DestroyBody(body);
-    }
-    
-}
 
 #pragma mark ContactListener CallBack
 
@@ -355,18 +314,18 @@
     CCSprite *spriteA   = (CCSprite *)bodyA->GetUserData();
     CCSprite *spriteB   = (CCSprite *)bodyB->GetUserData();
     
-    if (spriteA == NULL && spriteB != NULL){
-        if (spriteB.tag == ENEMY_TAG){
-            self.currentScore++;
-            // remove ball
-        }
-    } else if (spriteA != NULL && spriteB == NULL){
-        if (spriteA.tag == ENEMY_TAG){
-            self.currentScore++;
-            // remove ball
-        }
-    }
-    [_label setString:[NSString stringWithFormat:@"Score: %i", self.currentScore]];
+//    if (spriteA == NULL && spriteB != NULL){
+//        if (spriteB.tag == ENEMY_TAG){
+//            self.currentScore++;
+//            // remove ball
+//        }
+//    } else if (spriteA != NULL && spriteB == NULL){
+//        if (spriteA.tag == ENEMY_TAG){
+//            self.currentScore++;
+//            // remove ball
+//        }
+//    }
+//    [_label setString:[NSString stringWithFormat:@"Score: %i", self.currentScore]];
 }
 
 - (void)endContact:(b2Contact*)contact{
@@ -378,8 +337,8 @@
 	_world = NULL;
 	
     
-	delete m_debugDraw;
-	m_debugDraw = NULL;
+//	delete m_debugDraw;
+//	m_debugDraw = NULL;
 	
 	[super dealloc];
 }	

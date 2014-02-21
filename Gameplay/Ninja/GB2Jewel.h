@@ -1,18 +1,18 @@
 //
-//  BLEnemySprite.h
+//  GB2Jewel.h
 //  GamePlay
 //
 //  Created by Bennett Lee on 2/20/14.
 //  Copyright 2014 Bennett Lee. All rights reserved.
 //
 
+#import "cocos2d.h"
 #import "GB2Sprite.h"
 
-@interface BLEnemySprite : GB2Sprite {
+@interface GB2Jewel : GB2Sprite {
     
 }
 
-+(BLEnemySprite *)enemySprite;
--(BOOL)intersectsWithPoint:(CGPoint)ccLocation;
++(GB2Jewel *)jewelSprite;
 
 @end

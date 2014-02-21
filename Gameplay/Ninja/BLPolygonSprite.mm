@@ -18,6 +18,7 @@
 -(id)initWithFile:(NSString*)filename body:(b2Body*)body{
     NSAssert(filename != nil, @"Invalid file name yo!");
     CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:filename];
+    
     return [self initWithTexture:texture body:body];
 }
 
@@ -54,6 +55,7 @@
     return nil;
 }
 
+// Will be used by subclasses in their init method
 -(b2Body*)createBodyForWorld:(b2World*)world
                     position:(b2Vec2)position
                     rotation:(float)rotation
@@ -81,13 +83,10 @@
     fixtureDef.density              = density;
     fixtureDef.friction             = friction;
     fixtureDef.restitution          = restitution;
-   
-//    b2PolygonShape* shape = (b2PolygonShape*)body->GetFixtureList()->GetShape();
-    NSLog(@"%f %f ", polygonShape.m_centroid.x, polygonShape.m_centroid.y);
     
-    body->SetTransform(b2Vec2(position.x - polygonShape.m_centroid.x,
-                              position.y - polygonShape.m_centroid.y),
-                       body->GetAngle());
+    // Since Box2D body’s origin is at (0,0), we need to offset this by subtracting from the center
+    // Cocoa's 2D sprite origin and positioning refers to the center, not lower left corner!
+    body->SetTransform(b2Vec2(position.x - polygonShape.m_centroid.x, position.y - polygonShape.m_centroid.y), body->GetAngle());
                        
     // Collision filtering
     fixtureDef.filter.categoryBits  = 0;
@@ -105,7 +104,7 @@
     self.body->SetTransform(b2Vec2(position.x/ PTM_RATIO, position.y/ PTM_RATIO), self.body->GetAngle());
 }
 
-
+// Activate collision by setting category and maskbits to 1
 -(void)activateCollisions{
     b2Fixture *fixture      = self.body->GetFixtureList();
     b2Filter filter         = fixture->GetFilterData();
@@ -115,6 +114,7 @@
     fixture->SetFilterData(filter);
 }
 
+// Deactivate collision by setting category and maskbits to 0
 -(void)deactivateCollisions{
     b2Fixture *fixture      = self.body->GetFixtureList();
     b2Filter filter         = fixture->GetFilterData();
@@ -146,10 +146,52 @@
     }
     
     // Rot, Translate Matrix
-    _transform = CGAffineTransformMake( c,s,
+    _transform = CGAffineTransformMake(c,s,
                                        -s,c,
                                        x,y );
     
     return _transform;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end

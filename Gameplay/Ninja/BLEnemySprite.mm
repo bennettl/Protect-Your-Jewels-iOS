@@ -1,65 +1,31 @@
 //
-//  BLEnemyPolygon.m
+//  BLEnemySprite.m
 //  GamePlay
 //
-//  Created by Bennett Lee on 2/18/14.
+//  Created by Bennett Lee on 2/20/14.
 //  Copyright 2014 Bennett Lee. All rights reserved.
 //
 
 #import "BLEnemySprite.h"
 
-#define FILE_NAME @"ninja_attack.png"
 
 @implementation BLEnemySprite
 
-- (id)initWithWorld:(b2World *)world atLocation:(CGPoint)ccLocation{
-
-    float _forceMultiplier  = 100;
-
-    // Taken from PhysicsEditor
-    int verticiesCount      = 7;
-    b2Vec2 verticies[]      = {
-                                b2Vec2(17.0/PTM_RATIO, 6.0/PTM_RATIO),
-                                b2Vec2(39.0/PTM_RATIO, 10.0/PTM_RATIO),
-                                b2Vec2(53.0/PTM_RATIO, 37.0/PTM_RATIO),
-                                b2Vec2(41.0/PTM_RATIO, 58.0/PTM_RATIO),
-                                b2Vec2(26.0/PTM_RATIO, 58.0/PTM_RATIO),
-                                b2Vec2(16.0/PTM_RATIO, 48.0/PTM_RATIO),
-                                b2Vec2(12.0/PTM_RATIO, 26.0/PTM_RATIO)
-                            };
-    CGSize winSize          = [[CCDirector sharedDirector] winSize];
-    b2Vec2 location         = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
-    
-    b2Body *body            = [self createBodyForWorld:world
-                                              position:location
-                                              rotation:0
-                                              vertices:verticies
-                                           vertexCount:verticiesCount
-                                               density:5.0f
-                                              friction:0.2f
-                                           restitution:0.2f];
-    
-    if (self = [super initWithFile:FILE_NAME body:body]){
-        // Get center vector
-        CGPoint pointA  = ccLocation;
-        CGPoint pointB  = ccp(winSize.width/2, winSize.height/2);
-        CGPoint pointC  = ccpSub(pointB, pointA);
-        pointC          = ccpNormalize(pointC);
-        
-        b2Vec2 force = b2Vec2((pointC.x/PTM_RATIO * _forceMultiplier),
-                              (pointC.y/PTM_RATIO) * _forceMultiplier);
-        
-        self.body->ApplyLinearImpulse(force, self.body->GetPosition());
-    }
-    
-    return self;
++(BLEnemySprite *)enemySprite{
+    return [[[self alloc] initWithDynamicBody:@"ninja" spriteFrameName:@"ninja/attack.png"] autorelease];
 }
 
-// Determine if object intersects with a CGPoint
-- (BOOL)intersectsWithPoint:(CGPoint)ccLocation{
-    b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
-    b2Fixture *fixture = self.body->GetFixtureList();
-    return (fixture->TestPoint(b2Location)) ? YES : NO;
+
+-(BOOL)intersectsWithPoint:(CGPoint)ccLocation{
+    b2Vec2 b2Location(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
+    
+    for (b2Fixture *fixture = self.body->GetFixtureList(); fixture; fixture = fixture->GetNext()){
+        if (fixture->TestPoint(b2Location)){
+            return YES;
+        }
+    }
+    return NO;
+
 }
 
 @end
