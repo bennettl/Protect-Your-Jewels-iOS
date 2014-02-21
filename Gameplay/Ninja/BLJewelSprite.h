@@ -8,10 +8,14 @@
 
 #import "GB2Sprite.h"
 
+@class BLSpriteLayer;
+
 @interface BLJewelSprite : GB2Sprite {
-    
+    BLSpriteLayer *spriteLayer;
 }
 
 +(BLJewelSprite *)jewelSprite;
+
+-(id)initWithSpriteLayer:(BLSpriteLayer *)sl;
 
 @end

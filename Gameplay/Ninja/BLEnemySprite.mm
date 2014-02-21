@@ -22,11 +22,9 @@
     
         // Do not let the enemy rotate
         [self setFixedRotation:true];
-    
-        // Store the sprite layer
-        spriteLayer = sl;
+        self.state = kAttack;
+        spriteLayer = sl;  // Store the sprite layer
     }
-    
     return self;
 }
 
@@ -37,15 +35,53 @@
     // Loop through and test all fixtures
     for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
         if (f->TestPoint(b2Location)){
+            self.state = kFall; // set state to kfall if a point touches enemy
             return YES;
         }
     }
     return NO;
 }
 
+#pragma mark Sprite
+
+// Called by the GB2Engine on every frame for a GB2Node object to update the physics.
+- (void)updateCCFromPhysics{
+    [super updateCCFromPhysics];
+    
+    // Update image filename
+    NSString *frameName;
+    
+    if (self.state == kAttack){
+        frameName = @"ninja/attack.png";
+    } else if (self.state == kFall){
+        frameName =@"ninja/fall.png";
+    }
+    
+    [self setDisplayFrameNamed:frameName];
+    
+    // Update image orientation
+    
+    // Flip sprite horizontal if its position is on the left/right side of screen
+    if (self.physicsPosition.x >  ([CCDirector sharedDirector].winSize.width/2/PTM_RATIO)){
+        ((CCSprite *)self.ccNode).flipX = YES;
+    } else{
+        ((CCSprite *)self.ccNode).flipX = NO;
+    }
+    
+}
+
 #pragma mark Collision Detection
 
+- (void)beginContactWithBLBoxNode:(GB2Contact *)contact{
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+}
+
 // write functions in the form of [objectA endContactWithMonkey:collisionA];
+- (void)beginContactWithBLEnemySprite:(GB2Contact *)contact{
+    self.state = kFall;
+    ((BLEnemySprite *)contact.otherObject).state = kFall; // set enemy's state to fall
+    NSLog(@"hit my own kind!");
+}
 
 - (void)beginContactWithBLJewelSprite:(GB2Contact*)contact{
     NSLog(@"ouch");

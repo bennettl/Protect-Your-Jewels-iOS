@@ -13,9 +13,9 @@
 #import "GBox2D/GB2DebugDrawLayer.h"
 #import "BLJewelSprite.h"
 #import "BLEnemySprite.h"
+#import "BLBoxNode.h"
 #import "BLBackgroundLayer.h"
 
-#define BOX_TAG 1
 
 #pragma mark - BLSpriteLayer
 
@@ -50,17 +50,17 @@
         [self addChild:objectLayer z:10];
         
 //        // Initializations
-        enemyLaunchForce    = 3000.0f;
+            enemyLaunchForce    = 1000.0f;
 //        self.currentScore     = 0;
             self.enemies        = [[NSMutableArray alloc] init];
 //
+        // Create bounding box
+        boxNode = [[BLBoxNode alloc] init];
             [self initJewel];
-            [self initBoundingBox];
             [self initDebug];
 
-        // Touching
-        self.touchEnabled = YES;
-        
+            // Touching
+            self.touchEnabled = YES;
     }
 	return self;
 }
@@ -73,20 +73,6 @@
      [objectLayer addChild:j.ccNode z:10];
 }
 
-// Creates the bonding box
-- (void)initBoundingBox{
-    CGSize s = [[CCDirector sharedDirector] winSize];
-    
-    boxNode = [[GB2Node alloc] initWithStaticBody:nil node:nil];
-    // Bottom
-    [boxNode addEdgeFrom:b2Vec2FromCC(0, 0) to:b2Vec2FromCC(s.width, 0)];
-    // Left
-    [boxNode addEdgeFrom:b2Vec2FromCC(0, 0) to:b2Vec2FromCC(0, s.height)];
-    // Top
-    [boxNode addEdgeFrom:b2Vec2FromCC(s.width, s.height) to:b2Vec2FromCC(0, s.height)];
-    // Right
-    [boxNode addEdgeFrom:b2Vec2FromCC(s.width, s.height) to:b2Vec2FromCC(s.width, 0)];
-}
 
 // Add debug layer
 - (void)initDebug{
@@ -101,7 +87,9 @@
     BLEnemySprite *es = [[BLEnemySprite alloc] initWithSpriteLayer:self];
     [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:es.ccNode z:10];
+    [self.enemies addObject:es];
 
+    // Launch enemy towards center
     // Get center vector
     CGPoint pointA                  = location;
     CGPoint pointB                  = ccp(s.width/2, s.height/2);
@@ -111,12 +99,8 @@
     b2Vec2 force = b2Vec2((pointC.x/PTM_RATIO) * enemyLaunchForce,
                           (pointC.y/PTM_RATIO) * enemyLaunchForce);
     
-
-    
     [es applyLinearImpulse:force point:[es worldCenter]];
-//    [self applyLinearImpulse:-b2Vec2(impulse,0) point:[self worldCenter]];
 
-    [self.enemies addObject:es];
 }
 
 
@@ -192,7 +176,6 @@
 
 
 -(void) dealloc{
-	
 	[super dealloc];
 }	
 

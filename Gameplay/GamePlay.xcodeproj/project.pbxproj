@@ -12,6 +12,7 @@
 		4D3500FC18B74CCC006E4021 /* BLBackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.mm */; };
 		4D75FBC318B750A000F9974F /* BLGameplayScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D75FBC218B750A000F9974F /* BLGameplayScene.mm */; };
 		4D75FBC618B751FD00F9974F /* BLUILayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D75FBC518B751FD00F9974F /* BLUILayer.mm */; };
+		4D75FBC918B7642700F9974F /* BLBoxNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D75FBC818B7642700F9974F /* BLBoxNode.mm */; };
 		4D8A489318B5E344006A365B /* Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A488E18B5E344006A365B /* Shapes.plist */; };
 		4D8A489418B5E344006A365B /* Sprites-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A488F18B5E344006A365B /* Sprites-hd.plist */; };
 		4D8A489518B5E344006A365B /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A489018B5E344006A365B /* Sprites.plist */; };
@@ -217,6 +218,8 @@
 		4D75FBC218B750A000F9974F /* BLGameplayScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLGameplayScene.mm; sourceTree = "<group>"; };
 		4D75FBC418B751FD00F9974F /* BLUILayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUILayer.h; sourceTree = "<group>"; };
 		4D75FBC518B751FD00F9974F /* BLUILayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLUILayer.mm; sourceTree = "<group>"; };
+		4D75FBC718B7642700F9974F /* BLBoxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBoxNode.h; sourceTree = "<group>"; };
+		4D75FBC818B7642700F9974F /* BLBoxNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLBoxNode.mm; sourceTree = "<group>"; };
 		4D8A488E18B5E344006A365B /* Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Shapes.plist; path = Resources/Shapes.plist; sourceTree = "<group>"; };
 		4D8A488F18B5E344006A365B /* Sprites-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Sprites-hd.plist"; path = "Resources/Sprites-hd.plist"; sourceTree = "<group>"; };
 		4D8A489018B5E344006A365B /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Sprites.plist; path = Resources/Sprites.plist; sourceTree = "<group>"; };
@@ -711,6 +714,8 @@
 				4D3500F418B72C50006E4021 /* BLEnemySprite.mm */,
 				4D8A4B6518B5EE0D006A365B /* BLJewelSprite.h */,
 				4D8A4B6618B5EE0D006A365B /* BLJewelSprite.mm */,
+				4D75FBC718B7642700F9974F /* BLBoxNode.h */,
+				4D75FBC818B7642700F9974F /* BLBoxNode.mm */,
 				4D3500FA18B74CCC006E4021 /* BLBackgroundLayer.h */,
 				4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.mm */,
 				4D8A4B2518B5EAF2006A365B /* GBox2D */,
@@ -1463,6 +1468,7 @@
 				4DF3A5D718B06BB100D26986 /* b2PolygonAndCircleContact.cpp in Sources */,
 				4DF3A5BB18B06BB100D26986 /* b2World.cpp in Sources */,
 				4DF3A60018B06BB100D26986 /* b2Rope.cpp in Sources */,
+				4D75FBC918B7642700F9974F /* BLBoxNode.mm in Sources */,
 				4DF3A52B18B06BB000D26986 /* CDAudioManager.m in Sources */,
 				4D8A4B3E18B5EAF2006A365B /* GB2WorldContactListener.mm in Sources */,
 				4DF3A57F18B06BB000D26986 /* b2Collision.cpp in Sources */,

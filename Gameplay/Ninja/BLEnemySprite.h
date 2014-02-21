@@ -7,15 +7,25 @@
 //
 
 #import "GB2Sprite.h"
-#import "BLSpriteLayer.h"
+
+@class BLSpriteLayer;
+
+typedef enum {
+    kAttack,
+    kFall
+} EnemyState;
+
 
 @interface BLEnemySprite : GB2Sprite {
     BLSpriteLayer *spriteLayer; // weak reference
 }
 
+@property EnemyState state;
+
 +(BLEnemySprite *)enemySprite;
 
 - (id)initWithSpriteLayer:(BLSpriteLayer *)sl;
+
 -(BOOL)intersectsWithPoint:(CGPoint)ccLocation;
 
 @end
