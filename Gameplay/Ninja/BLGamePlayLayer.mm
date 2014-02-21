@@ -22,7 +22,7 @@
 #pragma mark - BLGamePlayLayer
 
 @interface BLGamePlayLayer(){
-    b2World *_world;
+    b2World *world;
     b2Body *_boxBody;
 //    BLJewelSprite *_jewel;
 //    BLContactListener *_contactListener;
@@ -59,7 +59,7 @@
 -(id) init{
 	if ((self=[super init])) {
         CGSize winSize      = [[CCDirector sharedDirector] winSize];
-
+//        _world = [GB2Engine sharedInstance].world;
         // Load sprite atlases
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Sprites.plist"];
         
@@ -149,8 +149,7 @@
 - (void)initBoundingBox{
     CGSize s = [[CCDirector sharedDirector] winSize];
     b2BodyDef boxBodyDef;
-    _world = [[GB2Engine sharedInstance] world];
-    _boxBody = _world->CreateBody(&boxBodyDef);
+    _boxBody = world->CreateBody(&boxBodyDef);
 	
 	// Define the ground box shape.
 	b2EdgeShape boxShape;
@@ -221,9 +220,6 @@
 
 #pragma mark Touch
 
--(void)update:(ccTime)dt{
-    _world->Step(dt, 10, 10); // run physics simulation
-}
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     // Convert touch -> ccLocation -> b2Location
@@ -240,15 +236,15 @@
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *touch      = (UITouch *)[touches anyObject];
-   // [self updateMouseJointWithTouch:touch];
+ [self updateMouseJointWithTouch:touch];
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-   // [self removeMouseJoint];
+ [self removeMouseJoint];
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-  // [self removeMouseJoint];
+ [self removeMouseJoint];
 }
 
 #pragma mark Mouse Joints
@@ -263,15 +259,15 @@
     for (BLEnemySprite *be in self.enemies) {
         // If intersects with point, create mouse joint
         if ([be intersectsWithPoint:ccLocation]){
-//            [be creat]
-            b2MouseJointDef md;
-            md.bodyA            = leftWall.body;
-            md.bodyB            = be.body; //bodyB is body you want to move
-            md.target           = b2Location; // point you want to move to
-            md.collideConnected = true;
-            md.maxForce = 3000.0f * be.body->GetMass(); // force you have when moving body
-            be.mouseJoint = (b2MouseJoint *)((b2World *)[GB2Engine sharedInstance])->CreateJoint(&md);
-            be.body->SetAwake(true);
+            [be createMouseJointWithGroundBody:leftWall.body target:b2Location maxForce:1000];
+//            b2MouseJointDef md;
+//            md.bodyA            = leftWall.body;
+//            md.bodyB            = be.body; //bodyB is body you want to move
+//            md.target           = b2Location; // point you want to move to
+//            md.collideConnected = true;
+//            md.maxForce = 3000.0f * be.body->GetMass(); // force you have when moving body
+//            be.mouseJoint = (b2MouseJoint *)()[GB2Engine sharedInstance].world)->CreateJoint(&md);
+//            be.body->SetAwake(true);
             return YES;
         }
     }
@@ -284,23 +280,23 @@
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Loop through all enemies
-//    for (BLEnemySprite *be in self.enemies) {
-//        // If mousejoint exists, update it
-//        if (be.mouseJoint){
-//            be.mouseJoint->SetTarget(b2Location);
-//        }
-//    }
+    for (BLEnemySprite *be in self.enemies) {
+        // If mousejoint exists, update it
+        if (be.mouseJoint){
+            be.mouseJoint->SetTarget(b2Location);
+        }
+    }
 }
 
 - (void)removeMouseJoint{
     // Loop through all enemies
-//    for (BLEnemySprite *be in self.enemies) {
-//        // If mousejoint exists, delete it
-//        if (be.mouseJoint){
-//            _world->DestroyJoint(be.mouseJoint);
-//            be.mouseJoint = NULL;
-//        }
-//    }
+    for (BLEnemySprite *be in self.enemies) {
+        // If mousejoint exists, delete it
+        if (be.mouseJoint){
+            [GB2Engine sharedInstance].world->DestroyJoint(be.mouseJoint);
+            be.mouseJoint = NULL;
+        }
+    }
 }
 
 
@@ -333,8 +329,8 @@
 }
 
 -(void) dealloc{
-	delete _world;
-	_world = NULL;
+//	delete _world;
+//	_world = NULL;
 	
     
 //	delete m_debugDraw;
