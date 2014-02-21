@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4D3500F518B72C50006E4021 /* BLEnemySprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D3500F418B72C50006E4021 /* BLEnemySprite.mm */; };
-		4D56BB9818B482D6003A26DB /* PolygonSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BB9018B482D5003A26DB /* PolygonSprite.mm */; };
-		4D56BB9918B482D6003A26DB /* PRFilledPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BB9218B482D5003A26DB /* PRFilledPolygon.m */; };
-		4D56BB9A18B482D6003A26DB /* PRRatcliffTriangulator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BB9418B482D5003A26DB /* PRRatcliffTriangulator.mm */; };
-		4D56BB9B18B482D6003A26DB /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BB9618B482D6003A26DB /* triangulate.cpp */; };
-		4D56BBA818B48686003A26DB /* BLPolygonSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D56BBA718B48686003A26DB /* BLPolygonSprite.mm */; };
+		4D3500F918B74B95006E4021 /* game_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3500F818B74B95006E4021 /* game_background.png */; };
+		4D3500FC18B74CCC006E4021 /* BLBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.m */; };
 		4D8A489318B5E344006A365B /* Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A488E18B5E344006A365B /* Shapes.plist */; };
 		4D8A489418B5E344006A365B /* Sprites-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A488F18B5E344006A365B /* Sprites-hd.plist */; };
 		4D8A489518B5E344006A365B /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A489018B5E344006A365B /* Sprites.plist */; };
@@ -26,7 +23,7 @@
 		4D8A4B3D18B5EAF2006A365B /* GB2Sprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A4B3218B5EAF2006A365B /* GB2Sprite.mm */; };
 		4D8A4B3E18B5EAF2006A365B /* GB2WorldContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A4B3418B5EAF2006A365B /* GB2WorldContactListener.mm */; };
 		4D8A4B3F18B5EAF2006A365B /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A4B3618B5EAF2006A365B /* GLES-Render.mm */; };
-		4D8A4B6718B5EE0D006A365B /* GB2Jewel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A4B6618B5EE0D006A365B /* GB2Jewel.mm */; };
+		4D8A4B6718B5EE0D006A365B /* BLJewelSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A4B6618B5EE0D006A365B /* BLJewelSprite.mm */; };
 		4DF3A3D018B06BAC00D26986 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF3A3CF18B06BAC00D26986 /* QuartzCore.framework */; };
 		4DF3A3D218B06BAC00D26986 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF3A3D118B06BAC00D26986 /* OpenGLES.framework */; };
 		4DF3A3D418B06BAC00D26986 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF3A3D318B06BAC00D26986 /* OpenAL.framework */; };
@@ -212,17 +209,9 @@
 /* Begin PBXFileReference section */
 		4D3500F318B72C50006E4021 /* BLEnemySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEnemySprite.h; sourceTree = "<group>"; };
 		4D3500F418B72C50006E4021 /* BLEnemySprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLEnemySprite.mm; sourceTree = "<group>"; };
-		4D56BB8F18B482D5003A26DB /* PolygonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonSprite.h; sourceTree = "<group>"; };
-		4D56BB9018B482D5003A26DB /* PolygonSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PolygonSprite.mm; sourceTree = "<group>"; };
-		4D56BB9118B482D5003A26DB /* PRFilledPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRFilledPolygon.h; sourceTree = "<group>"; };
-		4D56BB9218B482D5003A26DB /* PRFilledPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRFilledPolygon.m; sourceTree = "<group>"; };
-		4D56BB9318B482D5003A26DB /* PRRatcliffTriangulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRRatcliffTriangulator.h; sourceTree = "<group>"; };
-		4D56BB9418B482D5003A26DB /* PRRatcliffTriangulator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PRRatcliffTriangulator.mm; sourceTree = "<group>"; };
-		4D56BB9518B482D6003A26DB /* PRTriangulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTriangulator.h; sourceTree = "<group>"; };
-		4D56BB9618B482D6003A26DB /* triangulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangulate.cpp; sourceTree = "<group>"; };
-		4D56BB9718B482D6003A26DB /* triangulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangulate.h; sourceTree = "<group>"; };
-		4D56BBA618B48686003A26DB /* BLPolygonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLPolygonSprite.h; sourceTree = "<group>"; };
-		4D56BBA718B48686003A26DB /* BLPolygonSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLPolygonSprite.mm; sourceTree = "<group>"; };
+		4D3500F818B74B95006E4021 /* game_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_background.png; sourceTree = "<group>"; };
+		4D3500FA18B74CCC006E4021 /* BLBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBackgroundLayer.h; sourceTree = "<group>"; };
+		4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBackgroundLayer.m; sourceTree = "<group>"; };
 		4D8A488E18B5E344006A365B /* Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Shapes.plist; path = Resources/Shapes.plist; sourceTree = "<group>"; };
 		4D8A488F18B5E344006A365B /* Sprites-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Sprites-hd.plist"; path = "Resources/Sprites-hd.plist"; sourceTree = "<group>"; };
 		4D8A489018B5E344006A365B /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Sprites.plist; path = Resources/Sprites.plist; sourceTree = "<group>"; };
@@ -246,8 +235,8 @@
 		4D8A4B3518B5EAF2006A365B /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		4D8A4B3618B5EAF2006A365B /* GLES-Render.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		4D8A4B3718B5EAF2006A365B /* GMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMath.h; sourceTree = "<group>"; };
-		4D8A4B6518B5EE0D006A365B /* GB2Jewel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2Jewel.h; sourceTree = "<group>"; };
-		4D8A4B6618B5EE0D006A365B /* GB2Jewel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GB2Jewel.mm; sourceTree = "<group>"; };
+		4D8A4B6518B5EE0D006A365B /* BLJewelSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLJewelSprite.h; sourceTree = "<group>"; };
+		4D8A4B6618B5EE0D006A365B /* BLJewelSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLJewelSprite.mm; sourceTree = "<group>"; };
 		4DF3A3CC18B06BAC00D26986 /* GamePlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamePlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF3A3CF18B06BAC00D26986 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4DF3A3D118B06BAC00D26986 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -647,22 +636,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4D56BB8E18B482D5003A26DB /* PRKit */ = {
-			isa = PBXGroup;
-			children = (
-				4D56BB8F18B482D5003A26DB /* PolygonSprite.h */,
-				4D56BB9018B482D5003A26DB /* PolygonSprite.mm */,
-				4D56BB9118B482D5003A26DB /* PRFilledPolygon.h */,
-				4D56BB9218B482D5003A26DB /* PRFilledPolygon.m */,
-				4D56BB9318B482D5003A26DB /* PRRatcliffTriangulator.h */,
-				4D56BB9418B482D5003A26DB /* PRRatcliffTriangulator.mm */,
-				4D56BB9518B482D6003A26DB /* PRTriangulator.h */,
-				4D56BB9618B482D6003A26DB /* triangulate.cpp */,
-				4D56BB9718B482D6003A26DB /* triangulate.h */,
-			);
-			path = PRKit;
-			sourceTree = "<group>";
-		};
 		4D8A4B2518B5EAF2006A365B /* GBox2D */ = {
 			isa = PBXGroup;
 			children = (
@@ -729,10 +702,10 @@
 				4DF3A60B18B06BB100D26986 /* BLGamePlayLayer.mm */,
 				4D3500F318B72C50006E4021 /* BLEnemySprite.h */,
 				4D3500F418B72C50006E4021 /* BLEnemySprite.mm */,
-				4D8A4B6518B5EE0D006A365B /* GB2Jewel.h */,
-				4D8A4B6618B5EE0D006A365B /* GB2Jewel.mm */,
-				4D56BBA618B48686003A26DB /* BLPolygonSprite.h */,
-				4D56BBA718B48686003A26DB /* BLPolygonSprite.mm */,
+				4D8A4B6518B5EE0D006A365B /* BLJewelSprite.h */,
+				4D8A4B6618B5EE0D006A365B /* BLJewelSprite.mm */,
+				4D3500FA18B74CCC006E4021 /* BLBackgroundLayer.h */,
+				4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.m */,
 				4D8A4B2518B5EAF2006A365B /* GBox2D */,
 				4DF3A3E418B06BAD00D26986 /* Resources */,
 				4DF3A3FC18B06BAD00D26986 /* libs */,
@@ -745,6 +718,7 @@
 		4DF3A3E418B06BAD00D26986 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4D3500F818B74B95006E4021 /* game_background.png */,
 				4D8A488E18B5E344006A365B /* Shapes.plist */,
 				4D8A488F18B5E344006A365B /* Sprites-hd.plist */,
 				4D8A489018B5E344006A365B /* Sprites.plist */,
@@ -770,7 +744,6 @@
 		4DF3A3FC18B06BAD00D26986 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				4D56BB8E18B482D5003A26DB /* PRKit */,
 				4DF3A52718B06BB000D26986 /* LICENSE_cocos2d.txt */,
 				4DF3A53D18B06BB000D26986 /* LICENSE_CocosDenshion.txt */,
 				4DF3A56F18B06BB000D26986 /* LICENSE_Kazmath.txt */,
@@ -1354,6 +1327,7 @@
 				4DF3A3F018B06BAD00D26986 /* Icon-Small-50.png in Resources */,
 				4DF3A3FB18B06BAD00D26986 /* iTunesArtwork in Resources */,
 				4D8A489618B5E344006A365B /* Sprites-hd.pvr.ccz in Resources */,
+				4D3500F918B74B95006E4021 /* game_background.png in Resources */,
 				4DF3A61418B06BB100D26986 /* blocks.png in Resources */,
 				4DF3A3F418B06BAD00D26986 /* Icon-Small@2x.png in Resources */,
 				4D8A489318B5E344006A365B /* Shapes.plist in Resources */,
@@ -1371,7 +1345,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D56BB9918B482D6003A26DB /* PRFilledPolygon.m in Sources */,
 				4DF3A4C018B06BAF00D26986 /* CCTexturePVR.m in Sources */,
 				4DF3A51018B06BAF00D26986 /* ccUtils.c in Sources */,
 				4DF3A46118B06BAE00D26986 /* CCLayer.m in Sources */,
@@ -1394,7 +1367,6 @@
 				4D8A4B3A18B5EAF2006A365B /* GB2Engine.mm in Sources */,
 				4DF3A5C218B06BB100D26986 /* b2ChainAndCircleContact.cpp in Sources */,
 				4DF3A5C818B06BB100D26986 /* b2CircleContact.cpp in Sources */,
-				4D56BB9A18B482D6003A26DB /* PRRatcliffTriangulator.mm in Sources */,
 				4DF3A56618B06BB000D26986 /* ray2.c in Sources */,
 				4D8A4B3C18B5EAF2006A365B /* GB2ShapeCache.mm in Sources */,
 				4DF3A50118B06BAF00D26986 /* base64.c in Sources */,
@@ -1410,7 +1382,6 @@
 				4DF3A5DA18B06BB100D26986 /* b2PolygonContact.cpp in Sources */,
 				4DF3A4D518B06BAF00D26986 /* CCTransitionPageTurn.m in Sources */,
 				4DF3A5A718B06BB000D26986 /* b2StackAllocator.cpp in Sources */,
-				4D56BBA818B48686003A26DB /* BLPolygonSprite.mm in Sources */,
 				4DF3A5F018B06BB100D26986 /* b2PulleyJoint.cpp in Sources */,
 				4D8A4B3818B5EAF2006A365B /* GB2Contact.mm in Sources */,
 				4DF3A40618B06BAD00D26986 /* CCActionCatmullRom.m in Sources */,
@@ -1425,7 +1396,7 @@
 				4DF3A4BA18B06BAF00D26986 /* CCTextureAtlas.m in Sources */,
 				4DF3A56818B06BB000D26986 /* utility.c in Sources */,
 				4DF3A51418B06BAF00D26986 /* CCVertex.m in Sources */,
-				4D8A4B6718B5EE0D006A365B /* GB2Jewel.mm in Sources */,
+				4D8A4B6718B5EE0D006A365B /* BLJewelSprite.mm in Sources */,
 				4DF3A51A18B06BAF00D26986 /* NSThread+performBlock.m in Sources */,
 				4DF3A5F618B06BB100D26986 /* b2RopeJoint.cpp in Sources */,
 				4DF3A42118B06BAD00D26986 /* CCActionTiledGrid.m in Sources */,
@@ -1464,7 +1435,6 @@
 				4DF3A55818B06BB000D26986 /* mat4stack.c in Sources */,
 				4DF3A57D18B06BB000D26986 /* b2CollidePolygon.cpp in Sources */,
 				4DF3A5E718B06BB100D26986 /* b2Joint.cpp in Sources */,
-				4D56BB9B18B482D6003A26DB /* triangulate.cpp in Sources */,
 				4DF3A4B418B06BAF00D26986 /* CCSpriteFrameCache.m in Sources */,
 				4DF3A43D18B06BAD00D26986 /* CCDirector.m in Sources */,
 				4DF3A42D18B06BAD00D26986 /* CCAtlasNode.m in Sources */,
@@ -1488,7 +1458,6 @@
 				4DF3A5BB18B06BB100D26986 /* b2World.cpp in Sources */,
 				4DF3A60018B06BB100D26986 /* b2Rope.cpp in Sources */,
 				4DF3A52B18B06BB000D26986 /* CDAudioManager.m in Sources */,
-				4D56BB9818B482D6003A26DB /* PolygonSprite.mm in Sources */,
 				4D8A4B3E18B5EAF2006A365B /* GB2WorldContactListener.mm in Sources */,
 				4DF3A57F18B06BB000D26986 /* b2Collision.cpp in Sources */,
 				4DF3A4D818B06BAF00D26986 /* CCTransitionProgress.m in Sources */,
@@ -1497,6 +1466,7 @@
 				4DF3A52F18B06BB000D26986 /* CDOpenALSupport.m in Sources */,
 				4DF3A58218B06BB000D26986 /* b2Distance.cpp in Sources */,
 				4DF3A41218B06BAD00D26986 /* CCActionInstant.m in Sources */,
+				4D3500FC18B74CCC006E4021 /* BLBackgroundLayer.m in Sources */,
 				4DF3A43318B06BAD00D26986 /* CCClippingNode.m in Sources */,
 				4DF3A5ED18B06BB100D26986 /* b2PrismaticJoint.cpp in Sources */,
 				4D8A4B3F18B5EAF2006A365B /* GLES-Render.mm in Sources */,

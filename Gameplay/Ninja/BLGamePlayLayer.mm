@@ -12,10 +12,9 @@
 #import "GBox2D/GB2Sprite.h"
 #import "GBox2D/GB2ShapeCache.h"
 #import "GBox2D/GB2DebugDrawLayer.h"
-#import "GB2Jewel.h"
+#import "BLJewelSprite.h"
 #import "BLEnemySprite.h"
-//#import "BLJewelSprite.h"
-//#import "BLContactListener.h"
+#import "BLBackgroundLayer.h"
 
 #define BOX_TAG 1
 
@@ -64,8 +63,13 @@
         // Load physic shapes into shape cache
         [[GB2ShapeCache sharedShapeCache] addShapesWithFile:@"Shapes.plist"];
         
+        // Add background layer
+        BLBackgroundLayer *bgLayer = [BLBackgroundLayer node];
+        [self addChild:bgLayer z:5];
+        
+        // Add object layer
         objectLayer = [CCSpriteBatchNode batchNodeWithFile:@"Sprites.pvr.ccz" capacity:150];
-        [self addChild:objectLayer z:-10];
+        [self addChild:objectLayer z:10];
         
         // add walls to the left
       
@@ -104,9 +108,9 @@
 // Creates jewel
  -(void)initJewel{
      CGSize s = [[CCDirector sharedDirector] winSize];
-     GB2Jewel *j = [GB2Jewel jewelSprite];
+     BLJewelSprite *j = [BLJewelSprite jewelSprite];
      [j setPhysicsPosition:b2Vec2(s.width/2/PTM_RATIO, s.height/2/PTM_RATIO)];
-     [objectLayer addChild:j.ccNode];
+     [objectLayer addChild:j.ccNode z:10];
 }
 
 // Creates the bonding box
@@ -127,14 +131,14 @@
 // Add debug layer
 - (void)initDebug{
     GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
-    [self addChild:debugLayer z:-3];
+    [self addChild:debugLayer z:30];
 }
 
 // Initializes enemy at location
 - (void)spawnEnemyAtLocation:(CGPoint)location{
     BLEnemySprite *es = [BLEnemySprite enemySprite];
     [es setPhysicsPosition:b2Vec2(location.x/PTM_RATIO, location.y/PTM_RATIO)];
-    [self addChild:es.ccNode];
+    [self addChild:es.ccNode z:10];
     [self.enemies addObject:es];
 }
 

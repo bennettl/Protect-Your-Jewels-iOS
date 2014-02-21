@@ -6,12 +6,12 @@
 //  Copyright 2014 Bennett Lee. All rights reserved.
 //
 
-#import "GB2Jewel.h"
+#import "BLJewelSprite.h"
 
 
-@implementation GB2Jewel
+@implementation BLJewelSprite
 
-+ (GB2Jewel *)jewelSprite{
++ (BLJewelSprite *)jewelSprite{
     return [[[self alloc] initWithStaticBody:@"jewel" spriteFrameName:@"jewel.png"] autorelease];
 }
 
