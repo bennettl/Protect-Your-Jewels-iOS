@@ -19,6 +19,21 @@
                           spriteFrameName:@"jewel.png"]){
         
         spriteLayer = sl;  // Store the sprite layer
+        
+        // Set jewel to collide with everything but the player control
+        for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
+            b2Filter jf = f->GetFilterData();
+            jf.categoryBits = 0x0004;
+            jf.maskBits = 0xFFFF ^ 0x0008;
+            jf.groupIndex = -1;
+            f->SetFilterData(jf);
+        }
+        
+        //b2Filter jf = self.body->GetFixtureList()[0].GetFilterData();
+       // jf.categoryBits = 0x0004;
+        //jf.maskBits = 0xFFFF ^ 0x0008;
+        //jf.groupIndex = -1;
+        //self.body->GetFixtureList()[0].SetFilterData(jf);
     }
     return self;
 }

@@ -13,6 +13,7 @@
 #import "GBox2D/GB2DebugDrawLayer.h"
 #import "BLJewelSprite.h"
 #import "BLEnemySprite.h"
+#import "BQTouchSprite.h"
 #import "BLBoxNode.h"
 #import "BLBackgroundLayer.h"
 
@@ -27,6 +28,7 @@
     CCSpriteBatchNode *objectLayer;
     GB2Node *boxNode;
     int waveNum;
+    BQTouchSprite *ts;
 }
 
 @property NSMutableArray *enemies;
@@ -78,6 +80,14 @@
      [objectLayer addChild:j.ccNode z:10];
 }
 
+// Create touch sprite at location
+-(void)initTouchAtLocation:(CGPoint)location{
+    if(ts == nil){
+        ts = [[BQTouchSprite alloc] initWithSpriteLayer:self];
+        [ts setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
+        [self addChild:ts.ccNode z:10];
+    }
+}
 
 // Add debug layer
 - (void)initDebug{
@@ -144,11 +154,11 @@
     UITouch *touch      = (UITouch *)[touches anyObject];
     CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
    
+    [self initTouchAtLocation:ccLocation];
     // If a mouse joint is created, that means user touched an enemy, do not create new enemy!
     if ([self createMouseJointWithTouch:touch]){
         return;
     }
-    //[self spawnEnemyAtLocation:ccLocation];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -179,6 +189,10 @@
             return YES;
         }
     }
+    if(ts != nil && [ts intersectsWithPoint:ccLocation]){
+        [ts createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
+        return YES;
+    }
     return NO;
 }
 
@@ -194,6 +208,9 @@
             be.mouseJoint->SetTarget(b2Location);
         }
     }
+    if(ts != nil && ts.mouseJoint){
+        ts.mouseJoint->SetTarget(b2Location);
+    }
 }
 
 - (void)removeMouseJoint{
@@ -204,6 +221,12 @@
             [GB2Engine sharedInstance].world->DestroyJoint(be.mouseJoint);
             be.mouseJoint = NULL;
         }
+    }
+    if(ts != nil && ts.mouseJoint){
+        [GB2Engine sharedInstance].world->DestroyJoint(ts.mouseJoint);
+        ts.mouseJoint = NULL;
+        ts.deleteLater = true;
+        ts = nil;
     }
 }
 

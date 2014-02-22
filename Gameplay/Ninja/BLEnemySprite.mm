@@ -27,6 +27,15 @@
         [self setFixedRotation:true];
         self.state = kAttack;
         spriteLayer = sl;  // Store the sprite layer
+        
+        // Set enemy to collide with everything
+        for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
+            b2Filter ef = f->GetFilterData();
+            ef.categoryBits = 0x0002;
+            ef.maskBits = 0xFFFF;
+            ef.groupIndex = 1;
+            f->SetFilterData(ef);
+        }
     }
     return self;
 }
@@ -97,7 +106,7 @@
 - (void)beginContactWithBLJewelSprite:(GB2Contact*)contact{
     NSLog(@"ouch");
     // Mark it for deletion
-    self.deleteLater    = true;
+    self.deleteLater = true;
     
     // Send a message to the sprite layer to remove enemy from its array
     [((BLSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
