@@ -53,7 +53,7 @@
         [self addChild:objectLayer z:10];
         
         // Initializations
-        enemyLaunchForce    = 1000.0f;
+        enemyLaunchForce    = 900.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         [self initJewel];
         [self initDebug];
@@ -122,7 +122,7 @@
     waveNum++;
     enemyLaunchForce = enemyLaunchForce + (waveNum*10);
     [self unschedule:@selector(spawnEnemyAtLocation:)];
-    [self schedule:@selector(spawnEnemyAtLocation:) interval:(0.5) repeat:waveNum delay:0];
+    [self schedule:@selector(spawnEnemyAtLocation:) interval:(1) repeat:waveNum delay:0];
 }
 
 // Returns a random CGPoint on the perimeter of the screen
@@ -181,13 +181,13 @@
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Loop through all enemies
-    for (BLEnemySprite *be in self.enemies) {
+    //for (BLEnemySprite *be in self.enemies) {
         // If intersects with point, create mouse joint
-        if ([be intersectsWithPoint:ccLocation]){
-            [be createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
-            return YES;
-        }
-    }
+        //if ([be intersectsWithPoint:ccLocation]){
+            //[be createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
+            //return YES;
+        //}
+   //}
     
     // If touch circle and its mouse joint exists, create a mouse joint
     if (touchCircle != nil && [touchCircle intersectsWithPoint:ccLocation]){
