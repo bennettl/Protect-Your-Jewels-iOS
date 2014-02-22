@@ -1555,6 +1555,7 @@
 				4DF3A61918B06BB100D26986 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
