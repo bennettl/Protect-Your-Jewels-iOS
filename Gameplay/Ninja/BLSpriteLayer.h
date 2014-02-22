@@ -13,6 +13,8 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 
+@class BLEnemySprite;
+
 //#import "GLES-Render.h"
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
@@ -23,5 +25,8 @@
 
 // HelloWorldLayer
 @interface BLSpriteLayer : CCLayer
+
+// Remove BLEnemySprite from enemies mutable array
+- (void)removeEnemyFromSpriteLayer:(BLEnemySprite *)es;
 
 @end

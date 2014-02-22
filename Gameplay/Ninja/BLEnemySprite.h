@@ -12,7 +12,7 @@
 
 typedef enum {
     kAttack,
-    kFall
+    kFall,
 } EnemyState;
 
 

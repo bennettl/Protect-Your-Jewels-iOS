@@ -10,31 +10,42 @@
 #import "GB2Engine.h"
 #import "GB2Contact.h"
 
+@interface BLBoxNode(){
+    int padding;
+}
+@end
+
 @implementation BLBoxNode
 
 - (id)init{
     CGSize s = [[CCDirector sharedDirector] winSize];
     
     if (self = [super initWithStaticBody:nil node:nil]){
+        padding = -10;
+        
+        // Points
+        CGPoint topLeft         = ccp(-padding, s.height + padding);
+        CGPoint topRight        = ccp(s.width + padding, s.height + padding);
+        CGPoint bottomLeft      = ccp(-padding, -padding);
+        CGPoint bottomRight     = ccp(s.width + padding, -padding);
+        
+        // Edges
+        
         // Bottom
-        [self addEdgeFrom:b2Vec2FromCC(0, 0) to:b2Vec2FromCC(s.width, 0)];
+        [self addEdgeFrom:b2Vec2FromCC(bottomLeft.x, bottomLeft.y)
+                       to:b2Vec2FromCC(bottomRight.x, bottomRight.y)];
         // Left
-        [self addEdgeFrom:b2Vec2FromCC(0, 0) to:b2Vec2FromCC(0, s.height)];
+        [self addEdgeFrom:b2Vec2FromCC(bottomLeft.x, bottomLeft.y)
+                       to:b2Vec2FromCC(topLeft.x, topLeft.y)];
         // Top
-        [self addEdgeFrom:b2Vec2FromCC(s.width, s.height) to:b2Vec2FromCC(0, s.height)];
+        [self addEdgeFrom:b2Vec2FromCC(topLeft.x, topLeft.y)
+                       to:b2Vec2FromCC(topRight.x, topRight.y)];
         // Right
-        [self addEdgeFrom:b2Vec2FromCC(s.width, s.height) to:b2Vec2FromCC(s.width, 0)];
+        [self addEdgeFrom:b2Vec2FromCC(topRight.x, topRight.y)
+                       to:b2Vec2FromCC(bottomRight.x, bottomRight.y)];
        
-        for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()) {
-            f->SetSensor(true);
-        }
-      
     }
     return self;
 }
 
-
-- (void)beginContactWithBLEnemySprite:(GB2Contact *)contact{
-    NSLog(@"%s",__PRETTY_FUNCTION__);
-}
 @end

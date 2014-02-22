@@ -49,18 +49,17 @@
         objectLayer = [CCSpriteBatchNode batchNodeWithFile:@"Sprites.pvr.ccz" capacity:150];
         [self addChild:objectLayer z:10];
         
-//        // Initializations
-            enemyLaunchForce    = 1000.0f;
-//        self.currentScore     = 0;
-            self.enemies        = [[NSMutableArray alloc] init];
-//
+        // Initializations
+        enemyLaunchForce    = 1000.0f;
+        self.enemies        = [[NSMutableArray alloc] init];
+        [self initJewel];
+        [self initDebug];
+
         // Create bounding box
         boxNode = [[BLBoxNode alloc] init];
-            [self initJewel];
-            [self initDebug];
-
-            // Touching
-            self.touchEnabled = YES;
+        
+        // Touching
+        self.touchEnabled = YES;
     }
 	return self;
 }
@@ -174,6 +173,12 @@
     }
 }
 
+#pragma Listner
+
+// Remove BLEnemySprite from enemies mutable array
+- (void)removeEnemyFromSpriteLayer:(BLEnemySprite *)es{
+    [self.enemies removeObject:es];
+}
 
 -(void) dealloc{
 	[super dealloc];

@@ -8,6 +8,9 @@
 
 #import "BLEnemySprite.h"
 #import "GB2Contact.h"
+#import "BLSpriteLayer.h"
+#import "BLGameplayScene.h"
+
 
 @implementation BLEnemySprite
 
@@ -53,7 +56,7 @@
     
     if (self.state == kAttack){
         frameName = @"ninja/attack.png";
-    } else if (self.state == kFall){
+    } else {
         frameName =@"ninja/fall.png";
     }
     
@@ -72,17 +75,25 @@
 
 #pragma mark Collision Detection
 
+// Write collision functions in the form of [objectA endContactWithMonkey:collisionA];
+
+// Enemy collides with box
 - (void)beginContactWithBLBoxNode:(GB2Contact *)contact{
-    NSLog(@"%s",__PRETTY_FUNCTION__);
+    // Mark it for deletion
+    self.deleteLater    = true;
+    
+    // Send a message to the gameplay scene to increment score and sprite layer to remove enemy from its array
+    [((BLGameplayScene *)self.ccNode.parent.parent) incrementScore];
+    [((BLSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
 }
 
-// write functions in the form of [objectA endContactWithMonkey:collisionA];
+// Enemy collides with each other
 - (void)beginContactWithBLEnemySprite:(GB2Contact *)contact{
     self.state = kFall;
     ((BLEnemySprite *)contact.otherObject).state = kFall; // set enemy's state to fall
-    NSLog(@"hit my own kind!");
 }
 
+// Enemy collides with jewel
 - (void)beginContactWithBLJewelSprite:(GB2Contact*)contact{
     NSLog(@"ouch");
 }

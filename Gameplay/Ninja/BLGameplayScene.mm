@@ -25,7 +25,6 @@
 - (id)init{
     
     if (self = [super init]){
-        
         // Create layers and add sa children
         self.uiLayer = [BLUILayer node];
         self.spriteLayer = [BLSpriteLayer node];
@@ -34,12 +33,17 @@
         [self addChild:self.uiLayer z:4];
         [self addChild:self.spriteLayer z:3];
         [self addChild:self.bgLayer z:2];
-        
-        // make sure the update function gets called every frame
-    //    [self scheduleUpdate];
     }
     
     return self;
+}
+
+#pragma Listner
+
+// Update the label
+-(void)incrementScore{
+    self.currentScore++;
+    [self.uiLayer updateLabelWithScore:self.currentScore];
 }
 
 @end

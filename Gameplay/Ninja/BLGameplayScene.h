@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface BLGameplayScene : CCScene {
-    
-}
+@interface BLGameplayScene : CCScene
+
+@property int currentScore;
+
+-(void)incrementScore;
 
 @end

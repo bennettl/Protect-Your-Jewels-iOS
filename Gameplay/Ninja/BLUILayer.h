@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface BLUILayer : CCLayer {
-}
+@interface BLUILayer : CCLayer
 
-@property int currentScore;
+- (void)updateLabelWithScore:(int)score;
 
 @end
