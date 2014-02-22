@@ -26,6 +26,7 @@
     CCLabelTTF *_label;
     CCSpriteBatchNode *objectLayer;
     GB2Node *boxNode;
+    int waveNum;
 }
 
 @property NSMutableArray *enemies;
@@ -60,6 +61,11 @@
         
         // Touching
         self.touchEnabled = YES;
+        
+        // Start Waves
+        waveNum = 0;
+        int timeBetweenWaves = 10;
+        [self schedule:@selector(startWave) interval:timeBetweenWaves];
     }
 	return self;
 }
@@ -82,7 +88,7 @@
 // Initializes enemy at location
 - (void)spawnEnemyAtLocation:(CGPoint)location{
     CGSize s = [[CCDirector sharedDirector] winSize];
-
+    location = [self randomDirection];
     BLEnemySprite *es = [[BLEnemySprite alloc] initWithSpriteLayer:self];
     [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:es.ccNode z:10];
@@ -102,6 +108,34 @@
 
 }
 
+// Scheduled and called regularly to start a wave of enemies
+- (void)startWave{
+    waveNum++;
+    enemyLaunchForce = enemyLaunchForce + (waveNum*10);
+    [self unschedule:@selector(spawnEnemyAtLocation:)];
+    [self schedule:@selector(spawnEnemyAtLocation:) interval:(0.5) repeat:waveNum delay:0];
+}
+
+// Returns a random CGPoint on the perimeter of the screen
+-(CGPoint)randomDirection{
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    
+    CGPoint direction;
+    switch(arc4random()%4){
+        case 0:
+            direction = CGPointMake(arc4random() % (int)s.width,(int)s.height); // top
+            break;
+        case 1:
+            direction = CGPointMake(arc4random() % (int)s.width,0); // bottom
+            break;
+        case 2:
+            direction = CGPointMake(0,arc4random() % (int)s.height); // left
+            break;
+        default:
+            direction = CGPointMake((int)s.width,arc4random() % (int)s.height); // right
+    }
+    return direction;
+}
 
 #pragma mark Touch
 
@@ -114,7 +148,7 @@
     if ([self createMouseJointWithTouch:touch]){
         return;
     }
-    [self spawnEnemyAtLocation:ccLocation];
+    //[self spawnEnemyAtLocation:ccLocation];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{

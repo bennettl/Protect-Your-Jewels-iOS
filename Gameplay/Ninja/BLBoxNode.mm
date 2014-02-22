@@ -21,7 +21,7 @@
     CGSize s = [[CCDirector sharedDirector] winSize];
     
     if (self = [super initWithStaticBody:nil node:nil]){
-        padding = -10;
+        padding = 50;
         
         // Points
         CGPoint topLeft         = ccp(-padding, s.height + padding);
