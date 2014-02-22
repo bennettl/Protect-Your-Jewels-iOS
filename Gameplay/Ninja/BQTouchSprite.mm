@@ -25,7 +25,7 @@
             b2Filter tf = f->GetFilterData();
             tf.categoryBits = 0x0008;
             tf.maskBits = 0x0004;
-            //tf.groupIndex = -1;
+            tf.groupIndex = 2;
             f->SetFilterData(tf);
         }
         //b2Filter tf = self.body->GetFixtureList()[0].GetFilterData();
