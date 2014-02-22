@@ -59,7 +59,7 @@ float PTM_RATIO = 32.0f;
     if(self)
     {
         // set default gravity
-        b2Vec2 gravity(0.0f, -5.0f);
+        b2Vec2 gravity(0.0f, -3.0f);
         bool doSleep = true;    
         world = new b2World(gravity);
         world->SetAllowSleeping(doSleep);

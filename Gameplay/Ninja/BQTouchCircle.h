@@ -10,11 +10,9 @@
 
 @class BLSpriteLayer;
 
-@interface BQTouchSprite : GB2Sprite {
+@interface BQTouchCircle : GB2Sprite {
     BLSpriteLayer *spriteLayer;
 }
-
-+(BQTouchSprite *)touchSprite;
 
 -(id)initWithSpriteLayer:(BLSpriteLayer *)sl;
 -(BOOL)intersectsWithPoint:(CGPoint)ccLocation;

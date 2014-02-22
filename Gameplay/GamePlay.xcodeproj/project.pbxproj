@@ -206,7 +206,7 @@
 		4DF3A60918B06BB100D26986 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A60818B06BB100D26986 /* AppDelegate.mm */; };
 		4DF3A60C18B06BB100D26986 /* BLSpriteLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3A60B18B06BB100D26986 /* BLSpriteLayer.mm */; };
 		4DF3A61418B06BB100D26986 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF3A61318B06BB100D26986 /* blocks.png */; };
-		D36E615318B8B4200034905B /* BQTouchSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = D36E615218B8B4200034905B /* BQTouchSprite.mm */; };
+		D36E615318B8B4200034905B /* BQTouchCircle.mm in Sources */ = {isa = PBXBuildFile; fileRef = D36E615218B8B4200034905B /* BQTouchCircle.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -620,8 +620,8 @@
 		4DF3A60A18B06BB100D26986 /* BLSpriteLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLSpriteLayer.h; sourceTree = "<group>"; };
 		4DF3A60B18B06BB100D26986 /* BLSpriteLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BLSpriteLayer.mm; sourceTree = "<group>"; };
 		4DF3A61318B06BB100D26986 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
-		D36E615118B8B4200034905B /* BQTouchSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQTouchSprite.h; sourceTree = "<group>"; };
-		D36E615218B8B4200034905B /* BQTouchSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BQTouchSprite.mm; sourceTree = "<group>"; };
+		D36E615118B8B4200034905B /* BQTouchCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQTouchCircle.h; sourceTree = "<group>"; };
+		D36E615218B8B4200034905B /* BQTouchCircle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BQTouchCircle.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -670,6 +670,41 @@
 			path = GBox2D;
 			sourceTree = "<group>";
 		};
+		4D8ADE2218B9396C001689EC /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				4D3500F318B72C50006E4021 /* BLEnemySprite.h */,
+				4D3500F418B72C50006E4021 /* BLEnemySprite.mm */,
+				4D8A4B6518B5EE0D006A365B /* BLJewelSprite.h */,
+				4D8A4B6618B5EE0D006A365B /* BLJewelSprite.mm */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
+		4D8ADE2318B9397B001689EC /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				4D75FBC418B751FD00F9974F /* BLUILayer.h */,
+				4D75FBC518B751FD00F9974F /* BLUILayer.mm */,
+				4DF3A60A18B06BB100D26986 /* BLSpriteLayer.h */,
+				4DF3A60B18B06BB100D26986 /* BLSpriteLayer.mm */,
+				4D3500FA18B74CCC006E4021 /* BLBackgroundLayer.h */,
+				4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.mm */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
+		4D8ADE2418B9398D001689EC /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				4D75FBC718B7642700F9974F /* BLBoxNode.h */,
+				4D75FBC818B7642700F9974F /* BLBoxNode.mm */,
+				D36E615118B8B4200034905B /* BQTouchCircle.h */,
+				D36E615218B8B4200034905B /* BQTouchCircle.mm */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 		4DF3A3C318B06BAC00D26986 = {
 			isa = PBXGroup;
 			children = (
@@ -709,21 +744,9 @@
 			children = (
 				4D75FBC118B750A000F9974F /* BLGameplayScene.h */,
 				4D75FBC218B750A000F9974F /* BLGameplayScene.mm */,
-				4D75FBC418B751FD00F9974F /* BLUILayer.h */,
-				4D75FBC518B751FD00F9974F /* BLUILayer.mm */,
-				4DF3A60A18B06BB100D26986 /* BLSpriteLayer.h */,
-				4DF3A60B18B06BB100D26986 /* BLSpriteLayer.mm */,
-				4D3500F318B72C50006E4021 /* BLEnemySprite.h */,
-				4D3500F418B72C50006E4021 /* BLEnemySprite.mm */,
-				4D8A4B6518B5EE0D006A365B /* BLJewelSprite.h */,
-				4D8A4B6618B5EE0D006A365B /* BLJewelSprite.mm */,
-				D36E615118B8B4200034905B /* BQTouchSprite.h */,
-				D36E615218B8B4200034905B /* BQTouchSprite.mm */,
-				4D75FBC718B7642700F9974F /* BLBoxNode.h */,
-				4D75FBC818B7642700F9974F /* BLBoxNode.mm */,
-				4D3500FA18B74CCC006E4021 /* BLBackgroundLayer.h */,
-				4D3500FB18B74CCC006E4021 /* BLBackgroundLayer.mm */,
-				4D8A4B2518B5EAF2006A365B /* GBox2D */,
+				4D8ADE2318B9397B001689EC /* Layers */,
+				4D8ADE2218B9396C001689EC /* Sprites */,
+				4D8ADE2418B9398D001689EC /* Misc */,
 				4DF3A3E418B06BAD00D26986 /* Resources */,
 				4DF3A3FC18B06BAD00D26986 /* libs */,
 				4DF3A60318B06BB100D26986 /* Supporting Files */,
@@ -765,6 +788,7 @@
 				4DF3A53D18B06BB000D26986 /* LICENSE_CocosDenshion.txt */,
 				4DF3A56F18B06BB000D26986 /* LICENSE_Kazmath.txt */,
 				4DF3A60218B06BB100D26986 /* LICENSE_Box2D.txt */,
+				4D8A4B2518B5EAF2006A365B /* GBox2D */,
 				4DF3A3FD18B06BAD00D26986 /* cocos2d */,
 				4DF3A52818B06BB000D26986 /* CocosDenshion */,
 				4DF3A53E18B06BB000D26986 /* kazmath */,
@@ -1379,7 +1403,7 @@
 				4DF3A44918B06BAE00D26986 /* ccFPSImages.m in Sources */,
 				4DF3A5C518B06BB100D26986 /* b2ChainAndPolygonContact.cpp in Sources */,
 				4DF3A4CF18B06BAF00D26986 /* CCTMXXMLParser.m in Sources */,
-				D36E615318B8B4200034905B /* BQTouchSprite.mm in Sources */,
+				D36E615318B8B4200034905B /* BQTouchCircle.mm in Sources */,
 				4D8A4B3A18B5EAF2006A365B /* GB2Engine.mm in Sources */,
 				4DF3A5C218B06BB100D26986 /* b2ChainAndCircleContact.cpp in Sources */,
 				4DF3A5C818B06BB100D26986 /* b2CircleContact.cpp in Sources */,

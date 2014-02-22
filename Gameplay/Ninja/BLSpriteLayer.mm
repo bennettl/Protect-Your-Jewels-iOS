@@ -13,7 +13,7 @@
 #import "GBox2D/GB2DebugDrawLayer.h"
 #import "BLJewelSprite.h"
 #import "BLEnemySprite.h"
-#import "BQTouchSprite.h"
+#import "BQTouchCircle.h"
 #import "BLBoxNode.h"
 #import "BLBackgroundLayer.h"
 
@@ -28,7 +28,7 @@
     CCSpriteBatchNode *objectLayer;
     GB2Node *boxNode;
     int waveNum;
-    BQTouchSprite *ts;
+    BQTouchCircle *touchCircle;
 }
 
 @property NSMutableArray *enemies;
@@ -82,10 +82,9 @@
 
 // Create touch sprite at location
 -(void)initTouchAtLocation:(CGPoint)location{
-    if(ts == nil){
-        ts = [[BQTouchSprite alloc] initWithSpriteLayer:self];
-        [ts setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
-        [self addChild:ts.ccNode z:10];
+    if (touchCircle == nil){
+        touchCircle = [[BQTouchCircle alloc] initWithSpriteLayer:self];
+        [touchCircle setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     }
 }
 
@@ -189,8 +188,10 @@
             return YES;
         }
     }
-    if(ts != nil && [ts intersectsWithPoint:ccLocation]){
-        [ts createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
+    
+    // If touch circle and its mouse joint exists, create a mouse joint
+    if (touchCircle != nil && [touchCircle intersectsWithPoint:ccLocation]){
+        [touchCircle createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:5000];
         return YES;
     }
     return NO;
@@ -208,8 +209,10 @@
             be.mouseJoint->SetTarget(b2Location);
         }
     }
-    if(ts != nil && ts.mouseJoint){
-        ts.mouseJoint->SetTarget(b2Location);
+    
+    // If touch circle and its mouse joint exists, move its mouse joint
+    if(touchCircle != nil && touchCircle.mouseJoint){
+        touchCircle.mouseJoint->SetTarget(b2Location);
     }
 }
 
@@ -222,11 +225,13 @@
             be.mouseJoint = NULL;
         }
     }
-    if(ts != nil && ts.mouseJoint){
-        [GB2Engine sharedInstance].world->DestroyJoint(ts.mouseJoint);
-        ts.mouseJoint = NULL;
-        ts.deleteLater = true;
-        ts = nil;
+    
+    // If touch circle and its mouse joint exists, remove its mouse joint
+    if (touchCircle!= nil && touchCircle.mouseJoint){
+        [GB2Engine sharedInstance].world->DestroyJoint(touchCircle.mouseJoint);
+        touchCircle.mouseJoint = NULL;
+        touchCircle.deleteLater = true;
+        touchCircle = nil;
     }
 }
 
