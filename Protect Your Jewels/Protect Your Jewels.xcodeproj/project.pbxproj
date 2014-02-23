@@ -206,6 +206,11 @@
 		4D8AE0BC18B97A4B001689EC /* Sprites-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0B718B97A4B001689EC /* Sprites-hd.pvr.ccz */; };
 		4D8AE0BD18B97A4B001689EC /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0B818B97A4B001689EC /* Sprites.plist */; };
 		4D8AE0BE18B97A4B001689EC /* Sprites.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0B918B97A4B001689EC /* Sprites.pvr.ccz */; };
+		94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */; };
+		94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */; };
+		94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSSettingsScene.m */; };
+		94CE827A18B9973200FCA354 /* RSPauseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827718B9973200FCA354 /* RSPauseScene.m */; };
+		94CE827B18B9973200FCA354 /* RSTempGamePlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -620,6 +625,16 @@
 		4D8AE0B718B97A4B001689EC /* Sprites-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sprites-hd.pvr.ccz"; sourceTree = "<group>"; };
 		4D8AE0B818B97A4B001689EC /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sprites.plist; sourceTree = "<group>"; };
 		4D8AE0B918B97A4B001689EC /* Sprites.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sprites.pvr.ccz; sourceTree = "<group>"; };
+		94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLeaderboardScene.h; sourceTree = "<group>"; };
+		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLeaderboardScene.m; sourceTree = "<group>"; };
+		94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainMenuLayer.h; sourceTree = "<group>"; };
+		94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMainMenuLayer.m; sourceTree = "<group>"; };
+		94CE827118B9971F00FCA354 /* RSSettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSettingsScene.h; sourceTree = "<group>"; };
+		94CE827218B9971F00FCA354 /* RSSettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSettingsScene.m; sourceTree = "<group>"; };
+		94CE827618B9973200FCA354 /* RSPauseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPauseScene.h; sourceTree = "<group>"; };
+		94CE827718B9973200FCA354 /* RSPauseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPauseScene.m; sourceTree = "<group>"; };
+		94CE827818B9973200FCA354 /* RSTempGamePlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTempGamePlayScene.h; sourceTree = "<group>"; };
+		94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTempGamePlayScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,6 +695,7 @@
 		4D8ADE4518B974A2001689EC /* Protect Your Jewels */ = {
 			isa = PBXGroup;
 			children = (
+				94CE826C18B9970700FCA354 /* MainMenu */,
 				4D8AE09418B979AE001689EC /* GameplayScene */,
 				4D8ADE4618B974A2001689EC /* Resources */,
 				4D8ADE5E18B974A3001689EC /* libs */,
@@ -1241,6 +1257,10 @@
 			children = (
 				4D8AE07C18B979A0001689EC /* BLGameplayScene.h */,
 				4D8AE07D18B979A0001689EC /* BLGameplayScene.mm */,
+				94CE827618B9973200FCA354 /* RSPauseScene.h */,
+				94CE827718B9973200FCA354 /* RSPauseScene.m */,
+				94CE827818B9973200FCA354 /* RSTempGamePlayScene.h */,
+				94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */,
 				4D8AE09518B979B6001689EC /* Layers */,
 				4D8AE09618B979BA001689EC /* Sprites */,
 				4D8AE09718B979D9001689EC /* Misc */,
@@ -1306,6 +1326,19 @@
 				4D8AE0AA18B97A26001689EC /* GMath.h */,
 			);
 			path = GBox2D;
+			sourceTree = "<group>";
+		};
+		94CE826C18B9970700FCA354 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */,
+				94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */,
+				94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */,
+				94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */,
+				94CE827118B9971F00FCA354 /* RSSettingsScene.h */,
+				94CE827218B9971F00FCA354 /* RSSettingsScene.m */,
+			);
+			name = MainMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1393,6 +1426,7 @@
 				4D8ADFEE18B974A6001689EC /* b2ChainShape.cpp in Sources */,
 				4D8ADF2518B974A5001689EC /* CCTileMapAtlas.m in Sources */,
 				4D8ADF2818B974A5001689EC /* CCTMXLayer.m in Sources */,
+				94CE827A18B9973200FCA354 /* RSPauseScene.m in Sources */,
 				4D8ADFDD18B974A6001689EC /* b2CollideEdge.cpp in Sources */,
 				4D8ADFF118B974A6001689EC /* b2CircleShape.cpp in Sources */,
 				4D8ADFC018B974A6001689EC /* mat4.c in Sources */,
@@ -1455,9 +1489,11 @@
 				4D8AE04318B974A7001689EC /* b2FrictionJoint.cpp in Sources */,
 				4D8ADF0718B974A4001689EC /* CCShaderCache.m in Sources */,
 				4D8ADF0D18B974A5001689EC /* CCSprite.m in Sources */,
+				94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */,
 				4D8AE03318B974A7001689EC /* b2EdgeAndCircleContact.cpp in Sources */,
 				4D8ADEB418B974A4001689EC /* CCGrabber.m in Sources */,
 				4D8ADFBE18B974A6001689EC /* mat3.c in Sources */,
+				94CE827B18B9973200FCA354 /* RSTempGamePlayScene.m in Sources */,
 				4D8AE00318B974A6001689EC /* b2Math.cpp in Sources */,
 				4D8ADF4818B974A5001689EC /* CCES2Renderer.m in Sources */,
 				4D8ADEBA18B974A4001689EC /* CCLabelAtlas.m in Sources */,
@@ -1482,6 +1518,7 @@
 				4D8ADFDF18B974A6001689EC /* b2CollidePolygon.cpp in Sources */,
 				4D8AE04918B974A7001689EC /* b2Joint.cpp in Sources */,
 				4D8ADF1618B974A5001689EC /* CCSpriteFrameCache.m in Sources */,
+				94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */,
 				4D8ADE9F18B974A3001689EC /* CCDirector.m in Sources */,
 				4D8ADE8F18B974A3001689EC /* CCAtlasNode.m in Sources */,
 				4D8AE06B18B974A7001689EC /* AppDelegate.mm in Sources */,
@@ -1513,6 +1550,7 @@
 				4D8ADE9518B974A3001689EC /* CCClippingNode.m in Sources */,
 				4D8AE04F18B974A7001689EC /* b2PrismaticJoint.cpp in Sources */,
 				4D8ADFD818B974A6001689EC /* b2BroadPhase.cpp in Sources */,
+				94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */,
 				4D8ADF1918B974A5001689EC /* CCTexture2D.m in Sources */,
 				4D8ADF2E18B974A5001689EC /* CCTMXTiledMap.m in Sources */,
 				4D8ADEEF18B974A4001689EC /* CCRenderTexture.m in Sources */,
