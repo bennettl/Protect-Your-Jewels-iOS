@@ -53,7 +53,7 @@
         [self addChild:objectLayer z:10];
         
         // Initializations
-        enemyLaunchForce    = 700.0f;
+        enemyLaunchForce    = 350.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         [self initJewel];
         [self initDebug];
