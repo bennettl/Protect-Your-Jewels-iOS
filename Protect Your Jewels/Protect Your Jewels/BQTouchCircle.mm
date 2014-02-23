@@ -31,6 +31,7 @@
         // Anti - gravity
         self.body->ApplyForce(self.body->GetMass() * -world->GetGravity(), self.body->GetWorldCenter());
 
+        
         spriteLayer = sl;  // Store the sprite layer
     }
     return self;
