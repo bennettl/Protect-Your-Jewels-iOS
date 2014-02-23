@@ -9,6 +9,7 @@
 #import "BLBoxNode.h"
 #import "GB2Engine.h"
 #import "GB2Contact.h"
+#import "BLEnemySprite.h"
 
 @interface BLBoxNode(){
     int padding;
@@ -21,6 +22,9 @@
     CGSize s = [[CCDirector sharedDirector] winSize];
     
     if (self = [super initWithStaticBody:nil node:nil]){
+        // Get height of enemy
+        
+        
         padding = 50;
         
         // Points

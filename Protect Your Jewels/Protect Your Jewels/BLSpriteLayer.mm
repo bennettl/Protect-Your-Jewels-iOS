@@ -40,6 +40,7 @@
 #pragma mark initlization
 
 -(id) init{
+    
 	if ((self=[super init])) {
 
         // Load sprite atlases

@@ -18,7 +18,7 @@
 - (id)init{
     if (self = [super init]){
         CGSize s        = [[CCDirector sharedDirector] winSize];
-        _label          = [CCLabelTTF labelWithString:@"Score: 0" fontName:@"Marker Felt" fontSize:20];
+        _label          = [CCLabelTTF labelWithString:@"Score: 0" fontName:@"angrybirds-regular" fontSize:20];
         _label.position = ccp(s.width - _label.contentSize.width/2 - 40,
                               25);
         [self addChild:_label];

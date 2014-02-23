@@ -17,7 +17,7 @@
 }
 
 - (id)initWithSpriteLayer:(BLSpriteLayer *)sl{
-    if (self = [super initWithDynamicBody:@"jewel"
+    if (self = [super initWithStaticBody:@"jewel"
                           spriteFrameName:@"jewel.png"]){
         
         spriteLayer = sl;  // Store the sprite layer
@@ -37,11 +37,7 @@
 #pragma mark Collision Detection
 
 - (void)beginContactWithBLEnemySprite:(GB2Contact*)contact{
-//startGameOver
     [((BLGameplayScene *)self.ccNode.parent.parent.parent) startGameOver];
-    
-//    NSLog(@"yo %@", );
-//    self.ccNode
 }
 
 @end
