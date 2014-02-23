@@ -53,7 +53,7 @@
         [self addChild:objectLayer z:10];
         
         // Initializations
-        enemyLaunchForce    = 350.0f;
+        enemyLaunchForce    = 500.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         [self initJewel];
         [self initDebug];
@@ -66,8 +66,8 @@
         
         // Start Waves
         waveNum = 0;
-        int timeBetweenWaves = 10;
-        [self schedule:@selector(startWave) interval:timeBetweenWaves];
+        int timeBetweenWaves = 5;
+        [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:kCCRepeatForever delay:0];
     }
 	return self;
 }
