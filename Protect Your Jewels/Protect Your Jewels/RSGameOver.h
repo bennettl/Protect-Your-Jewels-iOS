@@ -11,6 +11,6 @@
 
 @interface RSGameOver : CCLayer
 
-+ (CCScene *)scene;
++ (CCScene *)sceneWithScore:(int)score;
 
 @end
