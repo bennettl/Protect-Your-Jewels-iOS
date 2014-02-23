@@ -44,11 +44,11 @@
 #pragma mark audio
 // Play when wave starts
 + (void)playHiyaAudio{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja-yell.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja_hiya.caf"];
 }
 // Play when each enemy launches
 - (void)playLaunchAudio{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"woosh.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja_launch.caf"];
 }
 
 // Does ccLocation intersect with any of the body's fixtures?
@@ -114,6 +114,7 @@
         self.state = kFall;
         // Only play punch audio once
         [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
+       // [[SimpleAudioEngine sharedEngine] playEffect:@"ninja_ahh.caf"];
     }
 }
 

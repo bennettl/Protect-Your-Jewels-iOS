@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "RSMainMenuLayer.h"
 #import "RSGameOver.h"
+#import "SimpleAudioEngine.h"
 
 @implementation MyNavigationController
 
@@ -62,7 +63,6 @@
 {
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	
 	
 	// CCGLView creation
 	// viewWithFrame: size of the OpenGL view. For full screen use [_window bounds]
@@ -143,6 +143,14 @@
 	// make main window visible
 	[window_ makeKeyAndVisible];
 	
+    
+    // Preload audio
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"mountain-wind.wav"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"ninja_ahh.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"ninja_grab.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"ninja_hiya.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"ninja_launch.caf"];
+    
 	return YES;
 }
 

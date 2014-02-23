@@ -11,6 +11,7 @@
 #import "BLSpriteLayer.h"
 #import "BLBackgroundLayer.h"
 #import "RSGameOver.h"
+#import "SimpleAudioEngine.h"
 
 @interface BLGameplayScene()
 
@@ -26,6 +27,10 @@
 - (id)init{
     
     if (self = [super init]){
+        
+        // Load background music
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mountain-wind.wav" loop:YES];
+        
         // Create layers and add sa children
         self.uiLayer = [BLUILayer node];
         self.spriteLayer = [BLSpriteLayer node];
