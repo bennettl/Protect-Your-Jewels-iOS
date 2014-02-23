@@ -211,6 +211,7 @@
 		94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSSettingsScene.m */; };
 		94CE827A18B9973200FCA354 /* RSPauseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827718B9973200FCA354 /* RSPauseScene.m */; };
 		94CE827B18B9973200FCA354 /* RSTempGamePlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */; };
+		94CE827E18B9998500FCA354 /* RSGameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827D18B9998500FCA354 /* RSGameOver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -635,6 +636,8 @@
 		94CE827718B9973200FCA354 /* RSPauseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPauseScene.m; sourceTree = "<group>"; };
 		94CE827818B9973200FCA354 /* RSTempGamePlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTempGamePlayScene.h; sourceTree = "<group>"; };
 		94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTempGamePlayScene.m; sourceTree = "<group>"; };
+		94CE827C18B9998500FCA354 /* RSGameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSGameOver.h; sourceTree = "<group>"; };
+		94CE827D18B9998500FCA354 /* RSGameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGameOver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1337,6 +1340,8 @@
 				94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */,
 				94CE827118B9971F00FCA354 /* RSSettingsScene.h */,
 				94CE827218B9971F00FCA354 /* RSSettingsScene.m */,
+				94CE827C18B9998500FCA354 /* RSGameOver.h */,
+				94CE827D18B9998500FCA354 /* RSGameOver.m */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -1422,6 +1427,7 @@
 			files = (
 				4D8ADF2218B974A5001689EC /* CCTexturePVR.m in Sources */,
 				4D8ADF7218B974A5001689EC /* ccUtils.c in Sources */,
+				94CE827E18B9998500FCA354 /* RSGameOver.m in Sources */,
 				4D8ADEC318B974A4001689EC /* CCLayer.m in Sources */,
 				4D8ADFEE18B974A6001689EC /* b2ChainShape.cpp in Sources */,
 				4D8ADF2518B974A5001689EC /* CCTileMapAtlas.m in Sources */,
