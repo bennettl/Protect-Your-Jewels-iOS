@@ -29,8 +29,7 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
 		CCSprite *background;
-		background = [CCSprite spriteWithFile:@"Default.png"];
-		background.rotation = 90;
+		background = [CCSprite spriteWithFile:@"game_background.png"];
 		if(size.height > size.width) {
             background.position = ccp(size.height/2, size.width/2);
         } else {
