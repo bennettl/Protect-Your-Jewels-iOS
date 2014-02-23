@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
-#import "CCLayer.h"
+#import "CCScene.h"
 #import "cocos2d.h"
 
-@interface RSGameOver : CCLayer
+@interface RSGameOver : CCScene
 
 + (CCScene *)scene;
 
