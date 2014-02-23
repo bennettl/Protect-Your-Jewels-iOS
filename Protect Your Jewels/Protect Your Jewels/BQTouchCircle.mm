@@ -31,17 +31,7 @@
         // Anti - gravity
         self.body->ApplyForce(self.body->GetMass() * -world->GetGravity(), self.body->GetWorldCenter());
 
-        
         spriteLayer = sl;  // Store the sprite layer
-        
-        // Set touch to collide with everything but the jewel
-//        for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
-//            b2Filter tf         = f->GetFilterData();
-//            tf.categoryBits     =0x0008;
-//            tf.maskBits         = 0x0004;
-//            tf.groupIndex       = 2;
-//            f->SetFilterData(tf);
-//        }
     }
     return self;
 }
