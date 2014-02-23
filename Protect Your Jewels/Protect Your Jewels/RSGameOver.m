@@ -7,7 +7,7 @@
 //
 
 #import "RSGameOver.h"
-#import "RSTempGamePlayScene.h"
+#import "BLGameplayScene.h"
 #import "RSMainMenuLayer.h"
 
 @implementation RSGameOver
@@ -31,7 +31,7 @@
 		// Achievement Menu Item using blocks
 		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"Try Again" block:^(id sender) {
             
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSTempGamePlayScene node]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[BLGameplayScene node]]];
 			
 		}];
         CCMenuItem *itemMainMenu = [CCMenuItemFont itemWithString:@"Quit" block:^(id sender) {
