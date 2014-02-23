@@ -4,44 +4,44 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>jewel.png</key>
+            <key>attack.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{171,2},{108,77}}</string>
+                <string>{{2,2},{200,260}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{30,0},{200,260}}</string>
+                <key>sourceSize</key>
+                <string>{260,260}</string>
+            </dict>
+            <key>fall.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{204,2},{196,260}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{108,77}}</string>
+                <string>{{32,0},{196,260}}</string>
                 <key>sourceSize</key>
-                <string>{108,77}</string>
+                <string>{260,260}</string>
             </dict>
-            <key>ninja/attack.png</key>
+            <key>jewel.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{83,108}}</string>
+                <string>{{204,200},{260,184}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{83,108}}</string>
+                <string>{{0,38},{260,184}}</string>
                 <key>sourceSize</key>
-                <string>{83,108}</string>
-            </dict>
-            <key>ninja/fall.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{87,2},{82,108}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{82,108}}</string>
-                <key>sourceSize</key>
-                <string>{82,108}</string>
+                <string>{260,260}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -49,13 +49,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>Sprites-hd.pvr.ccz</string>
+            <string>Sprite-hd.pvr.ccz</string>
             <key>size</key>
-            <string>{250,112}</string>
+            <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:8d15e5b03c7c52f18a6b92edc4fcc5e3:8040d876f8b6ff3500ad0406640bff92:8e9ec22a2c0ec922c15f2d7e51a327b3$</string>
+            <string>$TexturePacker:SmartUpdate:e80fc7c3621414fad1846f53e9d6a958:e403411c159fdc3b762f0441d03e6eff:b91d30c583736a52e94bafb77a011ede$</string>
             <key>textureFileName</key>
-            <string>Sprites-hd.pvr.ccz</string>
+            <string>Sprite-hd.pvr.ccz</string>
         </dict>
     </dict>
 </plist>
