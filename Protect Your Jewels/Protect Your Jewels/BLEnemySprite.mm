@@ -109,7 +109,12 @@
 
 // When the BQTouchCircle collides with enemy, play the punch audio
 -(void)beginContactWithBQTouchCircle:(GB2Contact *)contact{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
+    // Change ninja state when he's hit with BQTouchCircle
+    if (self.state == kAttack){
+        self.state = kFall;
+        // Only play punch audio once
+        [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
+    }
 }
 
 // Enemy collides with each other

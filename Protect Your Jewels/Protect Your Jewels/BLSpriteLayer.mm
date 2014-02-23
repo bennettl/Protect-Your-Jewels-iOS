@@ -123,11 +123,10 @@
 // Scheduled and called regularly to start a wave of enemies
 - (void)startWave{
     waveNum++;
-    NSLog(@"wave");
-    [BLEnemySprite playHiyaAudio]; // play audio every time there's a new wave
     enemyLaunchForce = enemyLaunchForce + (waveNum*10);
     [self unschedule:@selector(spawnEnemyAtLocation:)];
     [self schedule:@selector(spawnEnemyAtLocation:) interval:1.0f repeat:waveNum delay:0];
+    [BLEnemySprite playHiyaAudio]; // play audio every time there's a new wave
 }
 
 // Returns a random CGPoint on the perimeter of the screen
