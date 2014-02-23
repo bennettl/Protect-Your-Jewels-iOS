@@ -12,6 +12,7 @@
 #import "BLBackgroundLayer.h"
 #import "RSGameOver.h"
 #import "SimpleAudioEngine.h"
+#import "GB2Engine.h"
 
 @interface BLGameplayScene()
 
@@ -55,6 +56,12 @@
 // Switches to game over scene
 -(void)startGameOver{
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f scene:[RSGameOver sceneWithScore:self.currentScore]]];
+}
+
+- (void)dealloc{
+    // Make sure to clean up all box2D objects when GameScene is deallocated
+    [[GB2Engine sharedInstance] deleteAllObjects];
+    [super dealloc];
 }
 
 @end

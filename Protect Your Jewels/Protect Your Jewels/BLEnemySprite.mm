@@ -44,7 +44,7 @@
 #pragma mark audio
 // Play when wave starts
 + (void)playHiyaAudio{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja_hiya.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja-hiya.caf"];
 }
 // Play when each enemy launches
 - (void)playLaunchAudio{
