@@ -72,7 +72,8 @@
         // Schedule
         [self scheduleUpdate];
         
-        
+        float enemyFrequency = 5.0; // THIS WILL DECREASE FOR MORE DIFFICULT WAVES
+        [self schedule:@selector(startWave) interval:enemyFrequency];
     }
 	return self;
 }
@@ -174,8 +175,6 @@
     if ([self createMouseJointWithTouch:touch]){
         return;
     }
-    
-    [self spawnEnemyAtLocation:ccLocation];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -341,6 +340,30 @@
 
 - (void)endContact:(b2Contact*)contact{
     
+}
+
+- (void)startWave{
+    int currentTime = CACurrentMediaTime();
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    // Spawn from right
+    CGPoint randR = CGPointMake((int) winSize.width,arc4random() % (int) winSize.height);
+    // Spawn from left
+    CGPoint randL = CGPointMake(0,arc4random() % (int) winSize.height);
+    // Spawn from top
+    CGPoint randT = CGPointMake(arc4random() % (int) winSize.width,(int) winSize.height);
+    // Spawn from bottom
+    CGPoint randB = CGPointMake(arc4random() % (int) winSize.width,0);
+    
+    int direct = random()%4;
+    if(direct == 0){
+        [self spawnEnemyAtLocation:randT];
+    }else if(direct == 1){
+        [self spawnEnemyAtLocation:randB];
+    }else if(direct ==2){
+        [self spawnEnemyAtLocation:randL];
+    }else{
+        [self spawnEnemyAtLocation:randR];
+    }
 }
 
 -(void) dealloc{
