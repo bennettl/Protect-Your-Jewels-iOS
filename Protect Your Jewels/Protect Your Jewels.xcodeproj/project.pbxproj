@@ -208,6 +208,9 @@
 		4D8AE0E318B9CBE0001689EC /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DE18B9CBE0001689EC /* Sprites.plist */; };
 		4D8AE0E418B9CBE0001689EC /* Sprites.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DF18B9CBE0001689EC /* Sprites.pvr.ccz */; };
 		4D8AE0E918BA018D001689EC /* menu_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0E818BA018D001689EC /* menu_logo.png */; };
+		4D8AE0F218BA2951001689EC /* ninja-yell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0F118BA2951001689EC /* ninja-yell.caf */; };
+		4D8AE0F618BA2A00001689EC /* punch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0F518BA2A00001689EC /* punch.caf */; };
+		4D8AE0F818BA2ACA001689EC /* woosh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0F718BA2ACA001689EC /* woosh.caf */; };
 		94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */; };
 		94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */; };
 		94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSSettingsScene.m */; };
@@ -630,6 +633,9 @@
 		4D8AE0DE18B9CBE0001689EC /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sprites.plist; sourceTree = "<group>"; };
 		4D8AE0DF18B9CBE0001689EC /* Sprites.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sprites.pvr.ccz; sourceTree = "<group>"; };
 		4D8AE0E818BA018D001689EC /* menu_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_logo.png; sourceTree = "<group>"; };
+		4D8AE0F118BA2951001689EC /* ninja-yell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ninja-yell.caf"; sourceTree = "<group>"; };
+		4D8AE0F518BA2A00001689EC /* punch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = punch.caf; sourceTree = "<group>"; };
+		4D8AE0F718BA2ACA001689EC /* woosh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = woosh.caf; sourceTree = "<group>"; };
 		94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLeaderboardScene.h; sourceTree = "<group>"; };
 		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLeaderboardScene.m; sourceTree = "<group>"; };
 		94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainMenuLayer.h; sourceTree = "<group>"; };
@@ -717,6 +723,7 @@
 				4D8AE0E818BA018D001689EC /* menu_logo.png */,
 				4D8AE0BF18B9A7CF001689EC /* angrybirds-regular.ttf */,
 				4D8AE0B318B97A31001689EC /* game_background.png */,
+				4D8AE0EA18BA271D001689EC /* Audio */,
 				4D8AE0D218B9C951001689EC /* Gameplay */,
 				4D8AE0E718BA0057001689EC /* Splash Screen */,
 				4D8AE0D118B9C926001689EC /* Icons */,
@@ -1361,6 +1368,16 @@
 			name = "Splash Screen";
 			sourceTree = "<group>";
 		};
+		4D8AE0EA18BA271D001689EC /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				4D8AE0F118BA2951001689EC /* ninja-yell.caf */,
+				4D8AE0F718BA2ACA001689EC /* woosh.caf */,
+				4D8AE0F518BA2A00001689EC /* punch.caf */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		94CE826C18B9970700FCA354 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1428,10 +1445,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D8ADE5818B974A3001689EC /* Icon.png in Resources */,
+				4D8AE0F218BA2951001689EC /* ninja-yell.caf in Resources */,
 				4D8AE0E918BA018D001689EC /* menu_logo.png in Resources */,
 				4D8ADFB618B974A6001689EC /* ChangeLog in Resources */,
 				4D8ADE4A18B974A2001689EC /* Default@2x.png in Resources */,
 				4D8AE0E418B9CBE0001689EC /* Sprites.pvr.ccz in Resources */,
+				4D8AE0F618BA2A00001689EC /* punch.caf in Resources */,
 				4D8ADE5418B974A3001689EC /* Icon-Small.png in Resources */,
 				4D8ADE5018B974A2001689EC /* Icon-72.png in Resources */,
 				4D8ADE4818B974A2001689EC /* Default.png in Resources */,
@@ -1442,6 +1461,7 @@
 				4D8ADE5618B974A3001689EC /* Icon-Small@2x.png in Resources */,
 				4D8ADE4E18B974A2001689EC /* Default-Landscape~ipad.png in Resources */,
 				4D8ADE4C18B974A2001689EC /* Default-568h@2x.png in Resources */,
+				4D8AE0F818BA2ACA001689EC /* woosh.caf in Resources */,
 				4D8ADE5A18B974A3001689EC /* Icon@2x.png in Resources */,
 				4D8AE0E118B9CBE0001689EC /* Sprites-hd.plist in Resources */,
 				4D8AE0E318B9CBE0001689EC /* Sprites.plist in Resources */,

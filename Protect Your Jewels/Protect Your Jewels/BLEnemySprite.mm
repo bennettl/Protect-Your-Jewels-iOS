@@ -10,7 +10,7 @@
 #import "GB2Contact.h"
 #import "BLSpriteLayer.h"
 #import "BLGameplayScene.h"
-
+#import "SimpleAudioEngine.h"
 
 @implementation BLEnemySprite
 
@@ -39,6 +39,12 @@
         self.body->SetGravityScale(0);
     }
     return self;
+}
+
+// Plays audio when enemy launches. BLSpriteLayer calls this function
+- (void)playLaunchAudio{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"woosh.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja-yell.caf"];
 }
 
 // Does ccLocation intersect with any of the body's fixtures?
@@ -95,6 +101,11 @@
     // Send a message to the gameplay scene to increment score and sprite layer to remove enemy from its array
     [((BLGameplayScene *)self.ccNode.parent.parent) incrementScore];
     [((BLSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
+}
+
+// When the BQTouchCircle collides with enemy, play the punch audio
+-(void)beginContactWithBQTouchCircle:(GB2Contact *)contact{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
 }
 
 // Enemy collides with each other

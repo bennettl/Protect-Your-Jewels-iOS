@@ -104,6 +104,7 @@
     [self addChild:es.ccNode z:10];
     [self.enemies addObject:es];
 
+    [es playLaunchAudio];
     // Launch enemy towards center
     // Get center vector
     CGPoint pointA                  = location;
