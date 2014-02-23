@@ -24,7 +24,6 @@
     if (self = [super initWithStaticBody:nil node:nil]){
         // Get height of enemy
         
-        
         padding = 50;
         
         // Points

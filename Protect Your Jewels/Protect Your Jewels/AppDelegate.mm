@@ -83,6 +83,9 @@
 									sharegroup:nil
 								 multiSampling:NO
 							   numberOfSamples:0];
+    
+    // Prevent images from having dark borders
+    [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
 	// Enable multiple touches
 	[glView setMultipleTouchEnabled:YES];
