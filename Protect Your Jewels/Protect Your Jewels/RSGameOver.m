@@ -24,6 +24,15 @@
 	if( (self=[super init]) )
 	{
 		CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        CCSprite *background;
+		background = [CCSprite spriteWithFile:@"game_background.png"];
+		if(size.height > size.width) {
+            background.position = ccp(size.height/2, size.width/2);
+        } else {
+            background.position = ccp(size.width/2, size.height/2);
+        }
+		[self addChild: background];
 		
 		[CCMenuItemFont setFontSize:28];
         [CCMenuItemFont setFontName:@"Helvetica"];
