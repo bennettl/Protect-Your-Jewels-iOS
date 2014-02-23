@@ -7,7 +7,7 @@
 //
 
 #import "RSMainMenuLayer.h"
-#import "RSTempGamePlayScene.h"
+#import "BLGameplayScene.h"
 #import "RSLeaderboardScene.h"
 #import "RSSettingsScene.h"
 #import "cocos2d.h"
@@ -28,15 +28,15 @@
 	{
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
-//		CCSprite *background;
-//		background = [CCSprite spriteWithFile:@"Default.png"];
-//		background.rotation = 90;
-//		if(size.height > size.width) {
-//            background.position = ccp(size.height/2, size.width/2);
-//        } else {
-//            background.position = ccp(size.width/2, size.height/2);
-//        }
-//		[self addChild: background];
+		CCSprite *background;
+		background = [CCSprite spriteWithFile:@"Default.png"];
+		background.rotation = 90;
+		if(size.height > size.width) {
+            background.position = ccp(size.height/2, size.width/2);
+        } else {
+            background.position = ccp(size.width/2, size.height/2);
+        }
+		[self addChild: background];
 		
 		[CCMenuItemFont setFontSize:28];
         [CCMenuItemFont setFontName:@"Helvetica"];
@@ -44,7 +44,7 @@
 		// Achievement Menu Item using blocks
 		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"New Game" block:^(id sender) {
             
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSTempGamePlayScene node]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[BLGameplayScene node]]];
 			
 		}];
         CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
