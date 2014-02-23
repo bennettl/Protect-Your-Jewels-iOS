@@ -206,6 +206,7 @@
 		4D8AE0BC18B97A4B001689EC /* Sprites-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0B718B97A4B001689EC /* Sprites-hd.pvr.ccz */; };
 		4D8AE0BD18B97A4B001689EC /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0B818B97A4B001689EC /* Sprites.plist */; };
 		4D8AE0BE18B97A4B001689EC /* Sprites.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0B918B97A4B001689EC /* Sprites.pvr.ccz */; };
+		4D8AE0C018B9A7CF001689EC /* angrybirds-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0BF18B9A7CF001689EC /* angrybirds-regular.ttf */; };
 		94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */; };
 		94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */; };
 		94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSSettingsScene.m */; };
@@ -626,6 +627,7 @@
 		4D8AE0B718B97A4B001689EC /* Sprites-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sprites-hd.pvr.ccz"; sourceTree = "<group>"; };
 		4D8AE0B818B97A4B001689EC /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sprites.plist; sourceTree = "<group>"; };
 		4D8AE0B918B97A4B001689EC /* Sprites.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sprites.pvr.ccz; sourceTree = "<group>"; };
+		4D8AE0BF18B9A7CF001689EC /* angrybirds-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "angrybirds-regular.ttf"; sourceTree = "<group>"; };
 		94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLeaderboardScene.h; sourceTree = "<group>"; };
 		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLeaderboardScene.m; sourceTree = "<group>"; };
 		94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainMenuLayer.h; sourceTree = "<group>"; };
@@ -710,6 +712,7 @@
 		4D8ADE4618B974A2001689EC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4D8AE0BF18B9A7CF001689EC /* angrybirds-regular.ttf */,
 				4D8ADE4718B974A2001689EC /* Default.png */,
 				4D8ADE4918B974A2001689EC /* Default@2x.png */,
 				4D8ADE4B18B974A2001689EC /* Default-568h@2x.png */,
@@ -1404,6 +1407,7 @@
 				4D8ADE5418B974A3001689EC /* Icon-Small.png in Resources */,
 				4D8ADE5018B974A2001689EC /* Icon-72.png in Resources */,
 				4D8ADE4818B974A2001689EC /* Default.png in Resources */,
+				4D8AE0C018B9A7CF001689EC /* angrybirds-regular.ttf in Resources */,
 				4D8ADE5218B974A3001689EC /* Icon-Small-50.png in Resources */,
 				4D8ADE5D18B974A3001689EC /* iTunesArtwork in Resources */,
 				4D8AE0BC18B97A4B001689EC /* Sprites-hd.pvr.ccz in Resources */,
