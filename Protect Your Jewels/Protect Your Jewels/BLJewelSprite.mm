@@ -7,6 +7,8 @@
 //
 
 #import "BLJewelSprite.h"
+#import "GB2Contact.h"
+#import "BLGameplayScene.h"
 
 @implementation BLJewelSprite
 
@@ -36,6 +38,16 @@
         //self.body->GetFixtureList()[0].SetFilterData(jf);
     }
     return self;
+}
+
+#pragma mark Collision Detection
+
+- (void)beginContactWithBLEnemySprite:(GB2Contact*)contact{
+//startGameOver
+    [((BLGameplayScene *)self.ccNode.parent.parent.parent) startGameOver];
+    
+//    NSLog(@"yo %@", );
+//    self.ccNode
 }
 
 @end

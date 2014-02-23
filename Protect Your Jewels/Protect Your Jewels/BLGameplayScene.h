@@ -14,5 +14,6 @@
 @property int currentScore;
 
 -(void)incrementScore;
+-(void)startGameOver;
 
 @end

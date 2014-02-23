@@ -10,6 +10,7 @@
 #import "BLUILayer.h"
 #import "BLSpriteLayer.h"
 #import "BLBackgroundLayer.h"
+#import "RSGameOver.h"
 
 @interface BLGameplayScene()
 
@@ -44,6 +45,11 @@
 -(void)incrementScore{
     self.currentScore++;
     [self.uiLayer updateLabelWithScore:self.currentScore];
+}
+
+// Switches to game over scene
+-(void)startGameOver{
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f scene:[RSGameOver scene]]];
 }
 
 @end

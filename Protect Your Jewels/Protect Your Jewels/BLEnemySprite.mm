@@ -104,7 +104,6 @@
 
 // Enemy collides with jewel
 - (void)beginContactWithBLJewelSprite:(GB2Contact*)contact{
-    NSLog(@"ouch");
     // Mark it for deletion
     self.deleteLater = true;
     
