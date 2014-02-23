@@ -207,6 +207,7 @@
 		4D8AE0E218B9CBE0001689EC /* Sprites-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DD18B9CBE0001689EC /* Sprites-hd.pvr.ccz */; };
 		4D8AE0E318B9CBE0001689EC /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DE18B9CBE0001689EC /* Sprites.plist */; };
 		4D8AE0E418B9CBE0001689EC /* Sprites.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DF18B9CBE0001689EC /* Sprites.pvr.ccz */; };
+		4D8AE0E918BA018D001689EC /* menu_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0E818BA018D001689EC /* menu_logo.png */; };
 		94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */; };
 		94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */; };
 		94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSSettingsScene.m */; };
@@ -628,6 +629,7 @@
 		4D8AE0DD18B9CBE0001689EC /* Sprites-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sprites-hd.pvr.ccz"; sourceTree = "<group>"; };
 		4D8AE0DE18B9CBE0001689EC /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sprites.plist; sourceTree = "<group>"; };
 		4D8AE0DF18B9CBE0001689EC /* Sprites.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sprites.pvr.ccz; sourceTree = "<group>"; };
+		4D8AE0E818BA018D001689EC /* menu_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_logo.png; sourceTree = "<group>"; };
 		94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLeaderboardScene.h; sourceTree = "<group>"; };
 		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLeaderboardScene.m; sourceTree = "<group>"; };
 		94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainMenuLayer.h; sourceTree = "<group>"; };
@@ -712,13 +714,11 @@
 		4D8ADE4618B974A2001689EC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4D8AE0E818BA018D001689EC /* menu_logo.png */,
 				4D8AE0BF18B9A7CF001689EC /* angrybirds-regular.ttf */,
-				4D8ADE4718B974A2001689EC /* Default.png */,
-				4D8ADE4918B974A2001689EC /* Default@2x.png */,
-				4D8ADE4B18B974A2001689EC /* Default-568h@2x.png */,
-				4D8ADE4D18B974A2001689EC /* Default-Landscape~ipad.png */,
 				4D8AE0B318B97A31001689EC /* game_background.png */,
 				4D8AE0D218B9C951001689EC /* Gameplay */,
+				4D8AE0E718BA0057001689EC /* Splash Screen */,
 				4D8AE0D118B9C926001689EC /* Icons */,
 				4D8ADE5B18B974A3001689EC /* Info.plist */,
 				4D8ADE5C18B974A3001689EC /* iTunesArtwork */,
@@ -1350,6 +1350,17 @@
 			name = Gameplay;
 			sourceTree = "<group>";
 		};
+		4D8AE0E718BA0057001689EC /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				4D8ADE4718B974A2001689EC /* Default.png */,
+				4D8ADE4918B974A2001689EC /* Default@2x.png */,
+				4D8ADE4B18B974A2001689EC /* Default-568h@2x.png */,
+				4D8ADE4D18B974A2001689EC /* Default-Landscape~ipad.png */,
+			);
+			name = "Splash Screen";
+			sourceTree = "<group>";
+		};
 		94CE826C18B9970700FCA354 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1417,6 +1428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D8ADE5818B974A3001689EC /* Icon.png in Resources */,
+				4D8AE0E918BA018D001689EC /* menu_logo.png in Resources */,
 				4D8ADFB618B974A6001689EC /* ChangeLog in Resources */,
 				4D8ADE4A18B974A2001689EC /* Default@2x.png in Resources */,
 				4D8AE0E418B9CBE0001689EC /* Sprites.pvr.ccz in Resources */,

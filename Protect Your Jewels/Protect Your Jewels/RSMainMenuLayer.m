@@ -28,39 +28,40 @@
 	{
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
-		CCSprite *background;
-		background = [CCSprite spriteWithFile:@"game_background.png"];
-		if(size.height > size.width) {
+        // Create menu logo and background
+        CCSprite *menuLogo  = [CCSprite spriteWithFile:@"menu_logo.png"];
+		CCSprite *background = [CCSprite spriteWithFile:@"game_background.png"];
+        
+        // Center the background
+		if (size.height > size.width) {
+            menuLogo.position = ccp(size.height - menuLogo.contentSize.height + 15, size.width/2);
             background.position = ccp(size.height/2, size.width/2);
         } else {
+            menuLogo.position = ccp(size.width/2, size.height - menuLogo.contentSize.height + 15);
             background.position = ccp(size.width/2, size.height/2);
         }
-		[self addChild: background];
+        
+        [self addChild:menuLogo z:1];
+		[self addChild: background z:-1];
 		
-		[CCMenuItemFont setFontSize:28];
+        // Create menu items
+		[CCMenuItemFont setFontSize:23];
         [CCMenuItemFont setFontName:@"angrybirds-regular"];
 		
-		// Achievement Menu Item using blocks
 		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"New Game" block:^(id sender) {
-            
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[BLGameplayScene node]]];
-			
 		}];
         CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-            
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSLeaderboardScene node]]];
-			
 		}];
         CCMenuItem *itemSettings = [CCMenuItemFont itemWithString:@"Settings" block:^(id sender) {
-            
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSSettingsScene node]]];
-			
 		}];
 		
 		CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard, itemSettings, nil];
 		
 		[menu alignItemsVerticallyWithPadding:10];
-        [menu setPosition:ccp(size.width/2, 100)];
+        [menu setPosition:ccp(size.width/2, 95)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];
