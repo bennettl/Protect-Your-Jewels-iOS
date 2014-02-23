@@ -38,7 +38,7 @@
 		[self addChild: background];
 		
 		[CCMenuItemFont setFontSize:28];
-        [CCMenuItemFont setFontName:@"Helvetica"];
+        [CCMenuItemFont setFontName:@"angrybirds-regular"];
 		
 		// Achievement Menu Item using blocks
 		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"New Game" block:^(id sender) {
