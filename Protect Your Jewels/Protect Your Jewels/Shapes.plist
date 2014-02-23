@@ -36,11 +36,11 @@
 						<key>polygons</key>
 						<array>
 							<array>	
-								<string>{ 0.000,-36.500 }</string>	
-								<string>{ 51.000,11.500 }</string>	
-								<string>{ 31.000,36.500 }</string>	
-								<string>{ -31.000,35.500 }</string>	
-								<string>{ -51.000,10.500 }</string>
+								<string>{ -1.000,-89.000 }</string>	
+								<string>{ 126.000,28.000 }</string>	
+								<string>{ 75.000,89.000 }</string>	
+								<string>{ -76.000,88.000 }</string>	
+								<string>{ -126.000,28.000 }</string>
 							</array>
 						</array>
                     </dict>
@@ -66,8 +66,8 @@
 
                          <key>circle</key>
                          <dict>
-                             <key>radius</key> <real>30.000</real>
-                             <key>position</key> <string>{ -1.948,22.266 }</string>
+                             <key>radius</key> <real>75.000</real>
+                             <key>position</key> <string>{ -1.448,52.266 }</string>
                          </dict>
                     </dict>
 					<dict>
@@ -83,8 +83,8 @@
 
                          <key>circle</key>
                          <dict>
-                             <key>radius</key> <real>13.000</real>
-                             <key>position</key> <string>{ -26.773,-12.000 }</string>
+                             <key>radius</key> <real>33.000</real>
+                             <key>position</key> <string>{ -66.273,-27.000 }</string>
                          </dict>
                     </dict>
 					<dict>
@@ -100,8 +100,8 @@
 
                          <key>circle</key>
                          <dict>
-                             <key>radius</key> <real>26.000</real>
-                             <key>position</key> <string>{ -6.143,-27.385 }</string>
+                             <key>radius</key> <real>70.000</real>
+                             <key>position</key> <string>{ -2.643,-53.385 }</string>
                          </dict>
                     </dict>
 					<dict>
@@ -117,8 +117,8 @@
 
                          <key>circle</key>
                          <dict>
-                             <key>radius</key> <real>22.023</real>
-                             <key>position</key> <string>{ 17.283,0.238 }</string>
+                             <key>radius</key> <real>34.000</real>
+                             <key>position</key> <string>{ 60.783,8.238 }</string>
                          </dict>
                     </dict>
 				</array>
