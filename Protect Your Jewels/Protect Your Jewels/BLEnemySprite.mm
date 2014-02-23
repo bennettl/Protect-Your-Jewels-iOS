@@ -41,10 +41,14 @@
     return self;
 }
 
-// Plays audio when enemy launches. BLSpriteLayer calls this function
+#pragma mark audio
+// Play when wave starts
++ (void)playHiyaAudio{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja-yell.caf"];
+}
+// Play when each enemy launches
 - (void)playLaunchAudio{
     [[SimpleAudioEngine sharedEngine] playEffect:@"woosh.caf"];
-    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja-yell.caf"];
 }
 
 // Does ccLocation intersect with any of the body's fixtures?

@@ -25,7 +25,9 @@ typedef enum {
 +(BLEnemySprite *)enemySprite;
 
 - (id)initWithSpriteLayer:(BLSpriteLayer *)sl;
++ (void)playHiyaAudio;
 - (void)playLaunchAudio;
--(BOOL)intersectsWithPoint:(CGPoint)ccLocation;
+
+- (BOOL)intersectsWithPoint:(CGPoint)ccLocation;
 
 @end

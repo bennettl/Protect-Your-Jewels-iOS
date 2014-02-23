@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "RSMainMenuLayer.h"
+#import "RSGameOver.h"
 
 @implementation MyNavigationController
 

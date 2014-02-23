@@ -215,7 +215,6 @@
 		94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */; };
 		94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSSettingsScene.m */; };
 		94CE827A18B9973200FCA354 /* RSPauseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827718B9973200FCA354 /* RSPauseScene.m */; };
-		94CE827B18B9973200FCA354 /* RSTempGamePlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */; };
 		94CE827E18B9998500FCA354 /* RSGameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827D18B9998500FCA354 /* RSGameOver.m */; };
 /* End PBXBuildFile section */
 
@@ -644,8 +643,6 @@
 		94CE827218B9971F00FCA354 /* RSSettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSettingsScene.m; sourceTree = "<group>"; };
 		94CE827618B9973200FCA354 /* RSPauseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPauseScene.h; sourceTree = "<group>"; };
 		94CE827718B9973200FCA354 /* RSPauseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPauseScene.m; sourceTree = "<group>"; };
-		94CE827818B9973200FCA354 /* RSTempGamePlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTempGamePlayScene.h; sourceTree = "<group>"; };
-		94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTempGamePlayScene.m; sourceTree = "<group>"; };
 		94CE827C18B9998500FCA354 /* RSGameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSGameOver.h; sourceTree = "<group>"; };
 		94CE827D18B9998500FCA354 /* RSGameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGameOver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1263,8 +1260,6 @@
 				4D8AE07D18B979A0001689EC /* BLGameplayScene.mm */,
 				94CE827618B9973200FCA354 /* RSPauseScene.h */,
 				94CE827718B9973200FCA354 /* RSPauseScene.m */,
-				94CE827818B9973200FCA354 /* RSTempGamePlayScene.h */,
-				94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */,
 				4D8AE09518B979B6001689EC /* Layers */,
 				4D8AE09618B979BA001689EC /* Sprites */,
 				4D8AE09718B979D9001689EC /* Misc */,
@@ -1551,7 +1546,6 @@
 				4D8AE03318B974A7001689EC /* b2EdgeAndCircleContact.cpp in Sources */,
 				4D8ADEB418B974A4001689EC /* CCGrabber.m in Sources */,
 				4D8ADFBE18B974A6001689EC /* mat3.c in Sources */,
-				94CE827B18B9973200FCA354 /* RSTempGamePlayScene.m in Sources */,
 				4D8AE00318B974A6001689EC /* b2Math.cpp in Sources */,
 				4D8ADF4818B974A5001689EC /* CCES2Renderer.m in Sources */,
 				4D8ADEBA18B974A4001689EC /* CCLabelAtlas.m in Sources */,
