@@ -10,7 +10,7 @@
 
 @implementation BQTouchCircle
 
-- (id)initWithSpriteLayer:(BLSpriteLayer *)sl{
+- (id)initWithTouch:(UITouch *)touch andGroundBody:(b2Body *)body{
     if (self = [super initWithDynamicBody:nil node:nil]){
         
         // Create a circle
@@ -28,13 +28,26 @@
         
         [self addFixture:&fd];
         
+        // Set touch
+        
+        CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
+        b2Vec2 b2Location = b2Vec2FromCC(ccLocation.x, ccLocation.y);
+        
+        [self setPhysicsPosition:b2Location];
+        [self createMouseJointWithGroundBody:body target:b2Location maxForce:5000];
+
+        self.touchHash = touch.hash;
+        
         // Anti - gravity
         self.body->ApplyForce(self.body->GetMass() * -world->GetGravity(), self.body->GetWorldCenter());
 
-        
-        spriteLayer = sl;  // Store the sprite layer
     }
     return self;
+}
+
+// Does BQTouchCircle belong to touch object. Use for multi-touch tracking
+- (BOOL)belongsToTouch:(UITouch *)touch{
+    return (self.touchHash == touch.hash) ? YES : NO;
 }
 
 // Does ccLocation intersect with any of the body's fixtures?

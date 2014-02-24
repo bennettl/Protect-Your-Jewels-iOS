@@ -14,7 +14,14 @@
     BLSpriteLayer *spriteLayer;
 }
 
--(id)initWithSpriteLayer:(BLSpriteLayer *)sl;
--(BOOL)intersectsWithPoint:(CGPoint)ccLocation;
+- (id)initWithTouch:(UITouch *)touch andGroundBody:(b2Body *)body;
+
+- (BOOL)intersectsWithPoint:(CGPoint)ccLocation;
+
+// Does BQTouchCircle belong to touch object. Use for multi-touch tracking
+- (BOOL)belongsToTouch:(UITouch *)touch;
+
+// Reference to the touch that create the object
+@property NSUInteger touchHash;
 
 @end
