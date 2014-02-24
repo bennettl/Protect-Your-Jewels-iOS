@@ -61,29 +61,31 @@
 }
 
 - (void)saveHighScore {
-    NSNumber *highScore = [NSNumber numberWithInt:self.currentScore];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *highScore         = [NSNumber numberWithInt:self.currentScore];
+    NSUserDefaults *defaults    = [NSUserDefaults standardUserDefaults];
+  
+    // If NSUserdefaults for key userHighScores doesn't exist, create one
     if (![defaults objectForKey:@"userHighScores"]) {
         NSMutableArray *highScoresArray = [[NSMutableArray alloc] init];
-        
         [highScoresArray addObject:highScore];
-        
         [defaults setObject:highScoresArray forKey:@"userHighScores"];
-    }
-    else {
-        NSArray *highScoresArray = [defaults objectForKey:@"userHighScores"];
+    } else {
+        // Create a mutable version of highscores and modify it
+        NSArray *highScoresArray            = [defaults objectForKey:@"userHighScores"];
         NSMutableArray *highScoresArrayTemp = [highScoresArray mutableCopy];
-        for(int i = 0; i <highScoresArrayTemp.count; i++) {
+      
+        for (int i = 0; i < highScoresArrayTemp.count; i++) {
             if(i > 9) break;
-            if([highScore intValue] >= [[highScoresArrayTemp objectAtIndex:i] intValue]) {
+            
+            if ([highScore intValue] >= [[highScoresArrayTemp objectAtIndex:i] intValue]) {
                 [highScoresArrayTemp insertObject:highScore atIndex:i];
                 if (highScoresArrayTemp.count > 10) {
                     [highScoresArrayTemp removeLastObject];
                 }
                 break;
-                
             }
-            if(i == highScoresArrayTemp.count - 1 && highScoresArrayTemp.count != 10) {
+            
+            if (i == highScoresArrayTemp.count - 1 && highScoresArrayTemp.count != 10) {
                 [highScoresArrayTemp addObject:highScore];
                 break;
                 
