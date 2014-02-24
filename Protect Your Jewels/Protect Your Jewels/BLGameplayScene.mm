@@ -85,7 +85,7 @@
             }
         }
         // Replace defaults with highScoresMutableArray
-        [defaults setObject:highScoresMutableArray forKey:@"userHighScores"];
+        [defaults setObject:highScoresArrayTemp forKey:@"userHighScores"];
     }
     [defaults synchronize];
     
