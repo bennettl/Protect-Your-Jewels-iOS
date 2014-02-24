@@ -58,6 +58,7 @@
     NSNumber *highScore = [NSNumber numberWithInt:self.currentScore];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![defaults objectForKey:@"userHighScores"]) {
+        NSLog(@"no array");
          NSMutableArray *highScoresArray = [[NSMutableArray alloc] init];
         
         [highScoresArray addObject:highScore];
@@ -69,14 +70,24 @@
         NSMutableArray *highScoresArrayTemp = [highScoresArray mutableCopy];
         for(int i = 0; i <highScoresArrayTemp.count; i++) {
             if(i > 9) break;
-            if(highScore > [highScoresArrayTemp objectAtIndex:i]) {
+            if([highScore intValue] >= [[highScoresArrayTemp objectAtIndex:i] intValue]) {
                 [highScoresArrayTemp insertObject:highScore atIndex:i];
+                if (highScoresArrayTemp.count > 10) {
+                    [highScoresArrayTemp removeLastObject];
+                }
                 break;
+                
+            }
+            if(i == highScoresArrayTemp.count - 1 && highScoresArrayTemp.count != 10) {
+                [highScoresArrayTemp addObject:highScore];
+                break;
+                
             }
         }
         [defaults setObject:highScoresArrayTemp forKey:@"userHighScores"];
     }
     [defaults synchronize];
+    
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f scene:[RSGameOver sceneWithScore:self.currentScore]]];
 }
 

@@ -7,7 +7,9 @@
 //
 
 #import "CCScene.h"
+#import "cocos2d.h"
 
 @interface RSLeaderboardScene : CCScene
+
 
 @end
