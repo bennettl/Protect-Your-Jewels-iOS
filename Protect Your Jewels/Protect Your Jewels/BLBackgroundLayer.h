@@ -9,7 +9,15 @@
 #import "cocos2d.h"
 
 @interface BLBackgroundLayer : CCLayer {
+    NSMutableArray *m_FrontCloudArray;
+    NSMutableArray *m_BackCloudArray;
     
+    int m_FrontCloudWidth;
+    int m_BackCloudWidth;
 }
+
+-(void) update:(ccTime)dt;
+-(void) spawnFrontCloud;
+-(void) spawnBackCloud;
 
 @end

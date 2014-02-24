@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		469C056A18BA952E00A56049 /* MSCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 469C056918BA952E00A56049 /* MSCloud.m */; };
+		469C056F18BA996E00A56049 /* Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 469C056B18BA996E00A56049 /* Clouds_back_full.png */; };
+		469C057018BA996E00A56049 /* Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 469C056C18BA996E00A56049 /* Clouds_front_full.png */; };
+		469C057118BA996E00A56049 /* Foreground_iPhone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 469C056D18BA996E00A56049 /* Foreground_iPhone4.png */; };
+		469C057218BA996E00A56049 /* Foreground_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 469C056E18BA996E00A56049 /* Foreground_iPhone5.png */; };
 		4D8ADE3218B974A2001689EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3118B974A2001689EC /* QuartzCore.framework */; };
 		4D8ADE3418B974A2001689EC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3318B974A2001689EC /* OpenGLES.framework */; };
 		4D8ADE3618B974A2001689EC /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3518B974A2001689EC /* OpenAL.framework */; };
@@ -220,6 +225,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		469C056818BA952E00A56049 /* MSCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCloud.h; sourceTree = "<group>"; };
+		469C056918BA952E00A56049 /* MSCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCloud.m; sourceTree = "<group>"; };
+		469C056B18BA996E00A56049 /* Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Clouds_back_full.png; path = images/background/Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
+		469C056C18BA996E00A56049 /* Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Clouds_front_full.png; path = images/background/Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
+		469C056D18BA996E00A56049 /* Foreground_iPhone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Foreground_iPhone4.png; path = images/background/Foreground_iPhone4.png; sourceTree = SOURCE_ROOT; };
+		469C056E18BA996E00A56049 /* Foreground_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Foreground_iPhone5.png; path = images/background/Foreground_iPhone5.png; sourceTree = SOURCE_ROOT; };
 		4D8ADE2E18B974A2001689EC /* Protect Your Jewels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Protect Your Jewels.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8ADE3118B974A2001689EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4D8ADE3318B974A2001689EC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -723,6 +734,10 @@
 				4D8AE0E818BA018D001689EC /* menu_logo.png */,
 				4D8AE0BF18B9A7CF001689EC /* angrybirds-regular.ttf */,
 				4D8AE0B318B97A31001689EC /* game_background.png */,
+				469C056B18BA996E00A56049 /* Clouds_back_full.png */,
+				469C056C18BA996E00A56049 /* Clouds_front_full.png */,
+				469C056D18BA996E00A56049 /* Foreground_iPhone4.png */,
+				469C056E18BA996E00A56049 /* Foreground_iPhone5.png */,
 				4D8AE0EA18BA271D001689EC /* Audio */,
 				4D8AE0D218B9C951001689EC /* Gameplay */,
 				4D8AE0E718BA0057001689EC /* Splash Screen */,
@@ -1292,6 +1307,8 @@
 				4D8AE08518B979A0001689EC /* BLEnemySprite.mm */,
 				4D8AE08618B979A0001689EC /* BLJewelSprite.h */,
 				4D8AE08718B979A0001689EC /* BLJewelSprite.mm */,
+				469C056818BA952E00A56049 /* MSCloud.h */,
+				469C056918BA952E00A56049 /* MSCloud.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -1447,18 +1464,22 @@
 				4D8ADE5818B974A3001689EC /* Icon.png in Resources */,
 				4D8AE0F218BA2951001689EC /* ninja-yell.caf in Resources */,
 				4D8AE0E918BA018D001689EC /* menu_logo.png in Resources */,
+				469C056F18BA996E00A56049 /* Clouds_back_full.png in Resources */,
 				4D8ADFB618B974A6001689EC /* ChangeLog in Resources */,
 				4D8ADE4A18B974A2001689EC /* Default@2x.png in Resources */,
 				4D8AE0E418B9CBE0001689EC /* Sprites.pvr.ccz in Resources */,
 				4D8AE0F618BA2A00001689EC /* punch.caf in Resources */,
 				4D8ADE5418B974A3001689EC /* Icon-Small.png in Resources */,
 				4D8ADE5018B974A2001689EC /* Icon-72.png in Resources */,
+				469C057118BA996E00A56049 /* Foreground_iPhone4.png in Resources */,
 				4D8ADE4818B974A2001689EC /* Default.png in Resources */,
 				4D8AE0C018B9A7CF001689EC /* angrybirds-regular.ttf in Resources */,
 				4D8ADE5218B974A3001689EC /* Icon-Small-50.png in Resources */,
 				4D8ADE5D18B974A3001689EC /* iTunesArtwork in Resources */,
 				4D8AE0E218B9CBE0001689EC /* Sprites-hd.pvr.ccz in Resources */,
+				469C057218BA996E00A56049 /* Foreground_iPhone5.png in Resources */,
 				4D8ADE5618B974A3001689EC /* Icon-Small@2x.png in Resources */,
+				469C057018BA996E00A56049 /* Clouds_front_full.png in Resources */,
 				4D8ADE4E18B974A2001689EC /* Default-Landscape~ipad.png in Resources */,
 				4D8ADE4C18B974A2001689EC /* Default-568h@2x.png in Resources */,
 				4D8AE0F818BA2ACA001689EC /* woosh.caf in Resources */,
@@ -1580,6 +1601,7 @@
 				4D8ADE9F18B974A3001689EC /* CCDirector.m in Sources */,
 				4D8ADE8F18B974A3001689EC /* CCAtlasNode.m in Sources */,
 				4D8AE06B18B974A7001689EC /* AppDelegate.mm in Sources */,
+				469C056A18BA952E00A56049 /* MSCloud.m in Sources */,
 				4D8ADF5318B974A5001689EC /* CCTouchHandler.m in Sources */,
 				4D8ADECD18B974A4001689EC /* CCMotionStreak.m in Sources */,
 				4D8ADFFF18B974A6001689EC /* b2Draw.cpp in Sources */,
