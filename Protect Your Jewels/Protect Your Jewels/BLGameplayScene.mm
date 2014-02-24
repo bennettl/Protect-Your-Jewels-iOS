@@ -29,7 +29,8 @@
     
     if (self = [super init]){
         
-        // Load background music
+        // Play background music
+        [[SimpleAudioEngine sharedEngine] playEffect:@"flute_intro.wav"];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mountain-wind.wav" loop:YES];
         
         // Create layers and add sa children
@@ -55,29 +56,42 @@
 
 // Switches to game over scene
 -(void)startGameOver{
-    NSNumber *highScore = [NSNumber numberWithInt:self.currentScore];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self updateHighScore];
+    
+    // Transition to GameOverScene
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f scene:[RSGameOver sceneWithScore:self.currentScore]]];
+}
+
+// Updates and save high score to NSUserDefaults
+- (void)updateHighScore{
+    
+    NSNumber *highScore         = [NSNumber numberWithInt:self.currentScore];
+    NSUserDefaults *defaults    = [NSUserDefaults standardUserDefaults];
+    
+    // If userHighScores doesn't exist in NSUserDefaults, create one
     if (![defaults objectForKey:@"userHighScores"]) {
-         NSMutableArray *highScoresArray = [[NSMutableArray alloc] init];
+        NSMutableArray *highScoresArray = [[NSMutableArray alloc] init];
         
         [highScoresArray addObject:highScore];
         
         [defaults setObject:highScoresArray forKey:@"userHighScores"];
-    }
-    else {
-        NSArray *highScoresArray = [defaults objectForKey:@"userHighScores"];
-        NSMutableArray *highScoresArrayTemp = [highScoresArray mutableCopy];
-        for(int i = 0; i <highScoresArrayTemp.count; i++) {
-            if(i > 9) break;
-            if(highScore > [highScoresArrayTemp objectAtIndex:i]) {
-                [highScoresArrayTemp insertObject:highScore atIndex:i];
+    } else {
+        NSArray *highScoresArray            = [defaults objectForKey:@"userHighScores"];
+        NSMutableArray *highScoresMutableArray = [highScoresArray mutableCopy];
+        
+        // Loop through highScoresMutableArray and if highscore is greater, replace object
+        for (int i = 0; i < highScoresMutableArray.count; i++) {
+            if (i > 9) break;
+            if (highScore > [highScoresMutableArray objectAtIndex:i]) {
+                [highScoresMutableArray insertObject:highScore atIndex:i];
                 break;
             }
         }
-        [defaults setObject:highScoresArrayTemp forKey:@"userHighScores"];
+        // Replace defaults with highScoresMutableArray
+        [defaults setObject:highScoresMutableArray forKey:@"userHighScores"];
     }
-    [defaults synchronize];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f scene:[RSGameOver sceneWithScore:self.currentScore]]];
+    
+    [defaults synchronize]; // save new NSUserDefaults
 }
 
 - (void)dealloc{

@@ -145,6 +145,7 @@
 	
     
     // Preload audio
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"flute_intro.wav"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"mountain-wind.wav"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"ninja_ahh.caf"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"ninja_grab.caf"];

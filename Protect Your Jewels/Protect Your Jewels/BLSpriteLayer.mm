@@ -152,7 +152,6 @@
     // Convert touch -> ccLocation -> b2Location
 //    UITouch *touch      = (UITouch *)[touches anyObject];
     
-    
     // Init BQTouchCircles
     int counter = 0;
     for (UITouch *touch in touches) {
