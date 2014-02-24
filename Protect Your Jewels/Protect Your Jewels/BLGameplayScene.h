@@ -11,7 +11,7 @@
 
 @interface BLGameplayScene : CCScene
 
-@property int currentScore;
+@property(nonatomic) int currentScore;
 
 -(void)incrementScore;
 -(void)startGameOver;

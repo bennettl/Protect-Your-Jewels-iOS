@@ -55,6 +55,28 @@
 
 // Switches to game over scene
 -(void)startGameOver{
+    NSNumber *highScore = [NSNumber numberWithInt:self.currentScore];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults objectForKey:@"userHighScores"]) {
+         NSMutableArray *highScoresArray = [[NSMutableArray alloc] init];
+        
+        [highScoresArray addObject:highScore];
+        
+        [defaults setObject:highScoresArray forKey:@"userHighScores"];
+    }
+    else {
+        NSArray *highScoresArray = [defaults objectForKey:@"userHighScores"];
+        NSMutableArray *highScoresArrayTemp = [highScoresArray mutableCopy];
+        for(int i = 0; i <highScoresArrayTemp.count; i++) {
+            if(i > 9) break;
+            if(highScore > [highScoresArrayTemp objectAtIndex:i]) {
+                [highScoresArrayTemp insertObject:highScore atIndex:i];
+                break;
+            }
+        }
+        [defaults setObject:highScoresArrayTemp forKey:@"userHighScores"];
+    }
+    [defaults synchronize];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f scene:[RSGameOver sceneWithScore:self.currentScore]]];
 }
 
