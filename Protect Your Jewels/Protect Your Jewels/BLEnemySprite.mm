@@ -41,10 +41,14 @@
     return self;
 }
 
-// Plays audio when enemy launches. BLSpriteLayer calls this function
+#pragma mark audio
+// Play when wave starts
++ (void)playHiyaAudio{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja-hiya.caf"];
+}
+// Play when each enemy launches
 - (void)playLaunchAudio{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"woosh.caf"];
-    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja-yell.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"ninja_launch.caf"];
 }
 
 // Does ccLocation intersect with any of the body's fixtures?
@@ -105,7 +109,13 @@
 
 // When the BQTouchCircle collides with enemy, play the punch audio
 -(void)beginContactWithBQTouchCircle:(GB2Contact *)contact{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
+    // Change ninja state when he's hit with BQTouchCircle
+    if (self.state == kAttack){
+        self.state = kFall;
+        // Only play punch audio once
+        [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
+       // [[SimpleAudioEngine sharedEngine] playEffect:@"ninja_ahh.caf"];
+    }
 }
 
 // Enemy collides with each other

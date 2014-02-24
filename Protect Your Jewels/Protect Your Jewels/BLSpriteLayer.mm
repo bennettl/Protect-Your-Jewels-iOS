@@ -22,16 +22,15 @@
 
 @interface BLSpriteLayer(){
     b2World *world;
-//    BLJewelSprite *_jewel;
     float enemyLaunchForce;
     CCLabelTTF *_label;
     CCSpriteBatchNode *objectLayer;
     GB2Node *boxNode;
     int waveNum;
-    BQTouchCircle *touchCircle;
 }
 
 @property NSMutableArray *enemies;
+@property NSMutableArray *touchCircles;
 
 @end
 
@@ -56,6 +55,7 @@
         // Initializations
         enemyLaunchForce    = 500.0f;
         self.enemies        = [[NSMutableArray alloc] init];
+        self.touchCircles   = [[NSMutableArray alloc] init];
         [self initJewel];
         [self initDebug];
 
@@ -81,14 +81,6 @@
      [objectLayer addChild:j.ccNode z:10];
 }
 
-// Create touch sprite at location
--(void)initTouchAtLocation:(CGPoint)location{
-    if (touchCircle == nil){
-        touchCircle = [[BQTouchCircle alloc] initWithSpriteLayer:self];
-        [touchCircle setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
-    }
-}
-
 // Add debug layer
 - (void)initDebug{
     GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
@@ -104,7 +96,8 @@
     [self addChild:es.ccNode z:10];
     [self.enemies addObject:es];
 
-    [es playLaunchAudio];
+    [es playLaunchAudio]; // play enemy launch sound
+    
     // Launch enemy towards center
     // Get center vector
     CGPoint pointA                  = location;
@@ -121,10 +114,15 @@
 
 // Scheduled and called regularly to start a wave of enemies
 - (void)startWave{
+    // Play hiya audio every 5 waves
+    if (waveNum % 5 == 0){
+        [BLEnemySprite playHiyaAudio];
+    }
+    
     waveNum++;
-    enemyLaunchForce = enemyLaunchForce + (waveNum*10);
+    enemyLaunchForce = enemyLaunchForce + (waveNum * 10);
     [self unschedule:@selector(spawnEnemyAtLocation:)];
-    [self schedule:@selector(spawnEnemyAtLocation:) interval:(1) repeat:waveNum delay:0];
+    [self schedule:@selector(spawnEnemyAtLocation:) interval:1.0f repeat:waveNum delay:0];
 }
 
 // Returns a random CGPoint on the perimeter of the screen
@@ -152,27 +150,91 @@
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     // Convert touch -> ccLocation -> b2Location
-    UITouch *touch      = (UITouch *)[touches anyObject];
-    CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
-   
-    [self initTouchAtLocation:ccLocation];
-    // If a mouse joint is created, that means user touched an enemy, do not create new enemy!
-    if ([self createMouseJointWithTouch:touch]){
-        return;
+//    UITouch *touch      = (UITouch *)[touches anyObject];
+    
+    
+    // Init BQTouchCircles
+    int counter = 0;
+    for (UITouch *touch in touches) {
+        if (counter > 1){  break;   } // allow only two touches
+        [self initTouchCircleWithTouch:touch];
+        counter++;
     }
+   
+//    [self initTouchCircleAtLocation:ccLocation];
+    // If a mouse joint is created, that means user touched an enemy, do not create new enemy!
+//    if ([self createMouseJointWithTouch:touch]){
+//        return;
+//    }
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    UITouch *touch      = (UITouch *)[touches anyObject];
-    [self updateMouseJointWithTouch:touch];
+    //UITouch *touch      = (UITouch *)[touches anyObject];
+    
+    // Move BQTouchCircles
+    for (UITouch *touch in touches) {
+        [self moveTouchCircleWithTouch:touch];
+    }
+    
+//    [self updateMouseJointWithTouch:touch];
 }
 
+
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self removeMouseJoint];
+    UITouch *touch      = (UITouch *)[touches anyObject];
+    CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
+    b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
+    
+    // Remove BQTouchCircles
+    for (UITouch *touch in touches) {
+        [self removeTouchCircleWithTouch:touch];
+    }
+
+//    [self removeMouseJoint];
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self removeMouseJoint];
+    UITouch *touch      = (UITouch *)[touches anyObject];
+    
+    // Remove BQTouchCircles
+    for (UITouch *touch in touches) {
+        [self removeTouchCircleWithTouch:touch];
+    }
+
+    //    [self removeMouseJoint];
+}
+
+#pragma mark Touch Circles
+
+// Create touch circle, mouse joint, and add it to touch circles
+-(void)initTouchCircleWithTouch:(UITouch *)touch{
+    BQTouchCircle *touchCircle = [[BQTouchCircle alloc] initWithTouch:touch andGroundBody:boxNode.body];
+    [self.touchCircles addObject:touchCircle];
+}
+
+- (void)moveTouchCircleWithTouch:(UITouch *)touch{
+    // Loop through every touch circle
+    for (BQTouchCircle *tc in self.touchCircles) {
+        // If touch circle belongs to this touch, then move it
+        if ([tc belongsToTouch:touch]){
+            CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
+            b2Vec2 b2Location   = b2Vec2FromCC(ccLocation.x, ccLocation.y);
+            tc.mouseJoint->SetTarget(b2Location);
+        }
+    }
+}
+
+- (void)removeTouchCircleWithTouch:(UITouch *)touch{
+    // Loop through every touch circle
+    for (int i = 0; i < self.touchCircles.count; i++){
+        BQTouchCircle *touchCircle = [self.touchCircles objectAtIndex:i];
+        // If touch circle belongs to this touch, then remove it
+        if ([touchCircle belongsToTouch:touch]){
+            [GB2Engine sharedInstance].world->DestroyJoint(touchCircle.mouseJoint);
+            touchCircle.deleteLater = true;
+            [self.touchCircles removeObject:touchCircle];
+        }
+    }
 }
 
 
@@ -191,11 +253,6 @@
         //}
    //}
     
-    // If touch circle and its mouse joint exists, create a mouse joint
-    if (touchCircle != nil && [touchCircle intersectsWithPoint:ccLocation]){
-        [touchCircle createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:5000];
-        return YES;
-    }
     return NO;
 }
 
@@ -211,11 +268,10 @@
             be.mouseJoint->SetTarget(b2Location);
         }
     }
-    
-    // If touch circle and its mouse joint exists, move its mouse joint
-    if(touchCircle != nil && touchCircle.mouseJoint){
-        touchCircle.mouseJoint->SetTarget(b2Location);
-    }
+}
+
+- (void)updateTouchCircleWithTouch:(UITouch *)touch{
+
 }
 
 - (void)removeMouseJoint{
@@ -228,13 +284,11 @@
         }
     }
     
-    // If touch circle and its mouse joint exists, remove its mouse joint
-    if (touchCircle!= nil && touchCircle.mouseJoint){
-        [GB2Engine sharedInstance].world->DestroyJoint(touchCircle.mouseJoint);
-        touchCircle.mouseJoint = NULL;
-        touchCircle.deleteLater = true;
-        touchCircle = nil;
-    }
+    
+//    // If touch circle and its mouse joint exists, remove its mouse joint
+//    if (touchCircle!= nil && touchCircle.mouseJoint){
+//        
+//    }
 }
 
 #pragma Listner

@@ -36,6 +36,7 @@
 
 #pragma mark Collision Detection
 
+// When jewel touches enemy sprite
 - (void)beginContactWithBLEnemySprite:(GB2Contact*)contact{
     [((BLGameplayScene *)self.ccNode.parent.parent.parent) startGameOver];
 }

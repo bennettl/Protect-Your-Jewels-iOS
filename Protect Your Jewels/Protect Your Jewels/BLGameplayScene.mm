@@ -11,6 +11,8 @@
 #import "BLSpriteLayer.h"
 #import "BLBackgroundLayer.h"
 #import "RSGameOver.h"
+#import "SimpleAudioEngine.h"
+#import "GB2Engine.h"
 
 @interface BLGameplayScene()
 
@@ -26,6 +28,10 @@
 - (id)init{
     
     if (self = [super init]){
+        
+        // Load background music
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mountain-wind.wav" loop:YES];
+        
         // Create layers and add sa children
         self.uiLayer = [BLUILayer node];
         self.spriteLayer = [BLSpriteLayer node];
@@ -49,7 +55,13 @@
 
 // Switches to game over scene
 -(void)startGameOver{
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f scene:[RSGameOver scene]]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f scene:[RSGameOver sceneWithScore:self.currentScore]]];
+}
+
+- (void)dealloc{
+    // Make sure to clean up all box2D objects when GameScene is deallocated
+    [[GB2Engine sharedInstance] deleteAllObjects];
+    [super dealloc];
 }
 
 @end

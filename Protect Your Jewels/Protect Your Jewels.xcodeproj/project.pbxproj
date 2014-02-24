@@ -213,14 +213,16 @@
 		4D8AE0E318B9CBE0001689EC /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DE18B9CBE0001689EC /* Sprites.plist */; };
 		4D8AE0E418B9CBE0001689EC /* Sprites.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DF18B9CBE0001689EC /* Sprites.pvr.ccz */; };
 		4D8AE0E918BA018D001689EC /* menu_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0E818BA018D001689EC /* menu_logo.png */; };
-		4D8AE0F218BA2951001689EC /* ninja-yell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0F118BA2951001689EC /* ninja-yell.caf */; };
-		4D8AE0F618BA2A00001689EC /* punch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0F518BA2A00001689EC /* punch.caf */; };
-		4D8AE0F818BA2ACA001689EC /* woosh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0F718BA2ACA001689EC /* woosh.caf */; };
+		4D8AE0FD18BAAB8E001689EC /* ninja_ahh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0F918BAAB8E001689EC /* ninja_ahh.caf */; };
+		4D8AE10018BAAB8E001689EC /* ninja_launch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0FC18BAAB8E001689EC /* ninja_launch.caf */; };
+		4D8AE10918BAACD5001689EC /* punch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE10718BAACD5001689EC /* punch.caf */; };
+		4D8AE10D18BAAFEE001689EC /* mountain-wind.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE10C18BAAFEE001689EC /* mountain-wind.wav */; };
+		4D8AE10F18BAB07F001689EC /* ninja-hiya.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE10E18BAB07F001689EC /* ninja-hiya.caf */; };
+		4D8AE11118BAC799001689EC /* ninja-grab.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE11018BAC799001689EC /* ninja-grab.caf */; };
 		94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */; };
 		94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */; };
 		94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSSettingsScene.m */; };
 		94CE827A18B9973200FCA354 /* RSPauseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827718B9973200FCA354 /* RSPauseScene.m */; };
-		94CE827B18B9973200FCA354 /* RSTempGamePlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */; };
 		94CE827E18B9998500FCA354 /* RSGameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827D18B9998500FCA354 /* RSGameOver.m */; };
 /* End PBXBuildFile section */
 
@@ -644,9 +646,12 @@
 		4D8AE0DE18B9CBE0001689EC /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sprites.plist; sourceTree = "<group>"; };
 		4D8AE0DF18B9CBE0001689EC /* Sprites.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sprites.pvr.ccz; sourceTree = "<group>"; };
 		4D8AE0E818BA018D001689EC /* menu_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_logo.png; sourceTree = "<group>"; };
-		4D8AE0F118BA2951001689EC /* ninja-yell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ninja-yell.caf"; sourceTree = "<group>"; };
-		4D8AE0F518BA2A00001689EC /* punch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = punch.caf; sourceTree = "<group>"; };
-		4D8AE0F718BA2ACA001689EC /* woosh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = woosh.caf; sourceTree = "<group>"; };
+		4D8AE0F918BAAB8E001689EC /* ninja_ahh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ninja_ahh.caf; sourceTree = "<group>"; };
+		4D8AE0FC18BAAB8E001689EC /* ninja_launch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ninja_launch.caf; sourceTree = "<group>"; };
+		4D8AE10718BAACD5001689EC /* punch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = punch.caf; sourceTree = "<group>"; };
+		4D8AE10C18BAAFEE001689EC /* mountain-wind.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mountain-wind.wav"; sourceTree = "<group>"; };
+		4D8AE10E18BAB07F001689EC /* ninja-hiya.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ninja-hiya.caf"; sourceTree = "<group>"; };
+		4D8AE11018BAC799001689EC /* ninja-grab.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ninja-grab.caf"; sourceTree = "<group>"; };
 		94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLeaderboardScene.h; sourceTree = "<group>"; };
 		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLeaderboardScene.m; sourceTree = "<group>"; };
 		94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainMenuLayer.h; sourceTree = "<group>"; };
@@ -655,8 +660,6 @@
 		94CE827218B9971F00FCA354 /* RSSettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSettingsScene.m; sourceTree = "<group>"; };
 		94CE827618B9973200FCA354 /* RSPauseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPauseScene.h; sourceTree = "<group>"; };
 		94CE827718B9973200FCA354 /* RSPauseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPauseScene.m; sourceTree = "<group>"; };
-		94CE827818B9973200FCA354 /* RSTempGamePlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTempGamePlayScene.h; sourceTree = "<group>"; };
-		94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTempGamePlayScene.m; sourceTree = "<group>"; };
 		94CE827C18B9998500FCA354 /* RSGameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSGameOver.h; sourceTree = "<group>"; };
 		94CE827D18B9998500FCA354 /* RSGameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGameOver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -731,7 +734,6 @@
 		4D8ADE4618B974A2001689EC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4D8AE0E818BA018D001689EC /* menu_logo.png */,
 				4D8AE0BF18B9A7CF001689EC /* angrybirds-regular.ttf */,
 				4D8AE0B318B97A31001689EC /* game_background.png */,
 				469C056B18BA996E00A56049 /* Clouds_back_full.png */,
@@ -1278,8 +1280,6 @@
 				4D8AE07D18B979A0001689EC /* BLGameplayScene.mm */,
 				94CE827618B9973200FCA354 /* RSPauseScene.h */,
 				94CE827718B9973200FCA354 /* RSPauseScene.m */,
-				94CE827818B9973200FCA354 /* RSTempGamePlayScene.h */,
-				94CE827918B9973200FCA354 /* RSTempGamePlayScene.m */,
 				4D8AE09518B979B6001689EC /* Layers */,
 				4D8AE09618B979BA001689EC /* Sprites */,
 				4D8AE09718B979D9001689EC /* Misc */,
@@ -1377,6 +1377,7 @@
 		4D8AE0E718BA0057001689EC /* Splash Screen */ = {
 			isa = PBXGroup;
 			children = (
+				4D8AE0E818BA018D001689EC /* menu_logo.png */,
 				4D8ADE4718B974A2001689EC /* Default.png */,
 				4D8ADE4918B974A2001689EC /* Default@2x.png */,
 				4D8ADE4B18B974A2001689EC /* Default-568h@2x.png */,
@@ -1388,11 +1389,22 @@
 		4D8AE0EA18BA271D001689EC /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				4D8AE0F118BA2951001689EC /* ninja-yell.caf */,
-				4D8AE0F718BA2ACA001689EC /* woosh.caf */,
-				4D8AE0F518BA2A00001689EC /* punch.caf */,
+				4D8AE10C18BAAFEE001689EC /* mountain-wind.wav */,
+				4D8AE10718BAACD5001689EC /* punch.caf */,
+				4D8AE10518BAAB9B001689EC /* ninja */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		4D8AE10518BAAB9B001689EC /* ninja */ = {
+			isa = PBXGroup;
+			children = (
+				4D8AE0F918BAAB8E001689EC /* ninja_ahh.caf */,
+				4D8AE11018BAC799001689EC /* ninja-grab.caf */,
+				4D8AE10E18BAB07F001689EC /* ninja-hiya.caf */,
+				4D8AE0FC18BAAB8E001689EC /* ninja_launch.caf */,
+			);
+			name = ninja;
 			sourceTree = "<group>";
 		};
 		94CE826C18B9970700FCA354 /* MainMenu */ = {
@@ -1461,17 +1473,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D8AE10018BAAB8E001689EC /* ninja_launch.caf in Resources */,
 				4D8ADE5818B974A3001689EC /* Icon.png in Resources */,
-				4D8AE0F218BA2951001689EC /* ninja-yell.caf in Resources */,
 				4D8AE0E918BA018D001689EC /* menu_logo.png in Resources */,
 				469C056F18BA996E00A56049 /* Clouds_back_full.png in Resources */,
+				4D8AE10D18BAAFEE001689EC /* mountain-wind.wav in Resources */,
 				4D8ADFB618B974A6001689EC /* ChangeLog in Resources */,
+				4D8AE0FD18BAAB8E001689EC /* ninja_ahh.caf in Resources */,
 				4D8ADE4A18B974A2001689EC /* Default@2x.png in Resources */,
 				4D8AE0E418B9CBE0001689EC /* Sprites.pvr.ccz in Resources */,
-				4D8AE0F618BA2A00001689EC /* punch.caf in Resources */,
+				4D8AE10F18BAB07F001689EC /* ninja-hiya.caf in Resources */,
 				4D8ADE5418B974A3001689EC /* Icon-Small.png in Resources */,
 				4D8ADE5018B974A2001689EC /* Icon-72.png in Resources */,
 				469C057118BA996E00A56049 /* Foreground_iPhone4.png in Resources */,
+				4D8AE11118BAC799001689EC /* ninja-grab.caf in Resources */,
 				4D8ADE4818B974A2001689EC /* Default.png in Resources */,
 				4D8AE0C018B9A7CF001689EC /* angrybirds-regular.ttf in Resources */,
 				4D8ADE5218B974A3001689EC /* Icon-Small-50.png in Resources */,
@@ -1482,7 +1497,7 @@
 				469C057018BA996E00A56049 /* Clouds_front_full.png in Resources */,
 				4D8ADE4E18B974A2001689EC /* Default-Landscape~ipad.png in Resources */,
 				4D8ADE4C18B974A2001689EC /* Default-568h@2x.png in Resources */,
-				4D8AE0F818BA2ACA001689EC /* woosh.caf in Resources */,
+				4D8AE10918BAACD5001689EC /* punch.caf in Resources */,
 				4D8ADE5A18B974A3001689EC /* Icon@2x.png in Resources */,
 				4D8AE0E118B9CBE0001689EC /* Sprites-hd.plist in Resources */,
 				4D8AE0E318B9CBE0001689EC /* Sprites.plist in Resources */,
@@ -1572,7 +1587,6 @@
 				4D8AE03318B974A7001689EC /* b2EdgeAndCircleContact.cpp in Sources */,
 				4D8ADEB418B974A4001689EC /* CCGrabber.m in Sources */,
 				4D8ADFBE18B974A6001689EC /* mat3.c in Sources */,
-				94CE827B18B9973200FCA354 /* RSTempGamePlayScene.m in Sources */,
 				4D8AE00318B974A6001689EC /* b2Math.cpp in Sources */,
 				4D8ADF4818B974A5001689EC /* CCES2Renderer.m in Sources */,
 				4D8ADEBA18B974A4001689EC /* CCLabelAtlas.m in Sources */,

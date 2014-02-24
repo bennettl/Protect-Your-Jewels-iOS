@@ -29,19 +29,19 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
         // Create menu logo and background
-        CCSprite *menuLogo  = [CCSprite spriteWithFile:@"menu_logo.png"];
-		CCSprite *background = [CCSprite spriteWithFile:@"game_background.png"];
+        CCSprite *logo          = [CCSprite spriteWithFile:@"menu_logo.png"];
+		CCSprite *background    = [CCSprite spriteWithFile:@"game_background.png"];
         
         // Center the background
 		if (size.height > size.width) {
-            menuLogo.position = ccp(size.height - menuLogo.contentSize.height + 15, size.width/2);
+            logo.position = ccp(size.height - logo.contentSize.height + 15, size.width/2);
             background.position = ccp(size.height/2, size.width/2);
         } else {
-            menuLogo.position = ccp(size.width/2, size.height - menuLogo.contentSize.height + 15);
+            logo.position = ccp(size.width/2, size.height - logo.contentSize.height + 15);
             background.position = ccp(size.width/2, size.height/2);
         }
         
-        [self addChild:menuLogo z:1];
+        [self addChild:logo z:1];
 		[self addChild: background z:-1];
 		
         // Create menu items
