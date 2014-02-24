@@ -219,6 +219,7 @@
 		4D8AE10D18BAAFEE001689EC /* mountain-wind.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE10C18BAAFEE001689EC /* mountain-wind.wav */; };
 		4D8AE10F18BAB07F001689EC /* ninja-hiya.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE10E18BAB07F001689EC /* ninja-hiya.caf */; };
 		4D8AE11118BAC799001689EC /* ninja-grab.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE11018BAC799001689EC /* ninja-grab.caf */; };
+		4D8AE11518BB3969001689EC /* flute_intro.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE11418BB3969001689EC /* flute_intro.wav */; };
 		94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */; };
 		94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */; };
 		94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSSettingsScene.m */; };
@@ -652,6 +653,7 @@
 		4D8AE10C18BAAFEE001689EC /* mountain-wind.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mountain-wind.wav"; sourceTree = "<group>"; };
 		4D8AE10E18BAB07F001689EC /* ninja-hiya.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ninja-hiya.caf"; sourceTree = "<group>"; };
 		4D8AE11018BAC799001689EC /* ninja-grab.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ninja-grab.caf"; sourceTree = "<group>"; };
+		4D8AE11418BB3969001689EC /* flute_intro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flute_intro.wav; sourceTree = "<group>"; };
 		94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLeaderboardScene.h; sourceTree = "<group>"; };
 		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLeaderboardScene.m; sourceTree = "<group>"; };
 		94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainMenuLayer.h; sourceTree = "<group>"; };
@@ -1390,6 +1392,7 @@
 			isa = PBXGroup;
 			children = (
 				4D8AE10C18BAAFEE001689EC /* mountain-wind.wav */,
+				4D8AE11418BB3969001689EC /* flute_intro.wav */,
 				4D8AE10718BAACD5001689EC /* punch.caf */,
 				4D8AE10518BAAB9B001689EC /* ninja */,
 			);
@@ -1493,6 +1496,7 @@
 				4D8ADE5D18B974A3001689EC /* iTunesArtwork in Resources */,
 				4D8AE0E218B9CBE0001689EC /* Sprites-hd.pvr.ccz in Resources */,
 				469C057218BA996E00A56049 /* Foreground_iPhone5.png in Resources */,
+				4D8AE11518BB3969001689EC /* flute_intro.wav in Resources */,
 				4D8ADE5618B974A3001689EC /* Icon-Small@2x.png in Resources */,
 				469C057018BA996E00A56049 /* Clouds_front_full.png in Resources */,
 				4D8ADE4E18B974A2001689EC /* Default-Landscape~ipad.png in Resources */,

@@ -29,7 +29,8 @@
     
     if (self = [super init]){
         
-        // Load background music
+        // Play background music
+        [[SimpleAudioEngine sharedEngine] playEffect:@"flute_intro.wav"];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mountain-wind.wav" loop:YES];
         
         // Create layers and add sa children
@@ -58,8 +59,7 @@
     NSNumber *highScore = [NSNumber numberWithInt:self.currentScore];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![defaults objectForKey:@"userHighScores"]) {
-        NSLog(@"no array");
-         NSMutableArray *highScoresArray = [[NSMutableArray alloc] init];
+        NSMutableArray *highScoresArray = [[NSMutableArray alloc] init];
         
         [highScoresArray addObject:highScore];
         
@@ -84,7 +84,8 @@
                 
             }
         }
-        [defaults setObject:highScoresArrayTemp forKey:@"userHighScores"];
+        // Replace defaults with highScoresMutableArray
+        [defaults setObject:highScoresMutableArray forKey:@"userHighScores"];
     }
     [defaults synchronize];
     
