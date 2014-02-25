@@ -60,6 +60,7 @@
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f scene:[RSGameOver sceneWithScore:self.currentScore]]];
 }
 
+// Save high scores to NSUserDefaults
 - (void)saveHighScore {
     NSNumber *highScore         = [NSNumber numberWithInt:self.currentScore];
     NSUserDefaults *defaults    = [NSUserDefaults standardUserDefaults];

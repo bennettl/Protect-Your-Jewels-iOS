@@ -57,7 +57,7 @@
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
         [self initJewel];
-        [self initDebug];
+        //[self initDebug];
 
         // Create bounding box
         boxNode = [[BLBoxNode alloc] init];
