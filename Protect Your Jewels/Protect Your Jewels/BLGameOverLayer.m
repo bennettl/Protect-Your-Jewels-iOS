@@ -21,7 +21,7 @@
 @end
 
 #define LOW_SCORE 20 // use to play different audio files
-#define FONT_NAME @"angrybirds-regular"
+#define FONT_NAME @"AngryBirds-Regular"
 
 @implementation BLGameOverLayer
 

@@ -46,7 +46,7 @@
 		
         // Create menu items
 		[CCMenuItemFont setFontSize:23];
-        [CCMenuItemFont setFontName:@"angrybirds-regular"];
+        [CCMenuItemFont setFontName:@"AngryBirds-Regular"];
 		
 		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"New Game" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[BLGameplayScene node]]];

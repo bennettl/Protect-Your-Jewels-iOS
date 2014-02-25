@@ -36,7 +36,7 @@
 		
         // Create menu items
 		[CCMenuItemFont setFontSize:17];
-        [CCMenuItemFont setFontName:@"angrybirds-regular"];
+        [CCMenuItemFont setFontName:@"AngryBirds-Regular"];
 		
 		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"Back" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSMainMenuLayer node]]];
@@ -58,7 +58,7 @@
             }
         }
         
-        CCLabelTTF *scores = [CCLabelTTF labelWithString:highScoresString fontName:@"angrybirds-regular" fontSize:17];
+        CCLabelTTF *scores = [CCLabelTTF labelWithString:highScoresString fontName:@"AngryBirds-Regular" fontSize:17];
         scores.color = ccBLACK;
         [scores setPosition:ccp(size.width / 2, size.height/2)];
         [self addChild:scores];
