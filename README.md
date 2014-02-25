@@ -1,3 +1,3 @@
 Protect Your Jewels
   + Instructions:
-    - Swipe to keep the ninjas from snatching your jewel.
+    - You have discovered the most potent jewel in the universe.  Ninjas want it.  Swipe them away and Protect Your Jewels!
