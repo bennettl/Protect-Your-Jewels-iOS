@@ -132,10 +132,12 @@
     CGPoint direction;
     switch(arc4random()%4){
         case 0:
-            direction = CGPointMake(arc4random() % (int)s.width,(int)s.height); // top
+            //direction = CGPointMake(arc4random() % (int)s.width,(int)s.height); // top
+            direction = CGPointMake(0,arc4random() % (int)s.height); // left
             break;
         case 1:
-            direction = CGPointMake(arc4random() % (int)s.width,0); // bottom
+            direction = CGPointMake((int)s.width,arc4random() % (int)s.height); // right
+            //direction = CGPointMake(arc4random() % (int)s.width,0); // bottom
             break;
         case 2:
             direction = CGPointMake(0,arc4random() % (int)s.height); // left
