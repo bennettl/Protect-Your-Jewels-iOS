@@ -54,11 +54,11 @@
         CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSLeaderboardScene node]]];
 		}];
-        CCMenuItem *itemSettings = [CCMenuItemFont itemWithString:@"Settings" block:^(id sender) {
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSSettingsScene node]]];
-		}];
+//        CCMenuItem *itemSettings = [CCMenuItemFont itemWithString:@"Settings" block:^(id sender) {
+//            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSSettingsScene node]]];
+//		}];
 		
-		CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard, itemSettings, nil];
+		CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard, nil];
 		
 		[menu alignItemsVerticallyWithPadding:10];
         [menu setPosition:ccp(size.width/2, 95)];
