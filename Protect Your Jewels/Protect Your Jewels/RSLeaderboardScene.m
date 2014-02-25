@@ -8,9 +8,9 @@
 
 #import "RSLeaderboardScene.h"
 #import "RSMainMenuLayer.h"
+#import "BLHighScoreManager.h"
 
 @interface RSLeaderboardScene()
-@property(strong, nonatomic) NSArray *highScores;
 @end
 
 @implementation RSLeaderboardScene
@@ -50,31 +50,24 @@
 		[self addChild:menu];
         
         
-        
         NSMutableString *highScoresString = [[NSMutableString alloc] init];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        if ([defaults objectForKey:@"userHighScores"]) {
-            _highScores = [defaults objectForKey:@"userHighScores"];
-            if ([_highScores count] != 0) {
-                for(int i = 0; i < _highScores.count; i++) {
-                    [highScoresString appendFormat:@"%i. %i\n", i + 1, [[_highScores objectAtIndex:i] intValue]];
-                }
+        NSArray *highScores = [[BLHighScoreManager sharedManager] highScores];
+        if ([highScores count] != 0) {
+            for (int i = 0; i < highScores.count; i++) {
+                [highScoresString appendFormat:@"%i. %i\n", i + 1, [[highScores objectAtIndex:i] intValue]];
             }
-            
         }
-        
         
         CCLabelTTF *scores = [CCLabelTTF labelWithString:highScoresString fontName:@"angrybirds-regular" fontSize:17];
         scores.color = ccBLACK;
         [scores setPosition:ccp(size.width / 2, size.height/2)];
         [self addChild:scores];
-	}
+    }
 	return self;
 }
 
 - (void) dealloc
 {
-    [self.highScores release];
 	// in case you have something to dealloc, do it in this method
 	// in this particular example nothing needs to be released.
 	// cocos2d will automatically release all the children (Label)

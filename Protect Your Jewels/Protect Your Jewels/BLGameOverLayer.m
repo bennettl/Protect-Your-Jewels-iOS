@@ -6,19 +6,13 @@
 //  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
-#import "RSGameOver.h"
+#import "BLGameOverLayer.h"
 #import "BLGameplayScene.h"
 #import "RSMainMenuLayer.h"
+#import "SimpleAudioEngine.h"
+#import "BLHighScoreManager.h"
 
-// Use to play different audio files
-typedef enum {
-    kLow,
-    kMedium,
-    kHigh
-} scoreType;
-
-
-@interface RSGameOver(){
+@interface BLGameOverLayer(){
     int _beginScore;
     int _finalScore;
     CCLabelTTF *scoreLabel;
@@ -26,20 +20,20 @@ typedef enum {
 
 @end
 
+#define LOW_SCORE 20 // use to play different audio files
 #define FONT_NAME @"angrybirds-regular"
 
-@implementation RSGameOver
+@implementation BLGameOverLayer
 
 // Create a scene with the user's current score
 + (CCScene *)sceneWithScore:(int)score {
     CCScene *scene      = [CCScene node];
-	RSGameOver *layer   = [[RSGameOver alloc] initWithScore:score];
+	BLGameOverLayer *layer   = [[BLGameOverLayer alloc] initWithScore:score];
 	[scene addChild: layer];
 	return scene;
 }
 
--(id) initWithScore:(int)score
-{
+-(id) initWithScore:(int)score{
 	if( (self=[super init])){
 		CGSize size = [[CCDirector sharedDirector] winSize];
         
@@ -85,6 +79,7 @@ typedef enum {
 		// Add the menu to the layer
 		[self addChild:menu];
         
+       
         [self schedule:@selector(incrementScoreLabel:) interval:0.05f];
         
 	}
@@ -93,15 +88,35 @@ typedef enum {
 
 // Increment the score label from beginScore until finalScore
 - (void)incrementScoreLabel:(ccTime)dt{
+    if (_beginScore == 0){
+        // Play drum roll audio
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"drumroll-begin.wav" loop:YES];
+    }
     _beginScore++;
-    
+ 
     // Stop the scheduling when final score reaches begin score
     if (_beginScore <= _finalScore){
         scoreLabel.string = [NSString stringWithFormat:@"Score: %i", _beginScore];
     } else{
+        [self playAudienceReactionAudio];
         [self unschedule:@selector(incrementScoreLabel:)];
     }
+}
+
+// Finish drum roll and play audiences reaction
+- (void)playAudienceReactionAudio{
+    // Finish drumroll
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"drumroll-end.wav"];
     
+    // Play audience audio base on score
+    if (_finalScore > [[BLHighScoreManager sharedManager] highestScore]){
+      [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"applause-loud.wav" loop:NO];
+    } else if (_finalScore > LOW_SCORE){
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"applause-medium.wav" loop:NO];
+    } else{
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"applause-laugh.wav" loop:NO];
+    }
 }
 
 

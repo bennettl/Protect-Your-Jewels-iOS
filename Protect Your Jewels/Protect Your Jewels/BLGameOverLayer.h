@@ -9,7 +9,7 @@
 #import "CCLayer.h"
 #import "cocos2d.h"
 
-@interface RSGameOver : CCLayer
+@interface BLGameOverLayer : CCLayer
 
 + (CCScene *)sceneWithScore:(int)score;
 

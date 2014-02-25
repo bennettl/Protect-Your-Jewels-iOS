@@ -10,7 +10,8 @@
 
 #import "AppDelegate.h"
 #import "RSMainMenuLayer.h"
-#import "RSGameOver.h"
+#import "RSLeaderboardScene.h"
+#import "BLGameOverLayer.h"
 #import "SimpleAudioEngine.h"
 
 @implementation MyNavigationController
@@ -49,7 +50,7 @@
 	if(director.runningScene == nil) {
 		// Add the first scene to the stack. The director will draw it immediately into the framebuffer. (Animation is started automatically when the view is displayed.)
 		// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-		[director pushScene:[RSMainMenuLayer scene]];
+       [director pushScene:[RSMainMenuLayer node]];
 	}
 }
 @end
@@ -145,12 +146,19 @@
 	
     
     // Preload audio
+    // Gameplay audio
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"flute_intro.wav"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"mountain-wind.wav"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"ninja_ahh.caf"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"ninja_grab.caf"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"ninja_hiya.caf"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"ninja_launch.caf"];
+    // Gameover audio
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"drumroll-begin.wav"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"drumroll-end.wav"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"applause-loud.wav"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"applause-medium.wav"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"applause-laugh.wav"];
     
 	return YES;
 }
