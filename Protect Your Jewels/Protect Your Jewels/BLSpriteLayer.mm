@@ -57,7 +57,7 @@
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
         [self initJewel];
-        //[self initDebug];
+        [self initDebug];
 
         // Create bounding box
         boxNode = [[BLBoxNode alloc] init];
@@ -88,9 +88,9 @@
 }
 
 // Initializes enemy at location
-- (void)spawnEnemyAtLocation:(CGPoint)location{
+- (void)spawnEnemyAtRadomLocation{
     CGSize s = [[CCDirector sharedDirector] winSize];
-    location = [self randomDirection];
+    CGPoint location = [self randomDirection];
     BLEnemySprite *es = [[BLEnemySprite alloc] initWithSpriteLayer:self];
     [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:es.ccNode z:10];
@@ -121,8 +121,8 @@
     
     waveNum++;
     enemyLaunchForce = enemyLaunchForce + (waveNum * 10);
-    [self unschedule:@selector(spawnEnemyAtLocation:)];
-    [self schedule:@selector(spawnEnemyAtLocation:) interval:1.0f repeat:waveNum delay:0];
+    [self unschedule:@selector(spawnEnemyAtRadomLocation)];
+    [self schedule:@selector(spawnEnemyAtRadomLocation) interval:1.0f repeat:waveNum delay:0];
 }
 
 // Returns a random CGPoint on the perimeter of the screen
@@ -152,7 +152,7 @@
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     // Convert touch -> ccLocation -> b2Location
-//    UITouch *touch      = (UITouch *)[touches anyObject];
+//    UITouch *theTouch      = (UITouch *)[touches anyObject];
     
     // Init BQTouchCircles
     int counter = 0;
@@ -161,8 +161,7 @@
         [self initTouchCircleWithTouch:touch];
         counter++;
     }
-   
-//    [self initTouchCircleAtLocation:ccLocation];
+
     // If a mouse joint is created, that means user touched an enemy, do not create new enemy!
 //    if ([self createMouseJointWithTouch:touch]){
 //        return;
@@ -182,9 +181,9 @@
 
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    UITouch *touch      = (UITouch *)[touches anyObject];
-    CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
-    b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
+//    UITouch *touch      = (UITouch *)[touches anyObject];
+//    CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
+//    b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Remove BQTouchCircles
     for (UITouch *touch in touches) {
@@ -195,7 +194,7 @@
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-    UITouch *touch      = (UITouch *)[touches anyObject];
+//    UITouch *touch      = (UITouch *)[touches anyObject];
     
     // Remove BQTouchCircles
     for (UITouch *touch in touches) {
