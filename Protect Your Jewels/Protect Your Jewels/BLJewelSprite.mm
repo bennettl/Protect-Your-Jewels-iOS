@@ -38,7 +38,15 @@
 
 // When jewel touches enemy sprite
 - (void)beginContactWithBLEnemySprite:(GB2Contact*)contact{
-    [((BLGameplayScene *)self.ccNode.parent.parent.parent) startGameOver];
+    BLGameplayScene *gpScene = ((BLGameplayScene *)self.ccNode.parent.parent.parent);
+    
+    // Tell scene to decrement the lives counter
+    [gpScene decrementLives];
+
+    // Mark BLEnemySprite for deletion
+    if (gpScene.lives > 0) {
+        contact.otherObject.deleteLater = true;
+    }
 }
 
 @end

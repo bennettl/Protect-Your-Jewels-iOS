@@ -33,6 +33,12 @@
 // default ptm ratio value
 float PTM_RATIO = 32.0f;
 
+@interface GB2Engine(){
+    BOOL paused;
+}
+
+@end
+
 @interface GB2Engine (private_selectors)
 - (id)init;
 - (void)step:(ccTime)dt;
@@ -53,11 +59,11 @@ float PTM_RATIO = 32.0f;
 	return instance;
 }
 
--(id)init
-{
+-(id)init{
     self = [super init];
-    if(self)
-    {
+    if (self){
+        paused = NO;
+        
         // set default gravity
         b2Vec2 gravity(0.0f, -3.0f);
         bool doSleep = true;    
@@ -103,6 +109,16 @@ float PTM_RATIO = 32.0f;
     }
 }
 
+// All objects will continue physics simulation as normal
+- (void)resumeWorld{
+    paused = NO;
+}
+
+// All objects will freeze
+- (void)pauseWorld{
+    paused = YES;
+}
+
 - (void)deleteWorld 
 {    
     // delete all objects
@@ -120,7 +136,7 @@ float PTM_RATIO = 32.0f;
 
 - (void)update:(ccTime)dt 
 {            
-    const float32 timeStep = 1.0f / 30.0f;
+    const float32 timeStep = (paused) ? 0 : 1.0f / 30.0f; // no timesteps if paused
     const int32 velocityIterations = 5;
     const int32 positionIterations = 1;
     

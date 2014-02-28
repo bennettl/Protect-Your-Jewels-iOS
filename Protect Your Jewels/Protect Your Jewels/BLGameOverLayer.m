@@ -20,8 +20,8 @@
 
 @end
 
-#define LOW_SCORE 20 // use to play different audio files
-#define FONT_NAME @"AngryBirds-Regular"
+#define DRUMROLL_SCORE 20 // only play drumroll effect if score is above this counter
+#define LOW_SCORE 20 // Audience will laugh at low scores
 
 @implementation BLGameOverLayer
 
@@ -88,10 +88,11 @@
 
 // Increment the score label from beginScore until finalScore
 - (void)incrementScoreLabel:(ccTime)dt{
-    if (_beginScore == 0){
-        // Play drum roll audio
+    // Play drum roll audio when the begin score is 0 and user has a high enough score (>DRUMROLL_SCORE)
+    if (_beginScore == 0 && _finalScore > DRUMROLL_SCORE){
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"drumroll-begin.wav" loop:YES];
     }
+    
     _beginScore++;
  
     // Stop the scheduling when final score reaches begin score
@@ -105,9 +106,11 @@
 
 // Finish drum roll and play audiences reaction
 - (void)playAudienceReactionAudio{
-    // Finish drumroll
-    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-    [[SimpleAudioEngine sharedEngine] playEffect:@"drumroll-end.wav"];
+    // Finish drumroll if user has a high enough score (> DRUMROLL_SCORE)
+    if (_finalScore > DRUMROLL_SCORE){
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"drumroll-end.wav"];
+    }
     
     // Play audience audio base on score
     if (_finalScore > [[BLHighScoreManager sharedManager] highestScore]){

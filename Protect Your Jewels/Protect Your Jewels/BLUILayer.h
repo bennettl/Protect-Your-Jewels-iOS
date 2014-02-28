@@ -11,6 +11,7 @@
 
 @interface BLUILayer : CCLayer
 
-- (void)updateLabelWithScore:(int)score;
+- (void)updateLivesLabelWithLives:(int)lives;
+- (void)updateScoreLabelWithScore:(int)score;
 
 @end

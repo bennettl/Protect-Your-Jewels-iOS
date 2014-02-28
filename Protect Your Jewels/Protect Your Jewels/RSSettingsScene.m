@@ -33,7 +33,7 @@
 		
         // Create menu items
 		[CCMenuItemFont setFontSize:17];
-        [CCMenuItemFont setFontName:@"AngryBirds-Regular"];
+        [CCMenuItemFont setFontName:FONT_NAME];
 		
 		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"Back" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSMainMenuLayer node]]];

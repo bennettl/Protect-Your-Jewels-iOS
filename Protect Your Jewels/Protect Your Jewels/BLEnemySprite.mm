@@ -126,8 +126,6 @@
 
 // Enemy collides with jewel
 - (void)beginContactWithBLJewelSprite:(GB2Contact*)contact{
-    // Mark it for deletion
-    self.deleteLater = true;
     
     // Send a message to the sprite layer to remove enemy from its array
     [((BLSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];

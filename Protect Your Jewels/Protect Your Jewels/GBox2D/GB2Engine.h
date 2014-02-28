@@ -94,6 +94,13 @@ class GB2WorldContactListener;
  */
 + (GB2Engine *)sharedInstance;
 
+
+/**
+ * Resumes/pauses the state of objects in the world
+ */
+- (void)resumeWorld;
+- (void)pauseWorld;
+
 /**
  * Delete all objects in the world
  * including the world

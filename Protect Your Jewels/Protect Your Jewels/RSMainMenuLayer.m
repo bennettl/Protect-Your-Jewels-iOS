@@ -24,8 +24,8 @@
 
 -(id) init
 {
-	if( (self=[super init]) )
-	{
+    if( (self = [super init])) {
+
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
         // Create menu logo and background
@@ -46,7 +46,7 @@
 		
         // Create menu items
 		[CCMenuItemFont setFontSize:23];
-        [CCMenuItemFont setFontName:@"AngryBirds-Regular"];
+        [CCMenuItemFont setFontName:FONT_NAME];
 		
 		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"New Game" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[BLGameplayScene node]]];
@@ -62,7 +62,7 @@
 		
 		[menu alignItemsVerticallyWithPadding:10];
         [menu setPosition:ccp(size.width/2, 95)];
-		
+        
 		// Add the menu to the layer
 		[self addChild:menu];
         

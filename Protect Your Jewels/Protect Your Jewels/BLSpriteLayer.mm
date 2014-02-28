@@ -17,7 +17,6 @@
 #import "BLBoxNode.h"
 #import "BLBackgroundLayer.h"
 
-
 #pragma mark - BLSpriteLayer
 
 @interface BLSpriteLayer(){
