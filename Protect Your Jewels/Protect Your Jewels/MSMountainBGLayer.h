@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 
-@interface BLBackgroundLayer : CCLayer {
+@interface MSMountainBGLayer : CCLayer {
     NSMutableArray *m_FrontCloudArray;
     NSMutableArray *m_BackCloudArray;
     

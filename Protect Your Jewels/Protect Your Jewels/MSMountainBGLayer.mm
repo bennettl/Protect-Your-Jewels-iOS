@@ -6,10 +6,10 @@
 //  Copyright 2014 Bennett Lee. All rights reserved.
 //
 
-#import "BLBackgroundLayer.h"
+#import "MSMountainBGLayer.h"
 #import "MSCloud.h"
 
-@implementation BLBackgroundLayer
+@implementation MSMountainBGLayer
 
 // Init function adds background
 - (id)init{
@@ -26,7 +26,6 @@
         // Initialize arrays for clouds, and populate with initial clouds
         m_FrontCloudArray = [[NSMutableArray alloc] init];
         m_BackCloudArray = [[NSMutableArray alloc] init];
-        
         
         // Add initial front clouds
         MSCloud *new_Cloud = [[[MSCloud alloc] initFrontCloud:(3*winSize.width/2)] autorelease];
@@ -60,7 +59,6 @@
         
         // Find the width of back cloud images
         m_BackCloudWidth = new_Cloud.contentSize.width;
-        
       
         [self scheduleUpdate];
                 

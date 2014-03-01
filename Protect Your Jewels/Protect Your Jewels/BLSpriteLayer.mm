@@ -15,7 +15,7 @@
 #import "BLEnemySprite.h"
 #import "BQTouchCircle.h"
 #import "BLBoxNode.h"
-#import "BLBackgroundLayer.h"
+#import "MSMountainBGLayer.h"
 
 #pragma mark - BLSpriteLayer
 
