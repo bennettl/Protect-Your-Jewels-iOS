@@ -50,7 +50,7 @@
 		[self addChild:menu];
         
         
-        NSMutableString *highScoresString = [[NSMutableString alloc] init];
+        NSMutableString *highScoresString = [[[NSMutableString alloc] init] autorelease];
         NSArray *highScores = [[BLHighScoreManager sharedManager] highScores];
         if ([highScores count] != 0) {
             for (int i = 0; i < highScores.count; i++) {
