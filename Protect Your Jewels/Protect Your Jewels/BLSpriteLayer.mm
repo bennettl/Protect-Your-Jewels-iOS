@@ -12,7 +12,7 @@
 #import "GBox2D/GB2ShapeCache.h"
 #import "GBox2D/GB2DebugDrawLayer.h"
 #import "BLJewelSprite.h"
-#import "BLEnemySprite.h"
+#import "BLNinjaSprite.h"
 #import "BQTouchCircle.h"
 #import "BLBoxNode.h"
 #import "MSMountainBGLayer.h"
@@ -94,7 +94,7 @@ static const int  MAX_TOUCHES = 2;
 - (void)spawnEnemyAtRadomLocation{
     CGSize s = [[CCDirector sharedDirector] winSize];
     CGPoint location = [self randomDirection];
-    BLEnemySprite *es = [[BLEnemySprite alloc] initWithSpriteLayer:self];
+    BLNinjaSprite *es = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
     [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:es.ccNode z:10];
     [self.enemies addObject:es];
@@ -119,7 +119,7 @@ static const int  MAX_TOUCHES = 2;
 - (void)startWave{
     // Play hiya audio every 5 waves
     if (waveNum % 5 == 0){
-        [BLEnemySprite playHiyaAudio];
+        [BLNinjaSprite playAttackAudio];
     }
     
     waveNum++;
@@ -155,7 +155,7 @@ static const int  MAX_TOUCHES = 2;
 
 // Return true if touch not already connected to an enemy sprite
 - (BOOL)freeTouch:(UITouch *)touch{
-    for (BLEnemySprite *be in self.enemies){
+    for (BLNinjaSprite *be in self.enemies){
         if([be hasTouch:touch]){
             return NO;
         }
@@ -199,7 +199,7 @@ static const int  MAX_TOUCHES = 2;
                 break;
             }
             else{
-                for(BLEnemySprite *be in self.enemies){
+                for(BLNinjaSprite *be in self.enemies){
                     if(counter != 0 && [be hasTouch:touch]){
                         [self updateMouseJointWithTouch:touch];
                         counter--;
@@ -233,7 +233,7 @@ static const int  MAX_TOUCHES = 2;
     if(numEnemiesTouched > 0){
         for (UITouch *touch in touches){
             if(numEnemiesTouched == 0){ break; }
-            for(BLEnemySprite *be in self.enemies){
+            for(BLNinjaSprite *be in self.enemies){
                 if([be hasTouch:touch]){
                     [be updateTouch:nil];
                     numEnemiesTouched--;
@@ -257,7 +257,7 @@ static const int  MAX_TOUCHES = 2;
     if(numEnemiesTouched > 0){
         for (UITouch *touch in touches){
             if(numEnemiesTouched == 0){ break; }
-            for(BLEnemySprite *be in self.enemies){
+            for(BLNinjaSprite *be in self.enemies){
                 if([be hasTouch:touch]){
                     [be updateTouch:nil];
                     numEnemiesTouched--;
@@ -309,7 +309,7 @@ static const int  MAX_TOUCHES = 2;
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Loop through all enemies
-    for (BLEnemySprite *be in self.enemies) {
+    for (BLNinjaSprite *be in self.enemies) {
         // If intersects with point, create mouse joint, link touch to enemy
         if ([be intersectsWithPoint:ccLocation] && ![be hasTouch:touch]){
             [be createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
@@ -327,7 +327,7 @@ static const int  MAX_TOUCHES = 2;
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Loop through all enemies
-    for (BLEnemySprite *be in self.enemies) {
+    for (BLNinjaSprite *be in self.enemies) {
         // If mousejoint exists, update it
         if (be.mouseJoint){
             be.mouseJoint->SetTarget(b2Location);
@@ -342,7 +342,7 @@ static const int  MAX_TOUCHES = 2;
 // Remove all mouse joints to all enemies
 - (void)removeMouseJoint{
     // Loop through all enemies
-    for (BLEnemySprite *be in self.enemies) {
+    for (BLNinjaSprite *be in self.enemies) {
         // If mousejoint exists, delete it
         if (be.mouseJoint){
             [GB2Engine sharedInstance].world->DestroyJoint(be.mouseJoint);
@@ -359,8 +359,8 @@ static const int  MAX_TOUCHES = 2;
 
 #pragma Listner
 
-// Remove BLEnemySprite from enemies mutable array
-- (void)removeEnemyFromSpriteLayer:(BLEnemySprite *)es{
+// Remove BLNinjaSprite from enemies mutable array
+- (void)removeEnemyFromSpriteLayer:(BLNinjaSprite *)es{
     [self.enemies removeObject:es];
 }
 
