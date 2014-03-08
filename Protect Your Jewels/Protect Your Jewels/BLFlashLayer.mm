@@ -9,7 +9,7 @@
 #import "BLFlashLayer.h"
 #import "GB2Engine.h"
 
-#define FLASH_TIME 0.1f
+#define FLASH_TIME 0.05f
 
 @implementation BLFlashLayer
 

@@ -9,7 +9,7 @@
 #import "BLGameplayScene.h"
 #import "BLUILayer.h"
 #import "BLSpriteLayer.h"
-#import "BLBackgroundLayer.h"
+#import "MSMountainBGLayer.h"
 #import "BLGameOverLayer.h"
 #import "SimpleAudioEngine.h"
 #import "GB2Engine.h"
@@ -19,7 +19,7 @@
 @interface BLGameplayScene()
 
 @property (nonatomic, strong) BLFlashLayer *flashLayer;
-@property (nonatomic, strong) BLBackgroundLayer *bgLayer;
+@property (nonatomic, strong) MSMountainBGLayer *bgLayer;
 @property (nonatomic, strong) BLSpriteLayer *spriteLayer;
 @property (nonatomic, strong) BLUILayer *uiLayer;
 
@@ -43,7 +43,7 @@
         self.flashLayer     = [BLFlashLayer node];
         self.uiLayer        = [BLUILayer node];
         self.spriteLayer    = [BLSpriteLayer node];
-        self.bgLayer        = [BLBackgroundLayer node];
+        self.bgLayer        = [MSMountainBGLayer node];
         
         [self addChild:self.flashLayer z:5];
         [self addChild:self.uiLayer z:4];
