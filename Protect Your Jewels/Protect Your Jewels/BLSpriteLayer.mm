@@ -21,17 +21,20 @@
 
 @interface BLSpriteLayer(){
     b2World *world;
-    float enemyLaunchForce;
+    float enemyLaunchForce;             // adjust this to toggle difficulty (higher = more difficult)
     CCLabelTTF *_label;
     CCSpriteBatchNode *objectLayer;
     GB2Node *boxNode;
     int waveNum;
+    int numEnemiesTouched;
 }
 
 @property NSMutableArray *enemies;
 @property NSMutableArray *touchCircles;
 
 @end
+
+static const int  MAX_TOUCHES = 2;
 
 @implementation BLSpriteLayer
 
@@ -63,6 +66,7 @@
         
         // Touching
         self.touchEnabled = YES;
+        numEnemiesTouched = 0;
         
         // Start Waves
         waveNum = 0;
@@ -149,33 +153,68 @@
 
 #pragma mark Touch
 
+// Return true if touch not already connected to an enemy sprite
+- (BOOL)freeTouch:(UITouch *)touch{
+    for (BLEnemySprite *be in self.enemies){
+        if([be hasTouch:touch]){
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     // Convert touch -> ccLocation -> b2Location
-//    UITouch *theTouch      = (UITouch *)[touches anyObject];
-    
-    // Init BQTouchCircles
-    int counter = 0;
-    for (UITouch *touch in touches) {
-        if (counter > 1){  break;   } // allow only two touches
-        [self initTouchCircleWithTouch:touch];
-        counter++;
-    }
 
     // If a mouse joint is created, that means user touched an enemy, do not create new enemy!
-//    if ([self createMouseJointWithTouch:touch]){
-//        return;
-//    }
+    //UITouch *theTouch      = (UITouch *)[touches anyObject];
+    
+    // Create joints with enemies
+    for (UITouch *touch in touches) {
+        if(numEnemiesTouched < MAX_TOUCHES && [self createMouseJointWithTouch:touch]){
+            numEnemiesTouched++;
+        }
+    }
+    
+    // Create touch circles for remaining touches
+    if (numEnemiesTouched < MAX_TOUCHES){
+        // Init BQTouchCircles
+        int counter = numEnemiesTouched;
+        for (UITouch *touch in touches) {
+            if (counter > (MAX_TOUCHES - 1)){  break;   } // allow only two touches
+            if([self freeTouch:touch]){
+                [self initTouchCircleWithTouch:touch];
+                counter++;
+            }
+        }
+    }
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     //UITouch *touch      = (UITouch *)[touches anyObject];
-    
-    // Move BQTouchCircles
-    for (UITouch *touch in touches) {
-        [self moveTouchCircleWithTouch:touch];
+    int counter = numEnemiesTouched;
+    if(counter > 0){
+        for (UITouch *touch in touches) {
+            if(counter == 0){
+                break;
+            }
+            else{
+                for(BLEnemySprite *be in self.enemies){
+                    if(counter != 0 && [be hasTouch:touch]){
+                        [self updateMouseJointWithTouch:touch];
+                        counter--;
+                    }
+                }
+            }
+        }
     }
     
-//    [self updateMouseJointWithTouch:touch];
+    if(numEnemiesTouched < MAX_TOUCHES){
+        // Move BQTouchCircles
+        for (UITouch *touch in touches) {
+            [self moveTouchCircleWithTouch:touch];
+        }
+    }
 }
 
 
@@ -186,10 +225,23 @@
     
     // Remove BQTouchCircles
     for (UITouch *touch in touches) {
-        [self removeTouchCircleWithTouch:touch];
+        if([self freeTouch:touch]){
+            [self removeTouchCircleWithTouch:touch];
+        }
     }
-
-//    [self removeMouseJoint];
+    
+    if(numEnemiesTouched > 0){
+        for (UITouch *touch in touches){
+            if(numEnemiesTouched == 0){ break; }
+            for(BLEnemySprite *be in self.enemies){
+                if([be hasTouch:touch]){
+                    [be updateTouch:nil];
+                    numEnemiesTouched--;
+                }
+            }
+        }
+        [self removeMouseJoint];
+    }
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -197,10 +249,23 @@
     
     // Remove BQTouchCircles
     for (UITouch *touch in touches) {
-        [self removeTouchCircleWithTouch:touch];
+        if([self freeTouch:touch]){
+            [self removeTouchCircleWithTouch:touch];
+        }
     }
-
-    //    [self removeMouseJoint];
+    
+    if(numEnemiesTouched > 0){
+        for (UITouch *touch in touches){
+            if(numEnemiesTouched == 0){ break; }
+            for(BLEnemySprite *be in self.enemies){
+                if([be hasTouch:touch]){
+                    [be updateTouch:nil];
+                    numEnemiesTouched--;
+                }
+            }
+        }
+        [self removeMouseJoint];
+    }
 }
 
 #pragma mark Touch Circles
@@ -244,13 +309,14 @@
     b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Loop through all enemies
-    //for (BLEnemySprite *be in self.enemies) {
-        // If intersects with point, create mouse joint
-        //if ([be intersectsWithPoint:ccLocation]){
-            //[be createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
-            //return YES;
-        //}
-   //}
+    for (BLEnemySprite *be in self.enemies) {
+        // If intersects with point, create mouse joint, link touch to enemy
+        if ([be intersectsWithPoint:ccLocation] && ![be hasTouch:touch]){
+            [be createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
+            [be updateTouch:touch];
+            return YES;
+        }
+   }
     
     return NO;
 }
@@ -273,6 +339,7 @@
 
 }
 
+// Remove all mouse joints to all enemies
 - (void)removeMouseJoint{
     // Loop through all enemies
     for (BLEnemySprite *be in self.enemies) {

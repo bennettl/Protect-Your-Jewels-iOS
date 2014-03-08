@@ -12,6 +12,11 @@
 #import "BLGameplayScene.h"
 #import "SimpleAudioEngine.h"
 
+@interface BLEnemySprite()
+// Reference to touch on the enemy
+@property NSUInteger touchHash;
+@end
+
 @implementation BLEnemySprite
 
 +(BLEnemySprite *)enemySprite{
@@ -91,6 +96,21 @@
         ((CCSprite *)self.ccNode).flipX = NO;
     }
     
+}
+
+// Does BQTouchCircle belong to touch object. Use for multi-touch tracking
+- (BOOL)hasTouch:(UITouch *)touch{
+    return (self.touchHash == touch.hash) ? YES : NO;
+}
+
+// Update touch
+- (void)updateTouch:(UITouch *)touch{
+    if(touch != nil){
+        self.touchHash = touch.hash;
+    }
+    else{
+        self.touchHash = nil;
+    }
 }
 
 #pragma mark Collision Detection
