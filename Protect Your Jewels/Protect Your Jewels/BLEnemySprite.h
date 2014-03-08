@@ -30,4 +30,9 @@ typedef enum {
 
 - (BOOL)intersectsWithPoint:(CGPoint)ccLocation;
 
+-(void)updateTouch:(UITouch *)touch;
+
+// Use for multi-touch tracking
+- (BOOL)hasTouch:(UITouch *)touch;
+
 @end
