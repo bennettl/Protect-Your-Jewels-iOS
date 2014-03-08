@@ -17,17 +17,18 @@ typedef enum {
 
 
 @interface BLEnemySprite : GB2Sprite {
-    BLSpriteLayer *spriteLayer; // weak reference
 }
 
 @property EnemyState state;
 
-+(BLEnemySprite *)enemySprite;
-
-- (id)initWithSpriteLayer:(BLSpriteLayer *)sl;
-+ (void)playHiyaAudio;
+// Audio
++ (void)playAttackAudio;
 - (void)playLaunchAudio;
 
 - (BOOL)intersectsWithPoint:(CGPoint)ccLocation;
+- (void)updateTouch:(UITouch *)touch;
+
+// Use for multi-touch tracking
+- (BOOL)hasTouch:(UITouch *)touch;
 
 @end

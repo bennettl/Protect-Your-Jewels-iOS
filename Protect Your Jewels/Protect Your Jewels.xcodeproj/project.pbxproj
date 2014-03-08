@@ -12,6 +12,7 @@
 		469C057018BA996E00A56049 /* Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 469C056C18BA996E00A56049 /* Clouds_front_full.png */; };
 		469C057118BA996E00A56049 /* Foreground_iPhone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 469C056D18BA996E00A56049 /* Foreground_iPhone4.png */; };
 		469C057218BA996E00A56049 /* Foreground_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 469C056E18BA996E00A56049 /* Foreground_iPhone5.png */; };
+		4D4391A818CAE9D60005DE90 /* BLNinjaSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D4391A718CAE9D60005DE90 /* BLNinjaSprite.mm */; };
 		4D66ACE418C07A0300DE656A /* BLFlashLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D66ACE318C07A0300DE656A /* BLFlashLayer.mm */; };
 		4D8ADE3218B974A2001689EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3118B974A2001689EC /* QuartzCore.framework */; };
 		4D8ADE3418B974A2001689EC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3318B974A2001689EC /* OpenGLES.framework */; };
@@ -241,6 +242,8 @@
 		469C056C18BA996E00A56049 /* Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Clouds_front_full.png; path = images/background/Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
 		469C056D18BA996E00A56049 /* Foreground_iPhone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Foreground_iPhone4.png; path = images/background/Foreground_iPhone4.png; sourceTree = SOURCE_ROOT; };
 		469C056E18BA996E00A56049 /* Foreground_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Foreground_iPhone5.png; path = images/background/Foreground_iPhone5.png; sourceTree = SOURCE_ROOT; };
+		4D4391A618CAE9D60005DE90 /* BLNinjaSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNinjaSprite.h; sourceTree = "<group>"; };
+		4D4391A718CAE9D60005DE90 /* BLNinjaSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLNinjaSprite.mm; sourceTree = "<group>"; };
 		4D66ACE218C07A0300DE656A /* BLFlashLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFlashLayer.h; sourceTree = "<group>"; };
 		4D66ACE318C07A0300DE656A /* BLFlashLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLFlashLayer.mm; sourceTree = "<group>"; };
 		4D8ADE2E18B974A2001689EC /* Protect Your Jewels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Protect Your Jewels.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1321,6 +1324,8 @@
 			children = (
 				4D8AE08418B979A0001689EC /* BLEnemySprite.h */,
 				4D8AE08518B979A0001689EC /* BLEnemySprite.mm */,
+				4D4391A618CAE9D60005DE90 /* BLNinjaSprite.h */,
+				4D4391A718CAE9D60005DE90 /* BLNinjaSprite.mm */,
 				4D8AE08618B979A0001689EC /* BLJewelSprite.h */,
 				4D8AE08718B979A0001689EC /* BLJewelSprite.mm */,
 				469C056818BA952E00A56049 /* MSCloud.h */,
@@ -1714,6 +1719,7 @@
 				4D8ADFBC18B974A6001689EC /* matrix.c in Sources */,
 				4D8AE02D18B974A7001689EC /* b2Contact.cpp in Sources */,
 				4D8ADEA218B974A3001689EC /* CCDrawingPrimitives.m in Sources */,
+				4D4391A818CAE9D60005DE90 /* BLNinjaSprite.mm in Sources */,
 				4D8ADF0A18B974A5001689EC /* ccShaders.m in Sources */,
 				4D8AE09018B979A1001689EC /* BLEnemySprite.mm in Sources */,
 				4D8AE02018B974A7001689EC /* b2WorldCallbacks.cpp in Sources */,
