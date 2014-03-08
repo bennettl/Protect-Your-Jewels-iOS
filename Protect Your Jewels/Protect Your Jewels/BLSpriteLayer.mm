@@ -104,7 +104,7 @@ static const int  MAX_TOUCHES = 2;
     // Launch enemy towards center
     // Get center vector
     CGPoint pointA                  = location;
-    CGPoint pointB                  = ccp(s.width/2, s.height/2);
+    CGPoint pointB                  = ccp(s.width/2, s.height*9/(10+enemyLaunchForce/500));
     CGPoint pointC                  = ccpSub(pointB, pointA);
     pointC                          = ccpNormalize(pointC);
     
