@@ -24,7 +24,7 @@
         // Do not let the enemy rotate
         [self setFixedRotation:true];
         self.state = kAttack;
-        spriteLayer = sl;  // Store the sprite layer
+        //spriteLayer = sl;  // Store the sprite layer
         
         // Set enemy to collide with everything
         for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){

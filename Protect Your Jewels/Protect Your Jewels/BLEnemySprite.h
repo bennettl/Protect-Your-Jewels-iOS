@@ -17,7 +17,6 @@ typedef enum {
 
 
 @interface BLEnemySprite : GB2Sprite {
-    BLSpriteLayer *spriteLayer; // weak reference
 }
 
 @property EnemyState state;

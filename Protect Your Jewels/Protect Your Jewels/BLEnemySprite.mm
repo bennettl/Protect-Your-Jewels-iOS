@@ -71,9 +71,14 @@
     // Mark it for deletion
     self.deleteLater    = true;
     
-    // Send a message to the gameplay scene to increment score and sprite layer to remove enemy from its array
-    [((BLGameplayScene *)self.ccNode.parent.parent) incrementScore];
+    // Send a message to the gameplay scene to increment score ONLY if ninja is in fall state
+    if (self.state == kFall){
+        [((BLGameplayScene *)self.ccNode.parent.parent) incrementScore];
+    }
+
+    // Send a message to the sprite layer to remove enemy from its array
     [((BLSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
+
 }
 
 // When the BQTouchCircle collides with enemy, play the punch audio
