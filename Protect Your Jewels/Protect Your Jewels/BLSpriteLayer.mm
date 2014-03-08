@@ -55,7 +55,7 @@ static const int  MAX_TOUCHES = 2;
         [self addChild:objectLayer z:10];
         
         // Initializations
-        enemyLaunchForce    = 500.0f;
+        enemyLaunchForce    = 700.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
         [self initJewel];
@@ -104,7 +104,7 @@ static const int  MAX_TOUCHES = 2;
     // Launch enemy towards center
     // Get center vector
     CGPoint pointA                  = location;
-    CGPoint pointB                  = ccp(s.width/2, s.height*9/(10+enemyLaunchForce/500));
+    CGPoint pointB                  = ccp(s.width/2, s.height*9/(10+enemyLaunchForce/700));
     CGPoint pointC                  = ccpSub(pointB, pointA);
     pointC                          = ccpNormalize(pointC);
     

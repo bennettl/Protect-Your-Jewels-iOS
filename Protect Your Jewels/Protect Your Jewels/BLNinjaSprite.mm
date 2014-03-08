@@ -34,7 +34,7 @@
             ef.groupIndex = 2;
             f->SetFilterData(ef);
         }
-        //self.body->SetGravityScale(0);        // Toggle gravity
+        self.body->SetGravityScale(0.9);        // Toggle gravity
     }
     return self;
 }
