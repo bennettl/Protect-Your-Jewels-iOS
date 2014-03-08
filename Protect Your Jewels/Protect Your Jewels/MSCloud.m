@@ -12,9 +12,10 @@
 
 @synthesize velocity = m_Velocity;
 
--(id) initFrontCloud:(int)xPos
+-(id) initFrontCloud:(int)xPos withTheme:(NSString *)theme
 {
-    if (self = [super initWithFile:@"Clouds_front_full.png"])
+    NSString *filename = [NSString stringWithFormat:@"%@_Clouds_front_full.png", theme];
+    if (self = [super initWithFile:filename])
     {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
@@ -24,13 +25,14 @@
     return self;
 }
 
--(id) initBackCloud:(int)xPos
+-(id) initBackCloud:(int)xPos withTheme:(NSString *)theme
 {
-    if (self = [super initWithFile:@"Clouds_back_full.png"]);
+    NSString *filename = [NSString stringWithFormat:@"%@_Clouds_back_full.png", theme];
+    if (self = [super initWithFile:filename]);
     {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         self.position = ccp(xPos, 0.81 * winSize.height);
-        m_Velocity = 5;
+        m_Velocity = 8;
     }
     return self;
 }

@@ -1,19 +1,19 @@
 //
-//  BLBackGroundLayer.m
-//  GamePlay
+//  MSJungleBGLayer.m
+//  Protect Your Jewels
 //
-//  Created by Bennett Lee on 2/21/14.
-//  Copyright 2014 Bennett Lee. All rights reserved.
+//  Created by Megan Sullivan on 3/8/14.
+//  Copyright (c) 2014 Bennett Lee. All rights reserved.
 //
 
-#import "MSMountainBGLayer.h"
+#import "MSJungleBGLayer.h"
 
-@implementation MSMountainBGLayer
+@implementation MSJungleBGLayer
 
 // Init function adds background
 - (id)init{
     
-    self = [super initWithTheme:@"Mountain"];
+    self = [super initWithTheme:@"Jungle"];
     return self;
     
 }

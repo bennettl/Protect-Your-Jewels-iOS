@@ -16,7 +16,7 @@
 
 @property int velocity;
 
--(id) initFrontCloud:(int)xPos;
--(id) initBackCloud:(int)xPos;
+-(id) initFrontCloud:(int)xPos withTheme:(NSString *)theme;
+-(id) initBackCloud:(int)xPos withTheme:(NSString *)theme;
 
 @end
