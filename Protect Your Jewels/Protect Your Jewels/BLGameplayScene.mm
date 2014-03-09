@@ -46,6 +46,7 @@
         self.uiLayer        = [BLUILayer node];
         self.spriteLayer    = [BLSpriteLayer node];
         
+        // Choose background layer based on theme
         if ([RSThemeManager sharedManager].isMountain){
             self.bgLayer    = [MSMountainBGLayer node];
         }
