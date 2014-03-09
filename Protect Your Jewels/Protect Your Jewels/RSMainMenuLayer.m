@@ -11,6 +11,10 @@
 #import "RSLeaderboardScene.h"
 #import "RSThemeScene.h"
 #import "SimpleAudioEngine.h"
+#import "MSBGLayer.h"
+#import "MSMountainBGLayer.h"
+#import "MSJungleBGLayer.h"
+#import "RSThemeManager.h"
 #import "cocos2d.h"
 
 @implementation RSMainMenuLayer
@@ -31,15 +35,22 @@
 		
         // Create menu logo and background
         CCSprite *logo          = [CCSprite spriteWithFile:@"menu_logo.png"];
-		CCSprite *background    = [CCSprite spriteWithFile:@"game_background.png"];
+		MSBGLayer *background;
+        // Create menu logo and background
+        if ([[RSThemeManager sharedManager] isMountain]) {
+            background = [MSMountainBGLayer node];
+        } else if ([[RSThemeManager sharedManager] isJungle]) {
+            background = [MSJungleBGLayer node];
+        } else if([[RSThemeManager sharedManager] isGladiator]) {
+            background = [MSMountainBGLayer node];
+        }
+        
         
         // Center the background
 		if (size.height > size.width) {
             logo.position = ccp(size.height - logo.contentSize.height + 15, size.width/2);
-            background.position = ccp(size.height/2, size.width/2);
         } else {
             logo.position = ccp(size.width/2, size.height - logo.contentSize.height + 15);
-            background.position = ccp(size.width/2, size.height/2);
         }
         
         [self addChild:logo z:1];
