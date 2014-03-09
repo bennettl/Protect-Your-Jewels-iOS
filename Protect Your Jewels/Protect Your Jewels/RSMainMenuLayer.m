@@ -9,7 +9,7 @@
 #import "RSMainMenuLayer.h"
 #import "BLGameplayScene.h"
 #import "RSLeaderboardScene.h"
-#import "RSSettingsScene.h"
+#import "MSThemeScene.h"
 #import "cocos2d.h"
 
 @implementation RSMainMenuLayer
@@ -55,7 +55,7 @@
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSLeaderboardScene node]]];
 		}];
         CCMenuItem *itemSettings = [CCMenuItemFont itemWithString:@"Themes" block:^(id sender) {
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSSettingsScene node]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[MSThemeScene node]]];
 		}];
 		
 		CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard,itemSettings, nil];
