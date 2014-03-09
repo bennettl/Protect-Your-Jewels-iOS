@@ -10,8 +10,8 @@
 
 @interface MSThemeScene : CCScene
 
-- (void)setThemeJungle;
-- (void)setThemeMountain;
-- (void)setThemeGladiator;
+- (void)setThemeJungle:(id)sender;
+- (void)setThemeMountain:(id)sender;
+- (void)setThemeGladiator:(id)sender;
 
 @end
