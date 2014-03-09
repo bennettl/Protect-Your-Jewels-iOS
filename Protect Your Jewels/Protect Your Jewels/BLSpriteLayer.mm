@@ -13,6 +13,7 @@
 #import "GBox2D/GB2DebugDrawLayer.h"
 #import "BLJewelSprite.h"
 #import "BLNinjaSprite.h"
+#import "RSTrojanSprite.h"
 #import "BQTouchCircle.h"
 #import "BLBoxNode.h"
 #import "MSMountainBGLayer.h"
@@ -94,7 +95,8 @@ static const int  MAX_TOUCHES = 2;
 - (void)spawnEnemyAtRadomLocation{
     CGSize s = [[CCDirector sharedDirector] winSize];
     CGPoint location = [self randomDirection];
-    BLNinjaSprite *es = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
+    RSTrojanSprite *es = [[RSTrojanSprite alloc] initWithSpriteLayer:self];
+//    BLNinjaSprite *es = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
     [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:es.ccNode z:10];
     [self.enemies addObject:es];

@@ -232,6 +232,8 @@
 		4D8AE12018BC976A001689EC /* drumroll-begin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE11B18BC976A001689EC /* drumroll-begin.wav */; };
 		4D8AE12318BC9AF2001689EC /* drumroll-end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE12218BC9AF2001689EC /* drumroll-end.wav */; };
 		4D8AE12618BC9CA1001689EC /* BLHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE12518BC9CA1001689EC /* BLHighScoreManager.m */; };
+		943737CD18CC003F00276CC5 /* RSTrojanSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737CC18CC003F00276CC5 /* RSTrojanSprite.mm */; };
+		943737D018CC097E00276CC5 /* RSThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 943737CF18CC097E00276CC5 /* RSThemeManager.m */; };
 		94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */; };
 		94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */; };
 		94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSSettingsScene.m */; };
@@ -683,6 +685,10 @@
 		4D8AE12218BC9AF2001689EC /* drumroll-end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "drumroll-end.wav"; sourceTree = "<group>"; };
 		4D8AE12418BC9CA1001689EC /* BLHighScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHighScoreManager.h; sourceTree = "<group>"; };
 		4D8AE12518BC9CA1001689EC /* BLHighScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHighScoreManager.m; sourceTree = "<group>"; };
+		943737CB18CC003F00276CC5 /* RSTrojanSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTrojanSprite.h; sourceTree = "<group>"; };
+		943737CC18CC003F00276CC5 /* RSTrojanSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSTrojanSprite.mm; sourceTree = "<group>"; };
+		943737CE18CC097E00276CC5 /* RSThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSThemeManager.h; sourceTree = "<group>"; };
+		943737CF18CC097E00276CC5 /* RSThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSThemeManager.m; sourceTree = "<group>"; };
 		94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLeaderboardScene.h; sourceTree = "<group>"; };
 		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLeaderboardScene.m; sourceTree = "<group>"; };
 		94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainMenuLayer.h; sourceTree = "<group>"; };
@@ -1340,6 +1346,8 @@
 				4D8AE08518B979A0001689EC /* BLEnemySprite.mm */,
 				4D4391A618CAE9D60005DE90 /* BLNinjaSprite.h */,
 				4D4391A718CAE9D60005DE90 /* BLNinjaSprite.mm */,
+				943737CB18CC003F00276CC5 /* RSTrojanSprite.h */,
+				943737CC18CC003F00276CC5 /* RSTrojanSprite.mm */,
 				4D8AE08618B979A0001689EC /* BLJewelSprite.h */,
 				4D8AE08718B979A0001689EC /* BLJewelSprite.mm */,
 				469C056818BA952E00A56049 /* MSCloud.h */,
@@ -1479,6 +1487,8 @@
 				94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */,
 				94CE827118B9971F00FCA354 /* RSSettingsScene.h */,
 				94CE827218B9971F00FCA354 /* RSSettingsScene.m */,
+				943737CE18CC097E00276CC5 /* RSThemeManager.h */,
+				943737CF18CC097E00276CC5 /* RSThemeManager.m */,
 				94CE827C18B9998500FCA354 /* BLGameOverLayer.h */,
 				94CE827D18B9998500FCA354 /* BLGameOverLayer.m */,
 				4D8AE12418BC9CA1001689EC /* BLHighScoreManager.h */,
@@ -1728,6 +1738,7 @@
 				4D8ADE7718B974A3001689EC /* CCActionInterval.m in Sources */,
 				4D8ADEE518B974A4001689EC /* CCPhysicsDebugNode.m in Sources */,
 				4D8AE08E18B979A1001689EC /* BLSpriteLayer.mm in Sources */,
+				943737CD18CC003F00276CC5 /* RSTrojanSprite.mm in Sources */,
 				4D8ADE6B18B974A3001689EC /* CCActionEase.m in Sources */,
 				4D8ADEA818B974A3001689EC /* CCFontDefinition.m in Sources */,
 				4D8ADEE818B974A4001689EC /* CCPhysicsSprite.mm in Sources */,
@@ -1767,6 +1778,7 @@
 				4D8ADF9E18B974A6001689EC /* SimpleAudioEngine.m in Sources */,
 				4D8ADF5018B974A5001689EC /* CCTouchDispatcher.m in Sources */,
 				4D8AE06818B974A7001689EC /* main.m in Sources */,
+				943737D018CC097E00276CC5 /* RSThemeManager.m in Sources */,
 				4D8ADED318B974A4001689EC /* CCNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

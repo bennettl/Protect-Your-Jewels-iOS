@@ -42,6 +42,18 @@
         CCMenu *menu = [CCMenu menuWithItems:itemNewGame, nil];
         [menu alignItemsVerticallyWithPadding:10];
         [menu setPosition:ccp(30, size.height-30)];
+        
+        CCMenuItem *itemJungle = [CCMenuItemFont itemWithString:@"Jungle" block:^(id sender) {
+            
+        }];
+        CCMenuItem *itemMountain = [CCMenuItemFont itemWithString:@"Mountain" block:^(id sender) {
+            
+        }];
+        CCMenuItem *itemGladiator = [CCMenuItemFont itemWithString:@"Gladiator" block:^(id sender) {
+            
+        }];
+        
+        CCMenu *themeMenu = [CCMenu menuWithItems:itemJungle, itemMountain, itemMountain, nil];
 		
 		// Add the menu to the layer
 		[self addChild:menu];
