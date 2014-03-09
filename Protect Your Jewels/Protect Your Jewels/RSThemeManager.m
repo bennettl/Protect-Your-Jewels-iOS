@@ -10,4 +10,31 @@
 
 @implementation RSThemeManager
 
++ (instancetype)sharedManager {
+    static RSThemeManager *sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+    });
+    return sharedManager;
+}
+
+- (void)setThemeJungle {
+    self.isJungle = YES;
+    self.isMountain = NO;
+    self.isGladiator = NO;
+}
+
+- (void)setThemeMountain {
+    self.isJungle = NO;
+    self.isMountain = YES;
+    self.isGladiator = NO;
+}
+
+- (void)setThemeGladiator {
+    self.isJungle = NO;
+    self.isMountain = NO;
+    self.isGladiator = YES;
+}
+
 @end

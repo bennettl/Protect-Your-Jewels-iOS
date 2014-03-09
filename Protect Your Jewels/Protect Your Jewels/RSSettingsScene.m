@@ -8,7 +8,14 @@
 
 #import "RSSettingsScene.h"
 #import "RSMainMenuLayer.h"
+#import "RSThemeManager.h"
 #import "cocos2d.h"
+@interface RSSettingsScene()
+@property (strong, nonatomic) CCMenuItem *itemJungle;
+@property (strong, nonatomic) CCMenuItem *itemMountain;
+@property (strong, nonatomic) CCMenuItem *itemGladiator;
+
+@end
 
 @implementation RSSettingsScene
 
@@ -43,24 +50,43 @@
         [menu alignItemsVerticallyWithPadding:10];
         [menu setPosition:ccp(30, size.height-30)];
         
-        CCMenuItem *itemJungle = [CCMenuItemFont itemWithString:@"Jungle" block:^(id sender) {
-            
-        }];
-        CCMenuItem *itemMountain = [CCMenuItemFont itemWithString:@"Mountain" block:^(id sender) {
-            
-        }];
-        CCMenuItem *itemGladiator = [CCMenuItemFont itemWithString:@"Gladiator" block:^(id sender) {
-            
-        }];
+        self.itemJungle = [CCMenuItemFont itemWithString:@"Jungle" target:self selector:@selector(setThemeJungle:)];
+        self.itemMountain = [CCMenuItemFont itemWithString:@"Mountain" target:self selector:@selector(setThemeMountain:)];
+        self.itemGladiator = [CCMenuItemFont itemWithString:@"Gladiator" target:self selector:@selector(setThemeGladiator:)];
         
-        CCMenu *themeMenu = [CCMenu menuWithItems:itemJungle, itemMountain, itemMountain, nil];
+        self.itemMountain.color = ccBLACK;
+        
+        CCMenu *themeMenu = [CCMenu menuWithItems:self.itemGladiator, self.itemJungle, self.itemMountain, nil];
+        [themeMenu alignItemsVerticallyWithPadding:10];
+        [themeMenu setPosition:ccp(size.width/2,size.height/2)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];
+        [self addChild:themeMenu];
     }
 	return self;
 }
 
+- (void)setThemeJungle: (id) sender {
+    [[RSThemeManager sharedManager] setThemeJungle];
+    self.itemJungle.color       = ccBLACK;
+    self.itemGladiator.color    = ccWHITE;
+    self.itemMountain.color     = ccWHITE;
+}
+
+- (void)setThemeMountain: (id) sender {
+    [[RSThemeManager sharedManager] setThemeJungle];
+    self.itemJungle.color       = ccWHITE;
+    self.itemGladiator.color    = ccWHITE;
+    self.itemMountain.color     = ccBLACK;
+}
+
+- (void)setThemeGladiator: (id) sender {
+    [[RSThemeManager sharedManager] setThemeJungle];
+    self.itemJungle.color       = ccWHITE;
+    self.itemGladiator.color    = ccBLACK;
+    self.itemMountain.color     = ccWHITE;
+}
 - (void) dealloc
 {
 	// in case you have something to dealloc, do it in this method

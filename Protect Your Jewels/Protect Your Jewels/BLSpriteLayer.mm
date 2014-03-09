@@ -362,7 +362,7 @@ static const int  MAX_TOUCHES = 2;
 #pragma Listner
 
 // Remove BLNinjaSprite from enemies mutable array
-- (void)removeEnemyFromSpriteLayer:(BLNinjaSprite *)es{
+- (void)removeEnemyFromSpriteLayer:(BLEnemySprite *)es{
     [self.enemies removeObject:es];
 }
 

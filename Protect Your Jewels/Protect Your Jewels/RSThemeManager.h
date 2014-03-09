@@ -10,14 +10,16 @@
 
 @interface RSThemeManager : NSObject
 
+@property(nonatomic)BOOL isMountain;
+@property(nonatomic)BOOL isJungle;
+@property(nonatomic)BOOL isGladiator;
+
 // Singleton
 + (instancetype)sharedManager;
 
-// Update high scores list with score
-- (void)updateHighScoreWithScore:(int)score;
-// Get an NSArray of highscores
-- (NSArray *)highScores;
-// Get the local highest score
-- (int)highestScore;
+- (void)setThemeJungle;
+- (void)setThemeMountain;
+- (void)setThemeGladiator;
+
 
 @end

@@ -10,4 +10,8 @@
 
 @interface RSSettingsScene : CCScene
 
+- (void)setThemeJungle;
+- (void)setThemeMountain;
+- (void)setThemeGladiator;
+
 @end

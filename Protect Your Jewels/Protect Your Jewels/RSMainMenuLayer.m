@@ -58,7 +58,7 @@
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSSettingsScene node]]];
 		}];
 		
-		CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard, nil];
+		CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard,itemSettings, nil];
 		
 		[menu alignItemsVerticallyWithPadding:10];
         [menu setPosition:ccp(size.width/2, 95)];
