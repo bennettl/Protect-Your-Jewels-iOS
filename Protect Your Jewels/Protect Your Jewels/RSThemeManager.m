@@ -19,6 +19,15 @@
     return sharedManager;
 }
 
+- (id)init {
+    if (self = [super init]) {
+        _isGladiator = NO;
+        _isJungle = NO;
+        _isMountain = YES;
+    }
+    return self;
+}
+
 - (void)setThemeJungle {
     self.isJungle = YES;
     self.isMountain = NO;
