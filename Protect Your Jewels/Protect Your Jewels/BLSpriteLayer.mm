@@ -79,6 +79,7 @@ static const int  MAX_TOUCHES = 2;
 	return self;
 }
 
+
 // Creates jewel
  -(void)initJewel{
      CGSize s = [[CCDirector sharedDirector] winSize];
@@ -95,34 +96,34 @@ static const int  MAX_TOUCHES = 2;
 
 // Initializes enemy at location
 - (void)spawnEnemyAtRadomLocation{
-    CGSize s = [[CCDirector sharedDirector] winSize];
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
     CGPoint location = [self randomDirection];
-    BLEnemySprite *es;
+    BLEnemySprite *enemySprite;
     if([[RSThemeManager sharedManager] isMountain]) {
-        es = [[RSTrojanSprite alloc] initWithSpriteLayer:self];
+        enemySprite = [[RSTrojanSprite alloc] initWithSpriteLayer:self];
     } else if([[RSThemeManager sharedManager] isJungle]) {
-        es = [[RSMonkeySprite alloc] initWithSpriteLayer:self];
+        enemySprite = [[RSMonkeySprite alloc] initWithSpriteLayer:self];
     } else if([[RSThemeManager sharedManager] isGladiator]) {
-        es = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
+        enemySprite = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
     }
     
-    [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
-    [self addChild:es.ccNode z:10];
-    [self.enemies addObject:es];
+    [enemySprite setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
+    [self addChild:enemySprite.ccNode z:10];
+    [self.enemies addObject:enemySprite];
 
-    [es playLaunchAudio]; // play enemy launch sound
+    [enemySprite playLaunchAudio]; // play enemy launch sound
     
     // Launch enemy towards center
     // Get center vector
     CGPoint pointA                  = location;
-    CGPoint pointB                  = ccp(s.width/2, s.height*9/(10+enemyLaunchForce/700));
+    CGPoint pointB                  = ccp(winSize.width/2, winSize.height*9/(10+enemyLaunchForce/700));
     CGPoint pointC                  = ccpSub(pointB, pointA);
     pointC                          = ccpNormalize(pointC);
     
     b2Vec2 force = b2Vec2((pointC.x/PTM_RATIO) * enemyLaunchForce,
                           (pointC.y/PTM_RATIO) * enemyLaunchForce);
     
-    [es applyLinearImpulse:force point:[es worldCenter]];
+    [enemySprite applyLinearImpulse:force point:[enemySprite worldCenter]];
 
 }
 

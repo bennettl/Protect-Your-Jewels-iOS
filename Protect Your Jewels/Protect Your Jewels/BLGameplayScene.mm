@@ -17,6 +17,8 @@
 #import "BLHighScoreManager.h"
 #import "BLFlashLayer.h"
 #import "RSThemeManager.h"
+#import "RSPauseLayer.h"
+#import "RSMainMenuLayer.h"
 
 @interface BLGameplayScene()
 
@@ -24,6 +26,7 @@
 @property (nonatomic, strong) MSBGLayer *bgLayer;
 @property (nonatomic, strong) BLSpriteLayer *spriteLayer;
 @property (nonatomic, strong) BLUILayer *uiLayer;
+@property (nonatomic, strong) RSPauseLayer *pauseLayer;
 
 @end
 
@@ -34,33 +37,37 @@
     if (self = [super init]){
         
         // Initalization
-        self.score          = 0;
-        self.lives          = 3;
+        _score          = 0;
+        _lives          = 3;
         
         // Play background music
         [[SimpleAudioEngine sharedEngine] playEffect:@"flute_intro.wav"];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mountain-wind.wav" loop:YES];
         
         // Create layers and add sa children
-        self.flashLayer     = [BLFlashLayer node];
-        self.uiLayer        = [BLUILayer node];
-        self.spriteLayer    = [BLSpriteLayer node];
+        _flashLayer     = [BLFlashLayer node];
+        _uiLayer        = [BLUILayer node];
+        _spriteLayer    = [BLSpriteLayer node];
+        _pauseLayer     = [RSPauseLayer node];
         
         // Choose background layer based on theme
         if ([RSThemeManager sharedManager].isMountain){
             self.bgLayer    = [MSMountainBGLayer node];
         }
         else if ([RSThemeManager sharedManager].isJungle){
-            self.bgLayer    = [MSJungleBGLayer node];
+            _bgLayer    = [MSJungleBGLayer node];
         }
         else {
-            self.bgLayer    = [MSMountainBGLayer node]; //CHANGE WHEN NEW GLADIATOR BACKGROUND
+            _bgLayer    = [MSMountainBGLayer node]; //CHANGE WHEN NEW GLADIATOR BACKGROUND
         }
         
-        [self addChild:self.flashLayer z:5];
-        [self addChild:self.uiLayer z:4];
-        [self addChild:self.spriteLayer z:3];
-        [self addChild:self.bgLayer z:2];
+        [self addChild:_pauseLayer z:100];
+        [self addChild:_flashLayer z:5];
+        [self addChild:_uiLayer z:4];
+        [self addChild:_spriteLayer z:3];
+        [self addChild:_bgLayer z:2];
+        
+        _pauseLayer.visible = NO;
     }
     
     return self;
@@ -98,6 +105,30 @@
     [[BLHighScoreManager sharedManager] updateHighScoreWithScore:self.score];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f
                                                                                  scene:[BLGameOverLayer sceneWithScore:self.score]]];
+}
+
+- (void)startExit {
+    self.pauseLayer.visible = NO;
+    [[CCDirector sharedDirector] stopAnimation];
+    [[CCDirector sharedDirector] resume];
+    [[CCDirector sharedDirector] startAnimation];
+    [[GB2Engine sharedInstance] resumeWorld];
+    
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSMainMenuLayer node]]];
+    
+}
+- (void)pauseGame {
+    self.pauseLayer.visible = YES;
+    [[CCDirector sharedDirector] pause];
+    [[GB2Engine sharedInstance] pauseWorld];
+}
+
+- (void)resumeGame {
+    self.pauseLayer.visible = NO;
+    [[CCDirector sharedDirector] stopAnimation];
+    [[CCDirector sharedDirector] resume];
+    [[CCDirector sharedDirector] startAnimation];
+    [[GB2Engine sharedInstance] resumeWorld];
 }
 
 // When GameplayScenes exits the "stage"
