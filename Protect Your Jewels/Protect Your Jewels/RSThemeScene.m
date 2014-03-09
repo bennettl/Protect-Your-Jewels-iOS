@@ -75,14 +75,14 @@
 }
 
 - (void)setThemeMountain: (id) sender {
-    [[RSThemeManager sharedManager] setThemeJungle];
+    [[RSThemeManager sharedManager] setThemeMountain];
     self.itemJungle.color       = ccWHITE;
     self.itemGladiator.color    = ccWHITE;
     self.itemMountain.color     = ccBLACK;
 }
 
 - (void)setThemeGladiator: (id) sender {
-    [[RSThemeManager sharedManager] setThemeJungle];
+    [[RSThemeManager sharedManager] setThemeGladiator];
     self.itemJungle.color       = ccWHITE;
     self.itemGladiator.color    = ccBLACK;
     self.itemMountain.color     = ccWHITE;
