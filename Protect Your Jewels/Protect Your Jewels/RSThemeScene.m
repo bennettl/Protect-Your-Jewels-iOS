@@ -2,22 +2,22 @@
 //  MSThemeScene.m
 //  Operation: Protect Your Jewels
 //
-//  Created by Megan Sullivan on 2/22/14.
+//  Created by Ryan Stack on 2/22/14.
 //  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
-#import "MSThemeScene.h"
+#import "RSThemeScene.h"
 #import "RSMainMenuLayer.h"
 #import "RSThemeManager.h"
 #import "cocos2d.h"
-@interface MSThemeScene()
+@interface RSThemeScene()
 @property (strong, nonatomic) CCMenuItem *itemJungle;
 @property (strong, nonatomic) CCMenuItem *itemMountain;
 @property (strong, nonatomic) CCMenuItem *itemGladiator;
 
 @end
 
-@implementation MSThemeScene
+@implementation RSThemeScene
 
 -(id) init
 {

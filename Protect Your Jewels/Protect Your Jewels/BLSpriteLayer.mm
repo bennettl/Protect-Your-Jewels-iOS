@@ -14,6 +14,7 @@
 #import "BLJewelSprite.h"
 #import "BLNinjaSprite.h"
 #import "RSTrojanSprite.h"
+#import "RSMonkeySprite.h"
 #import "BQTouchCircle.h"
 #import "BLBoxNode.h"
 #import "MSMountainBGLayer.h"
