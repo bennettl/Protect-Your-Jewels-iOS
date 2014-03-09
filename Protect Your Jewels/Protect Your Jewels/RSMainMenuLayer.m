@@ -10,6 +10,7 @@
 #import "BLGameplayScene.h"
 #import "RSLeaderboardScene.h"
 #import "RSThemeScene.h"
+#import "SimpleAudioEngine.h"
 #import "cocos2d.h"
 
 @implementation RSMainMenuLayer
@@ -62,6 +63,9 @@
 		
 		[menu alignItemsVerticallyWithPadding:10];
         [menu setPosition:ccp(size.width/2, 95)];
+        
+        // Stop music
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         
 		// Add the menu to the layer
 		[self addChild:menu];

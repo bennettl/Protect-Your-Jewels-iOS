@@ -99,11 +99,11 @@ static const int  MAX_TOUCHES = 2;
     CGPoint location = [self randomDirection];
     BLEnemySprite *es;
     if([[RSThemeManager sharedManager] isMountain]) {
-        es = [[RSTrojanSprite alloc] initWithSpriteLayer:self];
+        es = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
     } else if([[RSThemeManager sharedManager] isJungle]) {
         es = [[RSMonkeySprite alloc] initWithSpriteLayer:self];
     } else if([[RSThemeManager sharedManager] isGladiator]) {
-        es = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
+        es = [[RSTrojanSprite alloc] initWithSpriteLayer:self];
     }
     
     [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
