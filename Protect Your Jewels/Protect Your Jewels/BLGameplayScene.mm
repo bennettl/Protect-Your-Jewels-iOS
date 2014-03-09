@@ -16,6 +16,7 @@
 #import "GB2Engine.h"
 #import "BLHighScoreManager.h"
 #import "BLFlashLayer.h"
+#import "RSThemeManager.h"
 
 @interface BLGameplayScene()
 
@@ -44,7 +45,16 @@
         self.flashLayer     = [BLFlashLayer node];
         self.uiLayer        = [BLUILayer node];
         self.spriteLayer    = [BLSpriteLayer node];
-        self.bgLayer        = [MSMountainBGLayer node];
+        
+        if ([RSThemeManager sharedManager].isMountain){
+            self.bgLayer    = [MSMountainBGLayer node];
+        }
+        else if ([RSThemeManager sharedManager].isJungle){
+            self.bgLayer    = [MSJungleBGLayer node];
+        }
+        else {
+            self.bgLayer    = [MSMountainBGLayer node]; //CHANGE WHEN NEW GLADIATOR BACKGROUND
+        }
         
         [self addChild:self.flashLayer z:5];
         [self addChild:self.uiLayer z:4];
