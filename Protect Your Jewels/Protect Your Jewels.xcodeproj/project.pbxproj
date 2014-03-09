@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		469C056A18BA952E00A56049 /* MSCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 469C056918BA952E00A56049 /* MSCloud.m */; };
 		46FF967818CB0264009C6018 /* Jungle_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */; };
-		46FF967918CB0264009C6018 /* Jungle_Clouds_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967318CB0264009C6018 /* Jungle_Clouds_front.png */; };
 		46FF967A18CB0264009C6018 /* Jungle_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */; };
 		46FF967B18CB0264009C6018 /* Mountain_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */; };
 		46FF967C18CB0264009C6018 /* Mountain_Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967618CB0264009C6018 /* Mountain_Clouds_front_full.png */; };
 		46FF967D18CB0264009C6018 /* Mountain_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967718CB0264009C6018 /* Mountain_FG_iPhone5.png */; };
 		46FF968018CB0FB8009C6018 /* MSJungleBGLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FF967F18CB0FB8009C6018 /* MSJungleBGLayer.m */; };
 		46FF968318CB0FF6009C6018 /* MSBGLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FF968218CB0FF6009C6018 /* MSBGLayer.m */; };
+		46FF968818CC4C62009C6018 /* Jungle_Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF968718CC4C62009C6018 /* Jungle_Clouds_front_full.png */; };
 		4D4391A818CAE9D60005DE90 /* BLNinjaSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D4391A718CAE9D60005DE90 /* BLNinjaSprite.mm */; };
 		4D66ACE418C07A0300DE656A /* BLFlashLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D66ACE318C07A0300DE656A /* BLFlashLayer.mm */; };
 		4D8ADE3218B974A2001689EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3118B974A2001689EC /* QuartzCore.framework */; };
@@ -244,7 +244,6 @@
 		469C056818BA952E00A56049 /* MSCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCloud.h; sourceTree = "<group>"; };
 		469C056918BA952E00A56049 /* MSCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCloud.m; sourceTree = "<group>"; };
 		46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_Clouds_back_full.png; path = images/background/Jungle_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
-		46FF967318CB0264009C6018 /* Jungle_Clouds_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_Clouds_front.png; path = images/background/Jungle_Clouds_front.png; sourceTree = SOURCE_ROOT; };
 		46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_FG_iPhone5.png; path = images/background/Jungle_FG_iPhone5.png; sourceTree = SOURCE_ROOT; };
 		46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mountain_Clouds_back_full.png; path = images/background/Mountain_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
 		46FF967618CB0264009C6018 /* Mountain_Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mountain_Clouds_front_full.png; path = images/background/Mountain_Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
@@ -253,6 +252,7 @@
 		46FF967F18CB0FB8009C6018 /* MSJungleBGLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSJungleBGLayer.m; sourceTree = "<group>"; };
 		46FF968118CB0FF6009C6018 /* MSBGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBGLayer.h; sourceTree = "<group>"; };
 		46FF968218CB0FF6009C6018 /* MSBGLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBGLayer.m; sourceTree = "<group>"; };
+		46FF968718CC4C62009C6018 /* Jungle_Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_Clouds_front_full.png; path = images/background/Jungle_Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
 		4D4391A618CAE9D60005DE90 /* BLNinjaSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNinjaSprite.h; sourceTree = "<group>"; };
 		4D4391A718CAE9D60005DE90 /* BLNinjaSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLNinjaSprite.mm; sourceTree = "<group>"; };
 		4D66ACE218C07A0300DE656A /* BLFlashLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFlashLayer.h; sourceTree = "<group>"; };
@@ -1404,7 +1404,7 @@
 			isa = PBXGroup;
 			children = (
 				46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */,
-				46FF967318CB0264009C6018 /* Jungle_Clouds_front.png */,
+				46FF968718CC4C62009C6018 /* Jungle_Clouds_front_full.png */,
 				46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */,
 				46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */,
 				46FF967618CB0264009C6018 /* Mountain_Clouds_front_full.png */,
@@ -1564,9 +1564,9 @@
 				4D8ADE5218B974A3001689EC /* Icon-Small-50.png in Resources */,
 				46FF967A18CB0264009C6018 /* Jungle_FG_iPhone5.png in Resources */,
 				4D8AE12018BC976A001689EC /* drumroll-begin.wav in Resources */,
+				46FF968818CC4C62009C6018 /* Jungle_Clouds_front_full.png in Resources */,
 				4D8ADE5D18B974A3001689EC /* iTunesArtwork in Resources */,
 				4D8AE0E218B9CBE0001689EC /* Sprites-hd.pvr.ccz in Resources */,
-				46FF967918CB0264009C6018 /* Jungle_Clouds_front.png in Resources */,
 				4D8AE11518BB3969001689EC /* flute_intro.wav in Resources */,
 				4D8ADE5618B974A3001689EC /* Icon-Small@2x.png in Resources */,
 				4D8AE12318BC9AF2001689EC /* drumroll-end.wav in Resources */,

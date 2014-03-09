@@ -10,6 +10,7 @@
 #import "BLUILayer.h"
 #import "BLSpriteLayer.h"
 #import "MSMountainBGLayer.h"
+#import "MSJungleBGLayer.h"
 #import "BLGameOverLayer.h"
 #import "SimpleAudioEngine.h"
 #import "GB2Engine.h"
@@ -19,7 +20,7 @@
 @interface BLGameplayScene()
 
 @property (nonatomic, strong) BLFlashLayer *flashLayer;
-@property (nonatomic, strong) MSMountainBGLayer *bgLayer;
+@property (nonatomic, strong) MSBGLayer *bgLayer;
 @property (nonatomic, strong) BLSpriteLayer *spriteLayer;
 @property (nonatomic, strong) BLUILayer *uiLayer;
 
