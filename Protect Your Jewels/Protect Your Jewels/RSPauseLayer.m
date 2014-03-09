@@ -8,6 +8,10 @@
 
 #import "RSPauseLayer.h"
 #import "RSMainMenuLayer.h"
+#import "RSThemeManager.h"
+#import "MSBGLayer.h"
+#import "MSMountainBGLayer.h"
+#import "MSJungleBGLayer.h"
 #import "cocos2d.h"
 
 @implementation RSPauseLayer
@@ -18,16 +22,22 @@
 	{
         
 		CGSize size = [[CCDirector sharedDirector] winSize];
-		
+		MSBGLayer *background;
         // Create menu logo and background
-		CCSprite *background    = [CCSprite spriteWithFile:@"game_background.png"];
-        
-        // Center the background
-		if (size.height > size.width) {
-            background.position = ccp(size.height/2, size.width/2);
-        } else {
-            background.position = ccp(size.width/2, size.height/2);
+        if ([[RSThemeManager sharedManager] isMountain]) {
+            background = [MSMountainBGLayer node];
+        } else if ([[RSThemeManager sharedManager] isJungle]) {
+            background = [MSJungleBGLayer node];
+        } else if([[RSThemeManager sharedManager] isGladiator]) {
+            background = [MSMountainBGLayer node];
         }
+
+        // Center the background
+//		if (size.height > size.width) {
+//            background.position = ccp(size.height/2, size.width/2);
+//        } else {
+//            background.position = ccp(size.width/2, size.height/2);
+//        }
         
 		[self addChild: background z:-1];
 		
