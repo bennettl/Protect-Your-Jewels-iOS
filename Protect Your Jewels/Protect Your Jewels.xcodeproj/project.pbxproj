@@ -236,7 +236,7 @@
 		943737D018CC097E00276CC5 /* RSThemeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737CF18CC097E00276CC5 /* RSThemeManager.mm */; };
 		943737D318CCFEAD00276CC5 /* RSMonkeySprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737D218CCFEAD00276CC5 /* RSMonkeySprite.mm */; };
 		943737D618CD277100276CC5 /* RSPauseLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737D518CD277100276CC5 /* RSPauseLayer.mm */; };
-		94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */; };
+		94CE827318B9971F00FCA354 /* RSLeaderboardScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.mm */; };
 		94CE827418B9971F00FCA354 /* RSMainMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.mm */; };
 		94CE827518B9971F00FCA354 /* RSThemeScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSThemeScene.mm */; };
 		94CE827E18B9998500FCA354 /* BLGameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827D18B9998500FCA354 /* BLGameOverLayer.mm */; };
@@ -695,7 +695,7 @@
 		943737D418CD277100276CC5 /* RSPauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPauseLayer.h; sourceTree = "<group>"; };
 		943737D518CD277100276CC5 /* RSPauseLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSPauseLayer.mm; sourceTree = "<group>"; };
 		94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLeaderboardScene.h; sourceTree = "<group>"; };
-		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLeaderboardScene.m; sourceTree = "<group>"; };
+		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSLeaderboardScene.mm; sourceTree = "<group>"; };
 		94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainMenuLayer.h; sourceTree = "<group>"; };
 		94CE827018B9971F00FCA354 /* RSMainMenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSMainMenuLayer.mm; sourceTree = "<group>"; };
 		94CE827118B9971F00FCA354 /* RSThemeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSThemeScene.h; sourceTree = "<group>"; };
@@ -1487,7 +1487,7 @@
 			isa = PBXGroup;
 			children = (
 				94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */,
-				94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */,
+				94CE826E18B9971F00FCA354 /* RSLeaderboardScene.mm */,
 				94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */,
 				94CE827018B9971F00FCA354 /* RSMainMenuLayer.mm */,
 				94CE827118B9971F00FCA354 /* RSThemeScene.h */,
@@ -1702,7 +1702,7 @@
 				4D8ADFDF18B974A6001689EC /* b2CollidePolygon.cpp in Sources */,
 				4D8AE04918B974A7001689EC /* b2Joint.cpp in Sources */,
 				4D8ADF1618B974A5001689EC /* CCSpriteFrameCache.m in Sources */,
-				94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */,
+				94CE827318B9971F00FCA354 /* RSLeaderboardScene.mm in Sources */,
 				4D8ADE9F18B974A3001689EC /* CCDirector.m in Sources */,
 				4D8ADE8F18B974A3001689EC /* CCAtlasNode.m in Sources */,
 				4D8AE06B18B974A7001689EC /* AppDelegate.mm in Sources */,
