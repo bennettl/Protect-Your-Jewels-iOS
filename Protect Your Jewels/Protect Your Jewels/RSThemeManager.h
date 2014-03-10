@@ -7,19 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MSBGLayer.h"
+#import "BLEnemySprite.h"
+
+// List of themes
+typedef enum Theme{
+    MOUNTAIN,
+    JUNGLE,
+    GLADIATOR
+} Theme;
+
+// RSThemeManager track of what theme game is in
 
 @interface RSThemeManager : NSObject
 
-@property(nonatomic)BOOL isMountain;
-@property(nonatomic)BOOL isJungle;
-@property(nonatomic)BOOL isGladiator;
+@property (nonatomic) Theme theme;
 
 // Singleton
 + (instancetype)sharedManager;
-
-- (void)setThemeJungle;
-- (void)setThemeMountain;
-- (void)setThemeGladiator;
-
+- (MSBGLayer *)background;
+- (BLEnemySprite *)enemySprite;
 
 @end

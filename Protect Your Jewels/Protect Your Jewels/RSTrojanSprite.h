@@ -11,6 +11,5 @@
 @interface RSTrojanSprite : BLEnemySprite
 
 + (RSTrojanSprite *)enemySprite;
-- (id)initWithSpriteLayer:(BLSpriteLayer *)sl;
 
 @end

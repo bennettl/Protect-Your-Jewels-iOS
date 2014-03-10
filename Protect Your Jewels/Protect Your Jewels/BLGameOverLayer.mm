@@ -11,6 +11,8 @@
 #import "RSMainMenuLayer.h"
 #import "SimpleAudioEngine.h"
 #import "BLHighScoreManager.h"
+#import "RSThemeManager.h"
+#import "MSBGLayer.h"
 
 @interface BLGameOverLayer(){
     int _beginScore;
@@ -37,19 +39,13 @@
 	if( (self=[super init])){
 		CGSize size = [[CCDirector sharedDirector] winSize];
         
-		CCSprite *background = [CCSprite spriteWithFile:@"game_background.png"];
-        
-        // Make sure background is center
-		if(size.height > size.width) {
-            background.position = ccp(size.height/2, size.width/2);
-        } else {
-            background.position = ccp(size.width/2, size.height/2);
-        }
+		MSBGLayer *background = [[RSThemeManager sharedManager] background];
         
 		[self addChild: background z:-1];
 		
         // Create logo
         CCLabelTTF *gameoverlabel = [CCLabelTTF labelWithString:@"Game Over" fontName:FONT_NAME fontSize:80];
+        gameoverlabel.color = ccBLACK;
         gameoverlabel.position = ccp(size.width/2, size.height - gameoverlabel.contentSize.height);
         [self addChild:gameoverlabel z:1];
         

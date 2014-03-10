@@ -17,5 +17,7 @@
 - (void)decrementLives;
 - (void)incrementScore;
 - (void)startGameOver;
+- (void)pauseGame;
+- (void)resumeGame;
 
 @end

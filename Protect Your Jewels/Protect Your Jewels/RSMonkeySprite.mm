@@ -1,29 +1,32 @@
 //
-//  BLNinjaSprite.m
+//  RSMonkeySprite.m
 //  Protect Your Jewels
 //
-//  Created by Bennett Lee on 3/7/14.
-//  Copyright 2014 Bennett Lee. All rights reserved.
+//  Created by Ryan Stack on 3/9/14.
+//  Copyright (c) 2014 Bennett Lee. All rights reserved.
 //
 
-#import "BLNinjaSprite.h"
+#import "RSMonkeySprite.h"
 #import "SimpleAudioEngine.h"
 
-@implementation BLNinjaSprite
+
+@implementation RSMonkeySprite
+
 
 #pragma mark initalization
-+ (BLNinjaSprite *)enemySprite{
++ (RSMonkeySprite *)enemySprite{
     return [[[self alloc] initWithDynamicBody:@"ninja"
-                              spriteFrameName:@"ninja/attack.png"] autorelease];
+                              spriteFrameName:@"monkey/attack.png"] autorelease];
 }
 
 - (id)init{
     if (self = [super initWithDynamicBody:@"ninja"
-                          spriteFrameName:@"ninja/attack.png"]){
+                          spriteFrameName:@"gladiator/attack.png"]){
         
         // Do not let the enemy rotate
         [self setFixedRotation:true];
         self.state = kAttack;
+        //spriteLayer = sl;  // Store the sprite layer
         
         // Set enemy to collide with everything
         for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
@@ -55,12 +58,12 @@
     
     // Update image filename
     NSString *frameName;
-
+    
     // Change frame name base on enemy state
     if (self.state == kAttack){
-        frameName = @"ninja/attack.png";
+        frameName = @"monkey/attack.png";
     } else {
-        frameName =@"ninja/fall.png";
+        frameName =@"monkey/fall.png";
     }
     
     [self setDisplayFrameNamed:frameName];

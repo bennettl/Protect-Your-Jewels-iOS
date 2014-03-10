@@ -11,6 +11,5 @@
 @interface BLNinjaSprite : BLEnemySprite
 
 + (BLNinjaSprite *)enemySprite;
-- (id)initWithSpriteLayer:(BLSpriteLayer *)sl;
 
 @end

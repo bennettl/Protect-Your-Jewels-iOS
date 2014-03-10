@@ -12,13 +12,17 @@
 #import "GBox2D/GB2ShapeCache.h"
 #import "GBox2D/GB2DebugDrawLayer.h"
 #import "BLJewelSprite.h"
+<<<<<<< HEAD
 #import "BLNinjaSprite.h"
 #import "RSTrojanSprite.h"
 #import "MSMonkeySprite.h"
 #import "RSThemeManager.h"
+=======
+>>>>>>> e1059d0d86c2cd31addccbb6a5f09416b9964b88
 #import "BQTouchCircle.h"
+#import "BLNinjaSprite.h"
 #import "BLBoxNode.h"
-#import "MSMountainBGLayer.h"
+#import "RSThemeManager.h"
 
 #pragma mark - BLSpriteLayer
 
@@ -58,7 +62,8 @@ static const int  MAX_TOUCHES = 2;
         [self addChild:objectLayer z:10];
         
         // Initializations
-        enemyLaunchForce    = 700.0f;
+        enemyLaunchForce    = 1000.0f;
+//        enemyLaunchForce    = 700.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
         [self initJewel];
@@ -79,6 +84,7 @@ static const int  MAX_TOUCHES = 2;
 	return self;
 }
 
+
 // Creates jewel
  -(void)initJewel{
      CGSize s = [[CCDirector sharedDirector] winSize];
@@ -95,8 +101,9 @@ static const int  MAX_TOUCHES = 2;
 
 // Initializes enemy at location
 - (void)spawnEnemyAtRadomLocation{
-    CGSize s = [[CCDirector sharedDirector] winSize];
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
     CGPoint location = [self randomDirection];
+<<<<<<< HEAD
     
     BLEnemySprite *es;
     
@@ -114,20 +121,27 @@ static const int  MAX_TOUCHES = 2;
     [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:es.ccNode z:10];
     [self.enemies addObject:es];
+=======
+    BLEnemySprite *enemySprite = [[RSThemeManager sharedManager] enemySprite];
+    
+    [enemySprite setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
+    [self addChild:enemySprite.ccNode z:10];
+    [self.enemies addObject:enemySprite];
+>>>>>>> e1059d0d86c2cd31addccbb6a5f09416b9964b88
 
-    [es playLaunchAudio]; // play enemy launch sound
+    [enemySprite playLaunchAudio]; // play enemy launch sound
     
     // Launch enemy towards center
     // Get center vector
     CGPoint pointA                  = location;
-    CGPoint pointB                  = ccp(s.width/2, s.height*9/(10+enemyLaunchForce/700));
+    CGPoint pointB                  = ccp(winSize.width/2, winSize.height*9/(10+enemyLaunchForce/700));
     CGPoint pointC                  = ccpSub(pointB, pointA);
     pointC                          = ccpNormalize(pointC);
     
     b2Vec2 force = b2Vec2((pointC.x/PTM_RATIO) * enemyLaunchForce,
                           (pointC.y/PTM_RATIO) * enemyLaunchForce);
     
-    [es applyLinearImpulse:force point:[es worldCenter]];
+    [enemySprite applyLinearImpulse:force point:[enemySprite worldCenter]];
 
 }
 

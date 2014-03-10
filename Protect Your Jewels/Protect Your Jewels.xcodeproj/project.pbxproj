@@ -238,11 +238,13 @@
 		4D8AE12318BC9AF2001689EC /* drumroll-end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE12218BC9AF2001689EC /* drumroll-end.wav */; };
 		4D8AE12618BC9CA1001689EC /* BLHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE12518BC9CA1001689EC /* BLHighScoreManager.m */; };
 		943737CD18CC003F00276CC5 /* RSTrojanSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737CC18CC003F00276CC5 /* RSTrojanSprite.mm */; };
-		943737D018CC097E00276CC5 /* RSThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 943737CF18CC097E00276CC5 /* RSThemeManager.m */; };
-		94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */; };
-		94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */; };
-		94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSSettingsScene.m */; };
-		94CE827E18B9998500FCA354 /* BLGameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827D18B9998500FCA354 /* BLGameOverLayer.m */; };
+		943737D018CC097E00276CC5 /* RSThemeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737CF18CC097E00276CC5 /* RSThemeManager.mm */; };
+		943737D318CCFEAD00276CC5 /* RSMonkeySprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737D218CCFEAD00276CC5 /* RSMonkeySprite.mm */; };
+		943737D618CD277100276CC5 /* RSPauseLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737D518CD277100276CC5 /* RSPauseLayer.mm */; };
+		94CE827318B9971F00FCA354 /* RSLeaderboardScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.mm */; };
+		94CE827418B9971F00FCA354 /* RSMainMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.mm */; };
+		94CE827518B9971F00FCA354 /* RSThemeScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSThemeScene.mm */; };
+		94CE827E18B9998500FCA354 /* BLGameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827D18B9998500FCA354 /* BLGameOverLayer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -699,15 +701,19 @@
 		943737CB18CC003F00276CC5 /* RSTrojanSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTrojanSprite.h; sourceTree = "<group>"; };
 		943737CC18CC003F00276CC5 /* RSTrojanSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSTrojanSprite.mm; sourceTree = "<group>"; };
 		943737CE18CC097E00276CC5 /* RSThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSThemeManager.h; sourceTree = "<group>"; };
-		943737CF18CC097E00276CC5 /* RSThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSThemeManager.m; sourceTree = "<group>"; };
+		943737CF18CC097E00276CC5 /* RSThemeManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSThemeManager.mm; sourceTree = "<group>"; };
+		943737D118CCFEAD00276CC5 /* RSMonkeySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMonkeySprite.h; sourceTree = "<group>"; };
+		943737D218CCFEAD00276CC5 /* RSMonkeySprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSMonkeySprite.mm; sourceTree = "<group>"; };
+		943737D418CD277100276CC5 /* RSPauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPauseLayer.h; sourceTree = "<group>"; };
+		943737D518CD277100276CC5 /* RSPauseLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSPauseLayer.mm; sourceTree = "<group>"; };
 		94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLeaderboardScene.h; sourceTree = "<group>"; };
-		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLeaderboardScene.m; sourceTree = "<group>"; };
+		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSLeaderboardScene.mm; sourceTree = "<group>"; };
 		94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainMenuLayer.h; sourceTree = "<group>"; };
-		94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMainMenuLayer.m; sourceTree = "<group>"; };
-		94CE827118B9971F00FCA354 /* RSSettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSettingsScene.h; sourceTree = "<group>"; };
-		94CE827218B9971F00FCA354 /* RSSettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSettingsScene.m; sourceTree = "<group>"; };
+		94CE827018B9971F00FCA354 /* RSMainMenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSMainMenuLayer.mm; sourceTree = "<group>"; };
+		94CE827118B9971F00FCA354 /* RSThemeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSThemeScene.h; sourceTree = "<group>"; };
+		94CE827218B9971F00FCA354 /* RSThemeScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSThemeScene.mm; sourceTree = "<group>"; };
 		94CE827C18B9998500FCA354 /* BLGameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGameOverLayer.h; sourceTree = "<group>"; };
-		94CE827D18B9998500FCA354 /* BLGameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLGameOverLayer.m; sourceTree = "<group>"; };
+		94CE827D18B9998500FCA354 /* BLGameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLGameOverLayer.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1332,6 +1338,8 @@
 			children = (
 				4D66ACE218C07A0300DE656A /* BLFlashLayer.h */,
 				4D66ACE318C07A0300DE656A /* BLFlashLayer.mm */,
+				943737D418CD277100276CC5 /* RSPauseLayer.h */,
+				943737D518CD277100276CC5 /* RSPauseLayer.mm */,
 				4D8AE07E18B979A0001689EC /* BLUILayer.h */,
 				4D8AE07F18B979A0001689EC /* BLUILayer.mm */,
 				4D8AE08018B979A0001689EC /* BLSpriteLayer.h */,
@@ -1359,6 +1367,8 @@
 				4699453E18CD0CF3001225F0 /* MSMonkeySprite.mm */,
 				943737CB18CC003F00276CC5 /* RSTrojanSprite.h */,
 				943737CC18CC003F00276CC5 /* RSTrojanSprite.mm */,
+				943737D118CCFEAD00276CC5 /* RSMonkeySprite.h */,
+				943737D218CCFEAD00276CC5 /* RSMonkeySprite.mm */,
 				4D8AE08618B979A0001689EC /* BLJewelSprite.h */,
 				4D8AE08718B979A0001689EC /* BLJewelSprite.mm */,
 				469C056818BA952E00A56049 /* MSCloud.h */,
@@ -1496,15 +1506,15 @@
 			isa = PBXGroup;
 			children = (
 				94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */,
-				94CE826E18B9971F00FCA354 /* RSLeaderboardScene.m */,
+				94CE826E18B9971F00FCA354 /* RSLeaderboardScene.mm */,
 				94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */,
-				94CE827018B9971F00FCA354 /* RSMainMenuLayer.m */,
-				94CE827118B9971F00FCA354 /* RSSettingsScene.h */,
-				94CE827218B9971F00FCA354 /* RSSettingsScene.m */,
+				94CE827018B9971F00FCA354 /* RSMainMenuLayer.mm */,
+				94CE827118B9971F00FCA354 /* RSThemeScene.h */,
+				94CE827218B9971F00FCA354 /* RSThemeScene.mm */,
 				943737CE18CC097E00276CC5 /* RSThemeManager.h */,
-				943737CF18CC097E00276CC5 /* RSThemeManager.m */,
+				943737CF18CC097E00276CC5 /* RSThemeManager.mm */,
 				94CE827C18B9998500FCA354 /* BLGameOverLayer.h */,
-				94CE827D18B9998500FCA354 /* BLGameOverLayer.m */,
+				94CE827D18B9998500FCA354 /* BLGameOverLayer.mm */,
 				4D8AE12418BC9CA1001689EC /* BLHighScoreManager.h */,
 				4D8AE12518BC9CA1001689EC /* BLHighScoreManager.m */,
 			);
@@ -1615,7 +1625,7 @@
 			files = (
 				4D8ADF2218B974A5001689EC /* CCTexturePVR.m in Sources */,
 				4D8ADF7218B974A5001689EC /* ccUtils.c in Sources */,
-				94CE827E18B9998500FCA354 /* BLGameOverLayer.m in Sources */,
+				94CE827E18B9998500FCA354 /* BLGameOverLayer.mm in Sources */,
 				4D8ADEC318B974A4001689EC /* CCLayer.m in Sources */,
 				4D8ADFEE18B974A6001689EC /* b2ChainShape.cpp in Sources */,
 				4D8ADF2518B974A5001689EC /* CCTileMapAtlas.m in Sources */,
@@ -1624,6 +1634,7 @@
 				4D8ADFF118B974A6001689EC /* b2CircleShape.cpp in Sources */,
 				4D8ADFC018B974A6001689EC /* mat4.c in Sources */,
 				4D8ADE9C18B974A3001689EC /* ccDeprecated.m in Sources */,
+				943737D618CD277100276CC5 /* RSPauseLayer.mm in Sources */,
 				4D8AE05518B974A7001689EC /* b2RevoluteJoint.cpp in Sources */,
 				46FF968018CB0FB8009C6018 /* MSJungleBGLayer.m in Sources */,
 				4D8ADF5718B974A5001689EC /* CCDirectorMac.m in Sources */,
@@ -1647,6 +1658,7 @@
 				4D8ADF8818B974A6001689EC /* ZipUtils.m in Sources */,
 				4D8ADE7A18B974A3001689EC /* CCActionManager.m in Sources */,
 				4D8ADEE218B974A4001689EC /* CCParticleSystemQuad.m in Sources */,
+				943737D318CCFEAD00276CC5 /* RSMonkeySprite.mm in Sources */,
 				4D8ADEA518B974A3001689EC /* CCDrawNode.m in Sources */,
 				4D8AE03C18B974A7001689EC /* b2PolygonContact.cpp in Sources */,
 				4D8ADF3718B974A5001689EC /* CCTransitionPageTurn.m in Sources */,
@@ -1685,7 +1697,7 @@
 				4D8AE04318B974A7001689EC /* b2FrictionJoint.cpp in Sources */,
 				4D8ADF0718B974A4001689EC /* CCShaderCache.m in Sources */,
 				4D8ADF0D18B974A5001689EC /* CCSprite.m in Sources */,
-				94CE827518B9971F00FCA354 /* RSSettingsScene.m in Sources */,
+				94CE827518B9971F00FCA354 /* RSThemeScene.mm in Sources */,
 				4D8AE03318B974A7001689EC /* b2EdgeAndCircleContact.cpp in Sources */,
 				4D8ADEB418B974A4001689EC /* CCGrabber.m in Sources */,
 				4D8ADFBE18B974A6001689EC /* mat3.c in Sources */,
@@ -1713,7 +1725,7 @@
 				4D8ADFDF18B974A6001689EC /* b2CollidePolygon.cpp in Sources */,
 				4D8AE04918B974A7001689EC /* b2Joint.cpp in Sources */,
 				4D8ADF1618B974A5001689EC /* CCSpriteFrameCache.m in Sources */,
-				94CE827318B9971F00FCA354 /* RSLeaderboardScene.m in Sources */,
+				94CE827318B9971F00FCA354 /* RSLeaderboardScene.mm in Sources */,
 				4D8ADE9F18B974A3001689EC /* CCDirector.m in Sources */,
 				4D8ADE8F18B974A3001689EC /* CCAtlasNode.m in Sources */,
 				4D8AE06B18B974A7001689EC /* AppDelegate.mm in Sources */,
@@ -1748,7 +1760,7 @@
 				4D8ADE9518B974A3001689EC /* CCClippingNode.m in Sources */,
 				4D8AE04F18B974A7001689EC /* b2PrismaticJoint.cpp in Sources */,
 				4D8ADFD818B974A6001689EC /* b2BroadPhase.cpp in Sources */,
-				94CE827418B9971F00FCA354 /* RSMainMenuLayer.m in Sources */,
+				94CE827418B9971F00FCA354 /* RSMainMenuLayer.mm in Sources */,
 				4D8ADF1918B974A5001689EC /* CCTexture2D.m in Sources */,
 				4D8ADF2E18B974A5001689EC /* CCTMXTiledMap.m in Sources */,
 				4D8ADEEF18B974A4001689EC /* CCRenderTexture.m in Sources */,
@@ -1796,7 +1808,7 @@
 				4D8ADF9E18B974A6001689EC /* SimpleAudioEngine.m in Sources */,
 				4D8ADF5018B974A5001689EC /* CCTouchDispatcher.m in Sources */,
 				4D8AE06818B974A7001689EC /* main.m in Sources */,
-				943737D018CC097E00276CC5 /* RSThemeManager.m in Sources */,
+				943737D018CC097E00276CC5 /* RSThemeManager.mm in Sources */,
 				4D8ADED318B974A4001689EC /* CCNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
