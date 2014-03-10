@@ -9,6 +9,10 @@
 #import "RSLeaderboardScene.h"
 #import "RSMainMenuLayer.h"
 #import "BLHighScoreManager.h"
+#import "MSBGLayer.h"
+#import "MSMountainBGLayer.h"
+#import "MSJungleBGLayer.h"
+#import "RSThemeManager.h"
 
 @interface RSLeaderboardScene()
 @end
@@ -23,14 +27,24 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
         // Create menu logo and background
-		CCSprite *background    = [CCSprite spriteWithFile:@"game_background.png"];
+		//CCSprite *background    = [CCSprite spriteWithFile:@"game_background.png"];
+        MSBGLayer *background;
+        // Create menu logo and background
+        if ([[RSThemeManager sharedManager] isMountain]) {
+            background = [MSMountainBGLayer node];
+        } else if ([[RSThemeManager sharedManager] isJungle]) {
+            background = [MSJungleBGLayer node];
+        } else if([[RSThemeManager sharedManager] isGladiator]) {
+            background = [MSMountainBGLayer node];
+        }
+        
         
         // Center the background
-		if (size.height > size.width) {
-            background.position = ccp(size.height/2, size.width/2);
-        } else {
-            background.position = ccp(size.width/2, size.height/2);
-        }
+		//if (size.height > size.width) {
+        //    background.position = ccp(size.height/2, size.width/2);
+        //} else {
+        //    background.position = ccp(size.width/2, size.height/2);
+        //}
         
 		[self addChild: background z:-1];
 		
