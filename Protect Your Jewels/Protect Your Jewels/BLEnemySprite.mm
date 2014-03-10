@@ -100,6 +100,11 @@
 
 // Enemy collides with jewel
 - (void)beginContactWithBLJewelSprite:(GB2Contact*)contact{
+    //[((BLSpriteLayer *)self.ccNode.parent) removeMouseJoint:self];
+    if(self.touchHash != -1){
+        self.touchHash = -1;
+        [((BLSpriteLayer *)self.ccNode.parent) decNumEnemiesTouched];
+    }
     
     // Send a message to the sprite layer to remove enemy from its array
     [((BLSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
