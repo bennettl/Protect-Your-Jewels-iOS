@@ -9,12 +9,9 @@
 #import "BLGameplayScene.h"
 #import "BLUILayer.h"
 #import "BLSpriteLayer.h"
-<<<<<<< HEAD
 #import "MSMountainBGLayer.h"
 #import "MSJungleBGLayer.h"
 #import "MSTempleBGLayer.h"
-=======
->>>>>>> e1059d0d86c2cd31addccbb6a5f09416b9964b88
 #import "BLGameOverLayer.h"
 #import "SimpleAudioEngine.h"
 #import "GB2Engine.h"
@@ -55,28 +52,26 @@
         _pauseLayer     = [RSPauseLayer node];
         _bgLayer        = [RSThemeManager sharedManager].background;
         
-<<<<<<< HEAD
         // Choose background layer based on theme
-        if ([RSThemeManager sharedManager].isMountain){
+        if ([RSThemeManager sharedManager].theme == MOUNTAIN){
             self.bgLayer    = [MSMountainBGLayer node];
         }
-        else if ([RSThemeManager sharedManager].isJungle){
+        else if ([RSThemeManager sharedManager].theme == JUNGLE){
             self.bgLayer    = [MSJungleBGLayer node];
         }
         else {
             self.bgLayer    = [MSTempleBGLayer node];
-            if (![RSThemeManager sharedManager].isGladiator) { // If no theme set yet, set Gladiator by default
-                [[RSThemeManager sharedManager] setThemeGladiator];
+            if ([RSThemeManager sharedManager].theme != GLADIATOR) { // If no theme set yet, set Gladiator by default
+                [RSThemeManager sharedManager].theme = GLADIATOR;
             }
         }
-=======
+
         // Add layers
         [self addChild:_pauseLayer z:100];
         [self addChild:_flashLayer z:5];
         [self addChild:_uiLayer z:4];
         [self addChild:_spriteLayer z:3];
         [self addChild:_bgLayer z:2];
->>>>>>> e1059d0d86c2cd31addccbb6a5f09416b9964b88
         
         _pauseLayer.visible = NO;
     }

@@ -9,6 +9,7 @@
 #import "RSThemeManager.h"
 #import "MSMountainBGLayer.h"
 #import "MSJungleBGLayer.h"
+#import "MSTempleBGLayer.h"
 #import "RSTrojanSprite.h"
 #import "RSMonkeySprite.h"
 #import "BLNinjaSprite.h"
@@ -49,7 +50,7 @@
             bg = [MSJungleBGLayer node];
             break;
         case GLADIATOR:
-            bg = [MSMountainBGLayer node];
+            bg = [MSTempleBGLayer node];
             break;
         default:
             break;

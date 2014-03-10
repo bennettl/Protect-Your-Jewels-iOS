@@ -12,13 +12,10 @@
 #import "GBox2D/GB2ShapeCache.h"
 #import "GBox2D/GB2DebugDrawLayer.h"
 #import "BLJewelSprite.h"
-<<<<<<< HEAD
 #import "BLNinjaSprite.h"
 #import "RSTrojanSprite.h"
 #import "MSMonkeySprite.h"
 #import "RSThemeManager.h"
-=======
->>>>>>> e1059d0d86c2cd31addccbb6a5f09416b9964b88
 #import "BQTouchCircle.h"
 #import "BLNinjaSprite.h"
 #import "BLBoxNode.h"
@@ -103,31 +100,12 @@ static const int  MAX_TOUCHES = 2;
 - (void)spawnEnemyAtRadomLocation{
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CGPoint location = [self randomDirection];
-<<<<<<< HEAD
-    
-    BLEnemySprite *es;
-    
-    if ([RSThemeManager sharedManager].isMountain) {
-        es = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
-    }
-    else if ([RSThemeManager sharedManager].isJungle) {
-        es = [[MSMonkeySprite alloc] initWithSpriteLayer:self];
-    }
-    else {
-        es = [[RSTrojanSprite alloc] initWithSpriteLayer:self];
-    }
-    
-//    BLNinjaSprite *es = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
-    [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
-    [self addChild:es.ccNode z:10];
-    [self.enemies addObject:es];
-=======
+
     BLEnemySprite *enemySprite = [[RSThemeManager sharedManager] enemySprite];
     
     [enemySprite setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:enemySprite.ccNode z:10];
     [self.enemies addObject:enemySprite];
->>>>>>> e1059d0d86c2cd31addccbb6a5f09416b9964b88
 
     [enemySprite playLaunchAudio]; // play enemy launch sound
     
