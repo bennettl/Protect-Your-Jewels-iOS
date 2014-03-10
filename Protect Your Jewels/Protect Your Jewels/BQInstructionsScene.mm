@@ -3,7 +3,7 @@
 //  Protect Your Jewels
 //
 //  Created by Brian Quock on 3/10/14.
-//  Copyright (c) 2014 Bennett Lee. All rights reserved.
+//  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
 #import "BQInstructionsScene.h"
@@ -41,7 +41,7 @@
 		// Add menus to the layer
 		[self addChild:backMenu];
         
-        CCLabelTTF *scores = [CCLabelTTF labelWithString:@"Instructions: \n\n You have discovered the most potent jewel in the universe.\n Ninjas, monkeys, and gladiators want it. \n Do not let them touch your jewel! \n Swipe or throw them away to boost your score. \n Protect Your Jewels!" fontName:FONT_NAME fontSize:17];
+        CCLabelTTF *scores = [CCLabelTTF labelWithString:@"Instructions: \n\n You have discovered the most potent jewel in the universe.\n Ninjas, monkeys, and gladiators want it. \n Do not let them touch your jewel! \n Swipe or throw them away to boost your score. \n You may use multi-touch for up to 2 touches. \n Good luck and Protect Your Jewels!" fontName:FONT_NAME fontSize:17];
         scores.color = ccBLACK;
         [scores setPosition:ccp(size.width / 2, size.height/2)];
         [self addChild:scores];

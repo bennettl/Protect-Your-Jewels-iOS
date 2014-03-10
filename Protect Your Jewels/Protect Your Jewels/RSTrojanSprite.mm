@@ -1,9 +1,9 @@
 //
-//  RSTrojanSprite.m
+//  RSTrojanSprite.mm
 //  Protect Your Jewels
 //
 //  Created by Ryan Stack on 3/8/14.
-//  Copyright (c) 2014 Bennett Lee. All rights reserved.
+//  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
 #import "RSTrojanSprite.h"

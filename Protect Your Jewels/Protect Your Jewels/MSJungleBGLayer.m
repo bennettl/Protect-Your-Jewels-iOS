@@ -3,7 +3,7 @@
 //  Protect Your Jewels
 //
 //  Created by Megan Sullivan on 3/8/14.
-//  Copyright (c) 2014 Bennett Lee. All rights reserved.
+//  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
 #import "MSJungleBGLayer.h"
