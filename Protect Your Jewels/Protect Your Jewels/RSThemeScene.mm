@@ -63,10 +63,13 @@
         }
         else {
             self.itemGladiator.color = ccBLACK;
+            /*
             if ([RSThemeManager sharedManager].theme != GLADIATOR) { // If no theme set,
                 [RSThemeManager sharedManager].theme = GLADIATOR;
             }
+            */
         }
+         
         
         CCMenu *themeMenu = [CCMenu menuWithItems:self.itemGladiator, self.itemJungle, self.itemMountain, nil];
         [themeMenu alignItemsVerticallyWithPadding:10];

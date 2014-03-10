@@ -378,20 +378,3 @@ static const int  MAX_TOUCHES = 2;
 
 @end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

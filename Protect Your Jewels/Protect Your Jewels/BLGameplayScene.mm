@@ -52,6 +52,7 @@
         _pauseLayer     = [RSPauseLayer node];
         _bgLayer        = [RSThemeManager sharedManager].background;
         
+        /*
         // Choose background layer based on theme
         if ([RSThemeManager sharedManager].theme == MOUNTAIN){
             self.bgLayer    = [MSMountainBGLayer node];
@@ -65,6 +66,7 @@
                 [RSThemeManager sharedManager].theme = GLADIATOR;
             }
         }
+         */
 
         // Add layers
         [self addChild:_pauseLayer z:100];
