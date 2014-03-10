@@ -27,7 +27,8 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
 //		CCSprite *background    = [CCSprite spriteWithFile:@"game_background.png"];
-        // Create menu logo and background
+        // Create menu logo and backgr
+        //ound
 		//CCSprite *background    = [CCSprite spriteWithFile:@"game_background.png"];
         MSBGLayer *background = [[RSThemeManager sharedManager] background];
         
