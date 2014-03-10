@@ -11,7 +11,6 @@
 		4699453818CD018F001225F0 /* Temple_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453518CD018F001225F0 /* Temple_Clouds_back_full.png */; };
 		4699453918CD018F001225F0 /* Temple_Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453618CD018F001225F0 /* Temple_Clouds_front_full.png */; };
 		4699453A18CD018F001225F0 /* Temple_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453718CD018F001225F0 /* Temple_FG_iPhone5.png */; };
-		4699453F18CD0CF3001225F0 /* MSMonkeySprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4699453E18CD0CF3001225F0 /* MSMonkeySprite.mm */; };
 		469C056A18BA952E00A56049 /* MSCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 469C056918BA952E00A56049 /* MSCloud.m */; };
 		46FF967818CB0264009C6018 /* Jungle_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */; };
 		46FF967A18CB0264009C6018 /* Jungle_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */; };
@@ -253,8 +252,6 @@
 		4699453518CD018F001225F0 /* Temple_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Temple_Clouds_back_full.png; path = images/background/Temple_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
 		4699453618CD018F001225F0 /* Temple_Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Temple_Clouds_front_full.png; path = images/background/Temple_Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
 		4699453718CD018F001225F0 /* Temple_FG_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Temple_FG_iPhone5.png; path = images/background/Temple_FG_iPhone5.png; sourceTree = SOURCE_ROOT; };
-		4699453B18CD0A96001225F0 /* MSMonkeySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMonkeySprite.h; sourceTree = "<group>"; };
-		4699453E18CD0CF3001225F0 /* MSMonkeySprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MSMonkeySprite.mm; sourceTree = "<group>"; };
 		469C056818BA952E00A56049 /* MSCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCloud.h; sourceTree = "<group>"; };
 		469C056918BA952E00A56049 /* MSCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCloud.m; sourceTree = "<group>"; };
 		46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_Clouds_back_full.png; path = images/background/Jungle_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
@@ -1363,8 +1360,6 @@
 				4D8AE08518B979A0001689EC /* BLEnemySprite.mm */,
 				4D4391A618CAE9D60005DE90 /* BLNinjaSprite.h */,
 				4D4391A718CAE9D60005DE90 /* BLNinjaSprite.mm */,
-				4699453B18CD0A96001225F0 /* MSMonkeySprite.h */,
-				4699453E18CD0CF3001225F0 /* MSMonkeySprite.mm */,
 				943737CB18CC003F00276CC5 /* RSTrojanSprite.h */,
 				943737CC18CC003F00276CC5 /* RSTrojanSprite.mm */,
 				943737D118CCFEAD00276CC5 /* RSMonkeySprite.h */,
@@ -1662,7 +1657,6 @@
 				4D8ADEA518B974A3001689EC /* CCDrawNode.m in Sources */,
 				4D8AE03C18B974A7001689EC /* b2PolygonContact.cpp in Sources */,
 				4D8ADF3718B974A5001689EC /* CCTransitionPageTurn.m in Sources */,
-				4699453F18CD0CF3001225F0 /* MSMonkeySprite.mm in Sources */,
 				4D8AE08F18B979A1001689EC /* MSMountainBGLayer.mm in Sources */,
 				4D8AE00918B974A6001689EC /* b2StackAllocator.cpp in Sources */,
 				4D8AE05218B974A7001689EC /* b2PulleyJoint.cpp in Sources */,

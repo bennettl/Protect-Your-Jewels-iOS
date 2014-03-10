@@ -14,7 +14,6 @@
 #import "BLJewelSprite.h"
 #import "BLNinjaSprite.h"
 #import "RSTrojanSprite.h"
-#import "MSMonkeySprite.h"
 #import "RSThemeManager.h"
 #import "BQTouchCircle.h"
 #import "BLNinjaSprite.h"

@@ -14,9 +14,6 @@
 
 @interface BLEnemySprite()
 
-// Reference to touch on the enemy
-@property NSUInteger touchHash;
-
 @end
 
 @implementation BLEnemySprite
@@ -47,7 +44,7 @@
 
 #pragma mark Sprite
 
-// Does BQTouchCircle belong to touch object. Use for multi-touch tracking
+// Use for multi-touch tracking
 - (BOOL)hasTouch:(UITouch *)touch{
     return (self.touchHash == touch.hash) ? YES : NO;
 }
@@ -58,7 +55,7 @@
         self.touchHash = touch.hash;
     }
     else{
-        self.touchHash = nil;
+        self.touchHash = -1;
     }
 }
 
@@ -94,7 +91,10 @@
 
 // Enemy collides with each other
 - (void)beginContactWithBLEnemySprite:(GB2Contact *)contact{
-    self.state = kFall;
+    if(self.touchHash != -1 && (self.state == kAttack || ((BLEnemySprite *)contact.otherObject).state == kAttack)){
+        self.state = kFall;
+        [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
+    }
     ((BLEnemySprite *)contact.otherObject).state = kFall; // set enemy's state to fall
 }
 

@@ -21,6 +21,9 @@ typedef enum {
 
 @property EnemyState state;
 
+// Reference to touch on the enemy
+@property NSInteger touchHash;
+
 // Audio
 + (void)playAttackAudio;
 - (void)playLaunchAudio;

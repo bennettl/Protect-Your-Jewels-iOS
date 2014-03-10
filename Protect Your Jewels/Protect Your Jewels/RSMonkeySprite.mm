@@ -37,6 +37,8 @@
             f->SetFilterData(ef);
         }
         self.body->SetGravityScale(0.9);        // Toggle gravity
+        
+        self.touchHash = -1;
     }
     return self;
 }
