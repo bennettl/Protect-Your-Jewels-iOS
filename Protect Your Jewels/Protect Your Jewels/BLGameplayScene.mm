@@ -9,8 +9,6 @@
 #import "BLGameplayScene.h"
 #import "BLUILayer.h"
 #import "BLSpriteLayer.h"
-#import "MSMountainBGLayer.h"
-#import "MSJungleBGLayer.h"
 #import "BLGameOverLayer.h"
 #import "SimpleAudioEngine.h"
 #import "GB2Engine.h"
@@ -49,18 +47,9 @@
         _uiLayer        = [BLUILayer node];
         _spriteLayer    = [BLSpriteLayer node];
         _pauseLayer     = [RSPauseLayer node];
+        _bgLayer        = [RSThemeManager sharedManager].background;
         
-        // Choose background layer based on theme
-        if ([RSThemeManager sharedManager].isMountain){
-            self.bgLayer    = [MSMountainBGLayer node];
-        }
-        else if ([RSThemeManager sharedManager].isJungle){
-            _bgLayer    = [MSJungleBGLayer node];
-        }
-        else {
-            _bgLayer    = [MSMountainBGLayer node]; //CHANGE WHEN NEW GLADIATOR BACKGROUND
-        }
-        
+        // Add layers
         [self addChild:_pauseLayer z:100];
         [self addChild:_flashLayer z:5];
         [self addChild:_uiLayer z:4];

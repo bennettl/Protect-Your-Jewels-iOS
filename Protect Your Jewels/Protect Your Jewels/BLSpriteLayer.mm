@@ -12,12 +12,9 @@
 #import "GBox2D/GB2ShapeCache.h"
 #import "GBox2D/GB2DebugDrawLayer.h"
 #import "BLJewelSprite.h"
-#import "BLNinjaSprite.h"
-#import "RSTrojanSprite.h"
-#import "RSMonkeySprite.h"
 #import "BQTouchCircle.h"
+#import "BLNinjaSprite.h"
 #import "BLBoxNode.h"
-#import "MSMountainBGLayer.h"
 #import "RSThemeManager.h"
 
 #pragma mark - BLSpriteLayer
@@ -99,14 +96,7 @@ static const int  MAX_TOUCHES = 2;
 - (void)spawnEnemyAtRadomLocation{
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CGPoint location = [self randomDirection];
-    BLEnemySprite *enemySprite;
-    if([[RSThemeManager sharedManager] isMountain]) {
-        enemySprite = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
-    } else if([[RSThemeManager sharedManager] isJungle]) {
-        enemySprite = [[RSMonkeySprite alloc] initWithSpriteLayer:self];
-    } else if([[RSThemeManager sharedManager] isGladiator]) {
-        enemySprite = [[RSTrojanSprite alloc] initWithSpriteLayer:self];
-    }
+    BLEnemySprite *enemySprite = [[RSThemeManager sharedManager] enemySprite];
     
     [enemySprite setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:enemySprite.ccNode z:10];

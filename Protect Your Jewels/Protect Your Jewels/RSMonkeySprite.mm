@@ -19,7 +19,7 @@
                               spriteFrameName:@"monkey/attack.png"] autorelease];
 }
 
-- (id)initWithSpriteLayer:(BLSpriteLayer *)sl{
+- (id)init{
     if (self = [super initWithDynamicBody:@"ninja"
                           spriteFrameName:@"gladiator/attack.png"]){
         
@@ -59,6 +59,7 @@
     // Update image filename
     NSString *frameName;
     
+    // Change frame name base on enemy state
     if (self.state == kAttack){
         frameName = @"monkey/attack.png";
     } else {

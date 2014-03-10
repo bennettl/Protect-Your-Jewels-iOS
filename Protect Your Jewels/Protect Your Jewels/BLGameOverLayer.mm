@@ -41,15 +41,7 @@
 	if( (self=[super init])){
 		CGSize size = [[CCDirector sharedDirector] winSize];
         
-		MSBGLayer *background;
-        // Create menu logo and background
-        if ([[RSThemeManager sharedManager] isMountain]) {
-            background = [MSMountainBGLayer node];
-        } else if ([[RSThemeManager sharedManager] isJungle]) {
-            background = [MSJungleBGLayer node];
-        } else if([[RSThemeManager sharedManager] isGladiator]) {
-            background = [MSMountainBGLayer node];
-        }
+		MSBGLayer *background = [[RSThemeManager sharedManager] background];
         
 		[self addChild: background z:-1];
 		

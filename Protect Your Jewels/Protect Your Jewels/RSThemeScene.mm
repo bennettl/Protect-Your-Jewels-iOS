@@ -12,9 +12,10 @@
 #import "cocos2d.h"
 #import "RSThemeManager.h"
 #import "MSBGLayer.h"
-#import "MSMountainBGLayer.h"
-#import "MSJungleBGLayer.h"
+
+
 @interface RSThemeScene()
+
 @property (strong, nonatomic) CCMenuItem *itemJungle;
 @property (strong, nonatomic) CCMenuItem *itemMountain;
 @property (strong, nonatomic) CCMenuItem *itemGladiator;
@@ -31,31 +32,23 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
         // Create menu logo and background
-		MSBGLayer *background;
-        // Create menu logo and background
-        if ([[RSThemeManager sharedManager] isMountain]) {
-            background = [MSMountainBGLayer node];
-        } else if ([[RSThemeManager sharedManager] isJungle]) {
-            background = [MSJungleBGLayer node];
-        } else if([[RSThemeManager sharedManager] isGladiator]) {
-            background = [MSMountainBGLayer node];
-        }
-
+		MSBGLayer *background = [RSThemeManager sharedManager].background;
         
 		[self addChild: background z:-1];
 		
-        // Create menu items
+        // Create back menu
 		[CCMenuItemFont setFontSize:17];
         [CCMenuItemFont setFontName:FONT_NAME];
 		
-		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"Back" block:^(id sender) {
+		CCMenuItem *itemBack = [CCMenuItemFont itemWithString:@"Back" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSMainMenuLayer node]]];
 		}];
-        itemNewGame.color = ccBLACK;
-        CCMenu *menu = [CCMenu menuWithItems:itemNewGame, nil];
-        [menu alignItemsVerticallyWithPadding:10];
-        [menu setPosition:ccp(30, size.height-30)];
+        itemBack.color = ccBLACK;
+        CCMenu *backMenu = [CCMenu menuWithItems:itemBack, nil];
+        [backMenu alignItemsVerticallyWithPadding:10];
+        [backMenu setPosition:ccp(30, size.height-30)];
         
+        // Create theme menus
         self.itemJungle = [CCMenuItemFont itemWithString:@"Jungle" target:self selector:@selector(setThemeJungle:)];
         self.itemMountain = [CCMenuItemFont itemWithString:@"Mountain" target:self selector:@selector(setThemeMountain:)];
         self.itemGladiator = [CCMenuItemFont itemWithString:@"Gladiator" target:self selector:@selector(setThemeGladiator:)];
@@ -66,29 +59,30 @@
         [themeMenu alignItemsVerticallyWithPadding:10];
         [themeMenu setPosition:ccp(size.width/2,size.height/2)];
 		
-		// Add the menu to the layer
-		[self addChild:menu];
+		// Add menus to the layer
+		[self addChild:backMenu];
         [self addChild:themeMenu];
     }
 	return self;
 }
 
+// Modify RSThemeManager and menu item colors base on the theme set
 - (void)setThemeJungle: (id) sender {
-    [[RSThemeManager sharedManager] setThemeJungle];
+    [RSThemeManager sharedManager].theme = JUNGLE;
     self.itemJungle.color       = ccBLACK;
     self.itemGladiator.color    = ccWHITE;
     self.itemMountain.color     = ccWHITE;
 }
 
 - (void)setThemeMountain: (id) sender {
-    [[RSThemeManager sharedManager] setThemeMountain];
+    [RSThemeManager sharedManager].theme = MOUNTAIN;
     self.itemJungle.color       = ccWHITE;
     self.itemGladiator.color    = ccWHITE;
     self.itemMountain.color     = ccBLACK;
 }
 
 - (void)setThemeGladiator: (id) sender {
-    [[RSThemeManager sharedManager] setThemeGladiator];
+    [RSThemeManager sharedManager].theme = GLADIATOR;
     self.itemJungle.color       = ccWHITE;
     self.itemGladiator.color    = ccBLACK;
     self.itemMountain.color     = ccWHITE;

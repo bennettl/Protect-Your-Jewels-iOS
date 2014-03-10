@@ -10,8 +10,6 @@
 #import "RSMainMenuLayer.h"
 #import "RSThemeManager.h"
 #import "MSBGLayer.h"
-#import "MSMountainBGLayer.h"
-#import "MSJungleBGLayer.h"
 #import "cocos2d.h"
 
 @implementation RSPauseLayer
@@ -22,35 +20,27 @@
 	{
         
 		CGSize size = [[CCDirector sharedDirector] winSize];
-		MSBGLayer *background;
-        // Create menu logo and background
-        if ([[RSThemeManager sharedManager] isMountain]) {
-            background = [MSMountainBGLayer node];
-        } else if ([[RSThemeManager sharedManager] isJungle]) {
-            background = [MSJungleBGLayer node];
-        } else if([[RSThemeManager sharedManager] isGladiator]) {
-            background = [MSMountainBGLayer node];
-        }
-
+        MSBGLayer *background = [RSThemeManager sharedManager].background;
+      
 		[self addChild: background z:-1];
 		
         // Create menu items
 		[CCMenuItemFont setFontSize:17];
-        [CCMenuItemFont setFontName:@"AngryBirds-Regular"];
+        [CCMenuItemFont setFontName:FONT_NAME];
 		
 		CCMenuItem *itemResume = [CCMenuItemFont itemWithString:@"Resume" block:^(id sender) {
             if([self.parent respondsToSelector:@selector(resumeGame)]) {
                 [self.parent performSelector:@selector(resumeGame)];
             }
 		}];
-        CCMenuItem *itemMainMenu = [CCMenuItemFont itemWithString:@"Exit to Main Menu" block:^(id sender) {
+        CCMenuItem *itemExit = [CCMenuItemFont itemWithString:@"Exit to Main Menu" block:^(id sender) {
             if([self.parent respondsToSelector:@selector(startExit)]) {
                 [self.parent performSelector:@selector(startExit)];
             }
 		}];
         itemResume.color = ccWHITE;
-        itemMainMenu.color = ccWHITE;
-        CCMenu *menu = [CCMenu menuWithItems:itemResume, itemMainMenu, nil];
+        itemExit.color = ccWHITE;
+        CCMenu *menu = [CCMenu menuWithItems:itemResume, itemExit, nil];
         [menu alignItemsVerticallyWithPadding:10];
         [menu setPosition:ccp(size.width/2, size.height/2)];
 		

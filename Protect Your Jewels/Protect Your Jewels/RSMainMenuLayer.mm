@@ -35,17 +35,8 @@
 		
         // Create menu logo and background
         CCSprite *logo          = [CCSprite spriteWithFile:@"menu_logo.png"];
-		MSBGLayer *background;
-        // Create menu logo and background
-        if ([[RSThemeManager sharedManager] isMountain]) {
-            background = [MSMountainBGLayer node];
-        } else if ([[RSThemeManager sharedManager] isJungle]) {
-            background = [MSJungleBGLayer node];
-        } else if([[RSThemeManager sharedManager] isGladiator]) {
-            background = [MSMountainBGLayer node];
-        }
-        
-        
+		MSBGLayer *background = [[RSThemeManager sharedManager] background];
+                
         // Center the background
 		if (size.height > size.width) {
             logo.position = ccp(size.height - logo.contentSize.height + 15, size.width/2);
@@ -56,7 +47,7 @@
         [self addChild:logo z:1];
 		[self addChild: background z:-1];
 		
-        // Create menu items
+        // Menu items
 		[CCMenuItemFont setFontSize:23];
         [CCMenuItemFont setFontName:FONT_NAME];
 		
@@ -66,20 +57,20 @@
         CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSLeaderboardScene node]]];
 		}];
-        CCMenuItem *itemSettings = [CCMenuItemFont itemWithString:@"Themes" block:^(id sender) {
+        CCMenuItem *itemThemes = [CCMenuItemFont itemWithString:@"Themes" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSThemeScene node]]];
 		}];
 		
-		CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard,itemSettings, nil];
+		CCMenu *mainMenu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard,itemThemes, nil];
 		
-		[menu alignItemsVerticallyWithPadding:10];
-        [menu setPosition:ccp(size.width/2, 95)];
+		[mainMenu alignItemsVerticallyWithPadding:10];
+        [mainMenu setPosition:ccp(size.width/2, 95)];
         
         // Stop music
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         
-		// Add the menu to the layer
-		[self addChild:menu];
+		// Add main menu to the layer
+		[self addChild:mainMenu];
         
 	}
 	return self;

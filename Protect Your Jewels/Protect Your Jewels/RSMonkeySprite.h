@@ -12,6 +12,5 @@
 @interface RSMonkeySprite : BLEnemySprite
 
 + (RSMonkeySprite *)enemySprite;
-- (id)initWithSpriteLayer:(BLSpriteLayer *)sl;
 
 @end

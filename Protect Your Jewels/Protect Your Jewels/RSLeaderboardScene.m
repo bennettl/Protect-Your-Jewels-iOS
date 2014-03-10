@@ -22,7 +22,6 @@
         
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
-        // Create menu logo and background
 		CCSprite *background    = [CCSprite spriteWithFile:@"game_background.png"];
         
         // Center the background
@@ -36,20 +35,20 @@
 		
         // Create menu items
 		[CCMenuItemFont setFontSize:17];
-        [CCMenuItemFont setFontName:@"AngryBirds-Regular"];
-		
-		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"Back" block:^(id sender) {
+        [CCMenuItemFont setFontNamed:FONT_NAME];
+
+		// Back Menu
+		CCMenuItem *backMenuItem = [CCMenuItemFont itemWithString:@"Back" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSMainMenuLayer node]]];
 		}];
-        itemNewGame.color = ccBLACK;
-        CCMenu *menu = [CCMenu menuWithItems:itemNewGame, nil];
-        [menu alignItemsVerticallyWithPadding:10];
-        [menu setPosition:ccp(30, size.height-30)];
-		
-		// Add the menu to the layer
-		[self addChild:menu];
+        backMenuItem.color = ccBLACK;
+        CCMenu *backMenu = [CCMenu menuWithItems:backMenuItem, nil];
+        [backMenu alignItemsVerticallyWithPadding:10];
+        [backMenu setPosition:ccp(30, size.height-30)];
+        [self addChild:backMenu];
         
-        
+        // High scores
+        // Grab high scores from BLHighScoreManager
         NSMutableString *highScoresString = [[[NSMutableString alloc] init] autorelease];
         NSArray *highScores = [[BLHighScoreManager sharedManager] highScores];
         if ([highScores count] != 0) {
@@ -58,7 +57,7 @@
             }
         }
         
-        CCLabelTTF *scores = [CCLabelTTF labelWithString:highScoresString fontName:@"AngryBirds-Regular" fontSize:17];
+        CCLabelTTF *scores = [CCLabelTTF labelWithString:highScoresString fontName:FONT_NAME fontSize:17];
         scores.color = ccBLACK;
         [scores setPosition:ccp(size.width / 2, size.height/2)];
         [self addChild:scores];

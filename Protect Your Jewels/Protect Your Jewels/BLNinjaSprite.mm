@@ -17,14 +17,13 @@
                               spriteFrameName:@"ninja/attack.png"] autorelease];
 }
 
-- (id)initWithSpriteLayer:(BLSpriteLayer *)sl{
+- (id)init{
     if (self = [super initWithDynamicBody:@"ninja"
                           spriteFrameName:@"ninja/attack.png"]){
         
         // Do not let the enemy rotate
         [self setFixedRotation:true];
         self.state = kAttack;
-        //spriteLayer = sl;  // Store the sprite layer
         
         // Set enemy to collide with everything
         for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
@@ -56,7 +55,8 @@
     
     // Update image filename
     NSString *frameName;
-    
+
+    // Change frame name base on enemy state
     if (self.state == kAttack){
         frameName = @"ninja/attack.png";
     } else {
