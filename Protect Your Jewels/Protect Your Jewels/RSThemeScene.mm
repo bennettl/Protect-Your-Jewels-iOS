@@ -64,7 +64,7 @@
         else {
             self.itemGladiator.color = ccBLACK;
             if ([RSThemeManager sharedManager].theme != GLADIATOR) { // If no theme set,
-                [[RSThemeManager sharedManager] setThemeGladiator];
+                [RSThemeManager sharedManager].theme = GLADIATOR;
             }
         }
         
