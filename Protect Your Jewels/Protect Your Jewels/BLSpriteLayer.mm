@@ -58,8 +58,8 @@ static const int  MAX_TOUCHES = 2;
         [self addChild:objectLayer z:10];
         
         // Initializations
-        enemyLaunchForce    = 900.0f;
-        enemyLaunchForce    = 700.0f;
+        enemyLaunchForce    = 1000.0f;
+//        enemyLaunchForce    = 700.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
         [self initJewel];
