@@ -11,6 +11,7 @@
 #import "BLSpriteLayer.h"
 #import "MSMountainBGLayer.h"
 #import "MSJungleBGLayer.h"
+#import "MSTempleBGLayer.h"
 #import "BLGameOverLayer.h"
 #import "SimpleAudioEngine.h"
 #import "GB2Engine.h"
@@ -54,7 +55,10 @@
             self.bgLayer    = [MSJungleBGLayer node];
         }
         else {
-            self.bgLayer    = [MSMountainBGLayer node]; //CHANGE WHEN NEW GLADIATOR BACKGROUND
+            self.bgLayer    = [MSTempleBGLayer node];
+            if (![RSThemeManager sharedManager].isGladiator) { // If no theme set yet, set Gladiator by default
+                [[RSThemeManager sharedManager] setThemeGladiator];
+            }
         }
         
         [self addChild:self.flashLayer z:5];
@@ -97,7 +101,8 @@
 -(void)startGameOver{
     [[BLHighScoreManager sharedManager] updateHighScoreWithScore:self.score];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f
-                                                                                 scene:[BLGameOverLayer sceneWithScore:self.score]]];
+                                                                                 scene:[BLGameOverLayer
+                                                                        sceneWithScore:self.score]]];
 }
 
 // When GameplayScenes exits the "stage"

@@ -54,7 +54,20 @@
         self.itemMountain = [CCMenuItemFont itemWithString:@"Mountain" target:self selector:@selector(setThemeMountain:)];
         self.itemGladiator = [CCMenuItemFont itemWithString:@"Gladiator" target:self selector:@selector(setThemeGladiator:)];
         
-        self.itemMountain.color = ccBLACK;
+        // If a theme has already been set, show that menu item as selected
+        //  Otherwise, use mountain as default selection
+        if ([RSThemeManager sharedManager].isMountain) {
+            self.itemMountain.color = ccBLACK;
+        }
+        else if ([RSThemeManager sharedManager].isJungle) {
+            self.itemJungle.color = ccBLACK;
+        }
+        else {
+            self.itemGladiator.color = ccBLACK;
+            if (![RSThemeManager sharedManager].isGladiator) { // If no theme set,
+                [[RSThemeManager sharedManager] setThemeGladiator];
+            }
+        }
         
         CCMenu *themeMenu = [CCMenu menuWithItems:self.itemGladiator, self.itemJungle, self.itemMountain, nil];
         [themeMenu alignItemsVerticallyWithPadding:10];
@@ -75,14 +88,14 @@
 }
 
 - (void)setThemeMountain: (id) sender {
-    [[RSThemeManager sharedManager] setThemeJungle];
+    [[RSThemeManager sharedManager] setThemeMountain];
     self.itemJungle.color       = ccWHITE;
     self.itemGladiator.color    = ccWHITE;
     self.itemMountain.color     = ccBLACK;
 }
 
 - (void)setThemeGladiator: (id) sender {
-    [[RSThemeManager sharedManager] setThemeJungle];
+    [[RSThemeManager sharedManager] setThemeGladiator];
     self.itemJungle.color       = ccWHITE;
     self.itemGladiator.color    = ccBLACK;
     self.itemMountain.color     = ccWHITE;

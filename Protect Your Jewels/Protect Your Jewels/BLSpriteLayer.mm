@@ -14,6 +14,8 @@
 #import "BLJewelSprite.h"
 #import "BLNinjaSprite.h"
 #import "RSTrojanSprite.h"
+#import "MSMonkeySprite.h"
+#import "RSThemeManager.h"
 #import "BQTouchCircle.h"
 #import "BLBoxNode.h"
 #import "MSMountainBGLayer.h"
@@ -95,7 +97,19 @@ static const int  MAX_TOUCHES = 2;
 - (void)spawnEnemyAtRadomLocation{
     CGSize s = [[CCDirector sharedDirector] winSize];
     CGPoint location = [self randomDirection];
-    RSTrojanSprite *es = [[RSTrojanSprite alloc] initWithSpriteLayer:self];
+    
+    BLEnemySprite *es;
+    
+    if ([RSThemeManager sharedManager].isMountain) {
+        es = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
+    }
+    else if ([RSThemeManager sharedManager].isJungle) {
+        es = [[MSMonkeySprite alloc] initWithSpriteLayer:self];
+    }
+    else {
+        es = [[RSTrojanSprite alloc] initWithSpriteLayer:self];
+    }
+    
 //    BLNinjaSprite *es = [[BLNinjaSprite alloc] initWithSpriteLayer:self];
     [es setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:es.ccNode z:10];

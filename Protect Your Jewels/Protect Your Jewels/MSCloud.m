@@ -19,7 +19,18 @@
     {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
-        self.position = ccp((CGFloat)xPos, (CGFloat)0.6 * winSize.height);
+        CGFloat cloudHeight = -1;
+        if ([theme isEqualToString:@"Mountain"]) {
+            cloudHeight = 0.6 * winSize.height;
+        }
+        else if ([theme isEqualToString:@"Jungle"]) {
+            cloudHeight = 0.57 * winSize.height;
+        }
+        else {
+            cloudHeight = 0.55 * winSize.height;
+        }
+        
+        self.position = ccp((CGFloat)xPos, cloudHeight);
         m_Velocity = 15;
     }
     return self;
@@ -31,7 +42,19 @@
     if (self = [super initWithFile:filename]);
     {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-        self.position = ccp(xPos, 0.81 * winSize.height);
+
+        CGFloat cloudHeight = -1;
+        if ([theme isEqualToString:@"Mountain"]) {
+            cloudHeight = 0.81 * winSize.height;
+        }
+        else if ([theme isEqualToString:@"Jungle"]) {
+            cloudHeight = 0.80 * winSize.height;
+        }
+        else {
+            cloudHeight = 0.75 * winSize.height;
+        }
+        
+        self.position = ccp(xPos, cloudHeight);
         m_Velocity = 8;
     }
     return self;
