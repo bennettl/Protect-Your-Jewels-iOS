@@ -10,8 +10,6 @@
 #import "RSMainMenuLayer.h"
 #import "BLHighScoreManager.h"
 #import "MSBGLayer.h"
-#import "MSMountainBGLayer.h"
-#import "MSJungleBGLayer.h"
 #import "RSThemeManager.h"
 
 @interface RSLeaderboardScene()
@@ -42,8 +40,8 @@
 		[self addChild: background z:-1];
 		
         // Create menu items
-		[CCMenuItemFont setFontSize:17];
-        [CCMenuItemFont setFontNamed:FONT_NAME];
+        [CCMenuItemFont setFontSize:23];
+        [CCMenuItemFont setFontName:FONT_NAME];
 
 		// Back Menu
 		CCMenuItem *backMenuItem = [CCMenuItemFont itemWithString:@"Back" block:^(id sender) {

@@ -13,8 +13,6 @@
 #import "BLHighScoreManager.h"
 #import "RSThemeManager.h"
 #import "MSBGLayer.h"
-#import "MSMountainBGLayer.h"
-#import "MSJungleBGLayer.h"
 
 @interface BLGameOverLayer(){
     int _beginScore;

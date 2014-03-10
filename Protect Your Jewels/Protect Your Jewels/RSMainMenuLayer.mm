@@ -12,8 +12,6 @@
 #import "RSThemeScene.h"
 #import "SimpleAudioEngine.h"
 #import "MSBGLayer.h"
-#import "MSMountainBGLayer.h"
-#import "MSJungleBGLayer.h"
 #import "RSThemeManager.h"
 #import "cocos2d.h"
 
