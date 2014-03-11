@@ -33,15 +33,15 @@
     return self;
 }
 
+// Sets the theme (enum)
 - (void)setTheme:(Theme)theme{
     _theme = theme;
 }
 
-// Creates a new background
+// Return an background layer base on theme
 - (MSBGLayer *)background{
     MSBGLayer *bg = nil;
     
-    // Set background as well
     switch (_theme) {
         case MOUNTAIN:
             bg =  [MSMountainBGLayer node];
@@ -58,11 +58,11 @@
     return bg;
 }
 
+// Return an enemy sprite base on theme
 - (BLEnemySprite *)enemySprite{
     
     BLEnemySprite *es = nil;
     
-    // Set background as well
     switch (_theme) {
         case MOUNTAIN:
             es = [[BLNinjaSprite alloc] init];
