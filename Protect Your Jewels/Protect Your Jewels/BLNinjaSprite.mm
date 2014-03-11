@@ -1,9 +1,9 @@
 //
-//  BLNinjaSprite.m
+//  BLNinjaSprite.mm
 //  Protect Your Jewels
 //
 //  Created by Bennett Lee on 3/7/14.
-//  Copyright 2014 Bennett Lee. All rights reserved.
+//  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
 #import "BLNinjaSprite.h"
@@ -28,12 +28,12 @@
         // Set enemy to collide with everything
         for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
             b2Filter ef = f->GetFilterData();
-            //ef.categoryBits = 0x0002;
-            //ef.maskBits = 0xFFFF;
             ef.groupIndex = 2;
             f->SetFilterData(ef);
         }
         self.body->SetGravityScale(0.9);        // Toggle gravity
+        
+        self.touchHash = -1;
     }
     return self;
 }

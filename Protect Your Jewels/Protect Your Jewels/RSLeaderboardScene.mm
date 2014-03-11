@@ -1,5 +1,5 @@
 //
-//  RSLeaderboardScene.m
+//  RSLeaderboardScene.mm
 //  Operation: Protect Your Jewels
 //
 //  Created by Ryan Stack on 2/22/14.
@@ -24,18 +24,7 @@
         
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
-//		CCSprite *background    = [CCSprite spriteWithFile:@"game_background.png"];
-        // Create menu logo and backgr
-        //ound
-		//CCSprite *background    = [CCSprite spriteWithFile:@"game_background.png"];
         MSBGLayer *background = [[RSThemeManager sharedManager] background];
-        
-        // Center the background
-		//if (size.height > size.width) {
-        //    background.position = ccp(size.height/2, size.width/2);
-        //} else {
-        //    background.position = ccp(size.width/2, size.height/2);
-        //}
         
 		[self addChild: background z:-1];
 		
@@ -73,11 +62,6 @@
 
 - (void) dealloc
 {
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
 	[super dealloc];
 }
 
