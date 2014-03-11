@@ -51,22 +51,6 @@
         _spriteLayer    = [BLSpriteLayer node];
         _pauseLayer     = [RSPauseLayer node];
         _bgLayer        = [RSThemeManager sharedManager].background;
-        
-        /*
-        // Choose background layer based on theme
-        if ([RSThemeManager sharedManager].theme == MOUNTAIN){
-            self.bgLayer    = [MSMountainBGLayer node];
-        }
-        else if ([RSThemeManager sharedManager].theme == JUNGLE){
-            self.bgLayer    = [MSJungleBGLayer node];
-        }
-        else {
-            self.bgLayer    = [MSTempleBGLayer node];
-            if ([RSThemeManager sharedManager].theme != GLADIATOR) { // If no theme set yet, set Gladiator by default
-                [RSThemeManager sharedManager].theme = GLADIATOR;
-            }
-        }
-         */
 
         // Add layers
         [self addChild:_pauseLayer z:100];

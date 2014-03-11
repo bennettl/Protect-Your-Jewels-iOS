@@ -172,9 +172,6 @@ static const int  MAX_TOUCHES = 2;
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     // Convert touch -> ccLocation -> b2Location
-
-    // If a mouse joint is created, that means user touched an enemy, do not create new enemy!
-    //UITouch *theTouch      = (UITouch *)[touches anyObject];
     
     // Create joints with enemies
     for (UITouch *touch in touches) {
@@ -226,9 +223,6 @@ static const int  MAX_TOUCHES = 2;
 
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-//    UITouch *touch      = (UITouch *)[touches anyObject];
-//    CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
-//    b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Remove BQTouchCircles
     for (UITouch *touch in touches) {
@@ -252,7 +246,6 @@ static const int  MAX_TOUCHES = 2;
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-//    UITouch *touch      = (UITouch *)[touches anyObject];
     
     // Remove BQTouchCircles
     for (UITouch *touch in touches) {

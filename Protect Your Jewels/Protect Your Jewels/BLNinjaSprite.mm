@@ -28,8 +28,6 @@
         // Set enemy to collide with everything
         for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
             b2Filter ef = f->GetFilterData();
-            //ef.categoryBits = 0x0002;
-            //ef.maskBits = 0xFFFF;
             ef.groupIndex = 2;
             f->SetFilterData(ef);
         }

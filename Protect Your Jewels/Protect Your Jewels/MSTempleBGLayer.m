@@ -28,7 +28,6 @@
     [super spawnFrontCloud];
 }
 
-
 -(void) spawnBackCloud
 {
     [super spawnBackCloud];

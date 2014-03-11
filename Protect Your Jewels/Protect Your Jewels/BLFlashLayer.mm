@@ -31,8 +31,6 @@
     CCDelayTime *delayTimeAction = [CCDelayTime actionWithDuration:1.5f];
     
     [self runAction:[CCSequence actions:fadeInAction, fadeOutAction, delayTimeAction, callFuncAction, nil]];
-
 }
-
 
 @end
