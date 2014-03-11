@@ -1,9 +1,9 @@
 //
-//  GameplayScene.m
+//  GameplayScene.mm
 //  GamePlay
 //
 //  Created by Bennett Lee on 2/21/14.
-//  Copyright 2014 Bennett Lee. All rights reserved.
+//  Copyright 2014 ITP382RBBM. All rights reserved.
 //
 
 #import "BLGameplayScene.h"
@@ -51,22 +51,6 @@
         _spriteLayer    = [BLSpriteLayer node];
         _pauseLayer     = [RSPauseLayer node];
         _bgLayer        = [RSThemeManager sharedManager].background;
-        
-        /*
-        // Choose background layer based on theme
-        if ([RSThemeManager sharedManager].theme == MOUNTAIN){
-            self.bgLayer    = [MSMountainBGLayer node];
-        }
-        else if ([RSThemeManager sharedManager].theme == JUNGLE){
-            self.bgLayer    = [MSJungleBGLayer node];
-        }
-        else {
-            self.bgLayer    = [MSTempleBGLayer node];
-            if ([RSThemeManager sharedManager].theme != GLADIATOR) { // If no theme set yet, set Gladiator by default
-                [RSThemeManager sharedManager].theme = GLADIATOR;
-            }
-        }
-         */
 
         // Add layers
         [self addChild:_pauseLayer z:100];

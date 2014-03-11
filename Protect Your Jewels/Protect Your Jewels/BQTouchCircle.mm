@@ -1,9 +1,9 @@
 //
-//  BQTouchSprite.m
+//  BQTouchSprite.mm
 //  GamePlay
 //
 //  Created by Brian Quock on 2/22/14.
-//  Copyright (c) 2014 Bennett Lee. All rights reserved.
+//  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
 #import "BQTouchCircle.h"

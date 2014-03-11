@@ -1,5 +1,5 @@
 //
-//  MSThemeScene.m
+//  MSThemeScene.mm
 //  Operation: Protect Your Jewels
 //
 //  Created by Ryan Stack on 2/22/14.
@@ -63,11 +63,6 @@
         }
         else {
             self.itemGladiator.color = ccBLACK;
-            /*
-            if ([RSThemeManager sharedManager].theme != GLADIATOR) { // If no theme set,
-                [RSThemeManager sharedManager].theme = GLADIATOR;
-            }
-            */
         }
          
         
@@ -105,11 +100,6 @@
 }
 - (void) dealloc
 {
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
 	[super dealloc];
 }
 

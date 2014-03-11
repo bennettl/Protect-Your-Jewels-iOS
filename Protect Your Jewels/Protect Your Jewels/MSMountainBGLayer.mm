@@ -3,7 +3,7 @@
 //  GamePlay
 //
 //  Created by Bennett Lee on 2/21/14.
-//  Copyright 2014 Bennett Lee. All rights reserved.
+//  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
 #import "MSMountainBGLayer.h"
@@ -27,7 +27,6 @@
 {
     [super spawnFrontCloud];
 }
-
 
 -(void) spawnBackCloud
 {

@@ -1,5 +1,5 @@
 //
-//  RSMainMenuLayer.m
+//  RSMainMenuLayer.mm
 //  Operation: Protect Your Jewels
 //
 //  Created by Ryan Stack on 2/22/14.
@@ -10,6 +10,7 @@
 #import "BLGameplayScene.h"
 #import "RSLeaderboardScene.h"
 #import "RSThemeScene.h"
+#import "BQInstructionsScene.h"
 #import "SimpleAudioEngine.h"
 #import "MSBGLayer.h"
 #import "RSThemeManager.h"
@@ -58,8 +59,11 @@
         CCMenuItem *itemThemes = [CCMenuItemFont itemWithString:@"Themes" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[RSThemeScene node]]];
 		}];
+        CCMenuItem *itemInstructions = [CCMenuItemFont itemWithString:@"Instructions" block:^(id sender) {
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[BQInstructionsScene node]]];
+		}];
 		
-		CCMenu *mainMenu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard,itemThemes, nil];
+		CCMenu *mainMenu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard, itemThemes, itemInstructions, nil];
 		
 		[mainMenu alignItemsVerticallyWithPadding:10];
         [mainMenu setPosition:ccp(size.width/2, 95)];
@@ -76,11 +80,6 @@
 
 - (void) dealloc
 {
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
 	[super dealloc];
 }
 

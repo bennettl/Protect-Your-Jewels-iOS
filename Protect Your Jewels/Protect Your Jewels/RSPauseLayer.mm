@@ -1,9 +1,9 @@
 //
-//  RSPauseLayer.m
+//  RSPauseLayer.mm
 //  Protect Your Jewels
 //
 //  Created by Ryan Stack on 3/9/14.
-//  Copyright (c) 2014 Bennett Lee. All rights reserved.
+//  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
 #import "RSPauseLayer.h"
@@ -53,11 +53,6 @@
 
 - (void) dealloc
 {
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
 	[super dealloc];
 }
 

@@ -1,5 +1,5 @@
 //
-//  RSGameOver.m
+//  RSGameOver.mm
 //  Operation: Protect Your Jewels
 //
 //  Created by Ryan Stack on 2/22/14.

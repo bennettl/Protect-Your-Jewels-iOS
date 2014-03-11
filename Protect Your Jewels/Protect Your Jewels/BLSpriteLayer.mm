@@ -1,9 +1,9 @@
 //
-//  HelloWorldLayer.mm
+//  BLSpriteLayer.mm
 //  Ninja
 //
 //  Created by Bennett Lee on 2/15/14.
-//  Copyright Bennett Lee 2014. All rights reserved.
+//  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
 
@@ -14,7 +14,6 @@
 #import "BLJewelSprite.h"
 #import "BLNinjaSprite.h"
 #import "RSTrojanSprite.h"
-#import "MSMonkeySprite.h"
 #import "RSThemeManager.h"
 #import "BQTouchCircle.h"
 #import "BLNinjaSprite.h"
@@ -173,9 +172,6 @@ static const int  MAX_TOUCHES = 2;
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     // Convert touch -> ccLocation -> b2Location
-
-    // If a mouse joint is created, that means user touched an enemy, do not create new enemy!
-    //UITouch *theTouch      = (UITouch *)[touches anyObject];
     
     // Create joints with enemies
     for (UITouch *touch in touches) {
@@ -227,9 +223,6 @@ static const int  MAX_TOUCHES = 2;
 
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-//    UITouch *touch      = (UITouch *)[touches anyObject];
-//    CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
-//    b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Remove BQTouchCircles
     for (UITouch *touch in touches) {
@@ -238,22 +231,21 @@ static const int  MAX_TOUCHES = 2;
         }
     }
     
+    // Remove touches and joints to enemies
     if(numEnemiesTouched > 0){
         for (UITouch *touch in touches){
             if(numEnemiesTouched == 0){ break; }
             for(BLNinjaSprite *be in self.enemies){
                 if([be hasTouch:touch]){
                     [be updateTouch:nil];
-                    numEnemiesTouched--;
+                    [self removeMouseJoint:be];
                 }
             }
         }
-        [self removeMouseJoint];
     }
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-//    UITouch *touch      = (UITouch *)[touches anyObject];
     
     // Remove BQTouchCircles
     for (UITouch *touch in touches) {
@@ -268,11 +260,10 @@ static const int  MAX_TOUCHES = 2;
             for(BLNinjaSprite *be in self.enemies){
                 if([be hasTouch:touch]){
                     [be updateTouch:nil];
-                    numEnemiesTouched--;
+                    [self removeMouseJoint:be];
                 }
             }
         }
-        [self removeMouseJoint];
     }
 }
 
@@ -347,8 +338,17 @@ static const int  MAX_TOUCHES = 2;
 
 }
 
+// Remove mouse joint from one enemy
+- (void) removeMouseJoint:(BLEnemySprite*)es{
+    if (es.mouseJoint){
+        [GB2Engine sharedInstance].world->DestroyJoint(es.mouseJoint);
+        es.mouseJoint = NULL;
+        numEnemiesTouched--;
+    }
+}
+
 // Remove all mouse joints to all enemies
-- (void)removeMouseJoint{
+- (void)removeMouseJoints{
     // Loop through all enemies
     for (BLNinjaSprite *be in self.enemies) {
         // If mousejoint exists, delete it
@@ -357,12 +357,10 @@ static const int  MAX_TOUCHES = 2;
             be.mouseJoint = NULL;
         }
     }
-    
-    
-//    // If touch circle and its mouse joint exists, remove its mouse joint
-//    if (touchCircle!= nil && touchCircle.mouseJoint){
-//        
-//    }
+}
+
+-(void)decNumEnemiesTouched{
+    numEnemiesTouched--;
 }
 
 #pragma Listner

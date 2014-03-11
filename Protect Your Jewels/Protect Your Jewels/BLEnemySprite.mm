@@ -1,9 +1,9 @@
 //
-//  BLEnemySprite.m
+//  BLEnemySprite.mm
 //  GamePlay
 //
 //  Created by Bennett Lee on 2/20/14.
-//  Copyright 2014 Bennett Lee. All rights reserved.
+//  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
 #import "BLEnemySprite.h"
@@ -13,9 +13,6 @@
 #import "SimpleAudioEngine.h"
 
 @interface BLEnemySprite()
-
-// Reference to touch on the enemy
-@property NSUInteger touchHash;
 
 @end
 
@@ -47,7 +44,7 @@
 
 #pragma mark Sprite
 
-// Does BQTouchCircle belong to touch object. Use for multi-touch tracking
+// Use for multi-touch tracking
 - (BOOL)hasTouch:(UITouch *)touch{
     return (self.touchHash == touch.hash) ? YES : NO;
 }
@@ -58,7 +55,7 @@
         self.touchHash = touch.hash;
     }
     else{
-        self.touchHash = nil;
+        self.touchHash = -1;
     }
 }
 
@@ -94,12 +91,20 @@
 
 // Enemy collides with each other
 - (void)beginContactWithBLEnemySprite:(GB2Contact *)contact{
-    self.state = kFall;
+    if(self.touchHash != -1 && (self.state == kAttack || ((BLEnemySprite *)contact.otherObject).state == kAttack)){
+        self.state = kFall;
+        [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
+    }
     ((BLEnemySprite *)contact.otherObject).state = kFall; // set enemy's state to fall
 }
 
 // Enemy collides with jewel
 - (void)beginContactWithBLJewelSprite:(GB2Contact*)contact{
+    //[((BLSpriteLayer *)self.ccNode.parent) removeMouseJoint:self];
+    if(self.touchHash != -1){
+        self.touchHash = -1;
+        [((BLSpriteLayer *)self.ccNode.parent) decNumEnemiesTouched];
+    }
     
     // Send a message to the sprite layer to remove enemy from its array
     [((BLSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
