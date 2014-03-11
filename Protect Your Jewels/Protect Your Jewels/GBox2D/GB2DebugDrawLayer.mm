@@ -38,7 +38,7 @@
         world = [GB2Engine sharedInstance].world;
 
         // Enable debug draw
-        debugDraw = new GLESDebugDraw(PTM_RATIO);
+        //debugDraw = new GLESDebugDraw(PTM_RATIO);
         world->SetDebugDraw(debugDraw);
         
         // Set the flags
@@ -47,7 +47,7 @@
         // flags += b2DebugDraw::e_aabbBit;
         flags += b2Draw::e_centerOfMassBit;
         
-        debugDraw->SetFlags(flags);            
+        //debugDraw->SetFlags(flags);
     }
     return self;
 }
