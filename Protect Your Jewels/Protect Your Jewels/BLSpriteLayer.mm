@@ -303,6 +303,11 @@
 
 // Remove BLNinjaSprite from enemies mutable array
 - (void)removeEnemyFromSpriteLayer:(BLEnemySprite *)es{
+    // If enemy has a mouse joint, it means user is holding it. Decrement the current touches count
+    if (es.mouseJoint){
+        currentTouches--; // keep track of current touches
+    }
+    
     [self.enemies removeObject:es];
 }
 

@@ -86,7 +86,7 @@
 
 // Enemy collides with each other
 - (void)beginContactWithBLEnemySprite:(GB2Contact *)contact{
-    if(self.touchHash != -1 && (self.state == kAttack || ((BLEnemySprite *)contact.otherObject).state == kAttack)){
+    if (self.touchHash != -1 && (self.state == kAttack || ((BLEnemySprite *)contact.otherObject).state == kAttack)){
         self.state = kFall;
         [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
     }
@@ -95,14 +95,11 @@
 
 // Enemy collides with jewel
 - (void)beginContactWithBLJewelSprite:(GB2Contact*)contact{
-    //[((BLSpriteLayer *)self.ccNode.parent) removeMouseJoint:self];
-    if(self.touchHash != -1){
-        self.touchHash = -1;
-        [((BLSpriteLayer *)self.ccNode.parent) decNumEnemiesTouched];
+    // If enemy is in attack state
+    if (self.state == kAttack){
+        // Send a message to the sprite layer to remove enemy from its array
+        [((BLSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
     }
-    
-    // Send a message to the sprite layer to remove enemy from its array
-    [((BLSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
 }
 
 @end

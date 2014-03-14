@@ -9,6 +9,7 @@
 #import "BLJewelSprite.h"
 #import "GB2Contact.h"
 #import "BLGameplayScene.h"
+#import "BLEnemySprite.h"
 
 @implementation BLJewelSprite
 
@@ -40,12 +41,15 @@
 - (void)beginContactWithBLEnemySprite:(GB2Contact*)contact{
     BLGameplayScene *gpScene = ((BLGameplayScene *)self.ccNode.parent.parent.parent);
     
-    // Tell scene to decrement the lives counter
-    [gpScene decrementLives];
-
-    // Mark BLEnemySprite for deletion
-    if (gpScene.lives > 0) {
-        contact.otherObject.deleteLater = true;
+    // If enemy is in attack mode
+    if (((BLEnemySprite *)contact.otherObject).state == kAttack){
+        // Tell scene to decrement the lives counter
+        [gpScene decrementLives];
+        
+        // Mark BLEnemySprite for deletion
+        if (gpScene.lives > 0) {
+            contact.otherObject.deleteLater = true;
+        }
     }
 }
 
