@@ -49,14 +49,9 @@
     return (self.touchHash == touch.hash) ? YES : NO;
 }
 
-// Update touch
+// Update touch hash (the identifier for touch)
 - (void)updateTouch:(UITouch *)touch{
-    if(touch != nil){
-        self.touchHash = touch.hash;
-    }
-    else{
-        self.touchHash = -1;
-    }
+    self.touchHash = (touch == nil) ? -1 : touch.hash;
 }
 
 #pragma mark Collision Detection

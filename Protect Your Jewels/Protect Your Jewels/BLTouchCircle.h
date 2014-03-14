@@ -2,7 +2,7 @@
 //  BQTouchSprite.h
 //  GamePlay
 //
-//  Created by Brian Quock on 2/22/14.
+//  Created by Bennett Lee on 2/22/14.
 //  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @class BLSpriteLayer;
 
-@interface BQTouchCircle : GB2Sprite {
+@interface BLTouchCircle : GB2Sprite {
     BLSpriteLayer *spriteLayer;
 }
 
@@ -19,7 +19,7 @@
 - (BOOL)intersectsWithPoint:(CGPoint)ccLocation;
 
 // Does BQTouchCircle belong to touch object. Use for multi-touch tracking
-- (BOOL)belongsToTouch:(UITouch *)touch;
+- (BOOL)connectedToTouch:(UITouch *)touch;
 
 // Reference to the touch that create the object
 @property NSUInteger touchHash;

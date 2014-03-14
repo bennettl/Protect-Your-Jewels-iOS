@@ -206,7 +206,7 @@
 		4D8AE09018B979A1001689EC /* BLEnemySprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08518B979A0001689EC /* BLEnemySprite.mm */; };
 		4D8AE09118B979A1001689EC /* BLJewelSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08718B979A0001689EC /* BLJewelSprite.mm */; };
 		4D8AE09218B979A1001689EC /* BLBoxNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08918B979A0001689EC /* BLBoxNode.mm */; };
-		4D8AE09318B979A1001689EC /* BQTouchCircle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08B18B979A1001689EC /* BQTouchCircle.mm */; };
+		4D8AE09318B979A1001689EC /* BLTouchCircle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08B18B979A1001689EC /* BLTouchCircle.mm */; };
 		4D8AE0AB18B97A26001689EC /* GB2Contact.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE09B18B97A26001689EC /* GB2Contact.mm */; };
 		4D8AE0AC18B97A26001689EC /* GB2DebugDrawLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE09D18B97A26001689EC /* GB2DebugDrawLayer.mm */; };
 		4D8AE0AD18B97A26001689EC /* GB2Engine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE09F18B97A26001689EC /* GB2Engine.mm */; };
@@ -654,8 +654,8 @@
 		4D8AE08718B979A0001689EC /* BLJewelSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLJewelSprite.mm; sourceTree = "<group>"; };
 		4D8AE08818B979A0001689EC /* BLBoxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBoxNode.h; sourceTree = "<group>"; };
 		4D8AE08918B979A0001689EC /* BLBoxNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLBoxNode.mm; sourceTree = "<group>"; };
-		4D8AE08A18B979A0001689EC /* BQTouchCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQTouchCircle.h; sourceTree = "<group>"; };
-		4D8AE08B18B979A1001689EC /* BQTouchCircle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BQTouchCircle.mm; sourceTree = "<group>"; };
+		4D8AE08A18B979A0001689EC /* BLTouchCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTouchCircle.h; sourceTree = "<group>"; };
+		4D8AE08B18B979A1001689EC /* BLTouchCircle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLTouchCircle.mm; sourceTree = "<group>"; };
 		4D8AE09918B97A26001689EC /* GB2Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2Config.h; sourceTree = "<group>"; };
 		4D8AE09A18B97A26001689EC /* GB2Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2Contact.h; sourceTree = "<group>"; };
 		4D8AE09B18B97A26001689EC /* GB2Contact.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GB2Contact.mm; sourceTree = "<group>"; };
@@ -1380,8 +1380,8 @@
 			children = (
 				4D8AE08818B979A0001689EC /* BLBoxNode.h */,
 				4D8AE08918B979A0001689EC /* BLBoxNode.mm */,
-				4D8AE08A18B979A0001689EC /* BQTouchCircle.h */,
-				4D8AE08B18B979A1001689EC /* BQTouchCircle.mm */,
+				4D8AE08A18B979A0001689EC /* BLTouchCircle.h */,
+				4D8AE08B18B979A1001689EC /* BLTouchCircle.mm */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -1648,7 +1648,7 @@
 				4D8AE02418B974A7001689EC /* b2ChainAndCircleContact.cpp in Sources */,
 				4D8AE02A18B974A7001689EC /* b2CircleContact.cpp in Sources */,
 				4D8ADFC818B974A6001689EC /* ray2.c in Sources */,
-				4D8AE09318B979A1001689EC /* BQTouchCircle.mm in Sources */,
+				4D8AE09318B979A1001689EC /* BLTouchCircle.mm in Sources */,
 				4D8ADF6318B974A5001689EC /* base64.c in Sources */,
 				4D8ADE8618B974A3001689EC /* CCActionTween.m in Sources */,
 				4D8ADEBD18B974A4001689EC /* CCLabelBMFont.m in Sources */,

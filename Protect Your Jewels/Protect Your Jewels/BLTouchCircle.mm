@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
-#import "BQTouchCircle.h"
+#import "BLTouchCircle.h"
 
-@implementation BQTouchCircle
+@implementation BLTouchCircle
 
 - (id)initWithTouch:(UITouch *)touch andGroundBody:(b2Body *)body{
     if (self = [super initWithDynamicBody:nil node:nil]){
@@ -36,7 +36,7 @@
         [self setPhysicsPosition:b2Location];
         [self createMouseJointWithGroundBody:body target:b2Location maxForce:5000];
 
-        self.touchHash = touch.hash;
+        self.touchHash = touch.hash; // touch identifier
         
         // Anti - gravity
         self.body->ApplyForce(self.body->GetMass() * -world->GetGravity(), self.body->GetWorldCenter());
@@ -45,8 +45,8 @@
     return self;
 }
 
-// Does BQTouchCircle belong to touch object. Use for multi-touch tracking
-- (BOOL)belongsToTouch:(UITouch *)touch{
+// Returns 'YES' if touch circle is connected to touch. Use for multi-touch tracking
+- (BOOL)connectedToTouch:(UITouch *)touch{
     return (self.touchHash == touch.hash) ? YES : NO;
 }
 

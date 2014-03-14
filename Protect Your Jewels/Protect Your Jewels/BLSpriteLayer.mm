@@ -12,13 +12,12 @@
 #import "GBox2D/GB2ShapeCache.h"
 #import "GBox2D/GB2DebugDrawLayer.h"
 #import "BLJewelSprite.h"
-#import "BLNinjaSprite.h"
-#import "RSTrojanSprite.h"
 #import "RSThemeManager.h"
-#import "BQTouchCircle.h"
-#import "BLNinjaSprite.h"
+#import "BLTouchCircle.h"
 #import "BLBoxNode.h"
 #import "RSThemeManager.h"
+
+#define MAX_TOUCHES 1
 
 #pragma mark - BLSpriteLayer
 
@@ -29,15 +28,13 @@
     CCSpriteBatchNode *objectLayer;
     GB2Node *boxNode;
     int waveNum;
-    uint numEnemiesTouched;
+    int currentTouches;
 }
 
 @property NSMutableArray *enemies;
 @property NSMutableArray *touchCircles;
 
 @end
-
-static const int  MAX_TOUCHES = 2;
 
 @implementation BLSpriteLayer
 
@@ -59,18 +56,17 @@ static const int  MAX_TOUCHES = 2;
         
         // Initializations
         enemyLaunchForce    = 1000.0f;
-//        enemyLaunchForce    = 700.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
         [self initJewel];
         [self initDebug];
 
-        // Create bounding box
+        // Creates bounding box
         boxNode = [[BLBoxNode alloc] init];
         
         // Touching
         self.touchEnabled = YES;
-        numEnemiesTouched = 0;
+        currentTouches = 0;
         
         // Start Waves
         waveNum = 0;
@@ -93,6 +89,7 @@ static const int  MAX_TOUCHES = 2;
 - (void)initDebug{
     GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
     [self addChild:debugLayer z:30];
+    NSLog(@"what");
 }
 
 // Initializes enemy at location
@@ -126,7 +123,7 @@ static const int  MAX_TOUCHES = 2;
 - (void)startWave{
     // Play hiya audio every 5 waves
     if (waveNum % 5 == 0){
-        [BLNinjaSprite playAttackAudio];
+        [BLEnemySprite playAttackAudio];
     }
     
     waveNum++;
@@ -158,133 +155,128 @@ static const int  MAX_TOUCHES = 2;
     return direction;
 }
 
-#pragma mark Touch
-
-// Return true if touch not already connected to an enemy sprite
-- (BOOL)freeTouch:(UITouch *)touch{
-    for (BLNinjaSprite *be in self.enemies){
-        if([be hasTouch:touch]){
-            return NO;
-        }
-    }
-    return YES;
-}
+#pragma mark Multi-Touch
 
 // Called at start of touch
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    // Convert touch -> ccLocation -> b2Location
-    
-    // Create joints with enemies
-    for (UITouch *touch in touches) {
-        if(numEnemiesTouched < MAX_TOUCHES && [self createMouseJointWithTouch:touch]){
-            numEnemiesTouched++;
-        }
+    // Don't process touch if current touches reaches max
+    if (currentTouches > MAX_TOUCHES){
+        return;
     }
     
-    // Create touch circles for remaining touches
-    if (numEnemiesTouched < MAX_TOUCHES){
-        // Init BQTouchCircles
-        int counter = numEnemiesTouched;
-        for (UITouch *touch in touches) {
-            if (counter > (MAX_TOUCHES - 1)){  break;   } // allow only two touches
-            if([self freeTouch:touch]){
-                [self initTouchCircleWithTouch:touch];
-                counter++;
-            }
+    // Process each touch once
+    for (UITouch *touch in touches) {
+        // If touch is not connected to any enemy, create a touch circle
+        if (![self createEnemyJointsWithTouch:touch]){
+            [self initTouchCircleWithTouch:touch];
+        }
+        // Don't create any more mouse joints/touch cirlces if current touches reaches maximum
+        if (currentTouches > MAX_TOUCHES){
+            return;
         }
     }
 }
 
 // Called when a touch moves
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    // Update joints with enemies
-    int counter = numEnemiesTouched;
-    if(counter > 0){
-        for (UITouch *touch in touches) {
-            if(counter == 0){
-                break;
-            }
-            else{
-                for(BLNinjaSprite *be in self.enemies){
-                    if(counter != 0 && [be hasTouch:touch]){
-                        [self updateMouseJointWithTouch:touch];
-                        counter--;
-                    }
-                }
-            }
-        }
-    }
-    
-    // Update joints with circles
-    if(numEnemiesTouched < MAX_TOUCHES){
-        // Move BQTouchCircles
-        for (UITouch *touch in touches) {
-            [self moveTouchCircleWithTouch:touch];
+    // Process each touch once
+    for (UITouch *touch in touches) {
+        // If no enemies joints are updated, update touch circle joints
+        if (![self updateEnemyJointsWithTouch:touch]){
+            [self updateTouchCircleJointsWithTouch:touch];
         }
     }
 }
 
 // Called when a touch no longer exists
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    
-    // Remove BQTouchCircles and their corresponding joints
-    for (UITouch *touch in touches) {
-        if([self freeTouch:touch]){
+    // Process each touch once
+    for (UITouch *touch in touches){
+        // If no enemy joints were removed, then remove touch circle joints
+        if (![self removeEnemyJointsWithTouch:touch]){
             [self removeTouchCircleWithTouch:touch];
-        }
-    }
-    
-    // Remove touches and joints to enemies
-    if(numEnemiesTouched > 0){
-        for (UITouch *touch in touches){
-            if(numEnemiesTouched == 0){ break; }
-            for(BLNinjaSprite *be in self.enemies){
-                if([be hasTouch:touch]){
-                    [be updateTouch:nil];
-                    [self removeMouseJoint:be];
-                }
-            }
         }
     }
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-    
-    // Remove BQTouchCircles
-    for (UITouch *touch in touches) {
-        if([self freeTouch:touch]){
+    // Process each touch once
+    for (UITouch *touch in touches){
+        // If no enemy joints were removed, then remove touch circle joints
+        if (![self removeEnemyJointsWithTouch:touch]){
             [self removeTouchCircleWithTouch:touch];
         }
     }
-    
-    // Remove touches and joints to enemies
-    if(numEnemiesTouched > 0){
-        for (UITouch *touch in touches){
-            if(numEnemiesTouched == 0){ break; }
-            for(BLNinjaSprite *be in self.enemies){
-                if([be hasTouch:touch]){
-                    [be updateTouch:nil];
-                    [self removeMouseJoint:be];
-                }
-            }
-        }
-    }
 }
 
-#pragma mark Touch Circles
+#pragma mark Enemy Joints
+
+// Called to create a mouse joint (grabbing an enemy). Returns YES if touch is created with enemy
+- (BOOL)createEnemyJointsWithTouch:(UITouch *)touch{
+    CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
+    b2Vec2 b2Location   = b2Vec2FromCC(ccLocation.x, ccLocation.y);
+    
+    // Loop through all enemies
+    for (BLEnemySprite *es in self.enemies) {
+        // If enemy intersects with point, create mouse joint and store reference to touch in enemy
+        if ([es intersectsWithPoint:ccLocation]){
+            [es createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
+            [es updateTouch:touch];
+            currentTouches++; // keep track of current touches
+            return YES; // one touch = intersect with one enemy, no point in looping through the rest
+        }
+    }
+    return NO; // no enemies intersected with touch
+}
+
+// Loop through every enemy. Return 'YES' if an enemy is connected with touch and mousejoint update is sucessful
+- (BOOL)updateEnemyJointsWithTouch:(UITouch *)touch{
+    // Convert touch -> ccLocation -> b2Location
+    CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
+    b2Vec2 b2Location   = b2Vec2FromCC(ccLocation.x, ccLocation.y);
+    
+    // Loop through all enemies
+    for (BLEnemySprite *es in self.enemies) {
+        // If enemy is connected with this touch, update its touch and mousejoint
+        if ([es hasTouch:touch] && es.mouseJoint){
+            es.mouseJoint->SetTarget(b2Location);
+            return YES; // one touch = one enemy, return YES
+        }
+    }
+    return NO; // no enemies connected with touch
+}
+
+// Loop through every enemy. Return 'YES' if an enemy is connected with touch and mousejoint removal is sucessful
+- (BOOL)removeEnemyJointsWithTouch:(UITouch *)touch{
+    // Loop through all enemies and see if there's any touches to be removed
+    for (BLEnemySprite *be in self.enemies){
+        // If enemy is connected with a touch, remove its touch and mouse joint
+        if([be hasTouch:touch]){
+            [be updateTouch:nil];
+            [GB2Engine sharedInstance].world->DestroyJoint(be.mouseJoint);
+            be.mouseJoint = NULL;
+            currentTouches--; // keep track of current touches
+            return YES;  // one touch = one enemy, return YES
+        }
+    }
+    return NO; // no enemies connected with touch
+}
+
+#pragma mark Touch Circle Joints
 
 // Create touch circle
 -(void)initTouchCircleWithTouch:(UITouch *)touch{
-    BQTouchCircle *touchCircle = [[BQTouchCircle alloc] initWithTouch:touch andGroundBody:boxNode.body];
+    BLTouchCircle *touchCircle = [[BLTouchCircle alloc] initWithTouch:touch andGroundBody:boxNode.body];
     [self.touchCircles addObject:touchCircle];
+    currentTouches++; // keep track of current touches
 }
 
 // Called when a touch circle is moved
-- (void)moveTouchCircleWithTouch:(UITouch *)touch{
+- (void)updateTouchCircleJointsWithTouch:(UITouch *)touch{
     // Loop through every touch circle
-    for (BQTouchCircle *tc in self.touchCircles) {
+    for (BLTouchCircle *tc in self.touchCircles) {
         // If touch circle belongs to this touch, then move it
-        if ([tc belongsToTouch:touch]){
+        if ([tc connectedToTouch:touch]){
             CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
             b2Vec2 b2Location   = b2Vec2FromCC(ccLocation.x, ccLocation.y);
             tc.mouseJoint->SetTarget(b2Location);
@@ -296,76 +288,15 @@ static const int  MAX_TOUCHES = 2;
 - (void)removeTouchCircleWithTouch:(UITouch *)touch{
     // Loop through every touch circle
     for (int i = 0; i < self.touchCircles.count; i++){
-        BQTouchCircle *touchCircle = [self.touchCircles objectAtIndex:i];
+        BLTouchCircle *touchCircle = [self.touchCircles objectAtIndex:i];
         // If touch circle belongs to this touch, then remove it
-        if ([touchCircle belongsToTouch:touch]){
+        if ([touchCircle connectedToTouch:touch]){
             [GB2Engine sharedInstance].world->DestroyJoint(touchCircle.mouseJoint);
             touchCircle.deleteLater = true;
             [self.touchCircles removeObject:touchCircle];
+            currentTouches--;
         }
     }
-}
-
-
-#pragma mark Mouse Joints
-
-// Called to create a mouse joint (grabbing an enemy)
-- (BOOL)createMouseJointWithTouch:(UITouch *)touch{
-    CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
-    b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
-    
-    // Loop through all enemies
-    for (BLNinjaSprite *be in self.enemies) {
-        // If intersects with point, create mouse joint, link touch to enemy
-        if ([be intersectsWithPoint:ccLocation] && ![be hasTouch:touch]){
-            [be createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
-            [be updateTouch:touch];
-            return YES;
-        }
-   }
-    
-    return NO;
-}
-
-// Called when a grabbed enemy is moved
-- (void)updateMouseJointWithTouch:(UITouch *)touch{
-    // Convert touch -> ccLocation -> b2Location
-    CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
-    b2Vec2 b2Location   = b2Vec2(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
-    
-    // Loop through all enemies
-    for (BLNinjaSprite *be in self.enemies) {
-        // If mousejoint exists, update it
-        if (be.mouseJoint){
-            be.mouseJoint->SetTarget(b2Location);
-        }
-    }
-}
-
-// Remove mouse joint from one enemy
-- (void) removeMouseJoint:(BLEnemySprite*)es{
-    if (es.mouseJoint){
-        [GB2Engine sharedInstance].world->DestroyJoint(es.mouseJoint);
-        es.mouseJoint = NULL;
-        numEnemiesTouched--;
-    }
-}
-
-// Remove all mouse joints to all enemies
-- (void)removeMouseJoints{
-    // Loop through all enemies
-    for (BLNinjaSprite *be in self.enemies) {
-        // If mousejoint exists, delete it
-        if (be.mouseJoint){
-            [GB2Engine sharedInstance].world->DestroyJoint(be.mouseJoint);
-            be.mouseJoint = NULL;
-        }
-    }
-}
-
-// Decrement the number of enemies currently being grabbed
--(void)decNumEnemiesTouched{
-    numEnemiesTouched--;
 }
 
 #pragma Listner

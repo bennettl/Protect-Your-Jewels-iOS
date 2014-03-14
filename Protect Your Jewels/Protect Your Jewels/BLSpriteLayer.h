@@ -29,8 +29,4 @@
 // Remove BLEnemySprite from enemies mutable array
 - (void)removeEnemyFromSpriteLayer:(BLEnemySprite *)es;
 
-- (void)removeMouseJoint:(BLEnemySprite*)es;
-
-- (void)decNumEnemiesTouched;
-
 @end
