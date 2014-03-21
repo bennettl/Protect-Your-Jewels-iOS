@@ -17,7 +17,7 @@
 #import "BLBoxNode.h"
 #import "RSThemeManager.h"
 
-#define MAX_TOUCHES 1
+//#define MAX_TOUCHES 1
 
 #pragma mark - BLSpriteLayer
 

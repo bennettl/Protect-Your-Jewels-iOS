@@ -25,6 +25,7 @@
 
 // HelloWorldLayer
 @interface BLSpriteLayer : CCLayer
+extern int const MAX_TOUCHES = 1;
 
 // Remove BLEnemySprite from enemies mutable array
 - (void)removeEnemyFromSpriteLayer:(BLEnemySprite *)es;
