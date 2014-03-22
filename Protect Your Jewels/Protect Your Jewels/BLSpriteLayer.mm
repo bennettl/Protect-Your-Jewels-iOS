@@ -15,7 +15,6 @@
 #import "RSThemeManager.h"
 #import "BLTouchCircle.h"
 #import "BLBoxNode.h"
-#import "RSThemeManager.h"
 
 //#define MAX_TOUCHES 1
 
