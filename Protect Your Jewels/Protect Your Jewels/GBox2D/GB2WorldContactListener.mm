@@ -28,7 +28,7 @@
 #import "Box2D.h"
 #import "GB2Contact.h"
 #import "GB2WorldContactListener.h"
-#import "BLEnemySprite.h"
+#import "PYJEnemySprite.h"
 
 GB2WorldContactListener::GB2WorldContactListener()
 : b2ContactListener()
@@ -70,11 +70,11 @@ void GB2WorldContactListener::notifyObjects(b2Contact *contact, NSString *contac
     
     /************* BL Modifications *************/
     // Return the super class if it's an BLEnemySprite
-    nameContactA = ([a isKindOfClass:[BLEnemySprite class]]) ?
-                    [NSString stringWithFormat:@"%@With%@:", contactType, NSStringFromClass([BLEnemySprite class])] :
+    nameContactA = ([a isKindOfClass:[PYJEnemySprite class]]) ?
+                    [NSString stringWithFormat:@"%@With%@:", contactType, NSStringFromClass([PYJEnemySprite class])] :
                     [NSString stringWithFormat:@"%@With%@:", contactType, NSStringFromClass([a class])];
-    nameContactB = ([b isKindOfClass:[BLEnemySprite class]]) ?
-                    [NSString stringWithFormat:@"%@With%@:", contactType, NSStringFromClass([BLEnemySprite class])] :
+    nameContactB = ([b isKindOfClass:[PYJEnemySprite class]]) ?
+                    [NSString stringWithFormat:@"%@With%@:", contactType, NSStringFromClass([PYJEnemySprite class])] :
                     [NSString stringWithFormat:@"%@With%@:", contactType, NSStringFromClass([b class])];
     /************* BL Modifications *************/
 

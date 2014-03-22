@@ -10,15 +10,15 @@
 		4699453818CD018F001225F0 /* Temple_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453518CD018F001225F0 /* Temple_Clouds_back_full.png */; };
 		4699453918CD018F001225F0 /* Temple_Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453618CD018F001225F0 /* Temple_Clouds_front_full.png */; };
 		4699453A18CD018F001225F0 /* Temple_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453718CD018F001225F0 /* Temple_FG_iPhone5.png */; };
-		469C056A18BA952E00A56049 /* MSCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 469C056918BA952E00A56049 /* MSCloud.m */; };
+		469C056A18BA952E00A56049 /* PYJCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 469C056918BA952E00A56049 /* PYJCloud.m */; };
 		46FF967818CB0264009C6018 /* Jungle_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */; };
 		46FF967A18CB0264009C6018 /* Jungle_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */; };
 		46FF967B18CB0264009C6018 /* Mountain_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */; };
 		46FF967C18CB0264009C6018 /* Mountain_Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967618CB0264009C6018 /* Mountain_Clouds_front_full.png */; };
 		46FF967D18CB0264009C6018 /* Mountain_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967718CB0264009C6018 /* Mountain_FG_iPhone5.png */; };
-		46FF968318CB0FF6009C6018 /* MSBGLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FF968218CB0FF6009C6018 /* MSBGLayer.m */; };
+		46FF968318CB0FF6009C6018 /* PYJBGLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FF968218CB0FF6009C6018 /* PYJBGLayer.m */; };
 		46FF968818CC4C62009C6018 /* Jungle_Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF968718CC4C62009C6018 /* Jungle_Clouds_front_full.png */; };
-		4D66ACE418C07A0300DE656A /* BLFlashLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D66ACE318C07A0300DE656A /* BLFlashLayer.mm */; };
+		4D66ACE418C07A0300DE656A /* PYJFlashLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D66ACE318C07A0300DE656A /* PYJFlashLayer.mm */; };
 		4D8ADE3218B974A2001689EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3118B974A2001689EC /* QuartzCore.framework */; };
 		4D8ADE3418B974A2001689EC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3318B974A2001689EC /* OpenGLES.framework */; };
 		4D8ADE3618B974A2001689EC /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3518B974A2001689EC /* OpenAL.framework */; };
@@ -196,13 +196,13 @@
 		4D8AE06218B974A7001689EC /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE06118B974A7001689EC /* b2Rope.cpp */; };
 		4D8AE06818B974A7001689EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE06718B974A7001689EC /* main.m */; };
 		4D8AE06B18B974A7001689EC /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE06A18B974A7001689EC /* AppDelegate.mm */; };
-		4D8AE08C18B979A1001689EC /* BLGameplayScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE07D18B979A0001689EC /* BLGameplayScene.mm */; };
-		4D8AE08D18B979A1001689EC /* BLUILayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE07F18B979A0001689EC /* BLUILayer.mm */; };
-		4D8AE08E18B979A1001689EC /* BLSpriteLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08118B979A0001689EC /* BLSpriteLayer.mm */; };
-		4D8AE09018B979A1001689EC /* BLEnemySprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08518B979A0001689EC /* BLEnemySprite.mm */; };
-		4D8AE09118B979A1001689EC /* BLJewelSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08718B979A0001689EC /* BLJewelSprite.mm */; };
-		4D8AE09218B979A1001689EC /* BLBoxNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08918B979A0001689EC /* BLBoxNode.mm */; };
-		4D8AE09318B979A1001689EC /* BLTouchCircle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08B18B979A1001689EC /* BLTouchCircle.mm */; };
+		4D8AE08C18B979A1001689EC /* PYJGameplayScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE07D18B979A0001689EC /* PYJGameplayScene.mm */; };
+		4D8AE08D18B979A1001689EC /* PYJUILayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE07F18B979A0001689EC /* PYJUILayer.mm */; };
+		4D8AE08E18B979A1001689EC /* PYJSpriteLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08118B979A0001689EC /* PYJSpriteLayer.mm */; };
+		4D8AE09018B979A1001689EC /* PYJEnemySprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08518B979A0001689EC /* PYJEnemySprite.mm */; };
+		4D8AE09118B979A1001689EC /* PYJJewelSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08718B979A0001689EC /* PYJJewelSprite.mm */; };
+		4D8AE09218B979A1001689EC /* PYJBoxNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08918B979A0001689EC /* PYJBoxNode.mm */; };
+		4D8AE09318B979A1001689EC /* PYJTouchCircle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08B18B979A1001689EC /* PYJTouchCircle.mm */; };
 		4D8AE0AB18B97A26001689EC /* GB2Contact.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE09B18B97A26001689EC /* GB2Contact.mm */; };
 		4D8AE0AC18B97A26001689EC /* GB2DebugDrawLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE09D18B97A26001689EC /* GB2DebugDrawLayer.mm */; };
 		4D8AE0AD18B97A26001689EC /* GB2Engine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE09F18B97A26001689EC /* GB2Engine.mm */; };
@@ -231,32 +231,32 @@
 		4D8AE11F18BC976A001689EC /* applause-laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE11A18BC976A001689EC /* applause-laugh.wav */; };
 		4D8AE12018BC976A001689EC /* drumroll-begin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE11B18BC976A001689EC /* drumroll-begin.wav */; };
 		4D8AE12318BC9AF2001689EC /* drumroll-end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE12218BC9AF2001689EC /* drumroll-end.wav */; };
-		4D8AE12618BC9CA1001689EC /* BLHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE12518BC9CA1001689EC /* BLHighScoreManager.m */; };
-		943737D018CC097E00276CC5 /* RSThemeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737CF18CC097E00276CC5 /* RSThemeManager.mm */; };
-		943737D618CD277100276CC5 /* RSPauseLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737D518CD277100276CC5 /* RSPauseLayer.mm */; };
-		94CE827318B9971F00FCA354 /* RSLeaderboardScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* RSLeaderboardScene.mm */; };
-		94CE827418B9971F00FCA354 /* RSMainMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* RSMainMenuLayer.mm */; };
-		94CE827518B9971F00FCA354 /* RSThemeScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* RSThemeScene.mm */; };
-		94CE827E18B9998500FCA354 /* BLGameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827D18B9998500FCA354 /* BLGameOverLayer.mm */; };
-		D3B7789318CE57180046C176 /* BQInstructionsScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3B7789218CE57180046C176 /* BQInstructionsScene.mm */; };
+		4D8AE12618BC9CA1001689EC /* PYJHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.m */; };
+		943737D018CC097E00276CC5 /* PYJThemeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737CF18CC097E00276CC5 /* PYJThemeManager.mm */; };
+		943737D618CD277100276CC5 /* PYJPauseLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737D518CD277100276CC5 /* PYJPauseLayer.mm */; };
+		94CE827318B9971F00FCA354 /* PYJLeaderboardScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* PYJLeaderboardScene.mm */; };
+		94CE827418B9971F00FCA354 /* PYJMainMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* PYJMainMenuLayer.mm */; };
+		94CE827518B9971F00FCA354 /* PYJThemeScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* PYJThemeScene.mm */; };
+		94CE827E18B9998500FCA354 /* PYJGameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827D18B9998500FCA354 /* PYJGameOverLayer.mm */; };
+		D3B7789318CE57180046C176 /* PYJInstructionsScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4699453518CD018F001225F0 /* Temple_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Temple_Clouds_back_full.png; path = images/background/Temple_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
 		4699453618CD018F001225F0 /* Temple_Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Temple_Clouds_front_full.png; path = images/background/Temple_Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
 		4699453718CD018F001225F0 /* Temple_FG_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Temple_FG_iPhone5.png; path = images/background/Temple_FG_iPhone5.png; sourceTree = SOURCE_ROOT; };
-		469C056818BA952E00A56049 /* MSCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCloud.h; sourceTree = "<group>"; };
-		469C056918BA952E00A56049 /* MSCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCloud.m; sourceTree = "<group>"; };
+		469C056818BA952E00A56049 /* PYJCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJCloud.h; sourceTree = "<group>"; };
+		469C056918BA952E00A56049 /* PYJCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJCloud.m; sourceTree = "<group>"; };
 		46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_Clouds_back_full.png; path = images/background/Jungle_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
 		46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_FG_iPhone5.png; path = images/background/Jungle_FG_iPhone5.png; sourceTree = SOURCE_ROOT; };
 		46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mountain_Clouds_back_full.png; path = images/background/Mountain_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
 		46FF967618CB0264009C6018 /* Mountain_Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mountain_Clouds_front_full.png; path = images/background/Mountain_Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
 		46FF967718CB0264009C6018 /* Mountain_FG_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mountain_FG_iPhone5.png; path = images/background/Mountain_FG_iPhone5.png; sourceTree = SOURCE_ROOT; };
-		46FF968118CB0FF6009C6018 /* MSBGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBGLayer.h; sourceTree = "<group>"; };
-		46FF968218CB0FF6009C6018 /* MSBGLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBGLayer.m; sourceTree = "<group>"; };
+		46FF968118CB0FF6009C6018 /* PYJBGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJBGLayer.h; sourceTree = "<group>"; };
+		46FF968218CB0FF6009C6018 /* PYJBGLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJBGLayer.m; sourceTree = "<group>"; };
 		46FF968718CC4C62009C6018 /* Jungle_Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_Clouds_front_full.png; path = images/background/Jungle_Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
-		4D66ACE218C07A0300DE656A /* BLFlashLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFlashLayer.h; sourceTree = "<group>"; };
-		4D66ACE318C07A0300DE656A /* BLFlashLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLFlashLayer.mm; sourceTree = "<group>"; };
+		4D66ACE218C07A0300DE656A /* PYJFlashLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJFlashLayer.h; sourceTree = "<group>"; };
+		4D66ACE318C07A0300DE656A /* PYJFlashLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJFlashLayer.mm; sourceTree = "<group>"; };
 		4D8ADE2E18B974A2001689EC /* Protect Your Jewels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Protect Your Jewels.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8ADE3118B974A2001689EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4D8ADE3318B974A2001689EC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -628,20 +628,20 @@
 		4D8AE06718B974A7001689EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D8AE06918B974A7001689EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D8AE06A18B974A7001689EC /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		4D8AE07C18B979A0001689EC /* BLGameplayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGameplayScene.h; sourceTree = "<group>"; };
-		4D8AE07D18B979A0001689EC /* BLGameplayScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLGameplayScene.mm; sourceTree = "<group>"; };
-		4D8AE07E18B979A0001689EC /* BLUILayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUILayer.h; sourceTree = "<group>"; };
-		4D8AE07F18B979A0001689EC /* BLUILayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLUILayer.mm; sourceTree = "<group>"; };
-		4D8AE08018B979A0001689EC /* BLSpriteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSpriteLayer.h; sourceTree = "<group>"; };
-		4D8AE08118B979A0001689EC /* BLSpriteLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLSpriteLayer.mm; sourceTree = "<group>"; };
-		4D8AE08418B979A0001689EC /* BLEnemySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEnemySprite.h; sourceTree = "<group>"; };
-		4D8AE08518B979A0001689EC /* BLEnemySprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLEnemySprite.mm; sourceTree = "<group>"; };
-		4D8AE08618B979A0001689EC /* BLJewelSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLJewelSprite.h; sourceTree = "<group>"; };
-		4D8AE08718B979A0001689EC /* BLJewelSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLJewelSprite.mm; sourceTree = "<group>"; };
-		4D8AE08818B979A0001689EC /* BLBoxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBoxNode.h; sourceTree = "<group>"; };
-		4D8AE08918B979A0001689EC /* BLBoxNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLBoxNode.mm; sourceTree = "<group>"; };
-		4D8AE08A18B979A0001689EC /* BLTouchCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTouchCircle.h; sourceTree = "<group>"; };
-		4D8AE08B18B979A1001689EC /* BLTouchCircle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLTouchCircle.mm; sourceTree = "<group>"; };
+		4D8AE07C18B979A0001689EC /* PYJGameplayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJGameplayScene.h; sourceTree = "<group>"; };
+		4D8AE07D18B979A0001689EC /* PYJGameplayScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJGameplayScene.mm; sourceTree = "<group>"; };
+		4D8AE07E18B979A0001689EC /* PYJUILayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJUILayer.h; sourceTree = "<group>"; };
+		4D8AE07F18B979A0001689EC /* PYJUILayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJUILayer.mm; sourceTree = "<group>"; };
+		4D8AE08018B979A0001689EC /* PYJSpriteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJSpriteLayer.h; sourceTree = "<group>"; };
+		4D8AE08118B979A0001689EC /* PYJSpriteLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJSpriteLayer.mm; sourceTree = "<group>"; };
+		4D8AE08418B979A0001689EC /* PYJEnemySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJEnemySprite.h; sourceTree = "<group>"; };
+		4D8AE08518B979A0001689EC /* PYJEnemySprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJEnemySprite.mm; sourceTree = "<group>"; };
+		4D8AE08618B979A0001689EC /* PYJJewelSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJJewelSprite.h; sourceTree = "<group>"; };
+		4D8AE08718B979A0001689EC /* PYJJewelSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJJewelSprite.mm; sourceTree = "<group>"; };
+		4D8AE08818B979A0001689EC /* PYJBoxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJBoxNode.h; sourceTree = "<group>"; };
+		4D8AE08918B979A0001689EC /* PYJBoxNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJBoxNode.mm; sourceTree = "<group>"; };
+		4D8AE08A18B979A0001689EC /* PYJTouchCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJTouchCircle.h; sourceTree = "<group>"; };
+		4D8AE08B18B979A1001689EC /* PYJTouchCircle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJTouchCircle.mm; sourceTree = "<group>"; };
 		4D8AE09918B97A26001689EC /* GB2Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2Config.h; sourceTree = "<group>"; };
 		4D8AE09A18B97A26001689EC /* GB2Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2Contact.h; sourceTree = "<group>"; };
 		4D8AE09B18B97A26001689EC /* GB2Contact.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GB2Contact.mm; sourceTree = "<group>"; };
@@ -680,22 +680,22 @@
 		4D8AE11A18BC976A001689EC /* applause-laugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "applause-laugh.wav"; sourceTree = "<group>"; };
 		4D8AE11B18BC976A001689EC /* drumroll-begin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "drumroll-begin.wav"; sourceTree = "<group>"; };
 		4D8AE12218BC9AF2001689EC /* drumroll-end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "drumroll-end.wav"; sourceTree = "<group>"; };
-		4D8AE12418BC9CA1001689EC /* BLHighScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHighScoreManager.h; sourceTree = "<group>"; };
-		4D8AE12518BC9CA1001689EC /* BLHighScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHighScoreManager.m; sourceTree = "<group>"; };
-		943737CE18CC097E00276CC5 /* RSThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSThemeManager.h; sourceTree = "<group>"; };
-		943737CF18CC097E00276CC5 /* RSThemeManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSThemeManager.mm; sourceTree = "<group>"; };
-		943737D418CD277100276CC5 /* RSPauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPauseLayer.h; sourceTree = "<group>"; };
-		943737D518CD277100276CC5 /* RSPauseLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSPauseLayer.mm; sourceTree = "<group>"; };
-		94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLeaderboardScene.h; sourceTree = "<group>"; };
-		94CE826E18B9971F00FCA354 /* RSLeaderboardScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSLeaderboardScene.mm; sourceTree = "<group>"; };
-		94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainMenuLayer.h; sourceTree = "<group>"; };
-		94CE827018B9971F00FCA354 /* RSMainMenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSMainMenuLayer.mm; sourceTree = "<group>"; };
-		94CE827118B9971F00FCA354 /* RSThemeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSThemeScene.h; sourceTree = "<group>"; };
-		94CE827218B9971F00FCA354 /* RSThemeScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSThemeScene.mm; sourceTree = "<group>"; };
-		94CE827C18B9998500FCA354 /* BLGameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGameOverLayer.h; sourceTree = "<group>"; };
-		94CE827D18B9998500FCA354 /* BLGameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLGameOverLayer.mm; sourceTree = "<group>"; };
-		D3B7789118CE57180046C176 /* BQInstructionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQInstructionsScene.h; sourceTree = "<group>"; };
-		D3B7789218CE57180046C176 /* BQInstructionsScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BQInstructionsScene.mm; sourceTree = "<group>"; };
+		4D8AE12418BC9CA1001689EC /* PYJHighScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJHighScoreManager.h; sourceTree = "<group>"; };
+		4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJHighScoreManager.m; sourceTree = "<group>"; };
+		943737CE18CC097E00276CC5 /* PYJThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJThemeManager.h; sourceTree = "<group>"; };
+		943737CF18CC097E00276CC5 /* PYJThemeManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJThemeManager.mm; sourceTree = "<group>"; };
+		943737D418CD277100276CC5 /* PYJPauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJPauseLayer.h; sourceTree = "<group>"; };
+		943737D518CD277100276CC5 /* PYJPauseLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJPauseLayer.mm; sourceTree = "<group>"; };
+		94CE826D18B9971F00FCA354 /* PYJLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJLeaderboardScene.h; sourceTree = "<group>"; };
+		94CE826E18B9971F00FCA354 /* PYJLeaderboardScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJLeaderboardScene.mm; sourceTree = "<group>"; };
+		94CE826F18B9971F00FCA354 /* PYJMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJMainMenuLayer.h; sourceTree = "<group>"; };
+		94CE827018B9971F00FCA354 /* PYJMainMenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJMainMenuLayer.mm; sourceTree = "<group>"; };
+		94CE827118B9971F00FCA354 /* PYJThemeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJThemeScene.h; sourceTree = "<group>"; };
+		94CE827218B9971F00FCA354 /* PYJThemeScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJThemeScene.mm; sourceTree = "<group>"; };
+		94CE827C18B9998500FCA354 /* PYJGameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJGameOverLayer.h; sourceTree = "<group>"; };
+		94CE827D18B9998500FCA354 /* PYJGameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJGameOverLayer.mm; sourceTree = "<group>"; };
+		D3B7789118CE57180046C176 /* PYJInstructionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJInstructionsScene.h; sourceTree = "<group>"; };
+		D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJInstructionsScene.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1306,8 +1306,8 @@
 		4D8AE09418B979AE001689EC /* GameplayScene */ = {
 			isa = PBXGroup;
 			children = (
-				4D8AE07C18B979A0001689EC /* BLGameplayScene.h */,
-				4D8AE07D18B979A0001689EC /* BLGameplayScene.mm */,
+				4D8AE07C18B979A0001689EC /* PYJGameplayScene.h */,
+				4D8AE07D18B979A0001689EC /* PYJGameplayScene.mm */,
 				4D8AE09518B979B6001689EC /* Layers */,
 				4D8AE09618B979BA001689EC /* Sprites */,
 				4D8AE09718B979D9001689EC /* Misc */,
@@ -1318,16 +1318,16 @@
 		4D8AE09518B979B6001689EC /* Layers */ = {
 			isa = PBXGroup;
 			children = (
-				4D66ACE218C07A0300DE656A /* BLFlashLayer.h */,
-				4D66ACE318C07A0300DE656A /* BLFlashLayer.mm */,
-				943737D418CD277100276CC5 /* RSPauseLayer.h */,
-				943737D518CD277100276CC5 /* RSPauseLayer.mm */,
-				4D8AE07E18B979A0001689EC /* BLUILayer.h */,
-				4D8AE07F18B979A0001689EC /* BLUILayer.mm */,
-				4D8AE08018B979A0001689EC /* BLSpriteLayer.h */,
-				4D8AE08118B979A0001689EC /* BLSpriteLayer.mm */,
-				46FF968118CB0FF6009C6018 /* MSBGLayer.h */,
-				46FF968218CB0FF6009C6018 /* MSBGLayer.m */,
+				4D66ACE218C07A0300DE656A /* PYJFlashLayer.h */,
+				4D66ACE318C07A0300DE656A /* PYJFlashLayer.mm */,
+				943737D418CD277100276CC5 /* PYJPauseLayer.h */,
+				943737D518CD277100276CC5 /* PYJPauseLayer.mm */,
+				4D8AE07E18B979A0001689EC /* PYJUILayer.h */,
+				4D8AE07F18B979A0001689EC /* PYJUILayer.mm */,
+				4D8AE08018B979A0001689EC /* PYJSpriteLayer.h */,
+				4D8AE08118B979A0001689EC /* PYJSpriteLayer.mm */,
+				46FF968118CB0FF6009C6018 /* PYJBGLayer.h */,
+				46FF968218CB0FF6009C6018 /* PYJBGLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1335,12 +1335,12 @@
 		4D8AE09618B979BA001689EC /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				4D8AE08418B979A0001689EC /* BLEnemySprite.h */,
-				4D8AE08518B979A0001689EC /* BLEnemySprite.mm */,
-				4D8AE08618B979A0001689EC /* BLJewelSprite.h */,
-				4D8AE08718B979A0001689EC /* BLJewelSprite.mm */,
-				469C056818BA952E00A56049 /* MSCloud.h */,
-				469C056918BA952E00A56049 /* MSCloud.m */,
+				4D8AE08418B979A0001689EC /* PYJEnemySprite.h */,
+				4D8AE08518B979A0001689EC /* PYJEnemySprite.mm */,
+				4D8AE08618B979A0001689EC /* PYJJewelSprite.h */,
+				4D8AE08718B979A0001689EC /* PYJJewelSprite.mm */,
+				469C056818BA952E00A56049 /* PYJCloud.h */,
+				469C056918BA952E00A56049 /* PYJCloud.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -1348,10 +1348,10 @@
 		4D8AE09718B979D9001689EC /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				4D8AE08818B979A0001689EC /* BLBoxNode.h */,
-				4D8AE08918B979A0001689EC /* BLBoxNode.mm */,
-				4D8AE08A18B979A0001689EC /* BLTouchCircle.h */,
-				4D8AE08B18B979A1001689EC /* BLTouchCircle.mm */,
+				4D8AE08818B979A0001689EC /* PYJBoxNode.h */,
+				4D8AE08918B979A0001689EC /* PYJBoxNode.mm */,
+				4D8AE08A18B979A0001689EC /* PYJTouchCircle.h */,
+				4D8AE08B18B979A1001689EC /* PYJTouchCircle.mm */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -1473,20 +1473,20 @@
 		94CE826C18B9970700FCA354 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
-				94CE826D18B9971F00FCA354 /* RSLeaderboardScene.h */,
-				94CE826E18B9971F00FCA354 /* RSLeaderboardScene.mm */,
-				94CE826F18B9971F00FCA354 /* RSMainMenuLayer.h */,
-				94CE827018B9971F00FCA354 /* RSMainMenuLayer.mm */,
-				94CE827118B9971F00FCA354 /* RSThemeScene.h */,
-				94CE827218B9971F00FCA354 /* RSThemeScene.mm */,
-				943737CE18CC097E00276CC5 /* RSThemeManager.h */,
-				943737CF18CC097E00276CC5 /* RSThemeManager.mm */,
-				94CE827C18B9998500FCA354 /* BLGameOverLayer.h */,
-				94CE827D18B9998500FCA354 /* BLGameOverLayer.mm */,
-				4D8AE12418BC9CA1001689EC /* BLHighScoreManager.h */,
-				4D8AE12518BC9CA1001689EC /* BLHighScoreManager.m */,
-				D3B7789118CE57180046C176 /* BQInstructionsScene.h */,
-				D3B7789218CE57180046C176 /* BQInstructionsScene.mm */,
+				94CE826D18B9971F00FCA354 /* PYJLeaderboardScene.h */,
+				94CE826E18B9971F00FCA354 /* PYJLeaderboardScene.mm */,
+				94CE826F18B9971F00FCA354 /* PYJMainMenuLayer.h */,
+				94CE827018B9971F00FCA354 /* PYJMainMenuLayer.mm */,
+				94CE827118B9971F00FCA354 /* PYJThemeScene.h */,
+				94CE827218B9971F00FCA354 /* PYJThemeScene.mm */,
+				943737CE18CC097E00276CC5 /* PYJThemeManager.h */,
+				943737CF18CC097E00276CC5 /* PYJThemeManager.mm */,
+				94CE827C18B9998500FCA354 /* PYJGameOverLayer.h */,
+				94CE827D18B9998500FCA354 /* PYJGameOverLayer.mm */,
+				4D8AE12418BC9CA1001689EC /* PYJHighScoreManager.h */,
+				4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.m */,
+				D3B7789118CE57180046C176 /* PYJInstructionsScene.h */,
+				D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -1518,7 +1518,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "Bennett Lee";
+				ORGANIZATIONNAME = ITP382RBBM;
 			};
 			buildConfigurationList = 4D8ADE2918B974A2001689EC /* Build configuration list for PBXProject "Protect Your Jewels" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1595,7 +1595,7 @@
 			files = (
 				4D8ADF2218B974A5001689EC /* CCTexturePVR.m in Sources */,
 				4D8ADF7218B974A5001689EC /* ccUtils.c in Sources */,
-				94CE827E18B9998500FCA354 /* BLGameOverLayer.mm in Sources */,
+				94CE827E18B9998500FCA354 /* PYJGameOverLayer.mm in Sources */,
 				4D8ADEC318B974A4001689EC /* CCLayer.m in Sources */,
 				4D8ADFEE18B974A6001689EC /* b2ChainShape.cpp in Sources */,
 				4D8ADF2518B974A5001689EC /* CCTileMapAtlas.m in Sources */,
@@ -1604,7 +1604,7 @@
 				4D8ADFF118B974A6001689EC /* b2CircleShape.cpp in Sources */,
 				4D8ADFC018B974A6001689EC /* mat4.c in Sources */,
 				4D8ADE9C18B974A3001689EC /* ccDeprecated.m in Sources */,
-				943737D618CD277100276CC5 /* RSPauseLayer.mm in Sources */,
+				943737D618CD277100276CC5 /* PYJPauseLayer.mm in Sources */,
 				4D8AE05518B974A7001689EC /* b2RevoluteJoint.cpp in Sources */,
 				4D8ADF5718B974A5001689EC /* CCDirectorMac.m in Sources */,
 				4D8ADEB118B974A4001689EC /* ccGLStateCache.m in Sources */,
@@ -1617,7 +1617,7 @@
 				4D8AE02418B974A7001689EC /* b2ChainAndCircleContact.cpp in Sources */,
 				4D8AE02A18B974A7001689EC /* b2CircleContact.cpp in Sources */,
 				4D8ADFC818B974A6001689EC /* ray2.c in Sources */,
-				4D8AE09318B979A1001689EC /* BLTouchCircle.mm in Sources */,
+				4D8AE09318B979A1001689EC /* PYJTouchCircle.mm in Sources */,
 				4D8ADF6318B974A5001689EC /* base64.c in Sources */,
 				4D8ADE8618B974A3001689EC /* CCActionTween.m in Sources */,
 				4D8ADEBD18B974A4001689EC /* CCLabelBMFont.m in Sources */,
@@ -1643,7 +1643,7 @@
 				4D8ADFF418B974A6001689EC /* b2EdgeShape.cpp in Sources */,
 				4D8AE01918B974A7001689EC /* b2Island.cpp in Sources */,
 				4D8ADF1C18B974A5001689EC /* CCTextureAtlas.m in Sources */,
-				46FF968318CB0FF6009C6018 /* MSBGLayer.m in Sources */,
+				46FF968318CB0FF6009C6018 /* PYJBGLayer.m in Sources */,
 				4D8AE0AF18B97A26001689EC /* GB2ShapeCache.mm in Sources */,
 				4D8AE0AB18B97A26001689EC /* GB2Contact.mm in Sources */,
 				4D8ADFCA18B974A6001689EC /* utility.c in Sources */,
@@ -1659,11 +1659,11 @@
 				4D8ADFC418B974A6001689EC /* plane.c in Sources */,
 				4D8AE03018B974A7001689EC /* b2ContactSolver.cpp in Sources */,
 				4D8ADF7018B974A5001689EC /* CCProfiling.m in Sources */,
-				4D8AE08D18B979A1001689EC /* BLUILayer.mm in Sources */,
+				4D8AE08D18B979A1001689EC /* PYJUILayer.mm in Sources */,
 				4D8AE04318B974A7001689EC /* b2FrictionJoint.cpp in Sources */,
 				4D8ADF0718B974A4001689EC /* CCShaderCache.m in Sources */,
 				4D8ADF0D18B974A5001689EC /* CCSprite.m in Sources */,
-				94CE827518B9971F00FCA354 /* RSThemeScene.mm in Sources */,
+				94CE827518B9971F00FCA354 /* PYJThemeScene.mm in Sources */,
 				4D8AE03318B974A7001689EC /* b2EdgeAndCircleContact.cpp in Sources */,
 				4D8ADEB418B974A4001689EC /* CCGrabber.m in Sources */,
 				4D8ADFBE18B974A6001689EC /* mat3.c in Sources */,
@@ -1682,7 +1682,7 @@
 				4D8ADE6218B974A3001689EC /* CCAction.m in Sources */,
 				4D8ADF9A18B974A6001689EC /* CocosDenshion.m in Sources */,
 				4D8ADF1F18B974A5001689EC /* CCTextureCache.m in Sources */,
-				4D8AE08C18B979A1001689EC /* BLGameplayScene.mm in Sources */,
+				4D8AE08C18B979A1001689EC /* PYJGameplayScene.mm in Sources */,
 				4D8ADFC218B974A6001689EC /* neon_matrix_impl.c in Sources */,
 				4D8ADEF218B974A4001689EC /* CCScene.m in Sources */,
 				4D8AE05B18B974A7001689EC /* b2WeldJoint.cpp in Sources */,
@@ -1691,18 +1691,18 @@
 				4D8ADFDF18B974A6001689EC /* b2CollidePolygon.cpp in Sources */,
 				4D8AE04918B974A7001689EC /* b2Joint.cpp in Sources */,
 				4D8ADF1618B974A5001689EC /* CCSpriteFrameCache.m in Sources */,
-				94CE827318B9971F00FCA354 /* RSLeaderboardScene.mm in Sources */,
+				94CE827318B9971F00FCA354 /* PYJLeaderboardScene.mm in Sources */,
 				4D8ADE9F18B974A3001689EC /* CCDirector.m in Sources */,
 				4D8ADE8F18B974A3001689EC /* CCAtlasNode.m in Sources */,
 				4D8AE06B18B974A7001689EC /* AppDelegate.mm in Sources */,
-				469C056A18BA952E00A56049 /* MSCloud.m in Sources */,
+				469C056A18BA952E00A56049 /* PYJCloud.m in Sources */,
 				4D8ADF5318B974A5001689EC /* CCTouchHandler.m in Sources */,
-				4D66ACE418C07A0300DE656A /* BLFlashLayer.mm in Sources */,
+				4D66ACE418C07A0300DE656A /* PYJFlashLayer.mm in Sources */,
 				4D8ADECD18B974A4001689EC /* CCMotionStreak.m in Sources */,
 				4D8ADFFF18B974A6001689EC /* b2Draw.cpp in Sources */,
 				4D8ADF4C18B974A5001689EC /* CCGLView.m in Sources */,
 				4D8ADF7918B974A5001689EC /* CGPointExtension.m in Sources */,
-				4D8AE09218B979A1001689EC /* BLBoxNode.mm in Sources */,
+				4D8AE09218B979A1001689EC /* PYJBoxNode.mm in Sources */,
 				4D8ADE7D18B974A3001689EC /* CCActionPageTurn3D.m in Sources */,
 				4D8ADFCE18B974A6001689EC /* vec3.c in Sources */,
 				4D8ADF8018B974A5001689EC /* TGAlib.m in Sources */,
@@ -1722,17 +1722,17 @@
 				4D8ADFE418B974A6001689EC /* b2Distance.cpp in Sources */,
 				4D8ADE7418B974A3001689EC /* CCActionInstant.m in Sources */,
 				4D8AE0B218B97A26001689EC /* GLES-Render.mm in Sources */,
-				4D8AE12618BC9CA1001689EC /* BLHighScoreManager.m in Sources */,
+				4D8AE12618BC9CA1001689EC /* PYJHighScoreManager.m in Sources */,
 				4D8ADE9518B974A3001689EC /* CCClippingNode.m in Sources */,
 				4D8AE04F18B974A7001689EC /* b2PrismaticJoint.cpp in Sources */,
 				4D8ADFD818B974A6001689EC /* b2BroadPhase.cpp in Sources */,
-				94CE827418B9971F00FCA354 /* RSMainMenuLayer.mm in Sources */,
+				94CE827418B9971F00FCA354 /* PYJMainMenuLayer.mm in Sources */,
 				4D8ADF1918B974A5001689EC /* CCTexture2D.m in Sources */,
 				4D8ADF2E18B974A5001689EC /* CCTMXTiledMap.m in Sources */,
 				4D8ADEEF18B974A4001689EC /* CCRenderTexture.m in Sources */,
 				4D8ADE7718B974A3001689EC /* CCActionInterval.m in Sources */,
 				4D8ADEE518B974A4001689EC /* CCPhysicsDebugNode.m in Sources */,
-				4D8AE08E18B979A1001689EC /* BLSpriteLayer.mm in Sources */,
+				4D8AE08E18B979A1001689EC /* PYJSpriteLayer.mm in Sources */,
 				4D8ADE6B18B974A3001689EC /* CCActionEase.m in Sources */,
 				4D8ADEA818B974A3001689EC /* CCFontDefinition.m in Sources */,
 				4D8ADEE818B974A4001689EC /* CCPhysicsSprite.mm in Sources */,
@@ -1745,9 +1745,9 @@
 				4D8AE02D18B974A7001689EC /* b2Contact.cpp in Sources */,
 				4D8ADEA218B974A3001689EC /* CCDrawingPrimitives.m in Sources */,
 				4D8ADF0A18B974A5001689EC /* ccShaders.m in Sources */,
-				4D8AE09018B979A1001689EC /* BLEnemySprite.mm in Sources */,
+				4D8AE09018B979A1001689EC /* PYJEnemySprite.mm in Sources */,
 				4D8AE02018B974A7001689EC /* b2WorldCallbacks.cpp in Sources */,
-				D3B7789318CE57180046C176 /* BQInstructionsScene.mm in Sources */,
+				D3B7789318CE57180046C176 /* PYJInstructionsScene.mm in Sources */,
 				4D8AE04018B974A7001689EC /* b2DistanceJoint.cpp in Sources */,
 				4D8ADF6018B974A5001689EC /* CCWindow.m in Sources */,
 				4D8AE00618B974A6001689EC /* b2Settings.cpp in Sources */,
@@ -1759,7 +1759,7 @@
 				4D8AE01018B974A7001689EC /* b2Body.cpp in Sources */,
 				4D8ADF5A18B974A5001689EC /* CCEventDispatcher.m in Sources */,
 				4D8ADF1018B974A5001689EC /* CCSpriteBatchNode.m in Sources */,
-				4D8AE09118B979A1001689EC /* BLJewelSprite.mm in Sources */,
+				4D8AE09118B979A1001689EC /* PYJJewelSprite.mm in Sources */,
 				4D8ADE9918B974A3001689EC /* CCConfiguration.m in Sources */,
 				4D8ADEF518B974A4001689EC /* CCScheduler.m in Sources */,
 				4D8ADF4518B974A5001689EC /* CCDirectorIOS.m in Sources */,
@@ -1772,7 +1772,7 @@
 				4D8ADF9E18B974A6001689EC /* SimpleAudioEngine.m in Sources */,
 				4D8ADF5018B974A5001689EC /* CCTouchDispatcher.m in Sources */,
 				4D8AE06818B974A7001689EC /* main.m in Sources */,
-				943737D018CC097E00276CC5 /* RSThemeManager.mm in Sources */,
+				943737D018CC097E00276CC5 /* PYJThemeManager.mm in Sources */,
 				4D8ADED318B974A4001689EC /* CCNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

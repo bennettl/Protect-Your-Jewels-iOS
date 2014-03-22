@@ -3,15 +3,15 @@
 //  Protect Your Jewels
 //
 //  Created by Bennett Lee on 2/22/14.
-//  Copyright Bennett Lee 2014. All rights reserved.
+//  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
-#import "RSMainMenuLayer.h"
-#import "RSLeaderboardScene.h"
-#import "BLGameOverLayer.h"
+#import "PYJMainMenuLayer.h"
+#import "PYJLeaderboardScene.h"
+#import "PYJGameOverLayer.h"
 #import "SimpleAudioEngine.h"
 
 @implementation MyNavigationController
@@ -50,7 +50,7 @@
 	if(director.runningScene == nil) {
 		// Add the first scene to the stack. The director will draw it immediately into the framebuffer. (Animation is started automatically when the view is displayed.)
 		// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-       [director pushScene:[RSMainMenuLayer node]];
+       [director pushScene:[PYJMainMenuLayer node]];
 	}
 }
 @end
