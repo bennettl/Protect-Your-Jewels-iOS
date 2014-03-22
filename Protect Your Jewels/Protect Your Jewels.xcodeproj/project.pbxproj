@@ -239,6 +239,7 @@
 		94CE827518B9971F00FCA354 /* PYJThemeScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* PYJThemeScene.mm */; };
 		94CE827E18B9998500FCA354 /* PYJGameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827D18B9998500FCA354 /* PYJGameOverLayer.mm */; };
 		D3B7789318CE57180046C176 /* PYJInstructionsScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */; };
+		D3B7789618DDAF430046C176 /* PYJAchievementsScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3B7789518DDAF430046C176 /* PYJAchievementsScene.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -696,6 +697,8 @@
 		94CE827D18B9998500FCA354 /* PYJGameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJGameOverLayer.mm; sourceTree = "<group>"; };
 		D3B7789118CE57180046C176 /* PYJInstructionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJInstructionsScene.h; sourceTree = "<group>"; };
 		D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJInstructionsScene.mm; sourceTree = "<group>"; };
+		D3B7789418DDAF430046C176 /* PYJAchievementsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJAchievementsScene.h; sourceTree = "<group>"; };
+		D3B7789518DDAF430046C176 /* PYJAchievementsScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJAchievementsScene.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1487,6 +1490,8 @@
 				4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.m */,
 				D3B7789118CE57180046C176 /* PYJInstructionsScene.h */,
 				D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */,
+				D3B7789418DDAF430046C176 /* PYJAchievementsScene.h */,
+				D3B7789518DDAF430046C176 /* PYJAchievementsScene.mm */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -1757,6 +1762,7 @@
 				4D8ADEC018B974A4001689EC /* CCLabelTTF.m in Sources */,
 				4D8ADF6D18B974A5001689EC /* CCFileUtils.m in Sources */,
 				4D8AE01018B974A7001689EC /* b2Body.cpp in Sources */,
+				D3B7789618DDAF430046C176 /* PYJAchievementsScene.mm in Sources */,
 				4D8ADF5A18B974A5001689EC /* CCEventDispatcher.m in Sources */,
 				4D8ADF1018B974A5001689EC /* CCSpriteBatchNode.m in Sources */,
 				4D8AE09118B979A1001689EC /* PYJJewelSprite.mm in Sources */,

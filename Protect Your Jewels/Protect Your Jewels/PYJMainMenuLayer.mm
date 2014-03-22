@@ -11,6 +11,7 @@
 #import "PYJLeaderboardScene.h"
 #import "PYJThemeScene.h"
 #import "PYJInstructionsScene.h"
+#import "PYJAchievementsScene.h"
 #import "SimpleAudioEngine.h"
 #import "PYJBGLayer.h"
 #import "PYJThemeManager.h"
@@ -62,17 +63,25 @@
         CCMenuItem *itemInstructions = [CCMenuItemFont itemWithString:@"Instructions" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJInstructionsScene node]]];
 		}];
+        CCMenuItem *itemAchievements = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJAchievementsScene node]]];
+		}];
 		
-		CCMenu *mainMenu = [CCMenu menuWithItems:itemNewGame, itemLeaderboard, itemThemes, itemInstructions, nil];
+		CCMenu *leftMenu = [CCMenu menuWithItems:itemNewGame, itemInstructions, itemThemes, nil];
 		
-		[mainMenu alignItemsVerticallyWithPadding:10];
-        [mainMenu setPosition:ccp(size.width/2, 95)];
+        CCMenu *rightMenu = [CCMenu menuWithItems:itemAchievements, itemLeaderboard, nil];
+        
+		[leftMenu alignItemsVerticallyWithPadding:10];
+        [rightMenu alignItemsVerticallyWithPadding:10];
+        [leftMenu setPosition:ccp(size.width/3, 95)];
+        [rightMenu setPosition:ccp(size.width*2/3, 95)];
         
         // Stop music
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         
 		// Add main menu to the layer
-		[self addChild:mainMenu];
+		[self addChild:leftMenu];
+        [self addChild:rightMenu];
         
 	}
 	return self;

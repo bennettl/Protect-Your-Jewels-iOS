@@ -1,18 +1,18 @@
 //
-//  PYJInstructionsScene.mm
+//  PYJAchievementsScene.mm
 //  Protect Your Jewels
 //
-//  Created by Brian Quock on 3/10/14.
+//  Created by Brian Quock on 3/22/14.
 //  Copyright (c) 2014 ITP382RBBM. All rights reserved.
 //
 
-#import "PYJInstructionsScene.h"
+#import "PYJAchievementsScene.h"
 #import "PYJMainMenuLayer.h"
 #import "PYJThemeManager.h"
 #import "cocos2d.h"
 #import "PYJBGLayer.h"
 
-@implementation PYJInstructionsScene
+@implementation PYJAchievementsScene
 
 -(id) init
 {
@@ -37,14 +37,14 @@
         CCMenu *backMenu = [CCMenu menuWithItems:itemBack, nil];
         [backMenu alignItemsVerticallyWithPadding:10];
         [backMenu setPosition:ccp(30, size.height-30)];
-
+        
 		// Add menus to the layer
 		[self addChild:backMenu];
         
-        CCLabelTTF *instructions = [CCLabelTTF labelWithString:@"Instructions: \n\n You have discovered the most potent jewel in the universe.\n Ninjas, monkeys, and gladiators want it. \n Do not let them touch your jewel! \n Swipe or throw them away to boost your score. \n You may use multi-touch for up to 2 touches. \n Good luck and Protect Your Jewels!" fontName:FONT_NAME fontSize:17];
-        instructions.color = ccBLACK;
-        [instructions setPosition:ccp(size.width / 2, size.height/2)];
-        [self addChild:instructions];
+        CCLabelTTF *achievements = [CCLabelTTF labelWithString:@"Achievements information coming soon!" fontName:FONT_NAME fontSize:17];
+        achievements.color = ccBLACK;
+        [achievements setPosition:ccp(size.width / 2, size.height/2)];
+        [self addChild:achievements];
     }
 	return self;
 }
