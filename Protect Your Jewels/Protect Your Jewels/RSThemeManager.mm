@@ -7,9 +7,6 @@
 //
 
 #import "RSThemeManager.h"
-#import "MSMountainBGLayer.h"
-#import "MSJungleBGLayer.h"
-#import "MSTempleBGLayer.h"
 #import "RSTrojanSprite.h"
 #import "RSMonkeySprite.h"
 #import "BLNinjaSprite.h"
@@ -44,13 +41,16 @@
     
     switch (_theme) {
         case MOUNTAIN:
-            bg =  [MSMountainBGLayer node];
+            //bg =  [MSMountainBGLayer node];
+            bg = [[[MSBGLayer alloc] initWithTheme:@"Mountain"] autorelease];
             break;
         case JUNGLE:
-            bg = [MSJungleBGLayer node];
+            //bg = [MSJungleBGLayer node];
+            bg = [[[MSBGLayer alloc] initWithTheme:@"Jungle"] autorelease];
             break;
         case GLADIATOR:
-            bg = [MSTempleBGLayer node];
+            //bg = [MSTempleBGLayer node];
+            bg = [[[MSBGLayer alloc] initWithTheme:@"Temple"] autorelease];
             break;
         default:
             break;

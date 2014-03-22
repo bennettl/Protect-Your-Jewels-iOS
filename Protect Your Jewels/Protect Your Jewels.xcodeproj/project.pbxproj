@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4699453418CD012C001225F0 /* MSTempleBGLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4699453318CD012C001225F0 /* MSTempleBGLayer.m */; };
 		4699453818CD018F001225F0 /* Temple_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453518CD018F001225F0 /* Temple_Clouds_back_full.png */; };
 		4699453918CD018F001225F0 /* Temple_Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453618CD018F001225F0 /* Temple_Clouds_front_full.png */; };
 		4699453A18CD018F001225F0 /* Temple_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453718CD018F001225F0 /* Temple_FG_iPhone5.png */; };
@@ -17,7 +16,6 @@
 		46FF967B18CB0264009C6018 /* Mountain_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */; };
 		46FF967C18CB0264009C6018 /* Mountain_Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967618CB0264009C6018 /* Mountain_Clouds_front_full.png */; };
 		46FF967D18CB0264009C6018 /* Mountain_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967718CB0264009C6018 /* Mountain_FG_iPhone5.png */; };
-		46FF968018CB0FB8009C6018 /* MSJungleBGLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FF967F18CB0FB8009C6018 /* MSJungleBGLayer.m */; };
 		46FF968318CB0FF6009C6018 /* MSBGLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FF968218CB0FF6009C6018 /* MSBGLayer.m */; };
 		46FF968818CC4C62009C6018 /* Jungle_Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF968718CC4C62009C6018 /* Jungle_Clouds_front_full.png */; };
 		4D4391A818CAE9D60005DE90 /* BLNinjaSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D4391A718CAE9D60005DE90 /* BLNinjaSprite.mm */; };
@@ -202,7 +200,6 @@
 		4D8AE08C18B979A1001689EC /* BLGameplayScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE07D18B979A0001689EC /* BLGameplayScene.mm */; };
 		4D8AE08D18B979A1001689EC /* BLUILayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE07F18B979A0001689EC /* BLUILayer.mm */; };
 		4D8AE08E18B979A1001689EC /* BLSpriteLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08118B979A0001689EC /* BLSpriteLayer.mm */; };
-		4D8AE08F18B979A1001689EC /* MSMountainBGLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08318B979A0001689EC /* MSMountainBGLayer.mm */; };
 		4D8AE09018B979A1001689EC /* BLEnemySprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08518B979A0001689EC /* BLEnemySprite.mm */; };
 		4D8AE09118B979A1001689EC /* BLJewelSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08718B979A0001689EC /* BLJewelSprite.mm */; };
 		4D8AE09218B979A1001689EC /* BLBoxNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE08918B979A0001689EC /* BLBoxNode.mm */; };
@@ -248,8 +245,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4699453218CD012C001225F0 /* MSTempleBGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTempleBGLayer.h; sourceTree = "<group>"; };
-		4699453318CD012C001225F0 /* MSTempleBGLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTempleBGLayer.m; sourceTree = "<group>"; };
 		4699453518CD018F001225F0 /* Temple_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Temple_Clouds_back_full.png; path = images/background/Temple_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
 		4699453618CD018F001225F0 /* Temple_Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Temple_Clouds_front_full.png; path = images/background/Temple_Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
 		4699453718CD018F001225F0 /* Temple_FG_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Temple_FG_iPhone5.png; path = images/background/Temple_FG_iPhone5.png; sourceTree = SOURCE_ROOT; };
@@ -260,8 +255,6 @@
 		46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mountain_Clouds_back_full.png; path = images/background/Mountain_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
 		46FF967618CB0264009C6018 /* Mountain_Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mountain_Clouds_front_full.png; path = images/background/Mountain_Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
 		46FF967718CB0264009C6018 /* Mountain_FG_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mountain_FG_iPhone5.png; path = images/background/Mountain_FG_iPhone5.png; sourceTree = SOURCE_ROOT; };
-		46FF967E18CB0FB8009C6018 /* MSJungleBGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSJungleBGLayer.h; sourceTree = "<group>"; };
-		46FF967F18CB0FB8009C6018 /* MSJungleBGLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSJungleBGLayer.m; sourceTree = "<group>"; };
 		46FF968118CB0FF6009C6018 /* MSBGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBGLayer.h; sourceTree = "<group>"; };
 		46FF968218CB0FF6009C6018 /* MSBGLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBGLayer.m; sourceTree = "<group>"; };
 		46FF968718CC4C62009C6018 /* Jungle_Clouds_front_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_Clouds_front_full.png; path = images/background/Jungle_Clouds_front_full.png; sourceTree = SOURCE_ROOT; };
@@ -646,8 +639,6 @@
 		4D8AE07F18B979A0001689EC /* BLUILayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLUILayer.mm; sourceTree = "<group>"; };
 		4D8AE08018B979A0001689EC /* BLSpriteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSpriteLayer.h; sourceTree = "<group>"; };
 		4D8AE08118B979A0001689EC /* BLSpriteLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLSpriteLayer.mm; sourceTree = "<group>"; };
-		4D8AE08218B979A0001689EC /* MSMountainBGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMountainBGLayer.h; sourceTree = "<group>"; };
-		4D8AE08318B979A0001689EC /* MSMountainBGLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MSMountainBGLayer.mm; sourceTree = "<group>"; };
 		4D8AE08418B979A0001689EC /* BLEnemySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEnemySprite.h; sourceTree = "<group>"; };
 		4D8AE08518B979A0001689EC /* BLEnemySprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLEnemySprite.mm; sourceTree = "<group>"; };
 		4D8AE08618B979A0001689EC /* BLJewelSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLJewelSprite.h; sourceTree = "<group>"; };
@@ -1346,12 +1337,6 @@
 				4D8AE08118B979A0001689EC /* BLSpriteLayer.mm */,
 				46FF968118CB0FF6009C6018 /* MSBGLayer.h */,
 				46FF968218CB0FF6009C6018 /* MSBGLayer.m */,
-				46FF967E18CB0FB8009C6018 /* MSJungleBGLayer.h */,
-				46FF967F18CB0FB8009C6018 /* MSJungleBGLayer.m */,
-				4D8AE08218B979A0001689EC /* MSMountainBGLayer.h */,
-				4D8AE08318B979A0001689EC /* MSMountainBGLayer.mm */,
-				4699453218CD012C001225F0 /* MSTempleBGLayer.h */,
-				4699453318CD012C001225F0 /* MSTempleBGLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1636,7 +1621,6 @@
 				4D8ADE9C18B974A3001689EC /* ccDeprecated.m in Sources */,
 				943737D618CD277100276CC5 /* RSPauseLayer.mm in Sources */,
 				4D8AE05518B974A7001689EC /* b2RevoluteJoint.cpp in Sources */,
-				46FF968018CB0FB8009C6018 /* MSJungleBGLayer.m in Sources */,
 				4D8ADF5718B974A5001689EC /* CCDirectorMac.m in Sources */,
 				4D8ADEB118B974A4001689EC /* ccGLStateCache.m in Sources */,
 				4D8ADF8318B974A5001689EC /* TransformUtils.m in Sources */,
@@ -1662,7 +1646,6 @@
 				4D8ADEA518B974A3001689EC /* CCDrawNode.m in Sources */,
 				4D8AE03C18B974A7001689EC /* b2PolygonContact.cpp in Sources */,
 				4D8ADF3718B974A5001689EC /* CCTransitionPageTurn.m in Sources */,
-				4D8AE08F18B979A1001689EC /* MSMountainBGLayer.mm in Sources */,
 				4D8AE00918B974A6001689EC /* b2StackAllocator.cpp in Sources */,
 				4D8AE05218B974A7001689EC /* b2PulleyJoint.cpp in Sources */,
 				4D8ADE6818B974A3001689EC /* CCActionCatmullRom.m in Sources */,
@@ -1795,7 +1778,6 @@
 				4D8ADF5A18B974A5001689EC /* CCEventDispatcher.m in Sources */,
 				4D8ADF1018B974A5001689EC /* CCSpriteBatchNode.m in Sources */,
 				4D8AE09118B979A1001689EC /* BLJewelSprite.mm in Sources */,
-				4699453418CD012C001225F0 /* MSTempleBGLayer.m in Sources */,
 				4D8ADE9918B974A3001689EC /* CCConfiguration.m in Sources */,
 				4D8ADEF518B974A4001689EC /* CCScheduler.m in Sources */,
 				4D8ADF4518B974A5001689EC /* CCDirectorIOS.m in Sources */,
