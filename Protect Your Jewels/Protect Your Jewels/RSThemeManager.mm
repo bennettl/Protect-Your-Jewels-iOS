@@ -7,9 +7,6 @@
 //
 
 #import "RSThemeManager.h"
-#import "RSTrojanSprite.h"
-#import "RSMonkeySprite.h"
-#import "BLNinjaSprite.h"
 
 @implementation RSThemeManager
 
