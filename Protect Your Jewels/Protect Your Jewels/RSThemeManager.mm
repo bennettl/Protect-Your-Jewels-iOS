@@ -65,13 +65,13 @@
     
     switch (_theme) {
         case MOUNTAIN:
-            es = [[BLNinjaSprite alloc] init];
+            es = [[BLEnemySprite alloc] initWithTheme:@"Mountain"];
             break;
         case JUNGLE:
-            es = [[RSMonkeySprite alloc] init];
+            es = [[BLEnemySprite alloc] initWithTheme:@"Jungle"];
             break;
         case GLADIATOR:
-            es = [[RSTrojanSprite alloc] init];
+            es = [[BLEnemySprite alloc] initWithTheme:@"Temple"];
             break;
         default:
             break;
