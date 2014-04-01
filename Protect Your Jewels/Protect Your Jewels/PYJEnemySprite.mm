@@ -142,6 +142,30 @@
 
 #pragma mark Collision Detection
 
+// Set collisions with the jewel
+- (void)canCollideWithJewel:(BOOL)jewelCollision{
+    if(jewelCollision){
+        // Set enemy to collide with everything
+        for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
+            b2Filter ef = f->GetFilterData();
+            ef.categoryBits = 0x0001;
+            ef.maskBits = 0xFFFF;
+            ef.groupIndex = 2;
+            f->SetFilterData(ef);
+        }
+    }
+    else{
+        // Set enemy to collide with everything
+        for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
+            b2Filter ef = f->GetFilterData();
+            ef.categoryBits  = 0x0008;
+            ef.maskBits      = 0x0004;
+            ef.groupIndex    = 2;
+            f->SetFilterData(ef);
+        }
+    }
+}
+
 // Write collision functions in the form of [objectA endContactWithEnemy:collisionA];
 
 // Enemy collides with box
@@ -164,6 +188,7 @@
     // Change ninja state when he's hit with PYJTouchCircle
     if (self.state == kAttack){
         self.state = kFall;
+        [self canCollideWithJewel:NO];
         // Only play punch audio once
         [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
        // [[SimpleAudioEngine sharedEngine] playEffect:@"ninja_ahh.caf"];
@@ -172,11 +197,14 @@
 
 // Enemy collides with each other
 - (void)beginContactWithPYJEnemySprite:(GB2Contact *)contact{
+    // Change state and play punch on first contact
     if (self.touchHash != -1 && (self.state == kAttack || ((PYJEnemySprite *)contact.otherObject).state == kAttack)){
         self.state = kFall;
+        [self canCollideWithJewel:NO];
         [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
     }
     ((PYJEnemySprite *)contact.otherObject).state = kFall; // set enemy's state to fall
+    [((PYJEnemySprite *)contact.otherObject) canCollideWithJewel:NO];
 }
 
 // Enemy collides with jewel
