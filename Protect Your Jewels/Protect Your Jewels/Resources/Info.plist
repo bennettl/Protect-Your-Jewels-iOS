@@ -48,6 +48,19 @@
 	</dict>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>FacebookAppID</key>
+	<string>306599482821288</string>
+	<key>FacebookDisplayName</key>
+	<string>Protect Your Jewels</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb306599482821288</string>
+			</array>
+		</dict>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeRight</string>
