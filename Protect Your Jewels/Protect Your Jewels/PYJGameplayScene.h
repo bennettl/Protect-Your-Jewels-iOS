@@ -15,7 +15,7 @@
 @property int score;
 
 - (void)decrementLives;
-- (void)incrementScore;
+- (void)incrementScoreByValue:(int)value;
 - (void)startGameOver;
 - (void)pauseGame;
 - (void)resumeGame;

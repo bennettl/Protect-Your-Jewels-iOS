@@ -64,9 +64,10 @@
 
 #pragma Listner
 
-// Update the score conunt and label
--(void)incrementScore{
-    self.score++;
+// Update the score count and label
+-(void)incrementScoreByValue:(int)value{
+    self.score = self.score + value;
+    //self.score++;
     [self.uiLayer updateScoreLabelWithScore:self.score];
 }
 

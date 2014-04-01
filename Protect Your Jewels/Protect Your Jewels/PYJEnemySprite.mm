@@ -151,7 +151,7 @@
     
     // Send a message to the gameplay scene to increment score ONLY if ninja is in fall state
     if (self.state == kFall){
-        [((PYJGameplayScene *)self.ccNode.parent.parent) incrementScore];
+        [((PYJGameplayScene *)self.ccNode.parent.parent) incrementScoreByValue:1];
     }
 
     // Send a message to the sprite layer to remove enemy from its array
