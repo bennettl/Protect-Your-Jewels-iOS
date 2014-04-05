@@ -13,7 +13,9 @@
 #import "SimpleAudioEngine.h"
 
 @interface PYJEnemySprite()
-
+{
+    int enemyPointValue;
+}
 @end
 
 @implementation PYJEnemySprite
@@ -58,6 +60,8 @@
         self.body->SetGravityScale(0.9); // Toggle gravity
         
         self.touchHash = -1; // -1 means its not associated with any touches
+        
+        enemyPointValue = 1;    // Points added to score when enemy is defeated
     }
     return self;
 }
@@ -175,7 +179,7 @@
     
     // Send a message to the gameplay scene to increment score ONLY if ninja is in fall state
     if (self.state == kFall){
-        [((PYJGameplayScene *)self.ccNode.parent.parent) incrementScoreByValue:1];
+        [((PYJGameplayScene *)self.ccNode.parent.parent) incrementScoreByValue:enemyPointValue];
     }
 
     // Send a message to the sprite layer to remove enemy from its array
@@ -202,6 +206,11 @@
         self.state = kFall;
         [self canCollideWithJewel:NO];
         [[SimpleAudioEngine sharedEngine] playEffect:@"punch.caf"];
+    }
+    // Criteria for combo
+    else if(self.touchHash == -1 && self.state == kFall && ((PYJEnemySprite *)contact.otherObject).state == kAttack){
+        enemyPointValue+=2;
+        [[SimpleAudioEngine sharedEngine] playEffect:@"ninja_ahh.caf"];
     }
     ((PYJEnemySprite *)contact.otherObject).state = kFall; // set enemy's state to fall
     [((PYJEnemySprite *)contact.otherObject) canCollideWithJewel:NO];
