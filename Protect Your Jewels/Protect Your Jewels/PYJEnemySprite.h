@@ -37,4 +37,7 @@ typedef enum {
 // Use for multi-touch tracking
 - (BOOL)hasTouch:(UITouch *)touch;
 
+// Update collision filters
+- (void)canCollideWithJewel:(BOOL)jewelCollision;
+
 @end

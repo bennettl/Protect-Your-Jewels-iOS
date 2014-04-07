@@ -46,7 +46,15 @@
         // Right
         [self addEdgeFrom:b2Vec2FromCC(topRight.x, topRight.y)
                        to:b2Vec2FromCC(bottomRight.x, bottomRight.y)];
-       
+        
+        // Set collision filter for box node
+        for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
+            b2Filter ef = f->GetFilterData();
+            ef.categoryBits  = 0x0008;
+            ef.maskBits      = 0x0004;
+            ef.groupIndex    = 2;
+            f->SetFilterData(ef);
+        }
     }
     return self;
 }

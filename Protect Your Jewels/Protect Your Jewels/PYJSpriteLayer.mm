@@ -220,6 +220,7 @@
         // If enemy intersects with point, create mouse joint and store reference to touch in enemy
         if ([es intersectsWithPoint:ccLocation]){
             [es createMouseJointWithGroundBody:boxNode.body target:b2Location maxForce:1000];
+            [es canCollideWithJewel:NO];
             [es updateTouch:touch];
             currentTouches++; // keep track of current touches
             return YES; // one touch = intersect with one enemy, no point in looping through the rest
@@ -248,12 +249,12 @@
 // Loop through every enemy. Return 'YES' if an enemy is connected with touch and mousejoint removal is sucessful
 - (BOOL)removeEnemyJointsWithTouch:(UITouch *)touch{
     // Loop through all enemies and see if there's any touches to be removed
-    for (PYJEnemySprite *be in self.enemies){
+    for (PYJEnemySprite *es in self.enemies){
         // If enemy is connected with a touch, remove its touch and mouse joint
-        if([be hasTouch:touch]){
-            [be updateTouch:nil];
-            [GB2Engine sharedInstance].world->DestroyJoint(be.mouseJoint);
-            be.mouseJoint = NULL;
+        if([es hasTouch:touch]){
+            [es updateTouch:nil];
+            [GB2Engine sharedInstance].world->DestroyJoint(es.mouseJoint);
+            es.mouseJoint = NULL;
             currentTouches--; // keep track of current touches
             return YES;  // one touch = one enemy, return YES
         }
