@@ -40,7 +40,7 @@
     params.link = [NSURL URLWithString:@"https://developers.facebook.com/apps/306599482821288/dashboard/"];
     params.name = @"Protect Your Jewels";
     params.caption = @"***NOT SURE WHERE CAPTION GOES***";
-    //params.picture = [NSURL URLWithString:@"UPLOAD ICON TO SOME URL"];
+    params.picture = [NSURL URLWithString:@"http://meganesu.files.wordpress.com/2014/04/protectyourjewels.png"];
     params.description = [NSString stringWithFormat:@"I scored %d in Protect Your Jewels!", score];
     
     // If Facebook app is installed, use share dialog
@@ -50,7 +50,7 @@
                                          name:params.name
                                       caption:params.caption
                                   description:params.description
-                                      picture:nil//params.picture
+                                      picture:params.picture
                                   clientState:nil
                                       handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
                                           if (error) {
@@ -70,17 +70,17 @@
         // Has to ask user for Facebook credentials to verify their identity
         
         // Put together dialog parameters
-        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+        NSMutableDictionary *backup_params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                        @"Sharing Tutorial", @"name",
                                        @"***NOT SURE WHERE CAPTION GOES***", @"caption",
                                        params.description, @"description",
                                        @"https://developers.facebook.com/apps/306599482821288/dashboard/", @"link",
-                                       @"", @"picture",
+                                       @"http://meganesu.files.wordpress.com/2014/04/protectyourjewels.png", @"picture",
                                        nil];
         
         // Show the feed dialog
         [FBWebDialogs presentFeedDialogModallyWithSession:nil
-                                               parameters:params
+                                               parameters:backup_params
                                                   handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
                                                       if (error) {
                                                           // Error occurred, so handle error
