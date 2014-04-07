@@ -12,9 +12,9 @@
 		4699453A18CD018F001225F0 /* Temple_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453718CD018F001225F0 /* Temple_FG_iPhone5.png */; };
 		469C056A18BA952E00A56049 /* PYJCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 469C056918BA952E00A56049 /* PYJCloud.m */; };
 		46BF4E3318EA63D900BF0025 /* PYJFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF4E3218EA63D900BF0025 /* PYJFacebookManager.m */; };
-		46EB10CD18F24C7700BBCEBF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB10CC18F24C7700BBCEBF /* FacebookSDK.framework */; };
 		46EB10D018F2543A00BBCEBF /* share_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 46EB10CE18F2543A00BBCEBF /* share_facebook.png */; };
 		46EB10D118F2543A00BBCEBF /* share_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 46EB10CF18F2543A00BBCEBF /* share_twitter.png */; };
+		46EB10D318F26D1A00BBCEBF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB10D218F26D1A00BBCEBF /* FacebookSDK.framework */; };
 		46FF967818CB0264009C6018 /* Jungle_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */; };
 		46FF967A18CB0264009C6018 /* Jungle_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */; };
 		46FF967B18CB0264009C6018 /* Mountain_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */; };
@@ -254,9 +254,9 @@
 		469C056918BA952E00A56049 /* PYJCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJCloud.m; sourceTree = "<group>"; };
 		46BF4E3118EA63D900BF0025 /* PYJFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJFacebookManager.h; sourceTree = "<group>"; };
 		46BF4E3218EA63D900BF0025 /* PYJFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJFacebookManager.m; sourceTree = "<group>"; };
-		46EB10CC18F24C7700BBCEBF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Protect Your Jewels/FacebookSDK/FacebookSDK.framework"; sourceTree = "<group>"; };
 		46EB10CE18F2543A00BBCEBF /* share_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_facebook.png; sourceTree = "<group>"; };
 		46EB10CF18F2543A00BBCEBF /* share_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_twitter.png; sourceTree = "<group>"; };
+		46EB10D218F26D1A00BBCEBF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Protect Your Jewels/FacebookSDK/FacebookSDK.framework"; sourceTree = "<group>"; };
 		46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_Clouds_back_full.png; path = images/background/Jungle_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
 		46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_FG_iPhone5.png; path = images/background/Jungle_FG_iPhone5.png; sourceTree = SOURCE_ROOT; };
 		46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mountain_Clouds_back_full.png; path = images/background/Mountain_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
@@ -720,10 +720,10 @@
 				4D8ADE3218B974A2001689EC /* QuartzCore.framework in Frameworks */,
 				4D8ADE3A18B974A2001689EC /* AVFoundation.framework in Frameworks */,
 				4D8ADE4018B974A2001689EC /* CoreGraphics.framework in Frameworks */,
-				46EB10CD18F24C7700BBCEBF /* FacebookSDK.framework in Frameworks */,
 				4D8ADE4218B974A2001689EC /* CoreText.framework in Frameworks */,
 				4D8ADE3418B974A2001689EC /* OpenGLES.framework in Frameworks */,
 				4D8ADE3E18B974A2001689EC /* Foundation.framework in Frameworks */,
+				46EB10D318F26D1A00BBCEBF /* FacebookSDK.framework in Frameworks */,
 				4D8ADE3818B974A2001689EC /* AudioToolbox.framework in Frameworks */,
 				4D8ADE4418B974A2001689EC /* GameKit.framework in Frameworks */,
 			);
@@ -752,7 +752,7 @@
 		4D8ADE3018B974A2001689EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				46EB10CC18F24C7700BBCEBF /* FacebookSDK.framework */,
+				46EB10D218F26D1A00BBCEBF /* FacebookSDK.framework */,
 				4D8ADE3118B974A2001689EC /* QuartzCore.framework */,
 				4D8ADE3318B974A2001689EC /* OpenGLES.framework */,
 				4D8ADE3518B974A2001689EC /* OpenAL.framework */,
