@@ -19,6 +19,7 @@
     int _beginScore;
     int _finalScore;
     CCLabelTTF *scoreLabel;
+    CCLabelTTF *currencyLabel;
 }
 
 @end
@@ -54,8 +55,14 @@
         _beginScore         = 0;
         _finalScore         = score;
         scoreLabel          = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score: %i", _beginScore] fontName:FONT_NAME fontSize:28];
-        scoreLabel.position = ccp(size.width/2, 160);
+        scoreLabel.position = ccp(size.width/2 - 80, 160);
         [self addChild:scoreLabel z:1];
+        
+        // Create currency Label
+        currencyLabel           = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Gems: %li",[[PYJHighScoreManager sharedManager] userCurrency]] fontName:FONT_NAME fontSize:28];
+        currencyLabel.position  = ccp(size.width/2 + 80, 160);
+        [self addChild:currencyLabel z:1];
+        
         
         // Create menu items
 		[CCMenuItemFont setFontSize:23];
@@ -120,6 +127,7 @@
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"applause-laugh.wav" loop:NO];
     }
 }
+
 
 
 @end

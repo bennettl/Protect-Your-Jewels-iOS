@@ -96,6 +96,7 @@
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f
                                                                                  scene:[PYJGameOverLayer
                                                                         sceneWithScore:self.score]]];
+//    [[PYJHighScoreManager sharedManager] updateInGameCurrency:self.score];
 }
 
 - (void)startExit {
