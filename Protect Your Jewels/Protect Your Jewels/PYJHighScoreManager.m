@@ -14,7 +14,7 @@
 @interface PYJHighScoreManager(){
     NSMutableArray *_highScores;
     int _highestScore;
-    int _userCurrency;
+    NSInteger _userCurrency;
 }
 
 @end
@@ -67,15 +67,18 @@
 }
 
 - (NSInteger)userCurrency {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:IN_GAME_CURRENCY_KEY];
+    return _userCurrency;
+    NSLog(@"--------------------------2");
 }
 
 - (void)updateInGameCurrency:(int)score {
     NSUserDefaults *defaults    = [NSUserDefaults standardUserDefaults];
     NSInteger userCurrency      = [defaults integerForKey:IN_GAME_CURRENCY_KEY];
     userCurrency += score;
+    _userCurrency = userCurrency;
     [defaults setInteger:userCurrency forKey:IN_GAME_CURRENCY_KEY];
     [defaults synchronize];
+    NSLog(@"---------------------------1");
 }
 
 
