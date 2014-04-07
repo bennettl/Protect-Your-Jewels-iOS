@@ -13,6 +13,7 @@
 #import "PYJHighScoreManager.h"
 #import "PYJThemeManager.h"
 #import "PYJBGLayer.h"
+#import "PYJFacebookManager.h"
 
 @interface PYJGameOverLayer(){
     int _beginScore;
@@ -66,11 +67,13 @@
         CCMenuItem *itemMainMenu = [CCMenuItemFont itemWithString:@"Back to Main Menu" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJMainMenuLayer node]]];
 		}];
+        CCMenuItem *itemShareScore = [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:@"share_facebook.png"] selectedSprite:[CCSprite spriteWithFile:@"share_facebook.png"] block: ^(id sender) { [[PYJFacebookManager sharedManager] shareScore:score];
+        }];
 		
-		CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemMainMenu, nil];
+		CCMenu *menu = [CCMenu menuWithItems:itemNewGame, itemMainMenu, itemShareScore, nil];
 		
-		[menu alignItemsVerticallyWithPadding:10];
-        [menu setPosition:ccp(size.width/2, 100)];
+		[menu alignItemsVerticallyWithPadding:5];
+        [menu setPosition:ccp(size.width/2, 90)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];

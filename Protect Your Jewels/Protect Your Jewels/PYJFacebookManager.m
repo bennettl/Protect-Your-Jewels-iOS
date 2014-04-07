@@ -50,7 +50,7 @@
                                          name:params.name
                                       caption:params.caption
                                   description:params.description
-                                      picture:params.picture
+                                      picture:nil//params.picture
                                   clientState:nil
                                       handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
                                           if (error) {
