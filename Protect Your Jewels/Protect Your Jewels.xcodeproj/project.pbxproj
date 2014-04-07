@@ -12,6 +12,7 @@
 		4699453A18CD018F001225F0 /* Temple_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699453718CD018F001225F0 /* Temple_FG_iPhone5.png */; };
 		469C056A18BA952E00A56049 /* PYJCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 469C056918BA952E00A56049 /* PYJCloud.m */; };
 		46BF4E3018EA49BC00BF0025 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BF4E2F18EA49BC00BF0025 /* FacebookSDK.framework */; };
+		46BF4E3318EA63D900BF0025 /* PYJFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF4E3218EA63D900BF0025 /* PYJFacebookManager.m */; };
 		46FF967818CB0264009C6018 /* Jungle_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */; };
 		46FF967A18CB0264009C6018 /* Jungle_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */; };
 		46FF967B18CB0264009C6018 /* Mountain_Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */; };
@@ -250,6 +251,8 @@
 		469C056818BA952E00A56049 /* PYJCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJCloud.h; sourceTree = "<group>"; };
 		469C056918BA952E00A56049 /* PYJCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJCloud.m; sourceTree = "<group>"; };
 		46BF4E2F18EA49BC00BF0025 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		46BF4E3118EA63D900BF0025 /* PYJFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJFacebookManager.h; sourceTree = "<group>"; };
+		46BF4E3218EA63D900BF0025 /* PYJFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJFacebookManager.m; sourceTree = "<group>"; };
 		46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_Clouds_back_full.png; path = images/background/Jungle_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
 		46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jungle_FG_iPhone5.png; path = images/background/Jungle_FG_iPhone5.png; sourceTree = SOURCE_ROOT; };
 		46FF967518CB0264009C6018 /* Mountain_Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mountain_Clouds_back_full.png; path = images/background/Mountain_Clouds_back_full.png; sourceTree = SOURCE_ROOT; };
@@ -1492,6 +1495,8 @@
 				94CE827D18B9998500FCA354 /* PYJGameOverLayer.mm */,
 				4D8AE12418BC9CA1001689EC /* PYJHighScoreManager.h */,
 				4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.m */,
+				46BF4E3118EA63D900BF0025 /* PYJFacebookManager.h */,
+				46BF4E3218EA63D900BF0025 /* PYJFacebookManager.m */,
 				D3B7789118CE57180046C176 /* PYJInstructionsScene.h */,
 				D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */,
 				D3B7789418DDAF430046C176 /* PYJAchievementsScene.h */,
@@ -1607,6 +1612,7 @@
 				94CE827E18B9998500FCA354 /* PYJGameOverLayer.mm in Sources */,
 				4D8ADEC318B974A4001689EC /* CCLayer.m in Sources */,
 				4D8ADFEE18B974A6001689EC /* b2ChainShape.cpp in Sources */,
+				46BF4E3318EA63D900BF0025 /* PYJFacebookManager.m in Sources */,
 				4D8ADF2518B974A5001689EC /* CCTileMapAtlas.m in Sources */,
 				4D8ADF2818B974A5001689EC /* CCTMXLayer.m in Sources */,
 				4D8ADFDD18B974A6001689EC /* b2CollideEdge.cpp in Sources */,

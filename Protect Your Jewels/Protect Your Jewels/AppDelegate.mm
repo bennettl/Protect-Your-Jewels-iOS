@@ -14,6 +14,8 @@
 #import "PYJGameOverLayer.h"
 #import "SimpleAudioEngine.h"
 
+#import <FacebookSDK/FacebookSDK.h>
+
 @implementation MyNavigationController
 
 // The available orientations should be defined in the Info.plist file.
@@ -59,6 +61,22 @@
 @implementation AppController
 
 @synthesize window=window_, navController=navController_, director=director_;
+
+//Overriding method for Facebook sharing integration
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    BOOL urlWasHandled = [FBAppCall handleOpenURL:url
+                                sourceApplication:sourceApplication
+                                  fallbackHandler:^(FBAppCall *call) {
+                                      NSLog(@"Unhandled deep link: %@", url);
+                                      // This is where code to handle the links goes
+                                      // Use the links to show a relevant view of your app to the user
+                                  }];
+    return urlWasHandled;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
