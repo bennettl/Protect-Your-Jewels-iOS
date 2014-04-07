@@ -106,7 +106,7 @@
     }
     
     // Check if a front cloud needs to be spawned
-    if (spawnFront){
+    if (spawnFront || [m_FrontCloudArray count] < 3){
         [self scheduleOnce:@selector(spawnFrontCloud) delay:0.0f];
     }
     
@@ -136,7 +136,7 @@
     }
     
     // Check if a back cloud needs to be spawned
-    if (spawnBack){
+    if (spawnBack || [m_BackCloudArray count] < 3){
         [self scheduleOnce:@selector(spawnBackCloud) delay:0.0f];
     }
 }
