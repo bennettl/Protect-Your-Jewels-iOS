@@ -92,22 +92,26 @@
 }
 
 // Initializes enemy at location
-- (void)spawnEnemyAtRadomLocation{
+- (void)spawnObjectAtRadomLocation{
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CGPoint location = [self randomDirection];
-
-    PYJEnemySprite *enemySprite = [[PYJThemeManager sharedManager] enemySprite];
-
-    [enemySprite setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
-    [self addChild:enemySprite.ccNode z:10];
-    [self.enemies addObject:enemySprite];
-
-   // PYJBombSprite *bombSprite = [[PYJBombSprite alloc] initWithSpriteLayer:self];
     
-//    [bombSprite setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
-//    [self addChild:bombSprite.ccNode z:10];
+    GB2Sprite *randomObject = nil;
+    
+    // Adds randomness to spawning items
+    int randomNumber = arc4random_uniform(10);
+    
+    if (randomNumber < 7){
+        randomObject = [[PYJThemeManager sharedManager] enemySprite];
+        [self.enemies addObject:randomObject];
+        [(PYJEnemySprite *)randomObject playLaunchAudio]; // play enemy launch sound
+    } else{
+        randomObject = [[PYJBombSprite alloc] initWithSpriteLayer:self];
+    }
+    
+    [randomObject setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
+    [self addChild:randomObject.ccNode z:10];
 
-    //[enemySprite playLaunchAudio]; // play enemy launch sound
     
     // Launch enemy towards center
     // Get center vector
@@ -119,9 +123,7 @@
     b2Vec2 force = b2Vec2((pointC.x/PTM_RATIO) * enemyLaunchForce,
                           (pointC.y/PTM_RATIO) * enemyLaunchForce);
     
-    [enemySprite applyLinearImpulse:force point:[enemySprite worldCenter]];
-//    [bombSprite applyLinearImpulse:force point:[bombSprite worldCenter]];
-
+    [randomObject applyLinearImpulse:force point:[randomObject worldCenter]];
 }
 
 // Scheduled and called regularly to start a wave of enemies
@@ -133,8 +135,8 @@
     
     waveNum++;
     enemyLaunchForce = enemyLaunchForce + (waveNum * 10);
-    [self unschedule:@selector(spawnEnemyAtRadomLocation)];
-    [self schedule:@selector(spawnEnemyAtRadomLocation) interval:1.0f repeat:waveNum delay:0];
+    [self unschedule:@selector(spawnObjectAtRadomLocation)];
+    [self schedule:@selector(spawnObjectAtRadomLocation) interval:1.0f repeat:waveNum delay:0];
 }
 
 // Returns a random CGPoint on the perimeter of the screen
