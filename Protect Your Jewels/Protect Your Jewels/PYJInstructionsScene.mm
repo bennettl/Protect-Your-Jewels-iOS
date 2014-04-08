@@ -25,33 +25,57 @@
 		PYJBGLayer *background = [PYJThemeManager sharedManager].background;
         
 		[self addChild: background z:-1];
-		
-        // Create back menu
-		[CCMenuItemFont setFontSize:17];
+        
+        // Menu items
+		[CCMenuItemFont setFontSize:23];
         [CCMenuItemFont setFontName:FONT_NAME];
 		
-		CCMenuItem *itemBack = [CCMenuItemFont itemWithString:@"Back" block:^(id sender) {
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJMainMenuLayer node]]];
-		}];
-        itemBack.color = ccBLACK;
-        CCMenu *backMenu = [CCMenu menuWithItems:itemBack, nil];
-        [backMenu alignItemsVerticallyWithPadding:10];
-        [backMenu setPosition:ccp(30, size.height-30)];
-
-		// Add menus to the layer
-		[self addChild:backMenu];
+        CCMenuItem *itemMainMenu = [CCMenuItemFont itemWithString:@"Main Menu" block:^(id sender){
+                                        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJMainMenuLayer node]]];}];
         
-        CCLabelTTF *instructions = [CCLabelTTF labelWithString:@"Instructions: \n\n You have discovered the most potent jewel in the universe.\n Ninjas, monkeys, and gladiators want it. \n Do not let them touch your jewel! \n Swipe or throw them away to boost your score. \n You may use multi-touch for up to 2 touches. \n Good luck and Protect Your Jewels!" fontName:FONT_NAME fontSize:17];
-        instructions.color = ccBLACK;
-        [instructions setPosition:ccp(size.width / 2, size.height/2)];
-        [self addChild:instructions];
+        CCMenuItem *itemNext = [CCMenuItemFont itemWithString:@"Next" target:nil selector:@selector(nextScreen)];
+        
+        CCMenuItem *itemPrevious = [CCMenuItemFont itemWithString:@"Previous" target:nil selector:@selector(previousScreen)];
+        
+        
+        CCMenu *mainMenu = [CCMenu menuWithItems:itemMainMenu, nil];
+        CCMenu *previousMenu = [CCMenu menuWithItems:itemPrevious, nil];
+        CCMenu *nextMenu = [CCMenu menuWithItems:itemNext, nil];
+        mainMenu.color = ccBLACK;
+        previousMenu.color = ccBLACK;
+        nextMenu.color = ccBLACK;
+        
+        [mainMenu alignItemsVerticallyWithPadding:10];
+        [previousMenu alignItemsVerticallyWithPadding:10];
+        [nextMenu alignItemsVerticallyWithPadding:10];
+        [mainMenu setPosition:ccp(60, size.height-30)];
+        [previousMenu setPosition:ccp(50, 30)];
+        [nextMenu setPosition:ccp(size.width-30, 30)];
+        
+        // Add main menu to the layer
+        [self addChild:mainMenu];
+        [self addChild:previousMenu];
+        [self addChild:nextMenu];
+        
     }
-	return self;
+    return self;
+}
+
+-(void) nextScreen{
+    // check enum
+    // change enum
+    // change screen settings
+}
+
+-(void) previousScreen{
+    // check enum
+    // change enum
+    // change screen settings
 }
 
 - (void) dealloc
 {
-	[super dealloc];
+    [super dealloc];
 }
 
 @end
