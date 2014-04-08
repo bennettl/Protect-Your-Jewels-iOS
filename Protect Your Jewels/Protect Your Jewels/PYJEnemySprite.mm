@@ -107,7 +107,7 @@
     [super updateCCFromPhysics];
     
     // Update image filename
-    NSString *frameName;
+    NSString *frameName = nil;
     
     // Change frame name base on enemy state
     if (self.state == kAttack){

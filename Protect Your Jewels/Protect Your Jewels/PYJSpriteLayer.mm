@@ -15,6 +15,7 @@
 #import "PYJThemeManager.h"
 #import "PYJTouchCircle.h"
 #import "PYJBoxNode.h"
+#import "PYJBombSprite.h"
 
 //#define MAX_TOUCHES 1
 
@@ -88,7 +89,6 @@
 - (void)initDebug{
     GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
     [self addChild:debugLayer z:30];
-    NSLog(@"what");
 }
 
 // Initializes enemy at location
@@ -97,12 +97,17 @@
     CGPoint location = [self randomDirection];
 
     PYJEnemySprite *enemySprite = [[PYJThemeManager sharedManager] enemySprite];
-    
+
     [enemySprite setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:enemySprite.ccNode z:10];
     [self.enemies addObject:enemySprite];
 
-    [enemySprite playLaunchAudio]; // play enemy launch sound
+   // PYJBombSprite *bombSprite = [[PYJBombSprite alloc] initWithSpriteLayer:self];
+    
+//    [bombSprite setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
+//    [self addChild:bombSprite.ccNode z:10];
+
+    //[enemySprite playLaunchAudio]; // play enemy launch sound
     
     // Launch enemy towards center
     // Get center vector
@@ -115,6 +120,7 @@
                           (pointC.y/PTM_RATIO) * enemyLaunchForce);
     
     [enemySprite applyLinearImpulse:force point:[enemySprite worldCenter]];
+//    [bombSprite applyLinearImpulse:force point:[bombSprite worldCenter]];
 
 }
 

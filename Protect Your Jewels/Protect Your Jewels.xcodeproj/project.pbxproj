@@ -217,11 +217,6 @@
 		4D8AE0B218B97A26001689EC /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE0A918B97A26001689EC /* GLES-Render.mm */; };
 		4D8AE0B418B97A31001689EC /* game_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0B318B97A31001689EC /* game_background.png */; };
 		4D8AE0C018B9A7CF001689EC /* AngryBirds-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0BF18B9A7CF001689EC /* AngryBirds-Regular.ttf */; };
-		4D8AE0E018B9CBE0001689EC /* Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DB18B9CBE0001689EC /* Shapes.plist */; };
-		4D8AE0E118B9CBE0001689EC /* Sprites-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DC18B9CBE0001689EC /* Sprites-hd.plist */; };
-		4D8AE0E218B9CBE0001689EC /* Sprites-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DD18B9CBE0001689EC /* Sprites-hd.pvr.ccz */; };
-		4D8AE0E318B9CBE0001689EC /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DE18B9CBE0001689EC /* Sprites.plist */; };
-		4D8AE0E418B9CBE0001689EC /* Sprites.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0DF18B9CBE0001689EC /* Sprites.pvr.ccz */; };
 		4D8AE0E918BA018D001689EC /* menu_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0E818BA018D001689EC /* menu_logo.png */; };
 		4D8AE0FD18BAAB8E001689EC /* ninja_ahh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0F918BAAB8E001689EC /* ninja_ahh.caf */; };
 		4D8AE10018BAAB8E001689EC /* ninja_launch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0FC18BAAB8E001689EC /* ninja_launch.caf */; };
@@ -236,6 +231,12 @@
 		4D8AE12018BC976A001689EC /* drumroll-begin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE11B18BC976A001689EC /* drumroll-begin.wav */; };
 		4D8AE12318BC9AF2001689EC /* drumroll-end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE12218BC9AF2001689EC /* drumroll-end.wav */; };
 		4D8AE12618BC9CA1001689EC /* PYJHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.m */; };
+		4DDE10CE18F3F0B600A0A82E /* PYJBombSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DDE10CD18F3F0B600A0A82E /* PYJBombSprite.mm */; };
+		4DDE10D318F3F3ED00A0A82E /* Sprites-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE10CF18F3F3ED00A0A82E /* Sprites-hd.plist */; };
+		4DDE10D418F3F3ED00A0A82E /* Sprites-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE10D018F3F3ED00A0A82E /* Sprites-hd.pvr.ccz */; };
+		4DDE10D518F3F3ED00A0A82E /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE10D118F3F3ED00A0A82E /* Sprites.plist */; };
+		4DDE10D618F3F3ED00A0A82E /* Sprites.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE10D218F3F3ED00A0A82E /* Sprites.pvr.ccz */; };
+		4DDE10D818F3F42B00A0A82E /* Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE10D718F3F42B00A0A82E /* Shapes.plist */; };
 		943737D018CC097E00276CC5 /* PYJThemeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737CF18CC097E00276CC5 /* PYJThemeManager.mm */; };
 		943737D618CD277100276CC5 /* PYJPauseLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737D518CD277100276CC5 /* PYJPauseLayer.mm */; };
 		94CE827318B9971F00FCA354 /* PYJLeaderboardScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* PYJLeaderboardScene.mm */; };
@@ -672,11 +673,6 @@
 		4D8AE0AA18B97A26001689EC /* GMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMath.h; sourceTree = "<group>"; };
 		4D8AE0B318B97A31001689EC /* game_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_background.png; sourceTree = "<group>"; };
 		4D8AE0BF18B9A7CF001689EC /* AngryBirds-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AngryBirds-Regular.ttf"; sourceTree = "<group>"; };
-		4D8AE0DB18B9CBE0001689EC /* Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Shapes.plist; sourceTree = "<group>"; };
-		4D8AE0DC18B9CBE0001689EC /* Sprites-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sprites-hd.plist"; sourceTree = "<group>"; };
-		4D8AE0DD18B9CBE0001689EC /* Sprites-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sprites-hd.pvr.ccz"; sourceTree = "<group>"; };
-		4D8AE0DE18B9CBE0001689EC /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sprites.plist; sourceTree = "<group>"; };
-		4D8AE0DF18B9CBE0001689EC /* Sprites.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sprites.pvr.ccz; sourceTree = "<group>"; };
 		4D8AE0E818BA018D001689EC /* menu_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_logo.png; sourceTree = "<group>"; };
 		4D8AE0F918BAAB8E001689EC /* ninja_ahh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ninja_ahh.caf; sourceTree = "<group>"; };
 		4D8AE0FC18BAAB8E001689EC /* ninja_launch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ninja_launch.caf; sourceTree = "<group>"; };
@@ -692,6 +688,13 @@
 		4D8AE12218BC9AF2001689EC /* drumroll-end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "drumroll-end.wav"; sourceTree = "<group>"; };
 		4D8AE12418BC9CA1001689EC /* PYJHighScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJHighScoreManager.h; sourceTree = "<group>"; };
 		4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJHighScoreManager.m; sourceTree = "<group>"; };
+		4DDE10CC18F3F0B600A0A82E /* PYJBombSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJBombSprite.h; sourceTree = "<group>"; };
+		4DDE10CD18F3F0B600A0A82E /* PYJBombSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJBombSprite.mm; sourceTree = "<group>"; };
+		4DDE10CF18F3F3ED00A0A82E /* Sprites-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sprites-hd.plist"; sourceTree = "<group>"; };
+		4DDE10D018F3F3ED00A0A82E /* Sprites-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sprites-hd.pvr.ccz"; sourceTree = "<group>"; };
+		4DDE10D118F3F3ED00A0A82E /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sprites.plist; sourceTree = "<group>"; };
+		4DDE10D218F3F3ED00A0A82E /* Sprites.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sprites.pvr.ccz; sourceTree = "<group>"; };
+		4DDE10D718F3F42B00A0A82E /* Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Shapes.plist; sourceTree = "<group>"; };
 		943737CE18CC097E00276CC5 /* PYJThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJThemeManager.h; sourceTree = "<group>"; };
 		943737CF18CC097E00276CC5 /* PYJThemeManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJThemeManager.mm; sourceTree = "<group>"; };
 		943737D418CD277100276CC5 /* PYJPauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJPauseLayer.h; sourceTree = "<group>"; };
@@ -1353,6 +1356,8 @@
 				4D8AE08518B979A0001689EC /* PYJEnemySprite.mm */,
 				4D8AE08618B979A0001689EC /* PYJJewelSprite.h */,
 				4D8AE08718B979A0001689EC /* PYJJewelSprite.mm */,
+				4DDE10CC18F3F0B600A0A82E /* PYJBombSprite.h */,
+				4DDE10CD18F3F0B600A0A82E /* PYJBombSprite.mm */,
 				469C056818BA952E00A56049 /* PYJCloud.h */,
 				469C056918BA952E00A56049 /* PYJCloud.m */,
 			);
@@ -1411,6 +1416,7 @@
 		4D8AE0D218B9C951001689EC /* Images and Shapes */ = {
 			isa = PBXGroup;
 			children = (
+				4DDE10D718F3F42B00A0A82E /* Shapes.plist */,
 				46FF967218CB0264009C6018 /* Jungle_Clouds_back_full.png */,
 				46FF968718CC4C62009C6018 /* Jungle_Clouds_front_full.png */,
 				46FF967418CB0264009C6018 /* Jungle_FG_iPhone5.png */,
@@ -1422,11 +1428,10 @@
 				4699453718CD018F001225F0 /* Temple_FG_iPhone5.png */,
 				46EB10CE18F2543A00BBCEBF /* share_facebook.png */,
 				46EB10CF18F2543A00BBCEBF /* share_twitter.png */,
-				4D8AE0DB18B9CBE0001689EC /* Shapes.plist */,
-				4D8AE0DC18B9CBE0001689EC /* Sprites-hd.plist */,
-				4D8AE0DD18B9CBE0001689EC /* Sprites-hd.pvr.ccz */,
-				4D8AE0DE18B9CBE0001689EC /* Sprites.plist */,
-				4D8AE0DF18B9CBE0001689EC /* Sprites.pvr.ccz */,
+				4DDE10CF18F3F3ED00A0A82E /* Sprites-hd.plist */,
+				4DDE10D018F3F3ED00A0A82E /* Sprites-hd.pvr.ccz */,
+				4DDE10D118F3F3ED00A0A82E /* Sprites.plist */,
+				4DDE10D218F3F3ED00A0A82E /* Sprites.pvr.ccz */,
 			);
 			name = "Images and Shapes";
 			sourceTree = "<group>";
@@ -1568,10 +1573,12 @@
 				4D8AE10D18BAAFEE001689EC /* mountain-wind.wav in Resources */,
 				4D8ADFB618B974A6001689EC /* ChangeLog in Resources */,
 				4D8AE0FD18BAAB8E001689EC /* ninja_ahh.caf in Resources */,
+				4DDE10D818F3F42B00A0A82E /* Shapes.plist in Resources */,
 				4D8ADE4A18B974A2001689EC /* Default@2x.png in Resources */,
-				4D8AE0E418B9CBE0001689EC /* Sprites.pvr.ccz in Resources */,
 				4D8AE11D18BC976A001689EC /* applause-loud.wav in Resources */,
+				4DDE10D618F3F3ED00A0A82E /* Sprites.pvr.ccz in Resources */,
 				4D8AE10F18BAB07F001689EC /* ninja-hiya.caf in Resources */,
+				4DDE10D518F3F3ED00A0A82E /* Sprites.plist in Resources */,
 				46FF967818CB0264009C6018 /* Jungle_Clouds_back_full.png in Resources */,
 				4699453A18CD018F001225F0 /* Temple_FG_iPhone5.png in Resources */,
 				4D8ADE5418B974A3001689EC /* Icon-Small.png in Resources */,
@@ -1583,10 +1590,11 @@
 				4D8AE0C018B9A7CF001689EC /* AngryBirds-Regular.ttf in Resources */,
 				4D8ADE5218B974A3001689EC /* Icon-Small-50.png in Resources */,
 				46FF967A18CB0264009C6018 /* Jungle_FG_iPhone5.png in Resources */,
+				4DDE10D418F3F3ED00A0A82E /* Sprites-hd.pvr.ccz in Resources */,
 				4D8AE12018BC976A001689EC /* drumroll-begin.wav in Resources */,
+				4DDE10D318F3F3ED00A0A82E /* Sprites-hd.plist in Resources */,
 				46FF968818CC4C62009C6018 /* Jungle_Clouds_front_full.png in Resources */,
 				4D8ADE5D18B974A3001689EC /* iTunesArtwork in Resources */,
-				4D8AE0E218B9CBE0001689EC /* Sprites-hd.pvr.ccz in Resources */,
 				4D8AE11518BB3969001689EC /* flute_intro.wav in Resources */,
 				4699453918CD018F001225F0 /* Temple_Clouds_front_full.png in Resources */,
 				4D8ADE5618B974A3001689EC /* Icon-Small@2x.png in Resources */,
@@ -1598,11 +1606,8 @@
 				4D8ADE4C18B974A2001689EC /* Default-568h@2x.png in Resources */,
 				4D8AE10918BAACD5001689EC /* punch.caf in Resources */,
 				4D8ADE5A18B974A3001689EC /* Icon@2x.png in Resources */,
-				4D8AE0E118B9CBE0001689EC /* Sprites-hd.plist in Resources */,
 				4D8AE11F18BC976A001689EC /* applause-laugh.wav in Resources */,
 				4699453818CD018F001225F0 /* Temple_Clouds_back_full.png in Resources */,
-				4D8AE0E318B9CBE0001689EC /* Sprites.plist in Resources */,
-				4D8AE0E018B9CBE0001689EC /* Shapes.plist in Resources */,
 				4D8AE0B418B97A31001689EC /* game_background.png in Resources */,
 				4D8AE11E18BC976A001689EC /* applause-medium.wav in Resources */,
 			);
@@ -1691,6 +1696,7 @@
 				4D8ADEB418B974A4001689EC /* CCGrabber.m in Sources */,
 				4D8ADFBE18B974A6001689EC /* mat3.c in Sources */,
 				4D8AE00318B974A6001689EC /* b2Math.cpp in Sources */,
+				4DDE10CE18F3F0B600A0A82E /* PYJBombSprite.mm in Sources */,
 				4D8ADF4818B974A5001689EC /* CCES2Renderer.m in Sources */,
 				4D8ADEBA18B974A4001689EC /* CCLabelAtlas.m in Sources */,
 				4D8ADED618B974A4001689EC /* CCParallaxNode.m in Sources */,
@@ -1868,9 +1874,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"Protect Your Jewels/FacebookSDK\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "\"Protect Your Jewels/FacebookSDK\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Protect Your Jewels/Prefix.pch";
@@ -1897,9 +1901,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"Protect Your Jewels/FacebookSDK\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "\"Protect Your Jewels/FacebookSDK\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Protect Your Jewels/Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
