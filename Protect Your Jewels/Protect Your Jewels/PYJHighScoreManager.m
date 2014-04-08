@@ -9,11 +9,14 @@
 #import "PYJHighScoreManager.h"
 
 #define HIGH_SCORES_KEY @"userHighScores"
+#define IN_GAME_CURRENCY_KEY @"userCurrency"
 
 @interface PYJHighScoreManager(){
     NSMutableArray *_highScores;
     int _highestScore;
+    NSInteger _userCurrency;
 }
+
 @end
 
 @implementation PYJHighScoreManager
@@ -33,6 +36,9 @@
         NSUserDefaults *defaults    = [NSUserDefaults standardUserDefaults];
         _highScores                 = [[defaults objectForKey:HIGH_SCORES_KEY] mutableCopy];
         _highestScore               = 0;
+        _userCurrency               = 0;
+        
+        [defaults setInteger:_userCurrency forKey:IN_GAME_CURRENCY_KEY];
 
         // If highscores array exist, calculate highest score
         if (_highScores){
@@ -59,6 +65,22 @@
 - (int)highestScore{
     return _highestScore;
 }
+
+- (NSInteger)userCurrency {
+    return _userCurrency;
+    NSLog(@"--------------------------2");
+}
+
+- (void)updateInGameCurrency:(int)score {
+    NSUserDefaults *defaults    = [NSUserDefaults standardUserDefaults];
+    NSInteger userCurrency      = [defaults integerForKey:IN_GAME_CURRENCY_KEY];
+    userCurrency += score;
+    _userCurrency = userCurrency;
+    [defaults setInteger:userCurrency forKey:IN_GAME_CURRENCY_KEY];
+    [defaults synchronize];
+    NSLog(@"---------------------------1");
+}
+
 
 // Update high scores list with score
 - (void)updateHighScoreWithScore:(int)score{

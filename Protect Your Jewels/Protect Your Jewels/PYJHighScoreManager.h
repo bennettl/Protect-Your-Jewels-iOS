@@ -21,5 +21,10 @@
 - (NSArray *)highScores;
 // Get the local highest score
 - (int)highestScore;
+// Update In Game Currency
+- (void)updateInGameCurrency:(int)score;
+// Get in game currency
+- (NSInteger)userCurrency;
+
 
 @end
