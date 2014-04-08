@@ -17,13 +17,12 @@
         
         spriteLayer = sl;  // Store the sprite layer
         
-        // Set jewel to collide with everything but the player control
         for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
-            b2Filter jf         = f->GetFilterData();
-            jf.categoryBits     = 0x0004;
-            jf.maskBits         = 0xFFFF ^ 0x0008;
-            jf.groupIndex       = -1;
-            f->SetFilterData(jf);
+            b2Filter ef = f->GetFilterData();
+            ef.categoryBits  = 0x0008;
+            ef.maskBits      = 0x0004;
+            ef.groupIndex    = 2;
+            f->SetFilterData(ef);
         }
     }
     return self;
