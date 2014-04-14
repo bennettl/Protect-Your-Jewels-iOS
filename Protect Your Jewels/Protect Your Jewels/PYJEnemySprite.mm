@@ -107,7 +107,7 @@
     [super updateCCFromPhysics];
     
     // Update image filename
-    NSString *frameName;
+    NSString *frameName = nil;
     
     // Change frame name base on enemy state
     if (self.state == kAttack){
@@ -149,7 +149,7 @@
 // Set collisions with the jewel
 - (void)canCollideWithJewel:(BOOL)jewelCollision{
     if(jewelCollision){
-        // Set enemy to collide with everything
+        
         for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
             b2Filter ef = f->GetFilterData();
             ef.categoryBits = 0x0001;
@@ -159,7 +159,7 @@
         }
     }
     else{
-        // Set enemy to collide with everything
+        
         for (b2Fixture *f = self.body->GetFixtureList(); f; f = f->GetNext()){
             b2Filter ef = f->GetFilterData();
             ef.categoryBits  = 0x0008;

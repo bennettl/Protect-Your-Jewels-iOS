@@ -183,7 +183,7 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../images</filename>
+            <filename>../sprites</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

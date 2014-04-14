@@ -16,7 +16,6 @@ typedef enum {
 } EnemyState;
 
 
-
 @interface PYJEnemySprite : GB2Sprite {
     NSString *m_Theme;
 }
@@ -32,7 +31,7 @@ typedef enum {
 
 - (BOOL)intersectsWithPoint:(CGPoint)ccLocation;
 - (void)updateTouch:(UITouch *)touch;
--(id)initWithTheme:(NSString *)theme;
+- (id)initWithTheme:(NSString *)theme;
 
 // Use for multi-touch tracking
 - (BOOL)hasTouch:(UITouch *)touch;
