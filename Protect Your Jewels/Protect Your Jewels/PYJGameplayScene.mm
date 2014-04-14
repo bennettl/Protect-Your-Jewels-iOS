@@ -144,7 +144,7 @@
 
 - (void)dealloc{
     // Make sure to clean up all box2D objects when GameScene is deallocated
-//    [[GB2Engine sharedInstance] deleteAllObjects];
+    [[GB2Engine sharedInstance] deleteAllObjects];
     [super dealloc];
 }
 
