@@ -19,5 +19,6 @@
 - (void)startGameOver;
 - (void)pauseGame;
 - (void)resumeGame;
+- (void)restartGame;
 
 @end

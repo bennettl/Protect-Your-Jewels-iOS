@@ -116,6 +116,17 @@
     [[GB2Engine sharedInstance] pauseWorld];
 }
 
+- (void)restartGame {
+    self.pauseLayer.visible = NO;
+    [[CCDirector sharedDirector] stopAnimation];
+    [[CCDirector sharedDirector] resume];
+    [[CCDirector sharedDirector] startAnimation];
+    [[GB2Engine sharedInstance] resumeWorld];
+    PYJGameplayScene *scene = [PYJGameplayScene node];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:scene]];
+}
+
+
 - (void)resumeGame {
     self.pauseLayer.visible = NO;
     [[CCDirector sharedDirector] stopAnimation];
@@ -133,7 +144,7 @@
 
 - (void)dealloc{
     // Make sure to clean up all box2D objects when GameScene is deallocated
-    [[GB2Engine sharedInstance] deleteAllObjects];
+//    [[GB2Engine sharedInstance] deleteAllObjects];
     [super dealloc];
 }
 

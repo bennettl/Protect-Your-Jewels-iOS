@@ -11,6 +11,7 @@
 #import "PYJThemeManager.h"
 #import "PYJBGLayer.h"
 #import "cocos2d.h"
+#import "PYJGameplayScene.h"
 
 @implementation PYJPauseLayer
 
@@ -33,14 +34,20 @@
                 [self.parent performSelector:@selector(resumeGame)];
             }
 		}];
+        CCMenuItem *itemRestart = [CCMenuItemFont itemWithString:@"Restart Game" block:^(id sender) {
+            if([self.parent respondsToSelector:@selector(restartGame)]) {
+                [self.parent performSelector:@selector(restartGame)];
+            }
+		}];
         CCMenuItem *itemExit = [CCMenuItemFont itemWithString:@"Exit to Main Menu" block:^(id sender) {
             if([self.parent respondsToSelector:@selector(startExit)]) {
                 [self.parent performSelector:@selector(startExit)];
             }
 		}];
+        
         itemResume.color = ccWHITE;
         itemExit.color = ccWHITE;
-        CCMenu *menu = [CCMenu menuWithItems:itemResume, itemExit, nil];
+        CCMenu *menu = [CCMenu menuWithItems:itemResume, itemRestart, itemExit, nil];
         [menu alignItemsVerticallyWithPadding:10];
         [menu setPosition:ccp(size.width/2, size.height/2)];
 		
