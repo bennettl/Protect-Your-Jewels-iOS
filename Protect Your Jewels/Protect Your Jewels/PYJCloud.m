@@ -41,7 +41,7 @@
 -(id) initBackCloud:(int)xPos withTheme:(NSString *)theme
 {
     NSString *filename = [NSString stringWithFormat:@"%@_Clouds_back_full.png", theme];
-    if (self = [super initWithFile:filename]);
+    if (self = [super initWithFile:filename])
     {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
 
