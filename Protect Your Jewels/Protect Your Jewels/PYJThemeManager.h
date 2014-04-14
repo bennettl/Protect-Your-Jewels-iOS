@@ -12,8 +12,11 @@
 
 // List of themes
 typedef enum Theme{
+    MOUNTAIN_LOCKED,
     MOUNTAIN,
+    JUNGLE_LOCKED,
     JUNGLE,
+    GLADIATOR_LOCKED,
     GLADIATOR
 } Theme;
 
@@ -22,10 +25,15 @@ typedef enum Theme{
 @interface PYJThemeManager : NSObject
 
 @property (nonatomic) Theme theme;
+@property (nonatomic) BOOL isGladiatorThemeUnlocked;
+@property (nonatomic) BOOL isJungleThemeUnlocked;
+
 
 // Singleton
 + (instancetype)sharedManager;
 - (PYJBGLayer *)background;
 - (PYJEnemySprite *)enemySprite;
+- (void)unlockGladiatorTheme;
+- (void)unlockJungleTheme;
 
 @end

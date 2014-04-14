@@ -8,7 +8,7 @@
 
 #import "CCScene.h"
 
-@interface PYJThemeScene : CCScene
+@interface PYJThemeScene : CCScene <UIAlertViewDelegate>
 
 - (void)setThemeJungle:(id)sender;
 - (void)setThemeMountain:(id)sender;

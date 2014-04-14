@@ -316,6 +316,32 @@
                 <key>sourceSize</key>
                 <string>{59,87}</string>
             </dict>
+            <key>gladiator/shield.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{3783,2},{402,402}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{402,402}}</string>
+                <key>sourceSize</key>
+                <string>{402,402}</string>
+            </dict>
+            <key>gladiator/sword.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{4187,2},{131,487}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{131,487}}</string>
+                <key>sourceSize</key>
+                <string>{131,487}</string>
+            </dict>
             <key>jewel.png</key>
             <dict>
                 <key>frame</key>
@@ -467,9 +493,9 @@
             <key>realTextureFileName</key>
             <string>Sprites.pvr.ccz</string>
             <key>size</key>
-            <string>{3783,511}</string>
+            <string>{4320,511}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:4d869fc2bee334a8c6b536baccb344cf:7d83ea77839f33e099372ed91245aa0d:8e9ec22a2c0ec922c15f2d7e51a327b3$</string>
+            <string>$TexturePacker:SmartUpdate:110c3393d786b1a6b63f7cf31b9aff59:4197752a4707e028703941664e49c9ee:8e9ec22a2c0ec922c15f2d7e51a327b3$</string>
             <key>textureFileName</key>
             <string>Sprites.pvr.ccz</string>
         </dict>

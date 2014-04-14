@@ -7,6 +7,10 @@
 //
 
 #import "PYJThemeManager.h"
+#import "PYJHighScoreManager.h"
+
+#define JUNGLE_UNLOCKED_KEY @"jungleUnlockedKey"
+#define GLADIATOR_UNLOCKED_KEY @"jungleUnlockedKey"
 
 @implementation PYJThemeManager
 
@@ -22,9 +26,35 @@
 - (id)init {
     // Default theme is MOUNTAIN
     if (self = [super init]) {
-        self.theme = MOUNTAIN;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        _theme = MOUNTAIN;
+        if(![defaults objectForKey:JUNGLE_UNLOCKED_KEY]) {
+            _isJungleThemeUnlocked = NO;
+        } else {
+            _isJungleThemeUnlocked = [defaults boolForKey:JUNGLE_UNLOCKED_KEY];
+        }
+        if(![defaults objectForKey:GLADIATOR_UNLOCKED_KEY]) {
+            _isGladiatorThemeUnlocked = NO;
+        } else {
+            _isGladiatorThemeUnlocked = [defaults boolForKey:GLADIATOR_UNLOCKED_KEY];
+        }
     }
     return self;
+}
+#pragma message "remove the price and set as data member"
+- (void)unlockGladiatorTheme {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.isGladiatorThemeUnlocked = YES;
+    [[PYJHighScoreManager sharedManager] updateInGameCurrency:-10];
+    [defaults setBool:self.isGladiatorThemeUnlocked forKey:GLADIATOR_UNLOCKED_KEY];
+    
+}
+
+- (void)unlockJungleTheme {
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.isJungleThemeUnlocked = YES;
+    [[PYJHighScoreManager sharedManager] updateInGameCurrency:-10];
+    [defaults setBool:self.isJungleThemeUnlocked forKey:JUNGLE_UNLOCKED_KEY];
 }
 
 // Sets the theme (enum)

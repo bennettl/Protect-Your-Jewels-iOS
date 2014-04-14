@@ -36,10 +36,13 @@
         NSUserDefaults *defaults    = [NSUserDefaults standardUserDefaults];
         _highScores                 = [[defaults objectForKey:HIGH_SCORES_KEY] mutableCopy];
         _highestScore               = 0;
-        _userCurrency               = 0;
         
-        [defaults setInteger:_userCurrency forKey:IN_GAME_CURRENCY_KEY];
-
+        if ([defaults objectForKey:IN_GAME_CURRENCY_KEY]) {
+            _userCurrency = [defaults integerForKey:IN_GAME_CURRENCY_KEY];
+        } else {
+            _userCurrency = 0;
+        }
+        
         // If highscores array exist, calculate highest score
         if (_highScores){
             for (int i = 0; i < _highScores.count; i++) {
@@ -68,7 +71,6 @@
 
 - (NSInteger)userCurrency {
     return _userCurrency;
-    NSLog(@"--------------------------2");
 }
 
 - (void)updateInGameCurrency:(int)score {
@@ -78,7 +80,6 @@
     _userCurrency = userCurrency;
     [defaults setInteger:userCurrency forKey:IN_GAME_CURRENCY_KEY];
     [defaults synchronize];
-    NSLog(@"---------------------------1");
 }
 
 
