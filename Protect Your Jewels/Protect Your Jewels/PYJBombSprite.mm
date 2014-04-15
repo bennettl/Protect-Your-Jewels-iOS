@@ -28,6 +28,12 @@
     return self;
 }
 
+// Bomb collides with box
+- (void)beginContactWithPYJBoxNode:(GB2Contact *)contact{
+    // Mark it for deletion
+    self.deleteLater    = true;
+}
+
 // When the PYJTouchCircle collides with enemy, play the punch audio
 -(void)beginContactWithPYJTouchCircle:(GB2Contact *)contact{
     PYJGameplayScene *gpScene = ((PYJGameplayScene *)self.ccNode.parent.parent);

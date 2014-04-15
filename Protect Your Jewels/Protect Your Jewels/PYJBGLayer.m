@@ -32,7 +32,7 @@
         m_BackCloudArray = [[NSMutableArray alloc] init];
         
         // Add initial front clouds
-        PYJCloud *new_Cloud = [[[PYJCloud alloc] initFrontCloud:(3*winSize.width/2) withTheme:m_Theme] autorelease];
+        PYJCloud *new_Cloud = [[PYJCloud alloc] initFrontCloud:(3*winSize.width/2) withTheme:m_Theme];
         [m_FrontCloudArray addObject:new_Cloud];
         [self addChild:new_Cloud z:1];
         
