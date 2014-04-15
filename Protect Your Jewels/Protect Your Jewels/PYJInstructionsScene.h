@@ -7,7 +7,15 @@
 //
 
 #import "CCScene.h"
+#import "cocos2d.h"
+#import "Box2D.h"
 
 @interface PYJInstructionsScene : CCScene
 
+- (void)decrementLives;
+- (void)incrementScoreByValue:(int)value;
+
+
+@property int lives;
+@property int score;
 @end

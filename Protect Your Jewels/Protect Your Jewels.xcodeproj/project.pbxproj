@@ -237,6 +237,7 @@
 		94EE144718FC9629002D9501 /* Sprites-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 94EE144218FC9629002D9501 /* Sprites-hd.pvr.ccz */; };
 		94EE144818FC9629002D9501 /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94EE144318FC9629002D9501 /* Sprites.plist */; };
 		94EE144918FC9629002D9501 /* Sprites.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 94EE144418FC9629002D9501 /* Sprites.pvr.ccz */; };
+		D37CF08918FCB0E200ACDD62 /* PYJTutorialLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D37CF08818FCB0E200ACDD62 /* PYJTutorialLayer.mm */; };
 		D3B7789318CE57180046C176 /* PYJInstructionsScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */; };
 		D3B7789618DDAF430046C176 /* PYJAchievementsScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3B7789518DDAF430046C176 /* PYJAchievementsScene.mm */; };
 /* End PBXBuildFile section */
@@ -695,6 +696,8 @@
 		94EE144218FC9629002D9501 /* Sprites-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sprites-hd.pvr.ccz"; sourceTree = "<group>"; };
 		94EE144318FC9629002D9501 /* Sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sprites.plist; sourceTree = "<group>"; };
 		94EE144418FC9629002D9501 /* Sprites.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sprites.pvr.ccz; sourceTree = "<group>"; };
+		D37CF08718FCB0E200ACDD62 /* PYJTutorialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJTutorialLayer.h; sourceTree = "<group>"; };
+		D37CF08818FCB0E200ACDD62 /* PYJTutorialLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJTutorialLayer.mm; sourceTree = "<group>"; };
 		D3B7789118CE57180046C176 /* PYJInstructionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJInstructionsScene.h; sourceTree = "<group>"; };
 		D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJInstructionsScene.mm; sourceTree = "<group>"; };
 		D3B7789418DDAF430046C176 /* PYJAchievementsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJAchievementsScene.h; sourceTree = "<group>"; };
@@ -1492,6 +1495,8 @@
 				46BF4E3218EA63D900BF0025 /* PYJFacebookManager.m */,
 				D3B7789118CE57180046C176 /* PYJInstructionsScene.h */,
 				D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */,
+				D37CF08718FCB0E200ACDD62 /* PYJTutorialLayer.h */,
+				D37CF08818FCB0E200ACDD62 /* PYJTutorialLayer.mm */,
 				D3B7789418DDAF430046C176 /* PYJAchievementsScene.h */,
 				D3B7789518DDAF430046C176 /* PYJAchievementsScene.mm */,
 			);
@@ -1651,6 +1656,7 @@
 				4D8AE0AF18B97A26001689EC /* GB2ShapeCache.mm in Sources */,
 				4D8AE0AB18B97A26001689EC /* GB2Contact.mm in Sources */,
 				4D8ADFCA18B974A6001689EC /* utility.c in Sources */,
+				D37CF08918FCB0E200ACDD62 /* PYJTutorialLayer.mm in Sources */,
 				4D8ADF7618B974A5001689EC /* CCVertex.m in Sources */,
 				4D8ADF7C18B974A5001689EC /* NSThread+performBlock.m in Sources */,
 				4D8AE05818B974A7001689EC /* b2RopeJoint.cpp in Sources */,
