@@ -14,6 +14,7 @@
 #import "PYJBoxNode.h"
 #import "PYJJewelSprite.h"
 #import "PYJTouchCircle.h"
+#import "PYJBombSprite.h"
 
 
 @interface PYJTutorialLayer(){
@@ -24,13 +25,12 @@
     GB2Node *boxNode;
     int waveNum;
     int currentTouches;
-    PYJJewelSprite *j;
-    
 }
 
 @property NSMutableArray *enemies;
 @property NSMutableArray *touchCircles;
-
+@property PYJJewelSprite *j;
+@property PYJBombSprite *b;
 
 @end
 
@@ -77,7 +77,7 @@
         
         // Add main menu to the layer
         [self addChild:mainMenu];
-        [self addChild:previousMenu];
+        //[self addChild:previousMenu];
         [self addChild:nextMenu];
         
         // Load sprite atlases
@@ -118,19 +118,24 @@
     if(self.screen == jewel){
         self.screen = swipe;
         // prepare swipe screen
+        [self.j removeJewel];
+        [self removeChild:self.j.ccNode];
+        [self removeEnemies];
         instructions.string = [NSString stringWithFormat:@"Enemies will attack from both sides. \n Try swiping an enemy away now."];
-        j.visible = NO;
         [self spawnEnemy];
     }
     else if(self.screen == swipe){
         self.screen = grab;
+        [self removeEnemies];
         instructions.string = @"Try grabbing and throwing an enemy now.";
         [self spawnEnemy];
 
     }
     else if(self.screen == grab){
         self.screen = bomb;
+        [self removeEnemies];
         instructions.string = @"Do not touch a bomb or you will lose a life.";
+        [self spawnBomb];
 
     }
     else if(self.screen == bomb){
@@ -145,18 +150,21 @@
     }
     else if(self.screen == swipe){
         self.screen = jewel;
+        [self removeEnemies];
         instructions.string = @"This is your jewel. \n Don't let enemies grab your jewel.";
-        j.visible = YES;
+        [self initJewel];
 
     }
     else if(self.screen == grab){
         self.screen = swipe;
+        [self removeEnemies];
         instructions.string = @"Enemies will attack from both sides. \n Try swiping an enemy away now.";
         [self spawnEnemy];
 
     }
     else if(self.screen == bomb){
         self.screen = grab;
+        [self removeChild:self.b.ccNode];
         instructions.string = @"Try grabbing and throwing an enemy now.";
         [self spawnEnemy];
 
@@ -166,33 +174,45 @@
 // Creates jewel
 -(void)initJewel{
     CGSize s = [[CCDirector sharedDirector] winSize];
-    j = [PYJJewelSprite jewelSprite];
-    [j setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
-    [objectLayer addChild:j.ccNode z:10];
+    self.j = [PYJJewelSprite jewelSprite];
+    [self.j setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
+    [objectLayer addChild:self.j.ccNode z:10];
 }
 
--(void)initEnemy{
-    CGSize s = [[CCDirector sharedDirector] winSize];
-    j = [PYJJewelSprite jewelSprite];
-    [j setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
-    [objectLayer addChild:j.ccNode z:10];
-}
-
-
+// Creates enemy
 - (void)spawnEnemy{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    CGPoint location;
+    if(self.screen == grab){
+        location = CGPointMake(winSize.width*1/3,winSize.height*2/3);
+        PYJEnemySprite *target = [[PYJThemeManager sharedManager] enemySprite];
+        [self.enemies addObject:target];
+        [target setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
+        [self addChild:target.ccNode z:10];
+        location = CGPointMake(winSize.width*5/6,winSize.height*5/6);
+    }
+    else{
+        location = CGPointMake(winSize.width*2/3,winSize.height*2/3);
+    }
+    
+    PYJEnemySprite *enemy = [[PYJThemeManager sharedManager] enemySprite];
+    [self.enemies addObject:enemy];
+        [enemy playLaunchAudio]; // play enemy launch sound
+    enemy.body->SetGravityScale(0); // Toggle gravity
+    [enemy setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
+    [self addChild:enemy.ccNode z:10];
+}
+
+// Creates bomb
+-(void)spawnBomb{
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CGPoint location = CGPointMake(winSize.width/2,winSize.height/2);
     
-    GB2Sprite *randomObject = nil;
+    self.b = [[PYJBombSprite alloc] initWithStaticBody:@"bomb" spriteFrameName:@"bomb.png"];
     
-    // Adds randomness to spawning items
-    
-    randomObject = [[PYJThemeManager sharedManager] enemySprite];
-    [self.enemies addObject:randomObject];
-        [(PYJEnemySprite *)randomObject playLaunchAudio]; // play enemy launch sound
-    
-    [randomObject setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
-    [self addChild:randomObject.ccNode z:10];
+    [self.b setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
+    [self addChild:self.b.ccNode z:10];
+
 }
 
 
@@ -208,7 +228,7 @@
     // Process each touch once
     for (UITouch *touch in touches) {
         // If touch is not connected to any enemy, create a touch circle
-        if (![self createEnemyJointsWithTouch:touch]){
+        if (![self createEnemyJointsWithTouch:touch] && self.screen != grab){
             [self initTouchCircleWithTouch:touch];
         }
         // Don't create any more mouse joints/touch cirlces if current touches reaches maximum
@@ -254,6 +274,9 @@
 
 // Called to create a mouse joint (grabbing an enemy). Returns YES if touch is created with enemy
 - (BOOL)createEnemyJointsWithTouch:(UITouch *)touch{
+    if(self.screen == swipe){
+        return NO;
+    }
     CGPoint ccLocation  = [[CCDirector sharedDirector] convertTouchToGL:touch];
     b2Vec2 b2Location   = b2Vec2FromCC(ccLocation.x, ccLocation.y);
     
@@ -341,9 +364,15 @@
     }
 }
 
-#pragma Listner
+// Remove all enemies
+-(void)removeEnemies{
+    for(PYJEnemySprite *e in self.enemies){
+        e.deleteLater = true;
+        [self removeEnemyFromSpriteLayer:e];
+    }
+}
 
-// Remove PYJNinjaSprite from enemies mutable array
+// Remove PYJEnemySprite from enemies mutable array
 - (void)removeEnemyFromSpriteLayer:(PYJEnemySprite *)es{
     // If enemy has a mouse joint, it means user is holding it. Decrement the current touches count
     if (es.mouseJoint){

@@ -20,6 +20,8 @@ typedef enum {
 
 @property Screen screen;
 
-extern int const MAX_TOUCHES = 1;
+-(void)previousScreen;
+-(void)nextScreen;
+//extern int const MAX_TOUCHES = 1;
 
 @end

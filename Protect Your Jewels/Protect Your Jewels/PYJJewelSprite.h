@@ -17,5 +17,6 @@
 +(PYJJewelSprite *)jewelSprite;
 
 -(id)initWithSpriteLayer:(PYJSpriteLayer *)sl;
+-(void)removeJewel;
 
 @end
