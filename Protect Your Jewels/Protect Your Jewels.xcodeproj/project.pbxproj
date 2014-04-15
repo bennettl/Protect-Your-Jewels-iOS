@@ -23,7 +23,6 @@
 		4D8ADE3E18B974A2001689EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3D18B974A2001689EC /* Foundation.framework */; };
 		4D8ADE4018B974A2001689EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3F18B974A2001689EC /* CoreGraphics.framework */; };
 		4D8ADE4218B974A2001689EC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE4118B974A2001689EC /* CoreText.framework */; };
-		4D8ADE4418B974A2001689EC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE4318B974A2001689EC /* GameKit.framework */; };
 		4D8ADE4818B974A2001689EC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8ADE4718B974A2001689EC /* Default.png */; };
 		4D8ADE4A18B974A2001689EC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8ADE4918B974A2001689EC /* Default@2x.png */; };
 		4D8ADE4C18B974A2001689EC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8ADE4B18B974A2001689EC /* Default-568h@2x.png */; };
@@ -264,7 +263,6 @@
 		4D8ADE3D18B974A2001689EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D8ADE3F18B974A2001689EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4D8ADE4118B974A2001689EC /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		4D8ADE4318B974A2001689EC /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		4D8ADE4718B974A2001689EC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		4D8ADE4918B974A2001689EC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		4D8ADE4B18B974A2001689EC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -719,7 +717,6 @@
 				4D8ADE3E18B974A2001689EC /* Foundation.framework in Frameworks */,
 				46EB10D518F272A100BBCEBF /* FacebookSDK.framework in Frameworks */,
 				4D8ADE3818B974A2001689EC /* AudioToolbox.framework in Frameworks */,
-				4D8ADE4418B974A2001689EC /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,7 +753,6 @@
 				4D8ADE3D18B974A2001689EC /* Foundation.framework */,
 				4D8ADE3F18B974A2001689EC /* CoreGraphics.framework */,
 				4D8ADE4118B974A2001689EC /* CoreText.framework */,
-				4D8ADE4318B974A2001689EC /* GameKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1531,6 +1527,16 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = ITP382RBBM;
+				TargetAttributes = {
+					4D8ADE2D18B974A2001689EC = {
+						DevelopmentTeam = 7FX28RKSGV;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 4D8ADE2918B974A2001689EC /* Build configuration list for PBXProject "Protect Your Jewels" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1855,6 +1861,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"Protect Your Jewels/FacebookSDK\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1873,6 +1881,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"Protect Your Jewels/libs\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1882,6 +1891,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"Protect Your Jewels/FacebookSDK\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1899,6 +1910,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"Protect Your Jewels/libs\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
