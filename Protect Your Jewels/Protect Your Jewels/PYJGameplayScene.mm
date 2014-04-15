@@ -122,6 +122,7 @@
     [[CCDirector sharedDirector] resume];
     [[CCDirector sharedDirector] startAnimation];
     [[GB2Engine sharedInstance] resumeWorld];
+    [[GB2Engine sharedInstance] deleteAllObjects];
     PYJGameplayScene *scene = [PYJGameplayScene node];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:scene]];
 }
@@ -140,11 +141,11 @@
     [super onExit];
     // Resume world physics
     [[GB2Engine sharedInstance] resumeWorld];
+    
 }
 
 - (void)dealloc{
     // Make sure to clean up all box2D objects when GameScene is deallocated
-    [[GB2Engine sharedInstance] deleteAllObjects];
     [super dealloc];
 }
 

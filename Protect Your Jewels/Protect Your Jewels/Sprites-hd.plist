@@ -7,11 +7,11 @@
             <key>background/Clouds_back_full.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1723,2},{1262,253}}</string>
+                <string>{{2,374},{1262,253}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1262,253}}</string>
                 <key>sourceSize</key>
@@ -20,11 +20,11 @@
             <key>background/Clouds_front_full.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1081,2},{1266,370}}</string>
+                <string>{{2718,349},{1266,370}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1266,370}}</string>
                 <key>sourceSize</key>
@@ -33,11 +33,11 @@
             <key>background/Foreground_iPhone4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3720,2},{964,462}}</string>
+                <string>{{2436,1703},{964,462}}</string>
                 <key>offset</key>
                 <string>{0,-91}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,182},{964,462}}</string>
                 <key>sourceSize</key>
@@ -46,11 +46,11 @@
             <key>background/Foreground_iPhone5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3256,2},{1140,462}}</string>
+                <string>{{1294,1278},{1140,462}}</string>
                 <key>offset</key>
                 <string>{0,-91}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,182},{1140,462}}</string>
                 <key>sourceSize</key>
@@ -59,11 +59,11 @@
             <key>background/JungleBG_iPhone5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1978,2},{1140,644}}</string>
+                <string>{{2,1275},{1140,644}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1140,644}}</string>
                 <key>sourceSize</key>
@@ -72,7 +72,7 @@
             <key>background/JungleFG_iPhone5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1144,1270},{1140,644}}</string>
+                <string>{{1360,632},{1140,644}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,11 +85,11 @@
             <key>background/Jungle_BG_iPhone5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1978,2},{1140,644}}</string>
+                <string>{{2,1275},{1140,644}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1140,644}}</string>
                 <key>sourceSize</key>
@@ -98,11 +98,11 @@
             <key>background/Jungle_Clouds_back_full.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1453,2},{1262,268}}</string>
+                <string>{{1360,362},{1262,268}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1262,268}}</string>
                 <key>sourceSize</key>
@@ -115,7 +115,7 @@
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1356,370}}</string>
                 <key>sourceSize</key>
@@ -128,7 +128,7 @@
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1356,370}}</string>
                 <key>sourceSize</key>
@@ -137,7 +137,7 @@
             <key>background/Jungle_FG_iPhone5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1144,1270},{1140,644}}</string>
+                <string>{{1360,632},{1140,644}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -150,11 +150,11 @@
             <key>background/Mountain_Clouds_back_full.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1723,2},{1262,253}}</string>
+                <string>{{2,374},{1262,253}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1262,253}}</string>
                 <key>sourceSize</key>
@@ -163,11 +163,11 @@
             <key>background/Mountain_Clouds_front_full.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1081,2},{1266,370}}</string>
+                <string>{{2718,349},{1266,370}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1266,370}}</string>
                 <key>sourceSize</key>
@@ -176,11 +176,11 @@
             <key>background/Mountain_FG_iPhone4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3720,2},{964,462}}</string>
+                <string>{{2436,1703},{964,462}}</string>
                 <key>offset</key>
                 <string>{0,-91}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,182},{964,462}}</string>
                 <key>sourceSize</key>
@@ -189,11 +189,11 @@
             <key>background/Mountain_FG_iPhone5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3256,2},{1140,462}}</string>
+                <string>{{1294,1278},{1140,462}}</string>
                 <key>offset</key>
                 <string>{0,-91}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,182},{1140,462}}</string>
                 <key>sourceSize</key>
@@ -202,7 +202,7 @@
             <key>background/Temple_BG_iPhone5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,1360},{1140,644}}</string>
+                <string>{{2,629},{1140,644}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -215,11 +215,11 @@
             <key>background/Temple_Clouds_back_full.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{734,2},{1274,345}}</string>
+                <string>{{2718,2},{1274,345}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1274,345}}</string>
                 <key>sourceSize</key>
@@ -228,11 +228,11 @@
             <key>background/Temple_Clouds_front_full.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{374,2},{1356,358}}</string>
+                <string>{{1360,2},{1356,358}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1356,358}}</string>
                 <key>sourceSize</key>
@@ -241,11 +241,11 @@
             <key>background/Temple_FG_iPhone5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2624,2},{1140,630}}</string>
+                <string>{{2652,721},{1140,630}}</string>
                 <key>offset</key>
                 <string>{0,-7}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,14},{1140,630}}</string>
                 <key>sourceSize</key>
@@ -254,11 +254,11 @@
             <key>bomb.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{4052,968},{99,127}}</string>
+                <string>{{3994,2},{99,127}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{99,127}}</string>
                 <key>sourceSize</key>
@@ -267,7 +267,7 @@
             <key>gladiator/attack.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2150,1144},{114,162}}</string>
+                <string>{{1144,899},{114,162}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -280,7 +280,7 @@
             <key>gladiator/fall.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1978,1144},{114,170}}</string>
+                <string>{{1144,783},{114,170}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -293,7 +293,7 @@
             <key>gladiator/gladiator_attack.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2150,1144},{114,162}}</string>
+                <string>{{1144,899},{114,162}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -306,7 +306,7 @@
             <key>gladiator/gladiator_fall.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1978,1144},{114,170}}</string>
+                <string>{{1144,783},{114,170}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -319,7 +319,7 @@
             <key>gladiator/shield.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2314,1144},{800,800}}</string>
+                <string>{{1144,1742},{800,800}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -332,11 +332,11 @@
             <key>gladiator/sword.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3116,1494},{258,970}}</string>
+                <string>{{3794,721},{258,970}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{258,970}}</string>
                 <key>sourceSize</key>
@@ -345,7 +345,7 @@
             <key>jewel.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3720,968},{214,152}}</string>
+                <string>{{1144,629},{214,152}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -358,7 +358,7 @@
             <key>menu_logo.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3116,1754},{640,225}}</string>
+                <string>{{3438,1693},{640,225}}</string>
                 <key>offset</key>
                 <string>{-2,0}</string>
                 <key>rotated</key>
@@ -371,11 +371,11 @@
             <key>monkey/attack.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3886,1754},{125,148}}</string>
+                <string>{{1144,1259},{125,148}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{125,148}}</string>
                 <key>sourceSize</key>
@@ -384,11 +384,11 @@
             <key>monkey/fall.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3758,1754},{126,148}}</string>
+                <string>{{1144,1131},{126,148}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{126,148}}</string>
                 <key>sourceSize</key>
@@ -397,11 +397,11 @@
             <key>monkey/monkey_attack.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3886,1754},{125,148}}</string>
+                <string>{{1144,1259},{125,148}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{125,148}}</string>
                 <key>sourceSize</key>
@@ -410,11 +410,11 @@
             <key>monkey/monkey_fall.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3758,1754},{126,148}}</string>
+                <string>{{1144,1131},{126,148}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{126,148}}</string>
                 <key>sourceSize</key>
@@ -423,7 +423,7 @@
             <key>ninja/attack.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{4013,1754},{114,148}}</string>
+                <string>{{2502,632},{114,148}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -436,11 +436,11 @@
             <key>ninja/fall.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3936,968},{114,150}}</string>
+                <string>{{1144,1015},{114,150}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{114,150}}</string>
                 <key>sourceSize</key>
@@ -449,7 +449,7 @@
             <key>ninja/ninja_attack.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{4013,1754},{114,148}}</string>
+                <string>{{2502,632},{114,148}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -462,11 +462,11 @@
             <key>ninja/ninja_fall.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3936,968},{114,150}}</string>
+                <string>{{1144,1015},{114,150}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{114,150}}</string>
                 <key>sourceSize</key>
@@ -475,7 +475,7 @@
             <key>share_twitter_large.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3116,1144},{1000,348}}</string>
+                <string>{{2436,1353},{1000,348}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -493,9 +493,9 @@
             <key>realTextureFileName</key>
             <string>Sprites-hd.pvr.ccz</string>
             <key>size</key>
-            <string>{4184,2006}</string>
+            <string>{4096,4096}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:110c3393d786b1a6b63f7cf31b9aff59:4197752a4707e028703941664e49c9ee:8e9ec22a2c0ec922c15f2d7e51a327b3$</string>
+            <string>$TexturePacker:SmartUpdate:b41d03cc85ebb333ad29cbb575e68efc:4197752a4707e028703941664e49c9ee:8e9ec22a2c0ec922c15f2d7e51a327b3$</string>
             <key>textureFileName</key>
             <string>Sprites-hd.pvr.ccz</string>
         </dict>
