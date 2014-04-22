@@ -48,7 +48,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>angrybirds-regular.ttf</string>
+		<string>AngryBirds-Regular.ttf</string>
 	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>
@@ -64,6 +64,7 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

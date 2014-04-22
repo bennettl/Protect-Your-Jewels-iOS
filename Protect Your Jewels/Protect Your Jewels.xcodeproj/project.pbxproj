@@ -206,7 +206,6 @@
 		4D8AE0B118B97A26001689EC /* GB2WorldContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE0A718B97A26001689EC /* GB2WorldContactListener.mm */; };
 		4D8AE0B218B97A26001689EC /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE0A918B97A26001689EC /* GLES-Render.mm */; };
 		4D8AE0B418B97A31001689EC /* game_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0B318B97A31001689EC /* game_background.png */; };
-		4D8AE0C018B9A7CF001689EC /* AngryBirds-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0BF18B9A7CF001689EC /* AngryBirds-Regular.ttf */; };
 		4D8AE0E918BA018D001689EC /* menu_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0E818BA018D001689EC /* menu_logo.png */; };
 		4D8AE0FD18BAAB8E001689EC /* ninja_ahh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0F918BAAB8E001689EC /* ninja_ahh.caf */; };
 		4D8AE10018BAAB8E001689EC /* ninja_launch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE0FC18BAAB8E001689EC /* ninja_launch.caf */; };
@@ -670,7 +669,6 @@
 		4D8AE0A918B97A26001689EC /* GLES-Render.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		4D8AE0AA18B97A26001689EC /* GMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMath.h; sourceTree = "<group>"; };
 		4D8AE0B318B97A31001689EC /* game_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_background.png; sourceTree = "<group>"; };
-		4D8AE0BF18B9A7CF001689EC /* AngryBirds-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AngryBirds-Regular.ttf"; sourceTree = "<group>"; };
 		4D8AE0E818BA018D001689EC /* menu_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_logo.png; sourceTree = "<group>"; };
 		4D8AE0F918BAAB8E001689EC /* ninja_ahh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ninja_ahh.caf; sourceTree = "<group>"; };
 		4D8AE0FC18BAAB8E001689EC /* ninja_launch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ninja_launch.caf; sourceTree = "<group>"; };
@@ -709,6 +707,7 @@
 		943737CF18CC097E00276CC5 /* PYJThemeManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJThemeManager.mm; sourceTree = "<group>"; };
 		943737D418CD277100276CC5 /* PYJPauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJPauseLayer.h; sourceTree = "<group>"; };
 		943737D518CD277100276CC5 /* PYJPauseLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJPauseLayer.mm; sourceTree = "<group>"; };
+		9458314E19060637004C896D /* AngryBirds-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AngryBirds-Regular.ttf"; sourceTree = "<group>"; };
 		94CE826D18B9971F00FCA354 /* PYJLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJLeaderboardScene.h; sourceTree = "<group>"; };
 		94CE826E18B9971F00FCA354 /* PYJLeaderboardScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJLeaderboardScene.mm; sourceTree = "<group>"; };
 		94CE826F18B9971F00FCA354 /* PYJMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJMainMenuLayer.h; sourceTree = "<group>"; };
@@ -800,7 +799,7 @@
 		4D8ADE4618B974A2001689EC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4D8AE0BF18B9A7CF001689EC /* AngryBirds-Regular.ttf */,
+				9458314E19060637004C896D /* AngryBirds-Regular.ttf */,
 				4D8AE0B318B97A31001689EC /* game_background.png */,
 				4D8AE0D218B9C951001689EC /* Images and Shapes */,
 				4D8AE0EA18BA271D001689EC /* Audio */,
@@ -1624,7 +1623,6 @@
 				56643CB418FCCBEE0068989D /* Mountain_Clouds_front_full.png in Resources */,
 				4D8AE11118BAC799001689EC /* ninja-grab.caf in Resources */,
 				4D8ADE4818B974A2001689EC /* Default.png in Resources */,
-				4D8AE0C018B9A7CF001689EC /* AngryBirds-Regular.ttf in Resources */,
 				94EE144718FC9629002D9501 /* Sprites-hd.pvr.ccz in Resources */,
 				4D8ADE5218B974A3001689EC /* Icon-Small-50.png in Resources */,
 				56643CA318FCCBD60068989D /* Foreground_iPhone5.png in Resources */,
