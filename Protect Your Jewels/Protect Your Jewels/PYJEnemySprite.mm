@@ -107,32 +107,61 @@
     [super updateCCFromPhysics];
     
     // Update image filename
-    NSString *frameName = nil;
+    //NSString *frameName = nil;
+    NSMutableArray *files = nil;
     
     // Change frame name base on enemy state
     if (self.state == kAttack){
         if([m_Theme isEqualToString: @"Mountain"]){
-            frameName = @"ninja/attack.png";
+            //frameName = @"ninja/attack.png";
+            files = [NSMutableArray arrayWithObjects:@"ninja/attack.png", nil];
         }
         else if([m_Theme isEqualToString: @"Jungle"]){
-            frameName = @"monkey/attack.png";
+            //frameName = @"monkey/attack.png";
+            files = [NSMutableArray arrayWithObjects:@"monkey/attack.png", nil];
         }
         else if([m_Theme isEqualToString: @"Temple"]){
-            frameName = @"gladiator/attack.png";
+            //frameName = @"gladiator/attack.png";
+            files = [NSMutableArray arrayWithObjects:@"gladiator/attack.png", nil];
         }
     } else {
+        
         if([m_Theme isEqualToString: @"Mountain"]){
-            frameName =@"ninja/fall.png";
+            //frameName =@"ninja/fall.png";
+            files = [NSMutableArray arrayWithObjects:@"ninja/fall.png", nil];
         }
         else if([m_Theme isEqualToString: @"Jungle"]){
-            frameName =@"monkey/fall.png";
+            //frameName =@"monkey/fall.png";
+            files = [NSMutableArray arrayWithObjects:@"monkey/fall.png", nil];
+
         }
         else if([m_Theme isEqualToString: @"Temple"]){
-            frameName =@"gladiator/fall.png";
+            //frameName =@"gladiator/fall.png";
+            //files = [NSMutableArray arrayWithObjects:@"gladiator/fall-00.png", @"gladiator/fall-01.png", @"gladiator/fall-02.png", nil];
+            files = [NSMutableArray arrayWithObjects:@"gladiator/fall.png", nil];
         }
     }
     
-    [self setDisplayFrameNamed:frameName];
+    //[self setDisplayFrameNamed:frameName];
+    NSMutableArray *frames = [NSMutableArray arrayWithCapacity:10];
+    
+    // Load each frame into the frames array
+    for (int i = 0; i < files.count; i++)
+    {
+        NSString *file = [files objectAtIndex:i];
+        CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:file];
+        [frames addObject:frame];
+    }
+    
+    // Clear any previous actions
+    [self stopAllActions];
+    
+    // Start new animation
+    CCAnimation *anim = [CCAnimation animationWithSpriteFrames:frames delay:0.15f];
+    CCAnimate *animate = [CCAnimate actionWithAnimation:anim];
+    CCRepeatForever *repeat = [CCRepeatForever actionWithAction:animate];
+    [self runAction:repeat];
+    
     
     // Update image orientation
     
