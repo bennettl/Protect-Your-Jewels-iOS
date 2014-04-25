@@ -62,7 +62,7 @@
         CGSize winSize = [[CCDirector sharedDirector] winSize];
 		_shieldParticle.position = ccp(winSize.width/2, winSize.height/2);
         _shieldParticle.visible = YES;
-        [self addChild:_shieldParticle z:100];
+        [self addChild:_shieldParticle z:2];
     }
     
     return self;

@@ -246,6 +246,7 @@
 		94CE827E18B9998500FCA354 /* PYJGameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827D18B9998500FCA354 /* PYJGameOverLayer.mm */; };
 		94DCD0ED190A4D9600312D3C /* fireShield.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94DCD0EC190A4D9600312D3C /* fireShield.plist */; };
 		94DCD0EF190A4DA000312D3C /* particleFire.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DCD0EE190A4DA000312D3C /* particleFire.png */; };
+		94DCD0F2190A57FB00312D3C /* PYJShieldSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94DCD0F1190A57FB00312D3C /* PYJShieldSprite.mm */; };
 		94EE144518FC9629002D9501 /* Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94EE144018FC9629002D9501 /* Shapes.plist */; };
 		94EE144618FC9629002D9501 /* Sprites-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94EE144118FC9629002D9501 /* Sprites-hd.plist */; };
 		94EE144718FC9629002D9501 /* Sprites-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 94EE144218FC9629002D9501 /* Sprites-hd.pvr.ccz */; };
@@ -720,6 +721,8 @@
 		94CE827D18B9998500FCA354 /* PYJGameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJGameOverLayer.mm; sourceTree = "<group>"; };
 		94DCD0EC190A4D9600312D3C /* fireShield.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fireShield.plist; sourceTree = "<group>"; };
 		94DCD0EE190A4DA000312D3C /* particleFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleFire.png; sourceTree = "<group>"; };
+		94DCD0F0190A57FB00312D3C /* PYJShieldSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJShieldSprite.h; sourceTree = "<group>"; };
+		94DCD0F1190A57FB00312D3C /* PYJShieldSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJShieldSprite.mm; sourceTree = "<group>"; };
 		94EE144018FC9629002D9501 /* Shapes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Shapes.plist; sourceTree = "<group>"; };
 		94EE144118FC9629002D9501 /* Sprites-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sprites-hd.plist"; sourceTree = "<group>"; };
 		94EE144218FC9629002D9501 /* Sprites-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sprites-hd.pvr.ccz"; sourceTree = "<group>"; };
@@ -1378,6 +1381,8 @@
 				4D8AE08718B979A0001689EC /* PYJJewelSprite.mm */,
 				4DDE10CC18F3F0B600A0A82E /* PYJBombSprite.h */,
 				4DDE10CD18F3F0B600A0A82E /* PYJBombSprite.mm */,
+				94DCD0F0190A57FB00312D3C /* PYJShieldSprite.h */,
+				94DCD0F1190A57FB00312D3C /* PYJShieldSprite.mm */,
 				469C056818BA952E00A56049 /* PYJCloud.h */,
 				469C056918BA952E00A56049 /* PYJCloud.m */,
 			);
@@ -1738,6 +1743,7 @@
 				4D8AE03018B974A7001689EC /* b2ContactSolver.cpp in Sources */,
 				4D8ADF7018B974A5001689EC /* CCProfiling.m in Sources */,
 				4D8AE08D18B979A1001689EC /* PYJUILayer.mm in Sources */,
+				94DCD0F2190A57FB00312D3C /* PYJShieldSprite.mm in Sources */,
 				4D8AE04318B974A7001689EC /* b2FrictionJoint.cpp in Sources */,
 				4D8ADF0718B974A4001689EC /* CCShaderCache.m in Sources */,
 				4D8ADF0D18B974A5001689EC /* CCSprite.m in Sources */,

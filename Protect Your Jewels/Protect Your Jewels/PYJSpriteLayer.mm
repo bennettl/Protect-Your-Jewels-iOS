@@ -16,6 +16,7 @@
 #import "PYJTouchCircle.h"
 #import "PYJBoxNode.h"
 #import "PYJBombSprite.h"
+#import "PYJShieldSprite.h"
 
 //#define MAX_TOUCHES 1
 
@@ -83,6 +84,13 @@
      PYJJewelSprite *j = [PYJJewelSprite jewelSprite];
      [j setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
      [objectLayer addChild:j.ccNode z:10];
+}
+
+- (void)initShield {
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    PYJShieldSprite *shieldSprite = [PYJShieldSprite shieldSprite];
+    [shieldSprite setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
+    [objectLayer addChild:shieldSprite.ccNode z:11];
 }
 
 // Add debug layer
