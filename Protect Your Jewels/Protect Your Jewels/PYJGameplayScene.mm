@@ -25,6 +25,7 @@
 @property (nonatomic, strong) PYJSpriteLayer *spriteLayer;
 @property (nonatomic, strong) PYJUILayer *uiLayer;
 @property (nonatomic, strong) PYJPauseLayer *pauseLayer;
+@property (nonatomic, strong) CCParticleSystemQuad *shieldParticle;
 
 @end
 
@@ -57,6 +58,11 @@
         [self addChild:_bgLayer z:2];
         
         _pauseLayer.visible = NO;
+        _shieldParticle = [[CCParticleSystemQuad alloc] initWithFile:@"fireShield.plist"];
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+		_shieldParticle.position = ccp(winSize.width/2, winSize.height/2);
+        _shieldParticle.visible = YES;
+        [self addChild:_shieldParticle z:100];
     }
     
     return self;
