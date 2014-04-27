@@ -85,6 +85,9 @@
 
 // Does ccLocation intersect with any of the body's fixtures?
 -(BOOL)intersectsWithPoint:(CGPoint)ccLocation{
+    if(removed == YES){
+        return NO;
+    }
     b2Vec2 b2Location(ccLocation.x/PTM_RATIO, ccLocation.y/PTM_RATIO);
     
     // Loop through and test all fixtures
@@ -197,6 +200,9 @@
 
 // Enemy collides with box
 - (void)beginContactWithPYJBoxNode:(GB2Contact *)contact{
+    if(removed == YES){
+        return;
+    }
     // Mark it for deletion
     self.deleteLater    = true;
     
@@ -213,6 +219,9 @@
 
 // When the PYJTouchCircle collides with enemy, play the punch audio
 -(void)beginContactWithPYJTouchCircle:(GB2Contact *)contact{
+    if(removed == YES){
+        return;
+    }
     // Change ninja state when he's hit with PYJTouchCircle
     if (self.state == kAttack){
         self.state = kFall;
@@ -225,6 +234,9 @@
 
 // Enemy collides with each other
 - (void)beginContactWithPYJEnemySprite:(GB2Contact *)contact{
+    if(removed == YES){
+        return;
+    }
     // Change state and play punch on first contact
     if (self.touchHash != -1 && (self.state == kAttack || ((PYJEnemySprite *)contact.otherObject).state == kAttack)){
         self.state = kFall;
