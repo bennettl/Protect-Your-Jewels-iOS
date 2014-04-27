@@ -18,8 +18,9 @@ typedef enum {
 
 @interface PYJEnemySprite : GB2Sprite {
     NSString *m_Theme;
+    BOOL removed;
 }
-
+@property int enemyPointValue;
 @property EnemyState state;
 
 // Reference to touch on the enemy
