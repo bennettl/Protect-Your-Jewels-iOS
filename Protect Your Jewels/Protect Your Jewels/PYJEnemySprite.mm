@@ -14,7 +14,7 @@
 
 @interface PYJEnemySprite()
 {
-    int enemyPointValue;
+    //int enemyPointValue;
 }
 @end
 
@@ -61,7 +61,8 @@
         
         self.touchHash = -1; // -1 means its not associated with any touches
         
-        enemyPointValue = 1;    // Points added to score when enemy is defeated
+        self.enemyPointValue = 1;    // Points added to score when enemy is defeated
+        removed = NO;
     }
     return self;
 }
@@ -207,10 +208,11 @@
     self.deleteLater    = true;
     
     // Send a message to the gameplay scene to increment score ONLY if ninja is in fall state
-    if (self.state == kFall){
-        [((PYJGameplayScene *)self.ccNode.parent.parent) incrementScoreByValue:enemyPointValue];
+    if (self.state == kFall && removed == NO){
+        removed = YES;
+        [((PYJGameplayScene *)self.ccNode.parent.parent) incrementScoreByValue:self.enemyPointValue];
+        NSLog(@"Box");
     }
-
     // Send a message to the sprite layer to remove enemy from its array
     [((PYJSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
 
@@ -238,7 +240,7 @@
     }
     // Criteria for combo
     else if(self.touchHash == -1 && self.state == kFall && ((PYJEnemySprite *)contact.otherObject).state == kAttack){
-        enemyPointValue+=2;
+        self.enemyPointValue=self.enemyPointValue+2;
         [[SimpleAudioEngine sharedEngine] playEffect:@"ninja_ahh.caf"];
     }
     ((PYJEnemySprite *)contact.otherObject).state = kFall; // set enemy's state to fall
@@ -248,7 +250,8 @@
 // Enemy collides with jewel
 - (void)beginContactWithPYJJewelSprite:(GB2Contact*)contact{
     // If enemy is in attack state
-    if (self.state == kAttack){
+    if (self.state == kAttack && removed == NO){
+        removed = YES;
         // Send a message to the sprite layer to remove enemy from its array
         [((PYJSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
     }

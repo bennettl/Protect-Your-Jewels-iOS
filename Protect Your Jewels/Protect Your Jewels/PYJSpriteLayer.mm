@@ -71,6 +71,7 @@
         // Start Waves
         waveNum = 0;
         int timeBetweenWaves = 5;
+        [self unschedule:@selector(startWave)];
         [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:kCCRepeatForever delay:0];
     }
 	return self;
@@ -92,7 +93,7 @@
 }
 
 // Initializes enemy at location
-- (void)spawnObjectAtRadomLocation{
+- (void)spawnObjectAtRandomLocation{
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CGPoint location = [self randomDirection];
     
@@ -135,8 +136,8 @@
     
     waveNum++;
     enemyLaunchForce = enemyLaunchForce + (waveNum * 10);
-    [self unschedule:@selector(spawnObjectAtRadomLocation)];
-    [self schedule:@selector(spawnObjectAtRadomLocation) interval:1.0f repeat:waveNum delay:0];
+    [self unschedule:@selector(spawnObjectAtRandomLocation)];
+    [self schedule:@selector(spawnObjectAtRandomLocation) interval:1.0f repeat:waveNum delay:0];
 }
 
 // Returns a random CGPoint on the perimeter of the screen
@@ -319,7 +320,23 @@
     [self.enemies removeObject:es];
 }
 
+// Remove all enemies and touch circles
+-(void)endGame{
+    [self unschedule:@selector(startWave)];
+    [self unschedule:@selector(spawnObjectAtRandomLocation)];
+    for (int i = 0; i < [self.enemies count]; i++){
+        [self removeChild:[self.enemies objectAtIndex:0] cleanup:YES];
+    }
+    for (int i = 0; i < [self.touchCircles count]; i++){
+        [self removeChild:[self.touchCircles objectAtIndex:0] cleanup:YES];
+    }
+    [self.enemies removeAllObjects];
+    [self.touchCircles removeAllObjects];
+}
+
 -(void) dealloc{
+    [_enemies dealloc];
+    [_touchCircles dealloc];
 	[super dealloc];
 }	
 

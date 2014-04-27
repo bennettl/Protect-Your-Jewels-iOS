@@ -78,7 +78,7 @@
     // Game is over when user reaches zero life
     if (self.lives == 0){
         // Stop enemies from spawning, pause world physics, stop background music, play sound effect, and flash
-        [self.spriteLayer unschedule:@selector(spawnEnemyAtRadomLocation)];
+        [self.spriteLayer endGame];
         [[GB2Engine sharedInstance] pauseWorld];
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine] playEffect:@"drumroll-end.wav"];
@@ -122,6 +122,7 @@
     [[CCDirector sharedDirector] resume];
     [[CCDirector sharedDirector] startAnimation];
     [[GB2Engine sharedInstance] resumeWorld];
+    [self.spriteLayer endGame];
     [[GB2Engine sharedInstance] deleteAllObjects];
     PYJGameplayScene *scene = [PYJGameplayScene node];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:scene]];
