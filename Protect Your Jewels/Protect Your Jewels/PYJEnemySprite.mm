@@ -12,6 +12,8 @@
 #import "PYJGameplayScene.h"
 #import "SimpleAudioEngine.h"
 
+#define ANIM_SPEED 0.1f
+
 @interface PYJEnemySprite()
 {
     //int enemyPointValue;
@@ -22,6 +24,8 @@
 
 - (id)initWithTheme:(NSString *)theme {
     m_Theme = theme;
+    animPhase = 0;
+    animDir = 1;
     // True if successful inits
     BOOL oneTrue = NO;
     
@@ -108,60 +112,49 @@
     [super updateCCFromPhysics];
     
     // Update image filename
-    //NSString *frameName = nil;
-    NSMutableArray *files = nil;
+    NSString *frameName = nil;
+    
+    // Update animation phase
+    animDelay -= 1.0f/60.0f;
+    if (animDelay <= 0) {
+        animDelay = ANIM_SPEED;
+        animPhase += animDir;
+        if (animPhase > 2) {
+            animPhase = 1;
+            animDir = -1;
+        }
+        else if (animPhase < 0) {
+            animPhase = 1;
+            animDir = 1;
+        }
+    }
     
     // Change frame name base on enemy state
     if (self.state == kAttack){
         if([m_Theme isEqualToString: @"Mountain"]){
-            //frameName = @"ninja/attack.png";
-            files = [NSMutableArray arrayWithObjects:@"ninja/attack.png", nil];
+            frameName = @"ninja/attack.png";
         }
         else if([m_Theme isEqualToString: @"Jungle"]){
-            //frameName = @"monkey/attack.png";
-            files = [NSMutableArray arrayWithObjects:@"monkey/attack.png", nil];
+            frameName = @"monkey/attack.png";
         }
         else if([m_Theme isEqualToString: @"Temple"]){
-            //frameName = @"gladiator/attack.png";
-            files = [NSMutableArray arrayWithObjects:@"gladiator/attack.png", nil];
+            frameName = @"gladiator/attack.png";
         }
     } else {
         
         if([m_Theme isEqualToString: @"Mountain"]){
-            //frameName =@"ninja/fall.png";
-            files = [NSMutableArray arrayWithObjects:@"ninja/fall.png", nil];
+            frameName = [NSString stringWithFormat:@"ninja/fall-0%d.png", animPhase];
         }
         else if([m_Theme isEqualToString: @"Jungle"]){
-            //frameName =@"monkey/fall.png";
-            files = [NSMutableArray arrayWithObjects:@"monkey/fall.png", nil];
+            frameName = [NSString stringWithFormat:@"monkey/fall-0%d.png", animPhase];
 
         }
         else if([m_Theme isEqualToString: @"Temple"]){
-            //frameName =@"gladiator/fall.png";
-            //files = [NSMutableArray arrayWithObjects:@"gladiator/fall-00.png", @"gladiator/fall-01.png", @"gladiator/fall-02.png", nil];
-            files = [NSMutableArray arrayWithObjects:@"gladiator/fall.png", nil];
+            frameName = [NSString stringWithFormat:@"gladiator/fall-0%d.png", animPhase];
         }
     }
     
-    //[self setDisplayFrameNamed:frameName];
-    NSMutableArray *frames = [NSMutableArray arrayWithCapacity:10];
-    
-    // Load each frame into the frames array
-    for (int i = 0; i < files.count; i++)
-    {
-        NSString *file = [files objectAtIndex:i];
-        CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:file];
-        [frames addObject:frame];
-    }
-    
-    // Clear any previous actions
-    [self stopAllActions];
-    
-    // Start new animation
-    CCAnimation *anim = [CCAnimation animationWithSpriteFrames:frames delay:0.15f];
-    CCAnimate *animate = [CCAnimate actionWithAnimation:anim];
-    CCRepeatForever *repeat = [CCRepeatForever actionWithAction:animate];
-    [self runAction:repeat];
+    [self setDisplayFrameNamed:frameName];
     
     
     // Update image orientation

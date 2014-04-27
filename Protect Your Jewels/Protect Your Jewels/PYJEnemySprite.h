@@ -19,6 +19,10 @@ typedef enum {
 @interface PYJEnemySprite : GB2Sprite {
     NSString *m_Theme;
     BOOL removed;
+    
+    int animPhase;
+    int animDir;
+    ccTime animDelay;
 }
 @property int enemyPointValue;
 @property EnemyState state;
