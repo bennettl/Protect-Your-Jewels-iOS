@@ -129,7 +129,6 @@
         [self removeEnemies];
         instructions.string = @"Try grabbing and throwing an enemy now.";
         [self spawnEnemy];
-
     }
     else if(self.screen == grab){
         self.screen = bomb;
@@ -186,6 +185,7 @@
     if(self.screen == grab){
         location = CGPointMake(winSize.width*1/3,winSize.height*2/3);
         PYJEnemySprite *target = [[PYJThemeManager sharedManager] enemySprite];
+        target.body->SetGravityScale(0);
         [self.enemies addObject:target];
         [target setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
         [self addChild:target.ccNode z:10];
@@ -197,7 +197,7 @@
     
     PYJEnemySprite *enemy = [[PYJThemeManager sharedManager] enemySprite];
     [self.enemies addObject:enemy];
-        [enemy playLaunchAudio]; // play enemy launch sound
+
     enemy.body->SetGravityScale(0); // Toggle gravity
     [enemy setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:enemy.ccNode z:10];
@@ -366,25 +366,26 @@
 
 // Remove all enemies
 -(void)removeEnemies{
-    for(PYJEnemySprite *e in self.enemies){
-        e.deleteLater = true;
-        [self removeEnemyFromSpriteLayer:e];
+    @synchronized(self){
+        for(PYJEnemySprite *e in self.enemies){
+            e.deleteLater = true;
+            if (e.mouseJoint){
+                currentTouches--; // keep track of current touches
+            }
+        }
+        [self.enemies removeAllObjects];
     }
 }
 
 // Remove PYJEnemySprite from enemies mutable array
 - (void)removeEnemyFromSpriteLayer:(PYJEnemySprite *)es{
-    // If enemy has a mouse joint, it means user is holding it. Decrement the current touches count
-    if (es.mouseJoint){
-        currentTouches--; // keep track of current touches
-    }
-    
-    [self.enemies removeObject:es];
+   
 }
-
 
 - (void) dealloc
 {
+    [self.enemies dealloc];
+    [self.touchCircles dealloc];
     [super dealloc];
 }
 

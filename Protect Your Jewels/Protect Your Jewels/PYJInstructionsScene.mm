@@ -37,13 +37,9 @@
 }
 
 - (void)decrementLives{
-    
 }
 - (void)incrementScoreByValue:(int)value{
-
 }
-
-
 
 - (void) dealloc
 {
