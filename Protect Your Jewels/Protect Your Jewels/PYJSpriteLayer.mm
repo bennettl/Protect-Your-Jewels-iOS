@@ -59,7 +59,7 @@
         [self addChild:objectLayer z:10];
         
         // Initializations
-        enemyLaunchForce    = 1000.0f;
+        enemyLaunchForce    = 800.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
     }
