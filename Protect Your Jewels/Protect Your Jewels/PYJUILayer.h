@@ -11,7 +11,10 @@
 
 @interface PYJUILayer : CCLayer
 
++(id)nodeWithIsClassic:(BOOL)classic;
 - (void)updateLivesLabelWithLives:(int)lives;
 - (void)updateScoreLabelWithScore:(int)score;
+-(void)endTimer;
+-(int)getTime;
 
 @end

@@ -21,6 +21,7 @@
 
 @interface PYJGameplayScene()
 
+
 @property (nonatomic, strong) PYJFlashLayer *flashLayer;
 @property (nonatomic, strong) PYJBGLayer *bgLayer;
 @property (nonatomic, strong) PYJSpriteLayer *spriteLayer;
@@ -31,9 +32,9 @@
 @end
 
 @implementation PYJGameplayScene
+static BOOL classicMode;
 
 - (id)init{
-    
     if (self = [super init]){
         
         // Initalization
@@ -47,7 +48,6 @@
         
         // Create layers and add sa children
         _flashLayer     = [PYJFlashLayer node];
-        _uiLayer        = [PYJUILayer node];
         _spriteLayer    = [PYJSpriteLayer node];
         _pauseLayer     = [PYJPauseLayer node];
         _bgLayer        = [PYJThemeManager sharedManager].background;
@@ -55,17 +55,27 @@
         // Add layers
         [self addChild:_pauseLayer z:100];
         [self addChild:_flashLayer z:5];
-        [self addChild:_uiLayer z:4];
         [self addChild:_spriteLayer z:3];
         [self addChild:_bgLayer z:2];
         
         _pauseLayer.visible = NO;
         _state = KShieldDeactivated;
         
-       
+        if(!classicMode){
+            _uiLayer        = [PYJUILayer nodeWithIsClassic:NO];
+            [self scheduleUpdate];
+        }
+        else{
+            _uiLayer        = [PYJUILayer nodeWithIsClassic:YES];
+        }
+        [self addChild:_uiLayer z:4];
     }
-    
     return self;
+}
+
++(id)nodeWithIsClassic:(BOOL)classic{
+    classicMode = classic;
+    return [[[self alloc] init] autorelease];
 }
 
 #pragma Listner
@@ -73,7 +83,6 @@
 // Update the score count and label
 -(void)incrementScoreByValue:(int)value{
     self.score = self.score + value;
-    //self.score++;
     [self.uiLayer updateScoreLabelWithScore:self.score];
     self.shieldTicker = self.shieldTicker + value;
     if(self.shieldTicker >= 30 && self.state == KShieldDeactivated) {
@@ -166,7 +175,20 @@
     [super onExit];
     // Resume world physics
     [[GB2Engine sharedInstance] resumeWorld];
-    
+}
+
+// Update loop
+-(void)update:(ccTime)delta{
+    // end game after 60 seconds
+    if([self.uiLayer getTime] == 0){
+        [[GB2Engine sharedInstance] pauseWorld];
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"drumroll-end.wav"];
+        [self.uiLayer endTimer];
+        [self.flashLayer flashGameOver];
+        [self.spriteLayer stopGame];
+        [self unscheduleUpdate];
+    }
 }
 
 - (void)dealloc{

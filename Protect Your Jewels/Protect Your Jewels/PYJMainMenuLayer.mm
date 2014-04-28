@@ -51,8 +51,11 @@
 		[CCMenuItemFont setFontSize:23];
         [CCMenuItemFont setFontName:FONT_NAME];
 		
-		CCMenuItem *itemNewGame = [CCMenuItemFont itemWithString:@"New Game" block:^(id sender) {
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJGameplayScene node]]];
+		CCMenuItem *itemClassicGame = [CCMenuItemFont itemWithString:@"Classic Mode" block:^(id sender) {
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJGameplayScene nodeWithIsClassic:YES]]];
+		}];
+        CCMenuItem *itemArcadeGame = [CCMenuItemFont itemWithString:@"Arcade Mode" block:^(id sender) {
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJGameplayScene nodeWithIsClassic:NO]]];
 		}];
         CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJLeaderboardScene node]]];
@@ -60,16 +63,16 @@
         CCMenuItem *itemThemes = [CCMenuItemFont itemWithString:@"Themes" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJThemeScene node]]];
 		}];
-        CCMenuItem *itemInstructions = [CCMenuItemFont itemWithString:@"Instructions" block:^(id sender) {
+        CCMenuItem *itemInstructions = [CCMenuItemFont itemWithString:@"Tutorial" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJInstructionsScene node]]];
 		}];
         CCMenuItem *itemAchievements = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJAchievementsScene node]]];
 		}];
 		
-		CCMenu *leftMenu = [CCMenu menuWithItems:itemNewGame, itemInstructions, itemThemes, nil];
+		CCMenu *leftMenu = [CCMenu menuWithItems:itemClassicGame, itemArcadeGame, itemInstructions, nil];
 		
-        CCMenu *rightMenu = [CCMenu menuWithItems:itemAchievements, itemLeaderboard, nil];
+        CCMenu *rightMenu = [CCMenu menuWithItems:itemThemes, itemAchievements, itemLeaderboard, nil];
         
 		[leftMenu alignItemsVerticallyWithPadding:10];
         [rightMenu alignItemsVerticallyWithPadding:10];

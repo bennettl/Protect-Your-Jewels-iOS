@@ -42,6 +42,7 @@
 @end
 
 @implementation PYJSpriteLayer
+static BOOL classicMode;
 
 #pragma mark initlization
 
@@ -64,6 +65,11 @@
         self.touchCircles   = [[NSMutableArray alloc] init];
     }
 	return self;
+}
+
++(id)nodeWithIsClassic:(BOOL)classic{
+    classicMode = classic;
+    return [[[self alloc] init] autorelease];
 }
 
 -(void)startGame{
@@ -132,8 +138,6 @@
     self.shieldSprite.body->SetActive(NO);
     [self.shieldSprite setPhysicsPosition:b2Vec2FromCC(winSize.width/2, winSize.height/2)];
     [objectLayer addChild:self.shieldSprite.ccNode z:11];
-    
-    
 }
 
 - (void)deployShield {
@@ -164,7 +168,15 @@
     // Adds randomness to spawning items
     int randomNumber = arc4random_uniform(10);
     
-    if (randomNumber < 7){
+    int odds;
+    if(classicMode){
+        odds = 7;
+    }
+    else{
+        odds = 8;
+    }
+    
+    if (randomNumber < odds){
         randomObject = [[PYJThemeManager sharedManager] enemySprite];
         [self.enemies addObject:randomObject];
         [(PYJEnemySprite *)randomObject playLaunchAudio]; // play enemy launch sound
@@ -199,8 +211,17 @@
     waveNum++;
     enemyLaunchForce = enemyLaunchForce + (waveNum * 10);
     [self unschedule:@selector(spawnObjectAtRandomLocation)];
-    [self schedule:@selector(spawnObjectAtRandomLocation) interval:1.0f repeat:waveNum delay:0];
-    // (float)(1/waveNum)
+    if(!classicMode){
+        if(waveNum < 10){
+            [self schedule:@selector(spawnObjectAtRandomLocation) interval:(float)(1/waveNum) repeat:waveNum delay:0];
+        }
+        else{
+            [self schedule:@selector(spawnObjectAtRandomLocation) interval:(float)(1/10) repeat:waveNum delay:0];
+        }
+    }
+    else{
+        [self schedule:@selector(spawnObjectAtRandomLocation) interval:1.0f repeat:waveNum delay:0];
+    }
 }
 
 // Returns a random CGPoint on the perimeter of the screen

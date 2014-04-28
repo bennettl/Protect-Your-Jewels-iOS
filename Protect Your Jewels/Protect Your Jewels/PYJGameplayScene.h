@@ -21,6 +21,7 @@ typedef enum : NSUInteger {
 @property int shieldTicker;
 @property ShieldState state;
 
++(id)nodeWithIsClassic:(BOOL)classic;
 - (void)decrementLives;
 - (void)incrementScoreByValue:(int)value;
 - (void)startGameOver;

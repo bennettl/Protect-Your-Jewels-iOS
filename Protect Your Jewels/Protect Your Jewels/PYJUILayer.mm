@@ -14,10 +14,13 @@
     CCLabelTTF *_livesLabel;
     CCLabelTTF *_scoreLabel;
     CCMenuItem *_pauseLabel;
+    CCLabelTTF *_timeLabel;
+    int timeRemaining;
 }
 @end
 
 @implementation PYJUILayer
+static BOOL classicMode;
 
 - (id)init{
     
@@ -38,6 +41,15 @@
         CGSize s                = [[CCDirector sharedDirector] winSize];
         _livesLabel.position    = ccp(_scoreLabel.contentSize.width/2 + 40, 25);
         _scoreLabel.position    = ccp(s.width - _scoreLabel.contentSize.width/2 - 40, 25);
+        
+        if(!classicMode){
+            _timeLabel          = [CCLabelTTF labelWithString:@"Time: 60" fontName:FONT_NAME fontSize:20];
+            _timeLabel.position = ccp(s.width - _timeLabel.contentSize.width/2 - 40, 55);
+            [self addChild:_timeLabel];
+            timeRemaining = 60;
+            [self schedule:@selector(updateTimeLabel) interval:1.0f];
+            
+        }
 
         // Add to layer
         [self addChild:_livesLabel];
@@ -47,11 +59,29 @@
     return self;
 }
 
++(id)nodeWithIsClassic:(BOOL)classic{
+    classicMode = classic;
+    return [[[self alloc] init] autorelease];
+}
+
 - (void)updateLivesLabelWithLives:(int)lives{
     _livesLabel.string = [NSString stringWithFormat:@"Lives %i", lives];
 }
 - (void)updateScoreLabelWithScore:(int)score{
     _scoreLabel.string = [NSString stringWithFormat:@"Score: %i", score];
+}
+
+-(void)updateTimeLabel{
+    timeRemaining--;
+    _timeLabel.string = [NSString stringWithFormat:@"Time: %i", timeRemaining];
+}
+
+-(void)endTimer{
+    [self unschedule:@selector(updateTimeLabel)];
+}
+
+-(int)getTime{
+    return timeRemaining;
 }
 
 - (void)pauseMenu {
