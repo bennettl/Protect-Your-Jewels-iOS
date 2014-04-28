@@ -36,6 +36,7 @@
 @property NSMutableArray *touchCircles;
 @property (nonatomic, strong) CCParticleSystemQuad *shieldParticle;
 @property (nonatomic, strong) PYJShieldSprite *shieldSprite;
+@property (nonatomic, strong) PYJJewelSprite *jewelSprite;
 
 
 @end
@@ -63,7 +64,7 @@
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
         [self initJewel];
-        [self initDebug];
+//        [self initDebug];
         [self initShield];
 
         // Creates bounding box
@@ -85,9 +86,9 @@
 // Creates jewel
  -(void)initJewel{
      CGSize s = [[CCDirector sharedDirector] winSize];
-     PYJJewelSprite *j = [PYJJewelSprite jewelSprite];
-     [j setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
-     [objectLayer addChild:j.ccNode z:10];
+     self.jewelSprite = [PYJJewelSprite jewelSprite];
+     [self.jewelSprite setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
+     [objectLayer addChild:self.jewelSprite.ccNode z:10];
 }
 
 // Add debug layer
@@ -199,7 +200,11 @@
 
 // Called at start of touch
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
     // Don't process touch if current touches reaches max
+    
+    
+        
     if (currentTouches > MAX_TOUCHES){
         return;
     }

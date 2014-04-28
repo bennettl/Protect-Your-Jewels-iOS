@@ -76,7 +76,7 @@
     //self.score++;
     [self.uiLayer updateScoreLabelWithScore:self.score];
     self.shieldTicker = self.shieldTicker + value;
-    if(self.shieldTicker >= 2 && self.state == KShieldDeactivated) {
+    if(self.shieldTicker >= 30 && self.state == KShieldDeactivated) {
         self.state = kShieldActivated;
         [self scheduleOnce:@selector(deployShield) delay:0];
         
@@ -90,6 +90,7 @@
 
 
 - (void)removeShield {
+    NSLog(@"removing shield from gameplay");
     self.shieldTicker = 0;
     self.state = KShieldDeactivated;
 }
