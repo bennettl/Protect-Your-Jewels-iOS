@@ -400,7 +400,6 @@
     [_enemies dealloc];
     [_touchCircles dealloc];
 	[super dealloc];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }	
 
 @end
