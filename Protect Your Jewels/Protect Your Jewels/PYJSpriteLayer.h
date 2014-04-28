@@ -32,6 +32,7 @@ extern int const MAX_TOUCHES = 1;
 
 // Remove PYJEnemySprite from enemies mutable array
 - (void)removeEnemyFromSpriteLayer:(PYJEnemySprite *)es;
+- (void)deployShield;
 
 // Start waves of objects
 -(void)startWave;

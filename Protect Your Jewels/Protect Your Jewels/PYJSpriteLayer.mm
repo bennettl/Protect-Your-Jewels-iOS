@@ -16,6 +16,7 @@
 #import "PYJTouchCircle.h"
 #import "PYJBoxNode.h"
 #import "PYJBombSprite.h"
+#import "PYJShieldSprite.h"
 
 //#define MAX_TOUCHES 1
 
@@ -33,6 +34,10 @@
 
 @property NSMutableArray *enemies;
 @property NSMutableArray *touchCircles;
+@property (nonatomic, strong) CCParticleSystemQuad *shieldParticle;
+@property (nonatomic, strong) PYJShieldSprite *shieldSprite;
+@property (nonatomic, strong) PYJJewelSprite *jewelSprite;
+
 
 @end
 
@@ -83,6 +88,9 @@
 // Creates jewel
  -(void)initJewel{
      CGSize s = [[CCDirector sharedDirector] winSize];
+     self.jewelSprite = [PYJJewelSprite jewelSprite];
+     [self.jewelSprite setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
+     [objectLayer addChild:self.jewelSprite.ccNode z:10];
      PYJJewelSprite *j = [PYJJewelSprite jewelSprite];
      [j setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
      [objectLayer addChild:j.ccNode z:10];
@@ -116,6 +124,34 @@
 - (void)initDebug{
     GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
     [self addChild:debugLayer z:30];
+}
+
+- (void)initShield {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    self.shieldSprite = [PYJShieldSprite shieldSprite];
+    self.shieldSprite.body->SetActive(NO);
+    [self.shieldSprite setPhysicsPosition:b2Vec2FromCC(winSize.width/2, winSize.height/2)];
+    [objectLayer addChild:self.shieldSprite.ccNode z:11];
+    
+    
+}
+
+- (void)deployShield {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    self.shieldSprite.body->SetActive(YES);
+    self.shieldParticle = [[CCParticleSystemQuad alloc] initWithFile:@"fireShield.plist"];
+    self.shieldParticle.position = ccp(winSize.width/2, winSize.height/2);
+    [self addChild:self.shieldParticle z:8];
+
+    [self scheduleOnce:@selector(removeShield) delay:7];
+}
+
+
+- (void)removeShield {
+    NSLog(@"removing shield");
+    self.shieldSprite.body->SetActive(NO);
+    self.shieldParticle.visible = NO;
+    [self removeChild:self.shieldSprite.ccNode cleanup:YES];
 }
 
 // Initializes enemy at location
@@ -193,7 +229,11 @@
 
 // Called at start of touch
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
     // Don't process touch if current touches reaches max
+    
+    
+        
     if (currentTouches > MAX_TOUCHES){
         return;
     }
@@ -378,6 +418,7 @@
     [_enemies dealloc];
     [_touchCircles dealloc];
 	[super dealloc];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }	
 
 @end
