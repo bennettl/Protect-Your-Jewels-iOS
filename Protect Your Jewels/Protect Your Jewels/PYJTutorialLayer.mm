@@ -373,7 +373,15 @@
                 currentTouches--; // keep track of current touches
             }
         }
+        for(int i = 0; i < self.enemies.count; i++){
+            [self removeChild:[self.enemies objectAtIndex:0] cleanup:YES];
+        }
+        for(PYJTouchCircle *touchCircle in self.touchCircles){
+            [GB2Engine sharedInstance].world->DestroyJoint(touchCircle.mouseJoint);
+            touchCircle.deleteLater = true;
+        }
         [self.enemies removeAllObjects];
+        [self.touchCircles removeAllObjects];
     }
 }
 

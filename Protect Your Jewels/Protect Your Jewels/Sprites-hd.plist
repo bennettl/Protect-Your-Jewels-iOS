@@ -4,6 +4,123 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>achievements/Gladiator_achievement_100.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2624,362},{76,76}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{76,76}}</string>
+                <key>sourceSize</key>
+                <string>{76,76}</string>
+            </dict>
+            <key>achievements/Gladiator_achievement_200.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{3986,677},{76,76}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{76,76}}</string>
+                <key>sourceSize</key>
+                <string>{76,76}</string>
+            </dict>
+            <key>achievements/Gladiator_achievement_500.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{3986,599},{76,76}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{76,76}}</string>
+                <key>sourceSize</key>
+                <string>{76,76}</string>
+            </dict>
+            <key>achievements/Monkey_achievement_100.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{3986,521},{76,76}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{76,76}}</string>
+                <key>sourceSize</key>
+                <string>{76,76}</string>
+            </dict>
+            <key>achievements/Monkey_achievement_200.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{3986,443},{76,76}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{76,76}}</string>
+                <key>sourceSize</key>
+                <string>{76,76}</string>
+            </dict>
+            <key>achievements/Monkey_achievement_500.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{3986,365},{76,76}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{76,76}}</string>
+                <key>sourceSize</key>
+                <string>{76,76}</string>
+            </dict>
+            <key>achievements/Ninja_achievement_100.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{3994,287},{76,76}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{76,76}}</string>
+                <key>sourceSize</key>
+                <string>{76,76}</string>
+            </dict>
+            <key>achievements/Ninja_achievement_200.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{3994,209},{76,76}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{76,76}}</string>
+                <key>sourceSize</key>
+                <string>{76,76}</string>
+            </dict>
+            <key>achievements/Ninja_achievement_500.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{3994,131},{76,76}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{76,76}}</string>
+                <key>sourceSize</key>
+                <string>{76,76}</string>
+            </dict>
             <key>background/Clouds_back_full.png</key>
             <dict>
                 <key>frame</key>
@@ -371,7 +488,7 @@
             <key>gladiator/sword.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3796,721},{258,970}}</string>
+                <string>{{3796,755},{258,970}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -397,7 +514,7 @@
             <key>menu_logo.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3794,1693},{640,225}}</string>
+                <string>{{3794,1727},{640,225}}</string>
                 <key>offset</key>
                 <string>{-2,0}</string>
                 <key>rotated</key>
@@ -612,7 +729,7 @@
             <key>size</key>
             <string>{4096,4096}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:17646d06229e4c55ee5e1690cfe91ee6:33f5995485ac24f42cc205561fd668d6:8e9ec22a2c0ec922c15f2d7e51a327b3$</string>
+            <string>$TexturePacker:SmartUpdate:5c2bd5cd76f1bef594cbf63ce6a148bf:7c0ac82f2207c5eaf54497bf79cbf9ef:8e9ec22a2c0ec922c15f2d7e51a327b3$</string>
             <key>textureFileName</key>
             <string>Sprites-hd.pvr.ccz</string>
         </dict>
