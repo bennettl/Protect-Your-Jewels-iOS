@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		469C056A18BA952E00A56049 /* PYJCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 469C056918BA952E00A56049 /* PYJCloud.m */; };
 		46BF4E3318EA63D900BF0025 /* PYJFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF4E3218EA63D900BF0025 /* PYJFacebookManager.m */; };
+		46C7A87B190E430500998D25 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C7A879190E430500998D25 /* fire.png */; };
+		46C7A87C190E430500998D25 /* stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C7A87A190E430500998D25 /* stars.png */; };
+		46C7A887190E4F3000998D25 /* JewelParticles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46C7A886190E4F3000998D25 /* JewelParticles.plist */; };
 		46EB10D018F2543A00BBCEBF /* share_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 46EB10CE18F2543A00BBCEBF /* share_facebook.png */; };
 		46EB10D118F2543A00BBCEBF /* share_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 46EB10CF18F2543A00BBCEBF /* share_twitter.png */; };
 		46EB10D518F272A100BBCEBF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB10D418F272A100BBCEBF /* FacebookSDK.framework */; };
@@ -259,6 +262,9 @@
 		469C056918BA952E00A56049 /* PYJCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJCloud.m; sourceTree = "<group>"; };
 		46BF4E3118EA63D900BF0025 /* PYJFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJFacebookManager.h; sourceTree = "<group>"; };
 		46BF4E3218EA63D900BF0025 /* PYJFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJFacebookManager.m; sourceTree = "<group>"; };
+		46C7A879190E430500998D25 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fire.png; path = Resources/fire.png; sourceTree = "<group>"; };
+		46C7A87A190E430500998D25 /* stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stars.png; path = Resources/stars.png; sourceTree = "<group>"; };
+		46C7A886190E4F3000998D25 /* JewelParticles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JewelParticles.plist; sourceTree = "<group>"; };
 		46EB10CE18F2543A00BBCEBF /* share_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_facebook.png; sourceTree = "<group>"; };
 		46EB10CF18F2543A00BBCEBF /* share_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_twitter.png; sourceTree = "<group>"; };
 		46EB10D418F272A100BBCEBF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Protect Your Jewels/FacebookSDK/FacebookSDK.framework"; sourceTree = "<group>"; };
@@ -1430,6 +1436,9 @@
 		4D8AE0D218B9C951001689EC /* Images and Shapes */ = {
 			isa = PBXGroup;
 			children = (
+				46C7A879190E430500998D25 /* fire.png */,
+				46C7A87A190E430500998D25 /* stars.png */,
+				46C7A886190E4F3000998D25 /* JewelParticles.plist */,
 				56643CB518FCCBF40068989D /* Mountain_FG_iPhone5.png */,
 				56643CB618FCCBF40068989D /* Temple_BG_iPhone5.png */,
 				56643CB718FCCBF40068989D /* Temple_Clouds_back_full.png */,
@@ -1634,6 +1643,7 @@
 				4D8ADE5618B974A3001689EC /* Icon-Small@2x.png in Resources */,
 				56643CA418FCCBD60068989D /* Jungle_BG_iPhone5.png in Resources */,
 				4D8AE12318BC9AF2001689EC /* drumroll-end.wav in Resources */,
+				46C7A87C190E430500998D25 /* stars.png in Resources */,
 				56643CAF18FCCBEE0068989D /* Jungle_Clouds_front.png in Resources */,
 				4D8ADE4E18B974A2001689EC /* Default-Landscape~ipad.png in Resources */,
 				46EB10D118F2543A00BBCEBF /* share_twitter.png in Resources */,
@@ -1642,6 +1652,8 @@
 				56643CBE18FCCBF40068989D /* Temple_FG_iPhone5.png in Resources */,
 				46EB10D018F2543A00BBCEBF /* share_facebook.png in Resources */,
 				4D8ADE4C18B974A2001689EC /* Default-568h@2x.png in Resources */,
+				46C7A87B190E430500998D25 /* fire.png in Resources */,
+				46C7A887190E4F3000998D25 /* JewelParticles.plist in Resources */,
 				4D8AE10918BAACD5001689EC /* punch.caf in Resources */,
 				4D8ADE5A18B974A3001689EC /* Icon@2x.png in Resources */,
 				4D8AE11F18BC976A001689EC /* applause-laugh.wav in Resources */,

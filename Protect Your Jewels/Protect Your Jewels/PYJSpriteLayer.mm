@@ -86,6 +86,30 @@
      PYJJewelSprite *j = [PYJJewelSprite jewelSprite];
      [j setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
      [objectLayer addChild:j.ccNode z:10];
+     
+     CCParticleSystemQuad *system = [CCParticleSystemQuad particleWithFile:@"JewelParticles.plist"];
+     system.sourcePosition = ccp(s.width/2, s.height/2);
+     [self addChild:system z:8];
+     
+     /*CCParticleSystemQuad* emitter = [[CCParticleSystemQuad alloc] initWithTotalParticles:45];
+     [emitter setEmitterMode:kCCParticleModeRadius];
+     emitter.position = ccp(100,100);
+     emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"stars.png"];
+     CCParticleFire *stars = [[CCParticleFire alloc] init];
+     stars.position = ccp(s.width/2,s.height/2);
+     [stars setGravity:ccp(0,0)];
+     //stars.startRadius = 50;
+     //stars.endRadius = 50;
+     //stars.endRadius = 0.3;
+     [self addChild:stars z:8];
+     [self addChild:emitter z:8];*/
+     
+/*     CCParticleSystem *particleSystem = [[[CCParticleFire alloc] initWithTotalParticles:100] autorelease];
+     [self addChild:particleSystem z:5];
+     //[particleSystem release];
+     particleSystem.position = ccp(s.width/2,s.height/2);
+ */
+
 }
 
 // Add debug layer
