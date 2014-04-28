@@ -16,6 +16,9 @@
 		46EB10D118F2543A00BBCEBF /* share_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 46EB10CF18F2543A00BBCEBF /* share_twitter.png */; };
 		46EB10D518F272A100BBCEBF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB10D418F272A100BBCEBF /* FacebookSDK.framework */; };
 		46FF968318CB0FF6009C6018 /* PYJBGLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FF968218CB0FF6009C6018 /* PYJBGLayer.m */; };
+		4D123441190F0F7500340B2D /* PRFilledPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D12343B190F0F7500340B2D /* PRFilledPolygon.m */; };
+		4D123442190F0F7500340B2D /* PRRatcliffTriangulator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D12343D190F0F7500340B2D /* PRRatcliffTriangulator.mm */; };
+		4D123443190F0F7500340B2D /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D12343F190F0F7500340B2D /* triangulate.cpp */; };
 		4D66ACE418C07A0300DE656A /* PYJFlashLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D66ACE318C07A0300DE656A /* PYJFlashLayer.mm */; };
 		4D8ADE3218B974A2001689EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3118B974A2001689EC /* QuartzCore.framework */; };
 		4D8ADE3418B974A2001689EC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8ADE3318B974A2001689EC /* OpenGLES.framework */; };
@@ -274,6 +277,13 @@
 		46EB10D418F272A100BBCEBF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Protect Your Jewels/FacebookSDK/FacebookSDK.framework"; sourceTree = "<group>"; };
 		46FF968118CB0FF6009C6018 /* PYJBGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJBGLayer.h; sourceTree = "<group>"; };
 		46FF968218CB0FF6009C6018 /* PYJBGLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJBGLayer.m; sourceTree = "<group>"; };
+		4D12343A190F0F7500340B2D /* PRFilledPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRFilledPolygon.h; sourceTree = "<group>"; };
+		4D12343B190F0F7500340B2D /* PRFilledPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRFilledPolygon.m; sourceTree = "<group>"; };
+		4D12343C190F0F7500340B2D /* PRRatcliffTriangulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRRatcliffTriangulator.h; sourceTree = "<group>"; };
+		4D12343D190F0F7500340B2D /* PRRatcliffTriangulator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PRRatcliffTriangulator.mm; sourceTree = "<group>"; };
+		4D12343E190F0F7500340B2D /* PRTriangulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTriangulator.h; sourceTree = "<group>"; };
+		4D12343F190F0F7500340B2D /* triangulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangulate.cpp; sourceTree = "<group>"; };
+		4D123440190F0F7500340B2D /* triangulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangulate.h; sourceTree = "<group>"; };
 		4D66ACE218C07A0300DE656A /* PYJFlashLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJFlashLayer.h; sourceTree = "<group>"; };
 		4D66ACE318C07A0300DE656A /* PYJFlashLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJFlashLayer.mm; sourceTree = "<group>"; };
 		4D8ADE2E18B974A2001689EC /* Protect Your Jewels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Protect Your Jewels.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -766,6 +776,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D123439190F0F7500340B2D /* PYJPRKit */ = {
+			isa = PBXGroup;
+			children = (
+				4D12343A190F0F7500340B2D /* PRFilledPolygon.h */,
+				4D12343B190F0F7500340B2D /* PRFilledPolygon.m */,
+				4D12343C190F0F7500340B2D /* PRRatcliffTriangulator.h */,
+				4D12343D190F0F7500340B2D /* PRRatcliffTriangulator.mm */,
+				4D12343E190F0F7500340B2D /* PRTriangulator.h */,
+				4D12343F190F0F7500340B2D /* triangulate.cpp */,
+				4D123440190F0F7500340B2D /* triangulate.h */,
+			);
+			name = PYJPRKit;
+			path = PRKit;
+			sourceTree = "<group>";
+		};
 		4D8ADE2518B974A2001689EC = {
 			isa = PBXGroup;
 			children = (
@@ -807,6 +832,7 @@
 				4D8AE09418B979AE001689EC /* GameplayScene */,
 				4D8ADE4618B974A2001689EC /* Resources */,
 				4D8ADE5E18B974A3001689EC /* libs */,
+				4D123439190F0F7500340B2D /* PYJPRKit */,
 				4D8AE06518B974A7001689EC /* Supporting Files */,
 			);
 			path = "Protect Your Jewels";
@@ -1795,7 +1821,9 @@
 				4D8AE04918B974A7001689EC /* b2Joint.cpp in Sources */,
 				4D8ADF1618B974A5001689EC /* CCSpriteFrameCache.m in Sources */,
 				94CE827318B9971F00FCA354 /* PYJLeaderboardScene.mm in Sources */,
+				4D123443190F0F7500340B2D /* triangulate.cpp in Sources */,
 				4D8ADE9F18B974A3001689EC /* CCDirector.m in Sources */,
+				4D123442190F0F7500340B2D /* PRRatcliffTriangulator.mm in Sources */,
 				4D8ADE8F18B974A3001689EC /* CCAtlasNode.m in Sources */,
 				4D8AE06B18B974A7001689EC /* AppDelegate.mm in Sources */,
 				469C056A18BA952E00A56049 /* PYJCloud.m in Sources */,
@@ -1873,6 +1901,7 @@
 				4D8ADE9218B974A3001689EC /* CCCamera.m in Sources */,
 				4D8ADE8C18B974A3001689EC /* CCAnimationCache.m in Sources */,
 				4D8ADEAE18B974A4001689EC /* CCGLProgram.m in Sources */,
+				4D123441190F0F7500340B2D /* PRFilledPolygon.m in Sources */,
 				4D8ADF9E18B974A6001689EC /* SimpleAudioEngine.m in Sources */,
 				4D8ADF5018B974A5001689EC /* CCTouchDispatcher.m in Sources */,
 				4D8AE06818B974A7001689EC /* main.m in Sources */,
