@@ -13,6 +13,7 @@
 
 @interface PYJBombSprite : GB2Sprite {
     PYJSpriteLayer *spriteLayer;
+    BOOL removed;
 }
 
 -(id)initWithSpriteLayer:(PYJSpriteLayer *)sl;

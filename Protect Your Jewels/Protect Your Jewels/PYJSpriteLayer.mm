@@ -41,9 +41,8 @@
 #pragma mark initlization
 
 -(id) init{
-    
 	if ((self=[super init])) {
-
+        [self scheduleUpdate];
         // Load sprite atlases
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Sprites.plist"];
         
@@ -58,25 +57,28 @@
         enemyLaunchForce    = 1000.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
-        [self initJewel];
-//        [self initDebug];
-
-        // Creates bounding box
-        boxNode = [[PYJBoxNode alloc] init];
-        
-        // Touching
-        self.touchEnabled = YES;
-        currentTouches = 0;
-        
-        // Start Waves
-        waveNum = 0;
-        int timeBetweenWaves = 5;
-        [self unschedule:@selector(startWave)];
-        [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:kCCRepeatForever delay:0];
     }
 	return self;
 }
 
+-(void)startGame{
+    // Create jewel
+    [self initJewel];
+    
+    // Creates bounding box
+    boxNode = [[PYJBoxNode alloc] init];
+    
+    // Touching
+    self.touchEnabled = YES;
+    currentTouches = 0;
+    
+    // Start Waves
+    waveNum = 0;
+    int timeBetweenWaves = 5;
+    [self unschedule:@selector(startWave)];
+    [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:kCCRepeatForever delay:0];
+    //[self initDebug];
+}
 
 // Creates jewel
  -(void)initJewel{
@@ -321,9 +323,20 @@
 }
 
 // Remove all enemies and touch circles
--(void)endGame{
+-(void)resetGame{
+    [self scheduleUpdate];
+}
+
+-(void) update:(ccTime)delta{
     [self unschedule:@selector(startWave)];
     [self unschedule:@selector(spawnObjectAtRandomLocation)];
+    for (b2Body* b = [GB2Engine sharedInstance].world->GetBodyList(); b; b = b->GetNext()) {
+        if (b->GetUserData() != NULL) {
+            CCSprite *sprite = (CCSprite *) b->GetUserData();
+            [self removeChild:sprite cleanup:YES];
+        }
+        [GB2Engine sharedInstance].world->DestroyBody(b);
+    }
     for (int i = 0; i < [self.enemies count]; i++){
         [self removeChild:[self.enemies objectAtIndex:0] cleanup:YES];
     }
@@ -332,6 +345,9 @@
     }
     [self.enemies removeAllObjects];
     [self.touchCircles removeAllObjects];
+    refreshedScreen = YES;
+    [self startGame];
+    [self unscheduleUpdate];
 }
 
 -(void) dealloc{

@@ -24,6 +24,7 @@
             ef.groupIndex    = 2;
             f->SetFilterData(ef);
         }
+        removed = NO;
     }
     return self;
 }
@@ -36,13 +37,17 @@
 
 // When the PYJTouchCircle collides with enemy, play the punch audio
 -(void)beginContactWithPYJTouchCircle:(GB2Contact *)contact{
-    PYJGameplayScene *gpScene = ((PYJGameplayScene *)self.ccNode.parent.parent);
+    if(removed == NO){
+        removed = YES;
+        PYJGameplayScene *gpScene = ((PYJGameplayScene *)self.ccNode.parent.parent);
         
-    // Tell scene to decrement the lives counter
-    [gpScene decrementLives];
-
-    // Mark it for deletion
-    self.deleteLater    = true;
+        // Tell scene to decrement the lives counter
+        [gpScene decrementLives];
+        
+        // Mark it for deletion
+        self.deleteLater    = true;
+    }
+    
 }
 
 - (void)dealloc{

@@ -25,6 +25,9 @@
 
 // HelloWorldLayer
 @interface PYJSpriteLayer : CCLayer
+{
+    BOOL refreshedScreen;
+}
 extern int const MAX_TOUCHES = 1;
 
 // Remove PYJEnemySprite from enemies mutable array
@@ -33,5 +36,5 @@ extern int const MAX_TOUCHES = 1;
 // Start waves of objects
 -(void)startWave;
 
--(void)endGame;
+//-(void)resetGame;
 @end
