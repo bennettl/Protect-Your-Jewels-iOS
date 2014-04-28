@@ -346,9 +346,9 @@
     [self.enemies removeObject:es];
 }
 
-// Remove all enemies and touch circles
+// Stop all schedules
 -(void)resetGame{
-    [self scheduleUpdate];
+    [self unscheduleAllSelectors];
 }
 
 -(void) update:(ccTime)delta{

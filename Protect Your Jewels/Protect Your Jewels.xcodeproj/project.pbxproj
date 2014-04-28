@@ -253,6 +253,7 @@
 		94EE144818FC9629002D9501 /* Sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94EE144318FC9629002D9501 /* Sprites.plist */; };
 		94EE144918FC9629002D9501 /* Sprites.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 94EE144418FC9629002D9501 /* Sprites.pvr.ccz */; };
 		D37CF08918FCB0E200ACDD62 /* PYJTutorialLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D37CF08818FCB0E200ACDD62 /* PYJTutorialLayer.mm */; };
+		D3A21F18190EBA8C00B3A628 /* PYJAchievementSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3A21F17190EBA8C00B3A628 /* PYJAchievementSprite.mm */; };
 		D3B7789318CE57180046C176 /* PYJInstructionsScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */; };
 		D3B7789618DDAF430046C176 /* PYJAchievementsScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3B7789518DDAF430046C176 /* PYJAchievementsScene.mm */; };
 /* End PBXBuildFile section */
@@ -729,6 +730,8 @@
 		94EE144418FC9629002D9501 /* Sprites.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sprites.pvr.ccz; sourceTree = "<group>"; };
 		D37CF08718FCB0E200ACDD62 /* PYJTutorialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJTutorialLayer.h; sourceTree = "<group>"; };
 		D37CF08818FCB0E200ACDD62 /* PYJTutorialLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJTutorialLayer.mm; sourceTree = "<group>"; };
+		D3A21F16190EBA8C00B3A628 /* PYJAchievementSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJAchievementSprite.h; sourceTree = "<group>"; };
+		D3A21F17190EBA8C00B3A628 /* PYJAchievementSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJAchievementSprite.mm; sourceTree = "<group>"; };
 		D3B7789118CE57180046C176 /* PYJInstructionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJInstructionsScene.h; sourceTree = "<group>"; };
 		D3B7789218CE57180046C176 /* PYJInstructionsScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJInstructionsScene.mm; sourceTree = "<group>"; };
 		D3B7789418DDAF430046C176 /* PYJAchievementsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJAchievementsScene.h; sourceTree = "<group>"; };
@@ -1391,6 +1394,8 @@
 				4D8AE08918B979A0001689EC /* PYJBoxNode.mm */,
 				4D8AE08A18B979A0001689EC /* PYJTouchCircle.h */,
 				4D8AE08B18B979A1001689EC /* PYJTouchCircle.mm */,
+				D3A21F16190EBA8C00B3A628 /* PYJAchievementSprite.h */,
+				D3A21F17190EBA8C00B3A628 /* PYJAchievementSprite.mm */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -1679,6 +1684,7 @@
 				4D8ADEC318B974A4001689EC /* CCLayer.m in Sources */,
 				4D8ADFEE18B974A6001689EC /* b2ChainShape.cpp in Sources */,
 				46BF4E3318EA63D900BF0025 /* PYJFacebookManager.m in Sources */,
+				D3A21F18190EBA8C00B3A628 /* PYJAchievementSprite.mm in Sources */,
 				4D8ADF2518B974A5001689EC /* CCTileMapAtlas.m in Sources */,
 				4D8ADF2818B974A5001689EC /* CCTMXLayer.m in Sources */,
 				4D8ADFDD18B974A6001689EC /* b2CollideEdge.cpp in Sources */,
