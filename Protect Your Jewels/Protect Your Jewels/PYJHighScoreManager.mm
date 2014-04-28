@@ -11,6 +11,17 @@
 #define HIGH_SCORES_KEY @"userHighScores"
 #define IN_GAME_CURRENCY_KEY @"userCurrency"
 
+#define MONKEY_100 @"Monkey_achievement_100"
+#define MONKEY_200 @"Monkey_achievement_200"
+#define MONKEY_500 @"Monkey_achievement_500"
+#define NINJA_100 @"Ninja_achievement_100"
+#define NINJA_200 @"Ninja_achievement_200"
+#define NINJA_500 @"Ninja_achievement_500"
+#define GLADIATOR_100 @"Gladiator_achievement_100"
+#define GLADIATOR_200 @"Gladiator_achievement_200"
+#define GLADIATOR_500 @"Gladiator_achievement_500"
+
+
 @interface PYJHighScoreManager(){
     NSMutableArray *_highScores;
     int _highestScore;
@@ -122,4 +133,54 @@
     // Save high scores to NSUserDefaults
     [defaults synchronize];
 }
+
+- (void)updateAchievementsForTheme:(Theme)theme andScore:(int)score {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (score >= 100) {
+        if(theme == JUNGLE) {
+            if (![defaults boolForKey:MONKEY_100]) {
+                [defaults setBool:YES forKey:MONKEY_100];
+            }
+        } else if (theme == MOUNTAIN) {
+            if (![defaults boolForKey:NINJA_100]) {
+                [defaults setBool:YES forKey:NINJA_100];
+            }
+        } else if (theme == GLADIATOR) {
+            if (![defaults boolForKey:GLADIATOR_100]) {
+                [defaults setBool:YES forKey:GLADIATOR_100];
+            }
+        }
+    } else if (score >= 200) {
+        if(theme == JUNGLE) {
+            if (![defaults boolForKey:MONKEY_200]) {
+                [defaults setBool:YES forKey:MONKEY_200];
+            }
+        } else if (theme == MOUNTAIN) {
+            if (![defaults boolForKey:NINJA_200]) {
+                [defaults setBool:YES forKey:NINJA_200];
+            }
+        } else if (theme == GLADIATOR) {
+            if (![defaults boolForKey:GLADIATOR_200]) {
+                [defaults setBool:YES forKey:GLADIATOR_200];
+            }
+        }
+        
+    } else if (score >= 500) {
+        if(theme == JUNGLE) {
+            if (![defaults boolForKey:MONKEY_500]) {
+                [defaults setBool:YES forKey:MONKEY_500];
+            }
+        } else if (theme == MOUNTAIN) {
+            if (![defaults boolForKey:NINJA_500]) {
+                [defaults setBool:YES forKey:NINJA_500];
+            }
+        } else if (theme == GLADIATOR) {
+            if (![defaults boolForKey:GLADIATOR_500]) {
+                [defaults setBool:YES forKey:GLADIATOR_500];
+            }
+        }
+    }
+    [defaults synchronize];
+}
+
 @end

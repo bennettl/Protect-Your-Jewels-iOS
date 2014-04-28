@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PYJThemeManager.h"
 
 // BLHighScoreManager will take care of saving and retrieving high scores
 
@@ -25,6 +26,8 @@
 - (void)updateInGameCurrency:(int)score;
 // Get in game currency
 - (NSInteger)userCurrency;
+// Update achievement list
+- (void)updateAchievementsForTheme:(Theme)theme andScore:(int)score;
 
 
 @end

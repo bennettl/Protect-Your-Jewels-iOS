@@ -222,7 +222,7 @@
 		4D8AE11F18BC976A001689EC /* applause-laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE11A18BC976A001689EC /* applause-laugh.wav */; };
 		4D8AE12018BC976A001689EC /* drumroll-begin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE11B18BC976A001689EC /* drumroll-begin.wav */; };
 		4D8AE12318BC9AF2001689EC /* drumroll-end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AE12218BC9AF2001689EC /* drumroll-end.wav */; };
-		4D8AE12618BC9CA1001689EC /* PYJHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.m */; };
+		4D8AE12618BC9CA1001689EC /* PYJHighScoreManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.mm */; };
 		4DDE10CE18F3F0B600A0A82E /* PYJBombSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DDE10CD18F3F0B600A0A82E /* PYJBombSprite.mm */; };
 		56643C9F18FCCBCE0068989D /* Clouds_back_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 56643C9D18FCCBCE0068989D /* Clouds_back_full.png */; };
 		56643CA018FCCBCE0068989D /* Clouds_front_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 56643C9E18FCCBCE0068989D /* Clouds_front_full.png */; };
@@ -693,7 +693,7 @@
 		4D8AE11B18BC976A001689EC /* drumroll-begin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "drumroll-begin.wav"; sourceTree = "<group>"; };
 		4D8AE12218BC9AF2001689EC /* drumroll-end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "drumroll-end.wav"; sourceTree = "<group>"; };
 		4D8AE12418BC9CA1001689EC /* PYJHighScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJHighScoreManager.h; sourceTree = "<group>"; };
-		4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYJHighScoreManager.m; sourceTree = "<group>"; };
+		4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJHighScoreManager.mm; sourceTree = "<group>"; };
 		4DDE10CC18F3F0B600A0A82E /* PYJBombSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJBombSprite.h; sourceTree = "<group>"; };
 		4DDE10CD18F3F0B600A0A82E /* PYJBombSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJBombSprite.mm; sourceTree = "<group>"; };
 		56643C9D18FCCBCE0068989D /* Clouds_back_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clouds_back_full.png; sourceTree = "<group>"; };
@@ -1552,7 +1552,7 @@
 				94CE827C18B9998500FCA354 /* PYJGameOverLayer.h */,
 				94CE827D18B9998500FCA354 /* PYJGameOverLayer.mm */,
 				4D8AE12418BC9CA1001689EC /* PYJHighScoreManager.h */,
-				4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.m */,
+				4D8AE12518BC9CA1001689EC /* PYJHighScoreManager.mm */,
 				46BF4E3118EA63D900BF0025 /* PYJFacebookManager.h */,
 				46BF4E3218EA63D900BF0025 /* PYJFacebookManager.m */,
 				D3B7789118CE57180046C176 /* PYJInstructionsScene.h */,
@@ -1825,7 +1825,7 @@
 				4D8ADFE418B974A6001689EC /* b2Distance.cpp in Sources */,
 				4D8ADE7418B974A3001689EC /* CCActionInstant.m in Sources */,
 				4D8AE0B218B97A26001689EC /* GLES-Render.mm in Sources */,
-				4D8AE12618BC9CA1001689EC /* PYJHighScoreManager.m in Sources */,
+				4D8AE12618BC9CA1001689EC /* PYJHighScoreManager.mm in Sources */,
 				4D8ADE9518B974A3001689EC /* CCClippingNode.m in Sources */,
 				4D8AE04F18B974A7001689EC /* b2PrismaticJoint.cpp in Sources */,
 				4D8ADFD818B974A6001689EC /* b2BroadPhase.cpp in Sources */,
