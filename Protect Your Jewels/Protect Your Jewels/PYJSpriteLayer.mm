@@ -86,7 +86,13 @@ static BOOL classicMode;
     
     // Start Waves
     waveNum = 0;
-    int timeBetweenWaves = 5;
+    int timeBetweenWaves;
+    if(classicMode){
+        timeBetweenWaves = 4;
+    }
+    else{
+        timeBetweenWaves = 2;
+    }
     [self unschedule:@selector(startWave)];
     [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:kCCRepeatForever delay:0];
     //[self initDebug];
@@ -192,14 +198,16 @@ static BOOL classicMode;
     waveNum++;
     enemyLaunchForce = enemyLaunchForce + (waveNum * 10);
     [self unschedule:@selector(spawnObjectAtRandomLocation)];
+    // arcade mode
     if(!classicMode){
         if(waveNum < 10){
-            [self schedule:@selector(spawnObjectAtRandomLocation) interval:(float)(1/waveNum) repeat:waveNum delay:0];
+            [self schedule:@selector(spawnObjectAtRandomLocation) interval:(float)(1.0f-waveNum/10) repeat:kCCRepeatForever delay:0];
         }
         else{
-            [self schedule:@selector(spawnObjectAtRandomLocation) interval:(float)(1/10) repeat:waveNum delay:0];
+            [self schedule:@selector(spawnObjectAtRandomLocation) interval:0.2 repeat:kCCRepeatForever delay:0];
         }
     }
+    // classic mode
     else{
         [self schedule:@selector(spawnObjectAtRandomLocation) interval:1.0f repeat:waveNum delay:0];
     }
@@ -212,12 +220,10 @@ static BOOL classicMode;
     CGPoint direction;
     switch(arc4random()%4){
         case 0:
-            //direction = CGPointMake(arc4random() % (int)s.width,(int)s.height); // top
             direction = CGPointMake(0,arc4random() % (int)s.height); // left
             break;
         case 1:
             direction = CGPointMake((int)s.width,arc4random() % (int)s.height); // right
-            //direction = CGPointMake(arc4random() % (int)s.width,0); // bottom
             break;
         case 2:
             direction = CGPointMake(0,arc4random() % (int)s.height); // left
