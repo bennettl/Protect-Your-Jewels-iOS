@@ -69,6 +69,7 @@
 -(void)startGame{
     // Create jewel
     [self initJewel];
+    [self initShield];
     
     // Creates bounding box
     boxNode = [[PYJBoxNode alloc] init];
@@ -85,46 +86,6 @@
     //[self initDebug];
 }
 
-// Creates jewel
- -(void)initJewel{
-     CGSize s = [[CCDirector sharedDirector] winSize];
-     self.jewelSprite = [PYJJewelSprite jewelSprite];
-     [self.jewelSprite setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
-     [objectLayer addChild:self.jewelSprite.ccNode z:10];
-     PYJJewelSprite *j = [PYJJewelSprite jewelSprite];
-     [j setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
-     [objectLayer addChild:j.ccNode z:10];
-     
-     CCParticleSystemQuad *system = [CCParticleSystemQuad particleWithFile:@"JewelParticles.plist"];
-     system.sourcePosition = ccp(s.width/2, s.height/2);
-     [self addChild:system z:8];
-     
-     /*CCParticleSystemQuad* emitter = [[CCParticleSystemQuad alloc] initWithTotalParticles:45];
-     [emitter setEmitterMode:kCCParticleModeRadius];
-     emitter.position = ccp(100,100);
-     emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"stars.png"];
-     CCParticleFire *stars = [[CCParticleFire alloc] init];
-     stars.position = ccp(s.width/2,s.height/2);
-     [stars setGravity:ccp(0,0)];
-     //stars.startRadius = 50;
-     //stars.endRadius = 50;
-     //stars.endRadius = 0.3;
-     [self addChild:stars z:8];
-     [self addChild:emitter z:8];*/
-     
-/*     CCParticleSystem *particleSystem = [[[CCParticleFire alloc] initWithTotalParticles:100] autorelease];
-     [self addChild:particleSystem z:5];
-     //[particleSystem release];
-     particleSystem.position = ccp(s.width/2,s.height/2);
- */
-
-}
-
-// Add debug layer
-- (void)initDebug{
-    GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
-    [self addChild:debugLayer z:30];
-}
 
 - (void)initShield {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -132,8 +93,26 @@
     self.shieldSprite.body->SetActive(NO);
     [self.shieldSprite setPhysicsPosition:b2Vec2FromCC(winSize.width/2, winSize.height/2)];
     [objectLayer addChild:self.shieldSprite.ccNode z:11];
-    
-    
+}
+
+
+// Creates jewel
+ -(void)initJewel{
+     CGSize s = [[CCDirector sharedDirector] winSize];
+     self.jewelSprite = [PYJJewelSprite jewelSprite];
+     [self.jewelSprite setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
+     [objectLayer addChild:self.jewelSprite.ccNode z:10];
+     
+     CCParticleSystemQuad *system = [CCParticleSystemQuad particleWithFile:@"JewelParticles.plist"];
+     system.sourcePosition = ccp(s.width/2, s.height/2);
+     [self addChild:system z:8];
+
+}
+
+// Add debug layer
+- (void)initDebug{
+    GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
+    [self addChild:debugLayer z:30];
 }
 
 - (void)deployShield {
