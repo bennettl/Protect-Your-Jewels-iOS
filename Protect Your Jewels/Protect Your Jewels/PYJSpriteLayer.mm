@@ -47,7 +47,7 @@
 
 -(id) init{
 	if ((self=[super init])) {
-        [self scheduleUpdate];
+        [self schedule:@selector(resetGame)];
         // Load sprite atlases
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Sprites.plist"];
         
@@ -117,7 +117,7 @@
 
 - (void)deployShield {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    self.shieldSprite.body->SetActive(YES);
+    //self.shieldSprite.body->SetActive(YES);
     self.shieldParticle = [[CCParticleSystemQuad alloc] initWithFile:@"fireShield.plist"];
     self.shieldParticle.position = ccp(winSize.width/2, winSize.height/2);
     [self addChild:self.shieldParticle z:8];
@@ -128,7 +128,7 @@
 
 - (void)removeShield {
     NSLog(@"removing shield");
-    self.shieldSprite.body->SetActive(NO);
+    //self.shieldSprite.body->SetActive(NO);
     self.shieldParticle.visible = NO;
     [self removeChild:self.shieldSprite.ccNode cleanup:YES];
 }
@@ -179,6 +179,7 @@
     enemyLaunchForce = enemyLaunchForce + (waveNum * 10);
     [self unschedule:@selector(spawnObjectAtRandomLocation)];
     [self schedule:@selector(spawnObjectAtRandomLocation) interval:1.0f repeat:waveNum delay:0];
+    // (float)(1/waveNum)
 }
 
 // Returns a random CGPoint on the perimeter of the screen
@@ -365,14 +366,13 @@
     [self.enemies removeObject:es];
 }
 
-// Stop all schedules
--(void)resetGame{
+-(void)stopGame{
     [self unscheduleAllSelectors];
 }
 
--(void) update:(ccTime)delta{
-    [self unschedule:@selector(startWave)];
-    [self unschedule:@selector(spawnObjectAtRandomLocation)];
+// Stop all schedules
+-(void)resetGame{
+    [self unscheduleAllSelectors];
     for (b2Body* b = [GB2Engine sharedInstance].world->GetBodyList(); b; b = b->GetNext()) {
         if (b->GetUserData() != NULL) {
             CCSprite *sprite = (CCSprite *) b->GetUserData();
@@ -390,7 +390,10 @@
     [self.touchCircles removeAllObjects];
     refreshedScreen = YES;
     [self startGame];
-    [self unscheduleUpdate];
+}
+
+-(void) update:(ccTime)delta{
+    
 }
 
 -(void) dealloc{

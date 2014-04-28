@@ -37,5 +37,5 @@ extern int const MAX_TOUCHES = 1;
 // Start waves of objects
 -(void)startWave;
 
-//-(void)resetGame;
+-(void)stopGame;
 @end

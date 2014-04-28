@@ -210,7 +210,6 @@
     if (self.state == kFall && removed == NO){
         removed = YES;
         [((PYJGameplayScene *)self.ccNode.parent.parent) incrementScoreByValue:self.enemyPointValue];
-        NSLog(@"Box");
     }
     // Send a message to the sprite layer to remove enemy from its array
     [((PYJSpriteLayer *)self.ccNode.parent) removeEnemyFromSpriteLayer:self];
@@ -245,6 +244,12 @@
     if(removed == YES){
         return;
     }
+
+    // Do not change state if neither enemy has been disabled
+    if(self.state == kAttack && ((PYJEnemySprite *)contact.otherObject).state == kAttack){
+        return;
+    }
+    
     // Change state and play punch on first contact
     if (self.touchHash != -1 && (self.state == kAttack || ((PYJEnemySprite *)contact.otherObject).state == kAttack)){
         self.state = kFall;

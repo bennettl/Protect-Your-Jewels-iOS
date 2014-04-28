@@ -102,10 +102,12 @@
     // Game is over when user reaches zero life
     if (self.lives == 0){
         // Stop enemies from spawning, pause world physics, stop background music, play sound effect, and flash
+
         [[GB2Engine sharedInstance] pauseWorld];
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine] playEffect:@"drumroll-end.wav"];
         [self.flashLayer flashGameOver];
+        [self.spriteLayer stopGame];
     } else {
         // Flash red and update score label
         [self.flashLayer flashLivesLost];
@@ -129,7 +131,7 @@
     [[CCDirector sharedDirector] resume];
     [[CCDirector sharedDirector] startAnimation];
     [[GB2Engine sharedInstance] resumeWorld];
-    
+    [self.spriteLayer stopGame];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJMainMenuLayer node]]];
     
 }
