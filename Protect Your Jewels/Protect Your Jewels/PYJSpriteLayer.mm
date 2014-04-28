@@ -34,6 +34,9 @@
 
 @property NSMutableArray *enemies;
 @property NSMutableArray *touchCircles;
+@property (nonatomic, strong) CCParticleSystemQuad *shieldParticle;
+@property (nonatomic, strong) PYJShieldSprite *shieldSprite;
+
 
 @end
 
@@ -61,10 +64,11 @@
         self.touchCircles   = [[NSMutableArray alloc] init];
         [self initJewel];
         [self initDebug];
+        [self initShield];
 
         // Creates bounding box
         boxNode = [[PYJBoxNode alloc] init];
-        
+                
         // Touching
         self.touchEnabled = YES;
         currentTouches = 0;
@@ -86,17 +90,38 @@
      [objectLayer addChild:j.ccNode z:10];
 }
 
-- (void)initShield {
-    CGSize s = [[CCDirector sharedDirector] winSize];
-    PYJShieldSprite *shieldSprite = [PYJShieldSprite shieldSprite];
-    [shieldSprite setPhysicsPosition:b2Vec2FromCC(s.width/2, s.height/2)];
-    [objectLayer addChild:shieldSprite.ccNode z:11];
-}
-
 // Add debug layer
 - (void)initDebug{
     GB2DebugDrawLayer *debugLayer = [[GB2DebugDrawLayer alloc] init];
     [self addChild:debugLayer z:30];
+}
+
+- (void)initShield {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    self.shieldSprite = [PYJShieldSprite shieldSprite];
+    self.shieldSprite.body->SetActive(NO);
+    [self.shieldSprite setPhysicsPosition:b2Vec2FromCC(winSize.width/2, winSize.height/2)];
+    [objectLayer addChild:self.shieldSprite.ccNode z:11];
+    
+    
+}
+
+- (void)deployShield {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    self.shieldSprite.body->SetActive(YES);
+    self.shieldParticle = [[CCParticleSystemQuad alloc] initWithFile:@"fireShield.plist"];
+    self.shieldParticle.position = ccp(winSize.width/2, winSize.height/2);
+    [self addChild:self.shieldParticle z:8];
+
+    [self scheduleOnce:@selector(removeShield) delay:7];
+}
+
+
+- (void)removeShield {
+    NSLog(@"removing shield");
+    self.shieldSprite.body->SetActive(NO);
+    self.shieldParticle.visible = NO;
+    [self removeChild:self.shieldSprite.ccNode cleanup:YES];
 }
 
 // Initializes enemy at location
@@ -329,6 +354,7 @@
 
 -(void) dealloc{
 	[super dealloc];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }	
 
 @end
