@@ -117,7 +117,7 @@
 
 - (void)deployShield {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    //self.shieldSprite.body->SetActive(YES);
+    self.shieldSprite.body->SetActive(YES);
     self.shieldParticle = [[CCParticleSystemQuad alloc] initWithFile:@"fireShield.plist"];
     self.shieldParticle.position = ccp(winSize.width/2, winSize.height/2);
     [self addChild:self.shieldParticle z:8];
@@ -128,7 +128,7 @@
 
 - (void)removeShield {
     NSLog(@"removing shield");
-    //self.shieldSprite.body->SetActive(NO);
+    self.shieldSprite.body->SetActive(NO);
     self.shieldParticle.visible = NO;
     [self removeChild:self.shieldSprite.ccNode cleanup:YES];
 }
