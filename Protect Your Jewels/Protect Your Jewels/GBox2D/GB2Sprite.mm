@@ -106,4 +106,27 @@
     [(CCSprite*)self.ccNode setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
 }
 
+
+
+- (id)initWithWorldPRPolygon:(b2World *)world andFixtureData:(NSDictionary *)fixtureData{
+    int verticiesCount  = 6;
+    CGSize winSize      = [[CCDirector sharedDirector] winSize];
+    b2Vec2 center       = b2Vec2(winSize.width/2, winSize.height/2);
+    
+    b2FixtureDef basicData;
+    
+    basicData.filter.categoryBits = [[fixtureData objectForKey:@"filter_categoryBits"] intValue];
+    basicData.filter.maskBits = [[fixtureData objectForKey:@"filter_maskBits"] intValue];
+    basicData.filter.groupIndex = [[fixtureData objectForKey:@"filter_groupIndex"] intValue];
+    basicData.friction = [[fixtureData objectForKey:@"friction"] floatValue];
+    basicData.density = [[fixtureData objectForKey:@"density"] floatValue];
+    basicData.restitution = [[fixtureData objectForKey:@"restitution"] floatValue];
+    basicData.isSensor = [[fixtureData objectForKey:@"isSensor"] boolValue];
+    
+    self =  [[[GB2Sprite alloc] initWithStaticBody:@"test" spriteFrameName:@"test"] autorelease];
+    
+    return self;
+}
+
+
 @end
