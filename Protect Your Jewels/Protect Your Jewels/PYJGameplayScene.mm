@@ -17,6 +17,7 @@
 #import "PYJThemeManager.h"
 #import "PYJPauseLayer.h"
 #import "PYJMainMenuLayer.h"
+#import "PYJShieldSprite.h"
 
 @interface PYJGameplayScene()
 
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) PYJSpriteLayer *spriteLayer;
 @property (nonatomic, strong) PYJUILayer *uiLayer;
 @property (nonatomic, strong) PYJPauseLayer *pauseLayer;
+
 
 @end
 
@@ -37,6 +39,7 @@
         // Initalization
         _score          = 0;
         _lives          = 3;
+        _shieldTicker   = 0;
         
         // Play background music
         [[SimpleAudioEngine sharedEngine] playEffect:@"flute_intro.wav"];
@@ -57,6 +60,9 @@
         [self addChild:_bgLayer z:2];
         
         _pauseLayer.visible = NO;
+        _state = KShieldDeactivated;
+        
+       
     }
     
     return self;
@@ -69,6 +75,24 @@
     self.score = self.score + value;
     //self.score++;
     [self.uiLayer updateScoreLabelWithScore:self.score];
+    self.shieldTicker = self.shieldTicker + value;
+    if(self.shieldTicker >= 30 && self.state == KShieldDeactivated) {
+        self.state = kShieldActivated;
+        [self scheduleOnce:@selector(deployShield) delay:0];
+        
+    }
+}
+
+- (void)deployShield {
+    [self.spriteLayer deployShield];
+    [self scheduleOnce:@selector(removeShield) delay:7];
+}
+
+
+- (void)removeShield {
+    NSLog(@"removing shield from gameplay");
+    self.shieldTicker = 0;
+    self.state = KShieldDeactivated;
 }
 
 // Update the lives count and decided whether or not it's game over

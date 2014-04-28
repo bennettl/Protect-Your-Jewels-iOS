@@ -9,10 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+typedef enum : NSUInteger {
+    kShieldActivated,
+    KShieldDeactivated,
+} ShieldState;
+
 @interface PYJGameplayScene : CCScene
 
 @property int lives;
 @property int score;
+@property int shieldTicker;
+@property ShieldState state;
 
 - (void)decrementLives;
 - (void)incrementScoreByValue:(int)value;
