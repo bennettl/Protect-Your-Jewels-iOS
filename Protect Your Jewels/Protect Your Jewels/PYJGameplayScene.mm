@@ -27,6 +27,7 @@
 @property (nonatomic, strong) PYJUILayer *uiLayer;
 @property (nonatomic, strong) PYJPauseLayer *pauseLayer;
 @property (nonatomic, strong) CCParticleSystemQuad *shieldParticle;
+@property (nonatomic, strong) PYJShieldSprite *shieldSprite;
 
 @end
 
@@ -39,6 +40,7 @@
         // Initalization
         _score          = 0;
         _lives          = 3;
+        _shieldTicker   = 0;
         
         // Play background music
         [[SimpleAudioEngine sharedEngine] playEffect:@"flute_intro.wav"];
@@ -59,14 +61,15 @@
         [self addChild:_bgLayer z:2];
         
         _pauseLayer.visible = NO;
-        _shieldParticle = [[CCParticleSystemQuad alloc] initWithFile:@"fireShield.plist"];
+        
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-		_shieldParticle.position = ccp(winSize.width/2, winSize.height/2);
-        _shieldParticle.visible = YES;
-        [self addChild:_shieldParticle z:2];
-        PYJShieldSprite *sprite = [PYJShieldSprite shieldSprite];
-        sprite.ccPosition = ccp(winSize.width/2, winSize.height/2);
-        [self addChild:sprite.ccNode];
+        _shieldParticle = [[CCParticleSystemQuad alloc] initWithFile:@"fireShield.plist"];
+        _shieldParticle.position = ccp(winSize.width/2, winSize.height/2);
+        _shieldParticle.visible = NO;
+        _state = KShieldDeactivated;
+        _shieldSprite = [PYJShieldSprite shieldSprite];
+        _shieldSprite.ccPosition = ccp(winSize.width/2, winSize.height/2);
+       
     }
     
     return self;
@@ -79,6 +82,29 @@
     self.score = self.score + value;
     //self.score++;
     [self.uiLayer updateScoreLabelWithScore:self.score];
+    self.shieldTicker = self.shieldTicker + value;
+    if(self.shieldTicker >= 2 && self.state == KShieldDeactivated) {
+        self.state = kShieldActivated;
+        [self deployShield];
+    }
+}
+
+- (void)deployShield {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    
+    [self addChild:self.shieldParticle z:2];
+    self.shieldParticle.visible = YES;
+
+    [self addChild:self.shieldSprite.ccNode];
+    
+    [self scheduleOnce:@selector(removeShield) delay:10];
+}
+
+- (void)removeShield {
+    self.state = KShieldDeactivated;
+    [self removeChild:self.shieldParticle cleanup:YES];
+    [self removeChild:self.shieldSprite.ccNode cleanup:YES];
 }
 
 // Update the lives count and decided whether or not it's game over
