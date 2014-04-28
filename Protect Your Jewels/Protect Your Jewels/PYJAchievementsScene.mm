@@ -100,18 +100,8 @@
     
     for(int i = 0; i < achievements.count; i++){
         [[achievements objectAtIndex:i] setPosition:ccp((size.width/3),(size.height-40)-(i*30))];
+        [self addChild:[achievements objectAtIndex:i]];
     }
-    //[monkey100 setPosition:ccp(size.width / 2, size.height/2)];
-    
-    [self addChild:monkey100];
-    [self addChild:monkey200];
-    [self addChild:monkey500];
-    [self addChild:ninja100];
-    [self addChild:ninja200];
-    [self addChild:ninja500];
-    [self addChild:gladiator100];
-    [self addChild:gladiator200];
-    [self addChild:gladiator500];
 }
 
 - (void) dealloc
