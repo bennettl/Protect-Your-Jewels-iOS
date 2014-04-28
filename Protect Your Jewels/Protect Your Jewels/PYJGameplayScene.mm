@@ -106,21 +106,26 @@ static BOOL classicMode;
 
 // Update the lives count and decided whether or not it's game over
 -(void)decrementLives{
-    self.lives--;
+    if(classicMode){
+        self.lives--;
     
-    // Game is over when user reaches zero life
-    if (self.lives == 0){
-        // Stop enemies from spawning, pause world physics, stop background music, play sound effect, and flash
+        // Game is over when user reaches zero life
+        if (self.lives == 0){
+            // Stop enemies from spawning, pause world physics, stop background music, play sound effect, and flash
 
-        [[GB2Engine sharedInstance] pauseWorld];
-        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-        [[SimpleAudioEngine sharedEngine] playEffect:@"drumroll-end.wav"];
-        [self.flashLayer flashGameOver];
-        [self.spriteLayer stopGame];
-    } else {
-        // Flash red and update score label
-        [self.flashLayer flashLivesLost];
-        [self.uiLayer updateLivesLabelWithLives:self.lives];
+            [[GB2Engine sharedInstance] pauseWorld];
+            [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+            [[SimpleAudioEngine sharedEngine] playEffect:@"drumroll-end.wav"];
+            [self.flashLayer flashGameOver];
+            [self.spriteLayer stopGame];
+        } else {
+            // Flash red and update score label
+            [self.flashLayer flashLivesLost];
+            [self.uiLayer updateLivesLabelWithLives:self.lives];
+        }
+    }
+    else{
+        self.score=self.score-2;
     }
 }
 
