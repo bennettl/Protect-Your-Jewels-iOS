@@ -60,7 +60,7 @@
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
         [self initJewel];
-//        [self initDebug];
+        [self initDebug];
 
         // Creates bounding box
         boxNode = [[PYJBoxNode alloc] init];

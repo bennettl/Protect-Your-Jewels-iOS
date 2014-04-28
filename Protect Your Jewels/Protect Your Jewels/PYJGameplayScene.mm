@@ -17,6 +17,7 @@
 #import "PYJThemeManager.h"
 #import "PYJPauseLayer.h"
 #import "PYJMainMenuLayer.h"
+#import "PYJShieldSprite.h"
 
 @interface PYJGameplayScene()
 
@@ -63,6 +64,9 @@
 		_shieldParticle.position = ccp(winSize.width/2, winSize.height/2);
         _shieldParticle.visible = YES;
         [self addChild:_shieldParticle z:2];
+        PYJShieldSprite *sprite = [PYJShieldSprite shieldSprite];
+        sprite.ccPosition = ccp(winSize.width/2, winSize.height/2);
+        [self addChild:sprite.ccNode];
     }
     
     return self;

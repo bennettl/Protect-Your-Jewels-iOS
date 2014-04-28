@@ -228,6 +228,14 @@
     }
 }
 
+-(void)beginContactWithPYJShieldSprite:(GB2Contact *)contact {
+    //change ninja state when he hits the sheild
+    if (self.state == kAttack) {
+        self.state = kFall;
+        [self canCollideWithJewel:NO];
+    }
+}
+
 // Enemy collides with each other
 - (void)beginContactWithPYJEnemySprite:(GB2Contact *)contact{
     // Change state and play punch on first contact
