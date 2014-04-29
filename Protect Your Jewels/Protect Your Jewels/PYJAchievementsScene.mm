@@ -78,39 +78,19 @@
     NSArray *achievementsString = [NSArray arrayWithObjects:MONKEY_100,MONKEY_200, MONKEY_500, NINJA_100, NINJA_200, NINJA_500, GLADIATOR_100, GLADIATOR_200, GLADIATOR_500,  nil];
     NSMutableArray *achievementSprites = [[NSMutableArray alloc] init];
     
+    // Convert strings to achievement sprite and add it to achievement sprites array
     for (NSString *achievement in achievementsString) {
         NSString *deactivated = [NSString stringWithFormat:@"%@_deactivated", achievement];
        PYJAchievementSprite *sprite = [[PYJHighScoreManager sharedManager] accessAchievement:achievement] ? [[PYJAchievementSprite alloc] initWithString:achievement] : [[PYJAchievementSprite alloc] initWithString:deactivated];
         
         [achievementSprites addObject:sprite];
-        
-      
     }
     
+    // Set positions and add as children of pyj achievment srpites
     for(int i = 0; i < achievementSprites.count; i++){
         [[achievementSprites objectAtIndex:i] setPosition:ccp(size.width/3 + i*60 - 140,size.height/2)];
         [self addChild:[achievementSprites objectAtIndex:i]];
     }
-//
-//    PYJAchievementSprite *spriteM1 = [[PYJHighScoreManager sharedManager] accessAchievement:MONKEY_100] ? [[PYJAchievementSprite alloc] initWithString:MONKEY_100] : [[PYJAchievementSprite alloc] initWithString:MONKEY_100_D];
-//    
-//    PYJAchievementSprite *spriteM2 = [[PYJHighScoreManager sharedManager] accessAchievement:MONKEY_200] ? [[PYJAchievementSprite alloc] initWithString:MONKEY_200] : [[PYJAchievementSprite alloc] initWithString:MONKEY_200_D];
-//    
-//    PYJAchievementSprite *spriteM5 = [[PYJHighScoreManager sharedManager] accessAchievement:MONKEY_500] ? [[PYJAchievementSprite alloc] initWithString:MONKEY_500] : [[PYJAchievementSprite alloc] initWithString:MONKEY_500_D];
-//    
-//    PYJAchievementSprite *spriteN1 = [[PYJHighScoreManager sharedManager] accessAchievement:NINJA_100] ? [[PYJAchievementSprite alloc] initWithString:NINJA_100] : [[PYJAchievementSprite alloc] initWithString:NINJA_100_D];
-//    
-//    PYJAchievementSprite *spriteN2 = [[PYJHighScoreManager sharedManager] accessAchievement:NINJA_200] ? [[PYJAchievementSprite alloc] initWithString:NINJA_200] : [[PYJAchievementSprite alloc] initWithString:NINJA_200_D];
-//    
-//    PYJAchievementSprite *spriteN5 = [[PYJHighScoreManager sharedManager] accessAchievement:NINJA_500] ? [[PYJAchievementSprite alloc] initWithString:NINJA_500] : [[PYJAchievementSprite alloc] initWithString:NINJA_500_D];
-//    
-//    PYJAchievementSprite *spriteG1 = [[PYJHighScoreManager sharedManager] accessAchievement:GLADIATOR_100] ? [[PYJAchievementSprite alloc] initWithString:GLADIATOR_100] : [[PYJAchievementSprite alloc] initWithString:GLADIATOR_100_D];
-//    
-//    PYJAchievementSprite *spriteG2 = [[PYJHighScoreManager sharedManager] accessAchievement:GLADIATOR_200] ? [[PYJAchievementSprite alloc] initWithString:GLADIATOR_200] : [[PYJAchievementSprite alloc] initWithString:GLADIATOR_200_D];
-//    
-//    PYJAchievementSprite *spriteG5 = [[PYJHighScoreManager sharedManager] accessAchievement:GLADIATOR_500] ? [[PYJAchievementSprite alloc] initWithString:GLADIATOR_500] : [[PYJAchievementSprite alloc] initWithString:GLADIATOR_500_D];
-//    
-    
    
 }
 
