@@ -84,12 +84,14 @@
         
         [achievementSprites addObject:sprite];
         
-        for(int i = 0; i < achievementSprites.count; i++){
-            [[achievementSprites objectAtIndex:i] setPosition:ccp(size.width/3 + i*60 - 140,size.height/2)];
-            [self addChild:[achievementSprites objectAtIndex:i]];
-        }
+      
     }
-//    
+    
+    for(int i = 0; i < achievementSprites.count; i++){
+        [[achievementSprites objectAtIndex:i] setPosition:ccp(size.width/3 + i*60 - 140,size.height/2)];
+        [self addChild:[achievementSprites objectAtIndex:i]];
+    }
+//
 //    PYJAchievementSprite *spriteM1 = [[PYJHighScoreManager sharedManager] accessAchievement:MONKEY_100] ? [[PYJAchievementSprite alloc] initWithString:MONKEY_100] : [[PYJAchievementSprite alloc] initWithString:MONKEY_100_D];
 //    
 //    PYJAchievementSprite *spriteM2 = [[PYJHighScoreManager sharedManager] accessAchievement:MONKEY_200] ? [[PYJAchievementSprite alloc] initWithString:MONKEY_200] : [[PYJAchievementSprite alloc] initWithString:MONKEY_200_D];
