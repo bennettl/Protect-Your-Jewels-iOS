@@ -88,13 +88,18 @@ static BOOL classicMode;
     waveNum = 0;
     int timeBetweenWaves;
     if(classicMode){
-        timeBetweenWaves = 4;
+        timeBetweenWaves = 5;
     }
     else{
         timeBetweenWaves = 2;
     }
     [self unschedule:@selector(startWave)];
-    [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:kCCRepeatForever delay:0];
+    if(classicMode){
+        [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:waveNum delay:0];
+    }
+    else{
+        [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:kCCRepeatForever delay:0];
+    }
     //[self initDebug];
 }
 
