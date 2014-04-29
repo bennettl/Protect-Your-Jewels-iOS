@@ -76,11 +76,13 @@
 -(void)presentInfo{
     CGSize size = [[CCDirector sharedDirector] winSize];
     NSArray *achievementsString = [NSArray arrayWithObjects:MONKEY_100,MONKEY_200, MONKEY_500, NINJA_100, NINJA_200, NINJA_500, GLADIATOR_100, GLADIATOR_200, GLADIATOR_500,  nil];
-    NSArray *achievementSprites = [[NSMutableArray alloc] init];
+    NSMutableArray *achievementSprites = [[NSMutableArray alloc] init];
     
     for (NSString *achievement in achievementsString) {
         NSString *deactivated = [NSString stringWithFormat:@"%@_deactivated", achievement];
        PYJAchievementSprite *sprite = [[PYJHighScoreManager sharedManager] accessAchievement:achievement] ? [[PYJAchievementSprite alloc] initWithString:achievement] : [[PYJAchievementSprite alloc] initWithString:deactivated];
+        
+        [achievementSprites addObject:sprite];
         
         for(int i = 0; i < achievementSprites.count; i++){
             [[achievementSprites objectAtIndex:i] setPosition:ccp(size.width/3 + i*60 - 140,size.height/2)];
