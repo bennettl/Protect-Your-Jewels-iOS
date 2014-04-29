@@ -28,6 +28,8 @@
 - (NSInteger)userCurrency;
 // Update achievement list
 - (void)updateAchievementsForTheme:(Theme)theme andScore:(int)score;
+// access achievement list
+- (BOOL)accessAchievement:(NSString *)achievement;
 
 
 @end

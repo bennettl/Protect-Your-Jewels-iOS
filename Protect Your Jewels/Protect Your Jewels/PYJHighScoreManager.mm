@@ -183,4 +183,9 @@
     [defaults synchronize];
 }
 
+- (BOOL)accessAchievement:(NSString *)achievement {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults boolForKey:achievement];
+}
+
 @end

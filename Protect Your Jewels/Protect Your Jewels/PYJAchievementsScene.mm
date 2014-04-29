@@ -12,6 +12,7 @@
 #import "PYJThemeManager.h"
 #import "cocos2d.h"
 #import "PYJBGLayer.h"
+#import "PYJHighScoreManager.h"
 
 
 #define MONKEY_100 @"Monkey_achievement_100"
@@ -23,6 +24,16 @@
 #define GLADIATOR_100 @"Gladiator_achievement_100"
 #define GLADIATOR_200 @"Gladiator_achievement_200"
 #define GLADIATOR_500 @"Gladiator_achievement_500"
+
+#define MONKEY_100_D @"Monkey_achievement_100_deactivated"
+#define MONKEY_200_D @"Monkey_achievement_200_deactivated"
+#define MONKEY_500_D @"Monkey_achievement_500_deactivated"
+#define NINJA_100_D @"Ninja_achievement_100_deactivated"
+#define NINJA_200_D @"Ninja_achievement_200_deactivated"
+#define NINJA_500_D @"Ninja_achievement_500_deactivated"
+#define GLADIATOR_100_D @"Gladiator_achievement_100_deactivated"
+#define GLADIATOR_200_D @"Gladiator_achievement_200_deactivated"
+#define GLADIATOR_500_D @"Gladiator_achievement_500_deactivated"
 
 @implementation PYJAchievementsScene
 
@@ -65,41 +76,63 @@
 -(void)presentInfo{
     CGSize size = [[CCDirector sharedDirector] winSize];
     
-    // Jungle theme labels
-    CCLabelTTF *monkey100 = [CCLabelTTF labelWithString:@"Scored 100 with Jungle Theme!" fontName:FONT_NAME fontSize:17];
-    monkey100.color = ccBLACK;
     
-    CCLabelTTF *monkey200 = [CCLabelTTF labelWithString:@"Scored 200 with Jungle Theme!" fontName:FONT_NAME fontSize:17];
-    monkey200.color = ccBLACK;
-
-    CCLabelTTF *monkey500 = [CCLabelTTF labelWithString:@"Scored 500 with Jungle Theme!" fontName:FONT_NAME fontSize:17];
-    monkey500.color = ccBLACK;
+    PYJAchievementSprite *spriteM1 = [[PYJHighScoreManager sharedManager] accessAchievement:MONKEY_100] ? [[PYJAchievementSprite alloc] initWithString:MONKEY_100] : [[PYJAchievementSprite alloc] initWithString:MONKEY_100_D];
     
-    // Mountain theme labels
-    CCLabelTTF *ninja100 = [CCLabelTTF labelWithString:@"Scored 100 with Mountain Theme!" fontName:FONT_NAME fontSize:17];
-    ninja100.color = ccBLACK;
+    PYJAchievementSprite *spriteM2 = [[PYJHighScoreManager sharedManager] accessAchievement:MONKEY_200] ? [[PYJAchievementSprite alloc] initWithString:MONKEY_200] : [[PYJAchievementSprite alloc] initWithString:MONKEY_200_D];
     
-    CCLabelTTF *ninja200 = [CCLabelTTF labelWithString:@"Scored 200 with Mountain Theme!" fontName:FONT_NAME fontSize:17];
-    ninja200.color = ccBLACK;
+    PYJAchievementSprite *spriteM5 = [[PYJHighScoreManager sharedManager] accessAchievement:MONKEY_500] ? [[PYJAchievementSprite alloc] initWithString:MONKEY_500] : [[PYJAchievementSprite alloc] initWithString:MONKEY_500_D];
     
-    CCLabelTTF *ninja500 = [CCLabelTTF labelWithString:@"Scored 500 with Mountain Theme!" fontName:FONT_NAME fontSize:17];
-    ninja500.color = ccBLACK;
+    PYJAchievementSprite *spriteN1 = [[PYJHighScoreManager sharedManager] accessAchievement:NINJA_100] ? [[PYJAchievementSprite alloc] initWithString:NINJA_100] : [[PYJAchievementSprite alloc] initWithString:NINJA_100_D];
     
-    // Gladiator theme labels
-    CCLabelTTF *gladiator100 = [CCLabelTTF labelWithString:@"Scored 100 with Gladiator Theme!" fontName:FONT_NAME fontSize:17];
-    gladiator100.color = ccBLACK;
+    PYJAchievementSprite *spriteN2 = [[PYJHighScoreManager sharedManager] accessAchievement:NINJA_200] ? [[PYJAchievementSprite alloc] initWithString:NINJA_200] : [[PYJAchievementSprite alloc] initWithString:NINJA_200_D];
     
-    CCLabelTTF *gladiator200 = [CCLabelTTF labelWithString:@"Scored 200 with Gladiator Theme!" fontName:FONT_NAME fontSize:17];
-    gladiator200.color = ccBLACK;
+    PYJAchievementSprite *spriteN5 = [[PYJHighScoreManager sharedManager] accessAchievement:NINJA_500] ? [[PYJAchievementSprite alloc] initWithString:NINJA_500] : [[PYJAchievementSprite alloc] initWithString:NINJA_500_D];
     
-    CCLabelTTF *gladiator500 = [CCLabelTTF labelWithString:@"Scored 500 with Gladiator Theme!" fontName:FONT_NAME fontSize:17];
-    gladiator500.color = ccBLACK;
+    PYJAchievementSprite *spriteG1 = [[PYJHighScoreManager sharedManager] accessAchievement:GLADIATOR_100] ? [[PYJAchievementSprite alloc] initWithString:GLADIATOR_100] : [[PYJAchievementSprite alloc] initWithString:GLADIATOR_100_D];
+    
+    PYJAchievementSprite *spriteG2 = [[PYJHighScoreManager sharedManager] accessAchievement:GLADIATOR_200] ? [[PYJAchievementSprite alloc] initWithString:GLADIATOR_200] : [[PYJAchievementSprite alloc] initWithString:GLADIATOR_200_D];
+    
+    PYJAchievementSprite *spriteG5 = [[PYJHighScoreManager sharedManager] accessAchievement:GLADIATOR_500] ? [[PYJAchievementSprite alloc] initWithString:GLADIATOR_500] : [[PYJAchievementSprite alloc] initWithString:GLADIATOR_500_D];
     
     
-    NSMutableArray *achievements = [[NSMutableArray alloc] initWithObjects:monkey100,monkey200,monkey500,gladiator100,gladiator200,gladiator500,ninja100,ninja200,ninja500,nil];
+//    // Jungle theme labels
+//    CCLabelTTF *monkey100 = [CCLabelTTF labelWithString:@"Scored 100 with Jungle Theme!" fontName:FONT_NAME fontSize:17];
+//    spriteM1.position = ccp(100, 100);
+//    [self addChild:spriteM1];
+//    monkey100.color = ccBLACK;
+//    
+//    CCLabelTTF *monkey200 = [CCLabelTTF labelWithString:@"Scored 200 with Jungle Theme!" fontName:FONT_NAME fontSize:17];
+//    monkey200.color = ccBLACK;
+//
+//    CCLabelTTF *monkey500 = [CCLabelTTF labelWithString:@"Scored 500 with Jungle Theme!" fontName:FONT_NAME fontSize:17];
+//    monkey500.color = ccBLACK;
+//    
+//    // Mountain theme labels
+//    CCLabelTTF *ninja100 = [CCLabelTTF labelWithString:@"Scored 100 with Mountain Theme!" fontName:FONT_NAME fontSize:17];
+//    ninja100.color = ccBLACK;
+//    
+//    CCLabelTTF *ninja200 = [CCLabelTTF labelWithString:@"Scored 200 with Mountain Theme!" fontName:FONT_NAME fontSize:17];
+//    ninja200.color = ccBLACK;
+//    
+//    CCLabelTTF *ninja500 = [CCLabelTTF labelWithString:@"Scored 500 with Mountain Theme!" fontName:FONT_NAME fontSize:17];
+//    ninja500.color = ccBLACK;
+//    
+//    // Gladiator theme labels
+//    CCLabelTTF *gladiator100 = [CCLabelTTF labelWithString:@"Scored 100 with Gladiator Theme!" fontName:FONT_NAME fontSize:17];
+//    gladiator100.color = ccBLACK;
+//    
+//    CCLabelTTF *gladiator200 = [CCLabelTTF labelWithString:@"Scored 200 with Gladiator Theme!" fontName:FONT_NAME fontSize:17];
+//    gladiator200.color = ccBLACK;
+//    
+//    CCLabelTTF *gladiator500 = [CCLabelTTF labelWithString:@"Scored 500 with Gladiator Theme!" fontName:FONT_NAME fontSize:17];
+//    gladiator500.color = ccBLACK;
+    
+    
+    NSMutableArray *achievements = [[NSMutableArray alloc] initWithObjects:spriteM1,spriteM2,spriteM5,spriteN1,spriteN2,spriteN5,spriteG1,spriteG2,spriteG5,nil];
     
     for(int i = 0; i < achievements.count; i++){
-        [[achievements objectAtIndex:i] setPosition:ccp((size.width/3),(size.height-40)-(i*30))];
+        [[achievements objectAtIndex:i] setPosition:ccp(size.width/3 + i*60 - 140,size.height/2)];
         [self addChild:[achievements objectAtIndex:i]];
     }
 }

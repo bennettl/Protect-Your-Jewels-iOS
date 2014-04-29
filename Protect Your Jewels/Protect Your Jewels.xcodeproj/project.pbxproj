@@ -246,6 +246,24 @@
 		56643CBE18FCCBF40068989D /* Temple_FG_iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = 56643CB918FCCBF40068989D /* Temple_FG_iPhone5.png */; };
 		943737D018CC097E00276CC5 /* PYJThemeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737CF18CC097E00276CC5 /* PYJThemeManager.mm */; };
 		943737D618CD277100276CC5 /* PYJPauseLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 943737D518CD277100276CC5 /* PYJPauseLayer.mm */; };
+		949E9BFF190F163A004002AE /* Gladiator_achievement_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9BF6190F163A004002AE /* Gladiator_achievement_100.png */; };
+		949E9C00190F163A004002AE /* Gladiator_achievement_200.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9BF7190F163A004002AE /* Gladiator_achievement_200.png */; };
+		949E9C01190F163A004002AE /* Gladiator_achievement_500.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9BF8190F163A004002AE /* Gladiator_achievement_500.png */; };
+		949E9C02190F163A004002AE /* Monkey_achievement_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9BF9190F163A004002AE /* Monkey_achievement_100.png */; };
+		949E9C03190F163A004002AE /* Monkey_achievement_200.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9BFA190F163A004002AE /* Monkey_achievement_200.png */; };
+		949E9C04190F163A004002AE /* Monkey_achievement_500.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9BFB190F163A004002AE /* Monkey_achievement_500.png */; };
+		949E9C05190F163A004002AE /* Ninja_achievement_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9BFC190F163A004002AE /* Ninja_achievement_100.png */; };
+		949E9C06190F163A004002AE /* Ninja_achievement_200.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9BFD190F163A004002AE /* Ninja_achievement_200.png */; };
+		949E9C07190F163A004002AE /* Ninja_achievement_500.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9BFE190F163A004002AE /* Ninja_achievement_500.png */; };
+		949E9C11190F17DE004002AE /* Gladiator_achievement_100_deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9C08190F17DE004002AE /* Gladiator_achievement_100_deactivated.png */; };
+		949E9C12190F17DE004002AE /* Gladiator_achievement_200_deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9C09190F17DE004002AE /* Gladiator_achievement_200_deactivated.png */; };
+		949E9C13190F17DE004002AE /* Gladiator_achievement_500_deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9C0A190F17DE004002AE /* Gladiator_achievement_500_deactivated.png */; };
+		949E9C14190F17DE004002AE /* Monkey_achievement_100_deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9C0B190F17DE004002AE /* Monkey_achievement_100_deactivated.png */; };
+		949E9C15190F17DE004002AE /* Monkey_achievement_200_deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9C0C190F17DE004002AE /* Monkey_achievement_200_deactivated.png */; };
+		949E9C16190F17DE004002AE /* Monkey_achievement_500_deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9C0D190F17DE004002AE /* Monkey_achievement_500_deactivated.png */; };
+		949E9C17190F17DE004002AE /* Ninja_achievement_100_deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9C0E190F17DE004002AE /* Ninja_achievement_100_deactivated.png */; };
+		949E9C18190F17DE004002AE /* Ninja_achievement_200_deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9C0F190F17DE004002AE /* Ninja_achievement_200_deactivated.png */; };
+		949E9C19190F17DE004002AE /* Ninja_achievement_500_deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E9C10190F17DE004002AE /* Ninja_achievement_500_deactivated.png */; };
 		94CE827318B9971F00FCA354 /* PYJLeaderboardScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE826E18B9971F00FCA354 /* PYJLeaderboardScene.mm */; };
 		94CE827418B9971F00FCA354 /* PYJMainMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827018B9971F00FCA354 /* PYJMainMenuLayer.mm */; };
 		94CE827518B9971F00FCA354 /* PYJThemeScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CE827218B9971F00FCA354 /* PYJThemeScene.mm */; };
@@ -728,6 +746,24 @@
 		943737D418CD277100276CC5 /* PYJPauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJPauseLayer.h; sourceTree = "<group>"; };
 		943737D518CD277100276CC5 /* PYJPauseLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJPauseLayer.mm; sourceTree = "<group>"; };
 		9458314E19060637004C896D /* AngryBirds-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AngryBirds-Regular.ttf"; sourceTree = "<group>"; };
+		949E9BF6190F163A004002AE /* Gladiator_achievement_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gladiator_achievement_100.png; sourceTree = "<group>"; };
+		949E9BF7190F163A004002AE /* Gladiator_achievement_200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gladiator_achievement_200.png; sourceTree = "<group>"; };
+		949E9BF8190F163A004002AE /* Gladiator_achievement_500.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gladiator_achievement_500.png; sourceTree = "<group>"; };
+		949E9BF9190F163A004002AE /* Monkey_achievement_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Monkey_achievement_100.png; sourceTree = "<group>"; };
+		949E9BFA190F163A004002AE /* Monkey_achievement_200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Monkey_achievement_200.png; sourceTree = "<group>"; };
+		949E9BFB190F163A004002AE /* Monkey_achievement_500.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Monkey_achievement_500.png; sourceTree = "<group>"; };
+		949E9BFC190F163A004002AE /* Ninja_achievement_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ninja_achievement_100.png; sourceTree = "<group>"; };
+		949E9BFD190F163A004002AE /* Ninja_achievement_200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ninja_achievement_200.png; sourceTree = "<group>"; };
+		949E9BFE190F163A004002AE /* Ninja_achievement_500.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ninja_achievement_500.png; sourceTree = "<group>"; };
+		949E9C08190F17DE004002AE /* Gladiator_achievement_100_deactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gladiator_achievement_100_deactivated.png; sourceTree = "<group>"; };
+		949E9C09190F17DE004002AE /* Gladiator_achievement_200_deactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gladiator_achievement_200_deactivated.png; sourceTree = "<group>"; };
+		949E9C0A190F17DE004002AE /* Gladiator_achievement_500_deactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gladiator_achievement_500_deactivated.png; sourceTree = "<group>"; };
+		949E9C0B190F17DE004002AE /* Monkey_achievement_100_deactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Monkey_achievement_100_deactivated.png; sourceTree = "<group>"; };
+		949E9C0C190F17DE004002AE /* Monkey_achievement_200_deactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Monkey_achievement_200_deactivated.png; sourceTree = "<group>"; };
+		949E9C0D190F17DE004002AE /* Monkey_achievement_500_deactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Monkey_achievement_500_deactivated.png; sourceTree = "<group>"; };
+		949E9C0E190F17DE004002AE /* Ninja_achievement_100_deactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ninja_achievement_100_deactivated.png; sourceTree = "<group>"; };
+		949E9C0F190F17DE004002AE /* Ninja_achievement_200_deactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ninja_achievement_200_deactivated.png; sourceTree = "<group>"; };
+		949E9C10190F17DE004002AE /* Ninja_achievement_500_deactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ninja_achievement_500_deactivated.png; sourceTree = "<group>"; };
 		94CE826D18B9971F00FCA354 /* PYJLeaderboardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJLeaderboardScene.h; sourceTree = "<group>"; };
 		94CE826E18B9971F00FCA354 /* PYJLeaderboardScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PYJLeaderboardScene.mm; sourceTree = "<group>"; };
 		94CE826F18B9971F00FCA354 /* PYJMainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYJMainMenuLayer.h; sourceTree = "<group>"; };
@@ -1478,6 +1514,24 @@
 		4D8AE0D218B9C951001689EC /* Images and Shapes */ = {
 			isa = PBXGroup;
 			children = (
+				949E9BF6190F163A004002AE /* Gladiator_achievement_100.png */,
+				949E9BF7190F163A004002AE /* Gladiator_achievement_200.png */,
+				949E9BF8190F163A004002AE /* Gladiator_achievement_500.png */,
+				949E9BF9190F163A004002AE /* Monkey_achievement_100.png */,
+				949E9BFA190F163A004002AE /* Monkey_achievement_200.png */,
+				949E9BFB190F163A004002AE /* Monkey_achievement_500.png */,
+				949E9BFC190F163A004002AE /* Ninja_achievement_100.png */,
+				949E9BFD190F163A004002AE /* Ninja_achievement_200.png */,
+				949E9BFE190F163A004002AE /* Ninja_achievement_500.png */,
+				949E9C08190F17DE004002AE /* Gladiator_achievement_100_deactivated.png */,
+				949E9C09190F17DE004002AE /* Gladiator_achievement_200_deactivated.png */,
+				949E9C0A190F17DE004002AE /* Gladiator_achievement_500_deactivated.png */,
+				949E9C0B190F17DE004002AE /* Monkey_achievement_100_deactivated.png */,
+				949E9C0C190F17DE004002AE /* Monkey_achievement_200_deactivated.png */,
+				949E9C0D190F17DE004002AE /* Monkey_achievement_500_deactivated.png */,
+				949E9C0E190F17DE004002AE /* Ninja_achievement_100_deactivated.png */,
+				949E9C0F190F17DE004002AE /* Ninja_achievement_200_deactivated.png */,
+				949E9C10190F17DE004002AE /* Ninja_achievement_500_deactivated.png */,
 				46C7A879190E430500998D25 /* fire.png */,
 				46C7A87A190E430500998D25 /* stars.png */,
 				46C7A886190E4F3000998D25 /* JewelParticles.plist */,
@@ -1653,36 +1707,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				94EE144918FC9629002D9501 /* Sprites.pvr.ccz in Resources */,
+				949E9C14190F17DE004002AE /* Monkey_achievement_100_deactivated.png in Resources */,
 				94DCD0EF190A4DA000312D3C /* particleFire.png in Resources */,
 				4D8AE10018BAAB8E001689EC /* ninja_launch.caf in Resources */,
 				4D8ADE5818B974A3001689EC /* Icon.png in Resources */,
+				949E9C11190F17DE004002AE /* Gladiator_achievement_100_deactivated.png in Resources */,
+				949E9C12190F17DE004002AE /* Gladiator_achievement_200_deactivated.png in Resources */,
 				56643C9F18FCCBCE0068989D /* Clouds_back_full.png in Resources */,
 				56643CB218FCCBEE0068989D /* JungleFG_iPhone5.png in Resources */,
 				94DCD0ED190A4D9600312D3C /* fireShield.plist in Resources */,
 				56643CA018FCCBCE0068989D /* Clouds_front_full.png in Resources */,
 				56643CAD18FCCBEE0068989D /* Jungle_Clouds_back_full.png in Resources */,
 				4D8AE0E918BA018D001689EC /* menu_logo.png in Resources */,
+				949E9C05190F163A004002AE /* Ninja_achievement_100.png in Resources */,
+				949E9C17190F17DE004002AE /* Ninja_achievement_100_deactivated.png in Resources */,
 				56643CAE18FCCBEE0068989D /* Jungle_Clouds_front_full.png in Resources */,
 				4D8AE10D18BAAFEE001689EC /* mountain-wind.wav in Resources */,
 				56643CB318FCCBEE0068989D /* Mountain_Clouds_back_full.png in Resources */,
 				4D8ADFB618B974A6001689EC /* ChangeLog in Resources */,
 				4D8AE0FD18BAAB8E001689EC /* ninja_ahh.caf in Resources */,
+				949E9BFF190F163A004002AE /* Gladiator_achievement_100.png in Resources */,
 				94EE144618FC9629002D9501 /* Sprites-hd.plist in Resources */,
 				4D8ADE4A18B974A2001689EC /* Default@2x.png in Resources */,
 				4D8AE11D18BC976A001689EC /* applause-loud.wav in Resources */,
 				4D8AE10F18BAB07F001689EC /* ninja-hiya.caf in Resources */,
 				4D8ADE5418B974A3001689EC /* Icon-Small.png in Resources */,
+				949E9C03190F163A004002AE /* Monkey_achievement_200.png in Resources */,
 				4D8ADE5018B974A2001689EC /* Icon-72.png in Resources */,
+				949E9C07190F163A004002AE /* Ninja_achievement_500.png in Resources */,
 				56643CB418FCCBEE0068989D /* Mountain_Clouds_front_full.png in Resources */,
 				4D8AE11118BAC799001689EC /* ninja-grab.caf in Resources */,
 				4D8ADE4818B974A2001689EC /* Default.png in Resources */,
 				94EE144718FC9629002D9501 /* Sprites-hd.pvr.ccz in Resources */,
 				4D8ADE5218B974A3001689EC /* Icon-Small-50.png in Resources */,
 				56643CA318FCCBD60068989D /* Foreground_iPhone5.png in Resources */,
+				949E9C13190F17DE004002AE /* Gladiator_achievement_500_deactivated.png in Resources */,
+				949E9C16190F17DE004002AE /* Monkey_achievement_500_deactivated.png in Resources */,
 				4D8AE12018BC976A001689EC /* drumroll-begin.wav in Resources */,
+				949E9C01190F163A004002AE /* Gladiator_achievement_500.png in Resources */,
 				4D8ADE5D18B974A3001689EC /* iTunesArtwork in Resources */,
 				4D8AE11518BB3969001689EC /* flute_intro.wav in Resources */,
 				94EE144518FC9629002D9501 /* Shapes.plist in Resources */,
+				949E9C02190F163A004002AE /* Monkey_achievement_100.png in Resources */,
 				56643CBB18FCCBF40068989D /* Temple_BG_iPhone5.png in Resources */,
 				4D8ADE5618B974A3001689EC /* Icon-Small@2x.png in Resources */,
 				56643CA418FCCBD60068989D /* Jungle_BG_iPhone5.png in Resources */,
@@ -1691,15 +1757,21 @@
 				56643CAF18FCCBEE0068989D /* Jungle_Clouds_front.png in Resources */,
 				4D8ADE4E18B974A2001689EC /* Default-Landscape~ipad.png in Resources */,
 				46EB10D118F2543A00BBCEBF /* share_twitter.png in Resources */,
+				949E9C19190F17DE004002AE /* Ninja_achievement_500_deactivated.png in Resources */,
+				949E9C06190F163A004002AE /* Ninja_achievement_200.png in Resources */,
 				56643CBA18FCCBF40068989D /* Mountain_FG_iPhone5.png in Resources */,
+				949E9C04190F163A004002AE /* Monkey_achievement_500.png in Resources */,
 				56643CB118FCCBEE0068989D /* JungleBG_iPhone5.png in Resources */,
 				56643CBE18FCCBF40068989D /* Temple_FG_iPhone5.png in Resources */,
+				949E9C15190F17DE004002AE /* Monkey_achievement_200_deactivated.png in Resources */,
 				46EB10D018F2543A00BBCEBF /* share_facebook.png in Resources */,
 				4D8ADE4C18B974A2001689EC /* Default-568h@2x.png in Resources */,
 				46C7A87B190E430500998D25 /* fire.png in Resources */,
 				46C7A887190E4F3000998D25 /* JewelParticles.plist in Resources */,
 				4D8AE10918BAACD5001689EC /* punch.caf in Resources */,
+				949E9C18190F17DE004002AE /* Ninja_achievement_200_deactivated.png in Resources */,
 				4D8ADE5A18B974A3001689EC /* Icon@2x.png in Resources */,
+				949E9C00190F163A004002AE /* Gladiator_achievement_200.png in Resources */,
 				4D8AE11F18BC976A001689EC /* applause-laugh.wav in Resources */,
 				94EE144818FC9629002D9501 /* Sprites.plist in Resources */,
 				56643CBD18FCCBF40068989D /* Temple_Clouds_front_full.png in Resources */,

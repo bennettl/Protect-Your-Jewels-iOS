@@ -127,6 +127,7 @@ static BOOL classicMode;
 // Switches to game over scene
 -(void)startGameOver{
     [[PYJHighScoreManager sharedManager] updateHighScoreWithScore:self.score];
+    [[PYJHighScoreManager sharedManager] updateAchievementsForTheme:[PYJThemeManager sharedManager].theme andScore:self.score];
     [[PYJHighScoreManager sharedManager] updateInGameCurrency:self.score];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f
                                                                                  scene:[PYJGameOverLayer
