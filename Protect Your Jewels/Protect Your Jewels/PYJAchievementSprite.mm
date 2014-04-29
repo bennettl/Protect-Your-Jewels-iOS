@@ -41,8 +41,7 @@
     NSString *filename = [NSString stringWithFormat:@"%@.png", achievement];
     
 
-    if (self = [super initWithFile:filename])
-    {
+    if (self = [super initWithFile:filename]){
     }
     return self;
 }
