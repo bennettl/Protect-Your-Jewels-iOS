@@ -82,7 +82,12 @@ static BOOL classicMode;
 
 // Update the score count and label
 -(void)incrementScoreByValue:(int)value{
-    self.score = self.score + value;
+    if(!classicMode){
+        self.score = self.score + (2*value);
+    }
+    else{
+        self.score = self.score + value;
+    }
     [self.uiLayer updateScoreLabelWithScore:self.score];
     self.shieldTicker = self.shieldTicker + value;
     if(self.shieldTicker >= 30 && self.state == KShieldDeactivated) {

@@ -201,7 +201,12 @@ static BOOL classicMode;
     }
     
     waveNum++;
-    enemyLaunchForce = enemyLaunchForce + (waveNum * 10);
+    if(classicMode){
+        enemyLaunchForce = enemyLaunchForce + (waveNum * 5);
+    }
+    else{
+        enemyLaunchForce = enemyLaunchForce + (waveNum * 10);
+    }
     [self unschedule:@selector(spawnObjectAtRandomLocation)];
     // arcade mode
     if(!classicMode){
