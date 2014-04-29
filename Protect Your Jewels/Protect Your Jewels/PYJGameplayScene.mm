@@ -126,6 +126,7 @@ static BOOL classicMode;
     }
     else{
         self.score=self.score-2;
+        [self.uiLayer updateScoreLabelWithScore:self.score];
     }
 }
 

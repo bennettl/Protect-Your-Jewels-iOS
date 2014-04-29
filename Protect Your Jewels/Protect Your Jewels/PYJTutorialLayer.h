@@ -13,7 +13,8 @@ typedef enum {
     jewel,
     swipe,
     grab,
-    bomb
+    bomb,
+    modes
 } Screen;
 
 @interface PYJTutorialLayer : CCLayer

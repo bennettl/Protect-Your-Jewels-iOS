@@ -205,11 +205,11 @@ static BOOL classicMode;
     [self unschedule:@selector(spawnObjectAtRandomLocation)];
     // arcade mode
     if(!classicMode){
-        [self schedule:@selector(spawnObjectAtRandomLocation) interval:(float)(1.0f-waveNum/40) repeat:kCCRepeatForever delay:0];
+        [self schedule:@selector(spawnObjectAtRandomLocation) interval:(float)(1.0f-waveNum/1000) repeat:(int)(waveNum*1.5) delay:0];
     }
     // classic mode
     else{
-        [self schedule:@selector(spawnObjectAtRandomLocation) interval:(float)(1.0f-waveNum/100) repeat:waveNum delay:0];
+        [self schedule:@selector(spawnObjectAtRandomLocation) interval:1.0f repeat:waveNum delay:0];
     }
 }
 

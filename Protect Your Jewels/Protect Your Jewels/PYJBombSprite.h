@@ -18,5 +18,6 @@
 
 -(id)initWithSpriteLayer:(PYJSpriteLayer *)sl;
 
+-(void)removeBomb;
 
 @end

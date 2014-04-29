@@ -134,6 +134,12 @@
 
     }
     else if(self.screen == bomb){
+        self.screen = modes;
+        [self.b removeBomb];
+        [self removeEnemies];
+        instructions.string = @"Play with lives on classic mode or timed in arcade mode.";
+    }
+    else if(self.screen == modes){
         self.screen = jewel;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJMainMenuLayer node]]];
     }
@@ -181,7 +187,6 @@
     
     [self.b setPhysicsPosition:b2Vec2FromCC(location.x, location.y)];
     [self addChild:self.b.ccNode z:10];
-
 }
 
 
