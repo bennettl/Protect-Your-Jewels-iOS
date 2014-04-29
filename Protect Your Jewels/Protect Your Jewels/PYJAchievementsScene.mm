@@ -90,7 +90,7 @@
     for(int i = 0; i < achievementSprites.count; i++){
         [[achievementSprites objectAtIndex:i] setPosition:ccp(size.width/3 + i*60 - 140,size.height/2)];
         [self addChild:[achievementSprites objectAtIndex:i]];
-    }
+    } 
    
 }
 

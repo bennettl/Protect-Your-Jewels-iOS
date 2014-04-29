@@ -43,7 +43,6 @@
 
     if (self = [super initWithFile:filename])
     {
-        NSLog((@"Success"));
     }
     return self;
 }
