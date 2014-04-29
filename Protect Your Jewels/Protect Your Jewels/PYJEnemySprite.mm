@@ -61,7 +61,7 @@
             ef.groupIndex = 2;
             f->SetFilterData(ef);
         }
-        self.body->SetGravityScale(0.9); // Toggle gravity
+        self.body->SetGravityScale(0.6); // Toggle gravity
         
         self.touchHash = -1; // -1 means its not associated with any touches
         

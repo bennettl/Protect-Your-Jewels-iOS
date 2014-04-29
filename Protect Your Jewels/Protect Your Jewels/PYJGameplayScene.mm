@@ -48,7 +48,12 @@ static BOOL classicMode;
         
         // Create layers and add sa children
         _flashLayer     = [PYJFlashLayer node];
-        _spriteLayer    = [PYJSpriteLayer node];
+        if(classicMode) {
+             _spriteLayer    = [PYJSpriteLayer nodeWithIsClassic:YES];
+        }
+        else {
+             _spriteLayer    = [PYJSpriteLayer nodeWithIsClassic:NO];
+        }
         _pauseLayer     = [PYJPauseLayer node];
         _bgLayer        = [PYJThemeManager sharedManager].background;
 
@@ -84,12 +89,14 @@ static BOOL classicMode;
 -(void)incrementScoreByValue:(int)value{
     if(!classicMode){
         self.score = self.score + (2*value);
+         self.shieldTicker = self.shieldTicker + 2*value;
     }
     else{
         self.score = self.score + value;
+         self.shieldTicker = self.shieldTicker + value;
     }
     [self.uiLayer updateScoreLabelWithScore:self.score];
-    self.shieldTicker = self.shieldTicker + value;
+   
     if(self.shieldTicker >= 30 && self.state == KShieldDeactivated) {
         self.state = kShieldActivated;
         [self scheduleOnce:@selector(deployShield) delay:0];

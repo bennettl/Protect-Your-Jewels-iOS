@@ -60,7 +60,7 @@ static BOOL classicMode;
         [self addChild:objectLayer z:10];
         
         // Initializations
-        enemyLaunchForce    = 800.0f;
+        enemyLaunchForce    = 700.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
     }
@@ -95,7 +95,7 @@ static BOOL classicMode;
     }
     [self unschedule:@selector(startWave)];
     if(classicMode){
-        [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:waveNum delay:0];
+        [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:kCCRepeatForever delay:0];
     }
     else{
         [self schedule:@selector(startWave) interval:timeBetweenWaves repeat:kCCRepeatForever delay:0];
@@ -214,7 +214,7 @@ static BOOL classicMode;
     }
     // classic mode
     else{
-        [self schedule:@selector(spawnObjectAtRandomLocation) interval:1.0f repeat:waveNum delay:0];
+        [self schedule:@selector(spawnObjectAtRandomLocation) interval:(float)(1.0f-waveNum/1000) repeat:(int)(waveNum*1.5) delay:0];
     }
 }
 
