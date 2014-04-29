@@ -40,7 +40,6 @@
 {
 	if( (self=[super init]) )
 	{
-        
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
         // Create menu logo and background
@@ -58,22 +57,15 @@
         CCMenuItem *itemNext = [CCMenuItemFont itemWithString:@"Next" block:^(id sender){
             [self nextScreen];}];
         
-        CCMenuItem *itemPrevious = [CCMenuItemFont itemWithString:@"Previous" block:^(id sender){
-            [self previousScreen];}];
-        
         CCMenu *mainMenu = [CCMenu menuWithItems:itemMainMenu, nil];
-        CCMenu *previousMenu = [CCMenu menuWithItems:itemPrevious, nil];
         CCMenu *nextMenu = [CCMenu menuWithItems:itemNext, nil];
         mainMenu.color = ccBLACK;
-        previousMenu.color = ccBLACK;
         nextMenu.color = ccBLACK;
         
         [mainMenu alignItemsVerticallyWithPadding:10];
-        [previousMenu alignItemsVerticallyWithPadding:10];
         [nextMenu alignItemsVerticallyWithPadding:10];
         [mainMenu setPosition:ccp(60, size.height-30)];
-        [previousMenu setPosition:ccp(50, 30)];
-        [nextMenu setPosition:ccp(size.width-30, 30)];
+        [nextMenu setPosition:ccp(size.width-30, size.height/2)];
         
         // Add main menu to the layer
         [self addChild:mainMenu];
@@ -94,24 +86,28 @@
         enemyLaunchForce    = 1000.0f;
         self.enemies        = [[NSMutableArray alloc] init];
         self.touchCircles   = [[NSMutableArray alloc] init];
-        [self initJewel];
-
-        // Creates bounding box
-        boxNode = [[PYJBoxNode alloc] init];
-        
-        // Touching
-        self.touchEnabled = YES;
-        currentTouches = 0;
-        
-        self.screen = jewel;
-        
-        instructions = [CCLabelTTF labelWithString:@"This is your jewel. \n Don't let enemies grab your jewel." fontName:FONT_NAME fontSize:17];
-        instructions.color = ccBLACK;
-        [instructions setPosition:ccp(size.width / 2, size.height/3)];
-        [self addChild:instructions];
-
+        [self schedule:@selector(resetSprites) interval:0];
     }
     return self;
+}
+
+-(void)startTutorial{
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    [self initJewel];
+    
+    // Creates bounding box
+    boxNode = [[PYJBoxNode alloc] init];
+    
+    // Touching
+    self.touchEnabled = YES;
+    currentTouches = 0;
+    
+    self.screen = jewel;
+    
+    instructions = [CCLabelTTF labelWithString:@"This is your jewel. \n Don't let enemies grab your jewel." fontName:FONT_NAME fontSize:17];
+    instructions.color = ccBLACK;
+    [instructions setPosition:ccp(size.width / 2, size.height/3)];
+    [self addChild:instructions];
 }
 
 -(void) nextScreen{
@@ -121,52 +117,25 @@
         [self.j removeJewel];
         [self removeChild:self.j.ccNode];
         [self removeEnemies];
-        instructions.string = [NSString stringWithFormat:@"Enemies will attack from both sides. \n Try swiping an enemy away now."];
+        instructions.string = [NSString stringWithFormat:@"Enemies will attack from both sides. \n Swipe the enemy away."];
         [self spawnEnemy];
     }
     else if(self.screen == swipe){
         self.screen = grab;
         [self removeEnemies];
-        instructions.string = @"Try grabbing and throwing an enemy now.";
+        instructions.string = @"Knock enemies into each other to get combo points. \n Grab and throw an enemy now.";
         [self spawnEnemy];
     }
     else if(self.screen == grab){
         self.screen = bomb;
         [self removeEnemies];
-        instructions.string = @"Do not touch a bomb or you will lose a life.";
+        instructions.string = @"Do not touch the bombs!";
         [self spawnBomb];
 
     }
     else if(self.screen == bomb){
         self.screen = jewel;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJMainMenuLayer node]]];
-    }
-}
-
--(void) previousScreen{
-    if(self.screen == jewel){
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PYJMainMenuLayer node]]];
-    }
-    else if(self.screen == swipe){
-        self.screen = jewel;
-        [self removeEnemies];
-        instructions.string = @"This is your jewel. \n Don't let enemies grab your jewel.";
-        [self initJewel];
-
-    }
-    else if(self.screen == grab){
-        self.screen = swipe;
-        [self removeEnemies];
-        instructions.string = @"Enemies will attack from both sides. \n Try swiping an enemy away now.";
-        [self spawnEnemy];
-
-    }
-    else if(self.screen == bomb){
-        self.screen = grab;
-        [self removeChild:self.b.ccNode];
-        instructions.string = @"Try grabbing and throwing an enemy now.";
-        [self spawnEnemy];
-
     }
 }
 
@@ -388,6 +357,26 @@
 // Remove PYJEnemySprite from enemies mutable array
 - (void)removeEnemyFromSpriteLayer:(PYJEnemySprite *)es{
    
+}
+
+-(void)resetSprites{
+    [self unscheduleAllSelectors];
+    for (b2Body* b = [GB2Engine sharedInstance].world->GetBodyList(); b; b = b->GetNext()) {
+        if (b->GetUserData() != NULL) {
+            CCSprite *sprite = (CCSprite *) b->GetUserData();
+            [self removeChild:sprite cleanup:YES];
+        }
+        [GB2Engine sharedInstance].world->DestroyBody(b);
+    }
+    for (int i = 0; i < [self.enemies count]; i++){
+        [self removeChild:[self.enemies objectAtIndex:0] cleanup:YES];
+    }
+    for (int i = 0; i < [self.touchCircles count]; i++){
+        [self removeChild:[self.touchCircles objectAtIndex:0] cleanup:YES];
+    }
+    [self.enemies removeAllObjects];
+    [self.touchCircles removeAllObjects];
+    [self startTutorial];
 }
 
 - (void) dealloc
