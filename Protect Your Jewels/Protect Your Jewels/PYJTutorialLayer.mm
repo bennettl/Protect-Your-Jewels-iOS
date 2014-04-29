@@ -137,7 +137,7 @@
         self.screen = modes;
         [self.b removeBomb];
         [self removeEnemies];
-        instructions.string = @"Play with lives on classic mode or timed in arcade mode.";
+        instructions.string = @"Play with lives on classic mode or timed in arcade mode. \n Get a temporary shield after scoring 30 points.";
     }
     else if(self.screen == modes){
         self.screen = jewel;
