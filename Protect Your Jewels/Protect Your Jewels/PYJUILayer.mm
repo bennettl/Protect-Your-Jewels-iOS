@@ -29,7 +29,6 @@ static BOOL classicMode;
 
         
         // Initialize labels
-        _livesLabel             = [CCLabelTTF labelWithString:@"Lives: 3" fontName:FONT_NAME fontSize:20];
         _scoreLabel             = [CCLabelTTF labelWithString:@"Score: 0" fontName:FONT_NAME fontSize:20];
         _pauseLabel             = [CCMenuItemFont itemWithString:@"I I" target:self selector:@selector(pauseMenu)];
         _pauseLabel.color = ccBLACK;
@@ -38,21 +37,23 @@ static BOOL classicMode;
         [menu setPosition:ccp(size.width - 40, size.height - 40)];
         
         // Set positions
-        CGSize s                = [[CCDirector sharedDirector] winSize];
-        _livesLabel.position    = ccp(_scoreLabel.contentSize.width/2 + 40, 25);
-        _scoreLabel.position    = ccp(s.width - _scoreLabel.contentSize.width/2 - 40, 25);
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        _scoreLabel.position = ccp(s.width - _scoreLabel.contentSize.width/2 - 40, 25);
         
         if(!classicMode){
-            _timeLabel          = [CCLabelTTF labelWithString:@"Time: 60" fontName:FONT_NAME fontSize:20];
-            _timeLabel.position = ccp(s.width - _timeLabel.contentSize.width/2 - 40, 55);
+            _timeLabel = [CCLabelTTF labelWithString:@"Time: 60" fontName:FONT_NAME fontSize:20];
+            _timeLabel.position = ccp(_timeLabel.contentSize.width/2 + 40, 25);
             [self addChild:_timeLabel];
             timeRemaining = 60;
             [self schedule:@selector(updateTimeLabel) interval:1.0f];
-            
+        }
+        else{
+             _livesLabel = [CCLabelTTF labelWithString:@"Lives: 3" fontName:FONT_NAME fontSize:20];
+            _livesLabel.position = ccp(_scoreLabel.contentSize.width/2 + 40, 25);
+            [self addChild:_livesLabel];
         }
 
         // Add to layer
-        [self addChild:_livesLabel];
         [self addChild:_scoreLabel];
         [self addChild:menu];
     }
