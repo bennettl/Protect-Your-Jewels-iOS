@@ -96,39 +96,6 @@
     PYJAchievementSprite *spriteG5 = [[PYJHighScoreManager sharedManager] accessAchievement:GLADIATOR_500] ? [[PYJAchievementSprite alloc] initWithString:GLADIATOR_500] : [[PYJAchievementSprite alloc] initWithString:GLADIATOR_500_D];
     
     
-//    // Jungle theme labels
-//    CCLabelTTF *monkey100 = [CCLabelTTF labelWithString:@"Scored 100 with Jungle Theme!" fontName:FONT_NAME fontSize:17];
-//    spriteM1.position = ccp(100, 100);
-//    [self addChild:spriteM1];
-//    monkey100.color = ccBLACK;
-//    
-//    CCLabelTTF *monkey200 = [CCLabelTTF labelWithString:@"Scored 200 with Jungle Theme!" fontName:FONT_NAME fontSize:17];
-//    monkey200.color = ccBLACK;
-//
-//    CCLabelTTF *monkey500 = [CCLabelTTF labelWithString:@"Scored 500 with Jungle Theme!" fontName:FONT_NAME fontSize:17];
-//    monkey500.color = ccBLACK;
-//    
-//    // Mountain theme labels
-//    CCLabelTTF *ninja100 = [CCLabelTTF labelWithString:@"Scored 100 with Mountain Theme!" fontName:FONT_NAME fontSize:17];
-//    ninja100.color = ccBLACK;
-//    
-//    CCLabelTTF *ninja200 = [CCLabelTTF labelWithString:@"Scored 200 with Mountain Theme!" fontName:FONT_NAME fontSize:17];
-//    ninja200.color = ccBLACK;
-//    
-//    CCLabelTTF *ninja500 = [CCLabelTTF labelWithString:@"Scored 500 with Mountain Theme!" fontName:FONT_NAME fontSize:17];
-//    ninja500.color = ccBLACK;
-//    
-//    // Gladiator theme labels
-//    CCLabelTTF *gladiator100 = [CCLabelTTF labelWithString:@"Scored 100 with Gladiator Theme!" fontName:FONT_NAME fontSize:17];
-//    gladiator100.color = ccBLACK;
-//    
-//    CCLabelTTF *gladiator200 = [CCLabelTTF labelWithString:@"Scored 200 with Gladiator Theme!" fontName:FONT_NAME fontSize:17];
-//    gladiator200.color = ccBLACK;
-//    
-//    CCLabelTTF *gladiator500 = [CCLabelTTF labelWithString:@"Scored 500 with Gladiator Theme!" fontName:FONT_NAME fontSize:17];
-//    gladiator500.color = ccBLACK;
-    
-    
     NSMutableArray *achievements = [[NSMutableArray alloc] initWithObjects:spriteM1,spriteM2,spriteM5,spriteN1,spriteN2,spriteN5,spriteG1,spriteG2,spriteG5,nil];
     
     for(int i = 0; i < achievements.count; i++){
