@@ -13,4 +13,4 @@
 #import <Foundation/Foundation.h>
 #endif
 
-#define FONT_NAME @"AngryBirds-Regular"
+#define FONT_NAME @"AngryBirds Regular"

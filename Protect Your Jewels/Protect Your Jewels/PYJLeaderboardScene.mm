@@ -21,6 +21,8 @@
 {
 	if( (self=[super init]) )
 	{
+        
+        
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
         PYJBGLayer *background = [[PYJThemeManager sharedManager] background];

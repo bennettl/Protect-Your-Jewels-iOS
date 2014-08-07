@@ -42,6 +42,9 @@ static BOOL classicMode;
         _lives          = 3;
         _shieldTicker   = 0;
         
+        [[CCDirector sharedDirector] setDisplayFPS:NO];
+
+        
         // Play background music
         [[SimpleAudioEngine sharedEngine] playEffect:@"flute_intro.wav"];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mountain-wind.wav" loop:YES];
